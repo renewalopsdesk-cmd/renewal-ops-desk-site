@@ -1404,7 +1404,7 @@ details {
 
 .pricing-hero {
   position: relative;
-  padding: 150px 0 92px;
+  padding: 128px 0 72px;
   background:
     radial-gradient(circle at 10% 0%, rgba(255,255,255,.12), transparent 0, transparent 24%),
     radial-gradient(circle at 92% 20%, rgba(255,255,255,.08), transparent 0, transparent 22%),
@@ -1433,46 +1433,46 @@ details {
 }
 
 .pricing-title {
-  font-size: clamp(58px, 7vw, 108px);
-  max-width: 1100px;
+  font-size: clamp(46px, 5.6vw, 78px);
+  max-width: 900px;
   color: var(--white);
-  letter-spacing: -.065em;
-  line-height: .92;
+  letter-spacing: -.06em;
+  line-height: .94;
 }
 
 .pricing-subtitle {
-  margin-top: 30px;
-  max-width: 760px;
+  margin-top: 22px;
+  max-width: 680px;
   color: var(--text-dark);
-  font-size: clamp(18px, 2vw, 23px);
-  letter-spacing: -.025em;
+  font-size: clamp(16px, 1.6vw, 19px);
+  letter-spacing: -.02em;
 }
 
 .pricing-section {
-  padding-top: 92px;
-  padding-bottom: 96px;
+  padding-top: 72px;
+  padding-bottom: 76px;
 }
 
 .pricing-section-head {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 32px;
+  grid-template-columns: 1fr 245px;
+  gap: 28px;
   align-items: end;
-  margin-bottom: 42px;
+  margin-bottom: 34px;
 }
 
 .pricing-section-head.simple {
   grid-template-columns: 1fr;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .pricing-section-head h2 {
-  font-size: clamp(42px, 5vw, 72px);
-  max-width: 860px;
+  font-size: clamp(34px, 4vw, 54px);
+  max-width: 760px;
 }
 
 .pricing-starting-card {
-  padding: 24px;
+  padding: 20px;
   border-radius: var(--radius-lg);
   background: var(--black-3);
   color: #fff;
@@ -1482,7 +1482,7 @@ details {
 
 .pricing-starting-card small {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: #cfcfcf;
   font-family: "IBM Plex Mono", monospace;
   font-size: 10px;
@@ -1494,7 +1494,7 @@ details {
 .pricing-starting-card strong {
   display: block;
   color: #fff;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   letter-spacing: -.05em;
   line-height: 1;
@@ -1502,9 +1502,9 @@ details {
 
 .pricing-starting-card span {
   display: block;
-  margin-top: 10px;
+  margin-top: 8px;
   color: #d7d7d1;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .dark-card-mini {
@@ -1515,18 +1515,18 @@ details {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
   align-items: stretch;
 }
 
 .pricing-card {
-  min-height: 510px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 28px;
-  border-radius: 26px;
+  padding: 22px;
+  border-radius: 22px;
   background: rgba(255,255,255,.84);
   border: 1px solid var(--line-light);
   box-shadow: var(--shadow-light);
@@ -1536,52 +1536,52 @@ details {
 }
 
 .pricing-card h3 {
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: 25px;
+  margin-bottom: 8px;
 }
 
 .plan-volume {
   color: var(--muted-light);
-  font-size: 15px;
-  min-height: 26px;
+  font-size: 14px;
+  min-height: 22px;
 }
 
 .plan-price {
-  margin-top: 34px;
-  font-size: clamp(42px, 4vw, 58px);
-  line-height: .9;
+  margin-top: 22px;
+  font-size: clamp(34px, 3.2vw, 44px);
+  line-height: .92;
   font-weight: 700;
-  letter-spacing: -.065em;
+  letter-spacing: -.06em;
   color: var(--ink-light);
 }
 
 .plan-price-note {
-  margin-top: 10px;
+  margin-top: 8px;
   color: var(--muted-light);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .pricing-btn {
   width: 100%;
-  margin-top: 28px;
-  margin-bottom: 28px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .pricing-list {
   list-style: none;
   display: grid;
-  gap: 14px;
+  gap: 10px;
   margin-top: auto;
-  padding-top: 26px;
+  padding-top: 20px;
   border-top: 1px solid var(--line-light);
 }
 
 .pricing-list li {
   display: flex;
-  gap: 10px;
+  gap: 9px;
   color: var(--text-light);
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .pricing-list li::before {
@@ -1592,39 +1592,49 @@ details {
 }
 
 .pricing-card-featured {
-  transform: translateY(-10px) scale(1.025);
+  transform: translateY(-6px) scale(1.015);
   border-color: rgba(28,28,28,.28);
-  box-shadow: 0 34px 90px rgba(28,28,28,.16);
+  box-shadow: 0 26px 70px rgba(28,28,28,.14);
 }
 
 .plan-badge {
   width: fit-content;
-  margin-bottom: 22px;
-  padding: 7px 10px;
+  margin-bottom: 16px;
+  padding: 6px 9px;
   border-radius: 999px;
   background: var(--black-3);
   color: #fff;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: .09em;
   text-transform: uppercase;
 }
 
-.pricing-card-muted {
-  background: rgba(255,255,255,.48);
-}
-
-.pricing-note {
-  margin-top: 34px;
-  padding: 22px 26px;
+.pricing-note,
+.custom-note {
+  margin-top: 22px;
+  padding: 18px 22px;
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,.76);
   border: 1px solid var(--line-light);
   box-shadow: var(--shadow-light);
   color: var(--ink-light);
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   letter-spacing: -.01em;
+}
+
+.custom-note a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.dark .custom-note {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.12);
+  color: var(--white);
+  box-shadow: var(--shadow-dark);
 }
 
 .pricing-card-dark {
@@ -1658,7 +1668,7 @@ details {
 
 .monthly-featured {
   border-color: rgba(255,255,255,.28);
-  box-shadow: 0 34px 100px rgba(255,255,255,.08);
+  box-shadow: 0 28px 80px rgba(255,255,255,.07);
 }
 
 .monthly-featured .plan-badge {
@@ -1666,42 +1676,40 @@ details {
   color: var(--black);
 }
 
-.pricing-card-muted-dark {
-  background: rgba(255,255,255,.035);
-}
+/* PACKS */
 
 .packs-layout {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 34px;
+  gap: 14px;
+  margin-top: 28px;
 }
 
 .pack-group {
-  padding: 30px;
+  padding: 22px;
 }
 
 .pack-group h3 {
-  font-size: 30px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .pack-group p {
   color: var(--text-light);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .pack-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 28px;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .pack-card {
-  padding: 20px;
-  border-radius: 18px;
+  padding: 16px;
+  border-radius: 15px;
   background: rgba(28,28,28,.045);
   border: 1px solid var(--line-light);
 }
@@ -1710,7 +1718,7 @@ details {
   display: block;
   color: var(--muted-light);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1718,8 +1726,8 @@ details {
 
 .pack-card strong {
   display: block;
-  margin-top: 18px;
-  font-size: 34px;
+  margin-top: 12px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: -.05em;
   color: var(--ink-light);
@@ -1727,15 +1735,16 @@ details {
 
 .pack-card em {
   display: block;
-  margin-top: 10px;
+  margin-top: 8px;
   font-style: normal;
   color: var(--text-light);
   font-weight: 700;
+  font-size: 13px;
 }
 
 .included-clean {
-  margin-top: 18px;
-  padding: 30px;
+  margin-top: 16px;
+  padding: 22px;
   border-radius: var(--radius-lg);
   background: var(--black-3);
   color: #fff;
@@ -1744,23 +1753,24 @@ details {
 
 .included-clean h3 {
   color: #fff;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
+  font-size: 24px;
 }
 
 .included-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .included-grid span {
   display: inline-flex;
-  padding: 9px 12px;
+  padding: 8px 10px;
   border-radius: 999px;
   color: #d7d7d1;
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.12);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -1780,11 +1790,9 @@ details {
   }
 
   .pricing-starting-card {
-    max-width: 360px;
+    max-width: 320px;
   }
-}
 
-@media (max-width: 1100px) {
   .compact-findings {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1905,11 +1913,15 @@ details {
   }
 
   .pricing-hero {
-    padding: 126px 0 72px;
+    padding: 118px 0 62px;
   }
 
   .pricing-title {
-    font-size: clamp(48px, 15vw, 72px);
+    font-size: clamp(42px, 13vw, 62px);
+  }
+
+  .pricing-subtitle {
+    font-size: 16px;
   }
 
   .pricing-grid {
@@ -1921,6 +1933,6 @@ details {
   }
 
   .pricing-section-head h2 {
-    font-size: clamp(38px, 12vw, 58px);
+    font-size: clamp(34px, 10vw, 48px);
   }
 }
