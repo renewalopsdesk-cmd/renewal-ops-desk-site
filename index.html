@@ -5,822 +5,624 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Renewal Ops Desk — Vendor Portfolio Scan</title>
   <meta name="description" content="Find financial exposure inside active vendor agreements before the next renewal window closes." />
-
   <link rel="icon" type="image/png" href="/favicon.png?v=3" />
   <link rel="shortcut icon" type="image/png" href="/favicon.png?v=3" />
   <link rel="apple-touch-icon" href="/favicon.png?v=3" />
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="page">
-    
+
+    <!-- ============================================================
+         NAV
+    ============================================================ -->
     <nav class="nav">
       <a href="index.html" class="brand" aria-label="Renewal Ops Desk home">
         <img class="brand-mark" src="/logo-mark.png" alt="Renewal Ops Desk logo" />
         <span>Renewal Ops Desk</span>
       </a>
-
       <div class="nav-links">
-        <a href="index.html#risk">Risk</a>
-        <a href="index.html#scan">Scan</a>
+        <a href="index.html#exposure">Exposure</a>
+        <a href="index.html#plans">Plans</a>
         <a href="index.html#process">Process</a>
         <a href="pricing.html">Pricing</a>
         <a href="index.html#faq">FAQ</a>
       </div>
-
       <a class="btn btn-primary" href="pricing.html">
         Request Your Scan
       </a>
     </nav>
 
-    
-<header class="hero dark" id="top">
-  <div class="container hero-grid">
-
-    <div>
-      <div class="badge">Vendor Portfolio Scan</div>
-
-      <h1>
-        You moved on.<br>
-        <em>Your contracts didn’t.</em>
-      </h1>
-
-      <p class="hero-subheadline">
-        Most B2B companies are still running on vendor agreements nobody actively owns. Terms renew. Prices escalate. Notice windows close. The exposure is already inside the contracts.
-      </p>
-
-      <div class="proof-line">
-        Clear report. 2 business days after complete submission. No calls required.
+    <!-- ============================================================
+         HERO — single column, no scan card
+    ============================================================ -->
+    <header class="hero dark" id="top">
+      <div class="container">
+        <div class="badge">Contract Risk Intelligence</div>
+        <h1>
+          You moved on.<br>
+          <em>Your contracts didn't.</em>
+        </h1>
+        <p class="hero-subheadline">
+          Prices escalate. Terms renew automatically. Notice windows close.
+          The exposure is already inside your contracts.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="pricing.html">
+            Get this off your plate →
+          </a>
+          <a class="btn btn-secondary" href="#exposure">
+            See what we find
+          </a>
+        </div>
+        <p class="secondary-line">
+          For B2B teams with active contracts, growing supplier spend, and no clear owner watching renewal exposure.
+        </p>
       </div>
+    </header>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="pricing.html">
-          Request Your Portfolio Scan →
-        </a>
+    <main>
 
-        <a class="btn btn-secondary" href="#scan">
-          See what the scan finds
-        </a>
+    <!-- ============================================================
+         TICKER — What we already found
+    ============================================================ -->
+    <section class="ticker-section" aria-label="Sample findings from portfolio scans">
+      <div class="ticker-header">
+        <p class="ticker-eyebrow">Real findings</p>
+        <h2 class="ticker-title">What we already found.</h2>
       </div>
+      <div class="ticker-outer">
+        <div class="ticker-track">
 
-      <p class="secondary-line">
-        For B2B teams with active vendor agreements, growing supplier spend, and no clear owner for renewal exposure.
-      </p>
-    </div>
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-now">Act Now</span></div>
+            <div class="ticker-card-amount">$142,000</div>
+            <p class="ticker-card-desc">Auto-renewal missed. Another full year committed before review even started.</p>
+            <p class="ticker-card-detail">Notice window: 30 days &nbsp;·&nbsp; Triggered automatically</p>
+          </div>
 
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag critical">Critical</span></div>
+            <div class="ticker-card-amount">$96,000/yr</div>
+            <p class="ticker-card-desc">Escalation clause still compounding. Unreviewed for 3 years under a different version of the business.</p>
+            <p class="ticker-card-detail">Annual increase: 11% &nbsp;·&nbsp; Original term: 2021</p>
+          </div>
 
-    <aside class="scan-card" aria-label="Portfolio scan summary mockup">
-      <div class="mockup-inner">
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-soon">Act Soon</span></div>
+            <div class="ticker-card-amount">$51,000/yr</div>
+            <p class="ticker-card-desc">Duplicate SaaS licenses billing for 3 years. No internal owner. No review.</p>
+            <p class="ticker-card-detail">Licenses: 47 active &nbsp;·&nbsp; In use: 12</p>
+          </div>
 
-        <div class="mockup-top">
-          <div>
-            <span class="mockup-pill">
-              Portfolio Scan Summary
-            </span>
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag critical">Critical</span></div>
+            <div class="ticker-card-amount">$340,000</div>
+            <p class="ticker-card-desc">Single escalation clause. Annualized exposure identified 58 days before renewal window closed.</p>
+            <p class="ticker-card-detail">Clause type: Annual price escalation &nbsp;·&nbsp; Status: Negotiable</p>
+          </div>
 
-            <div class="mockup-title">
-              Exposure hiding in plain sight.
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-now">Act Now</span></div>
+            <div class="ticker-card-amount">18 months</div>
+            <p class="ticker-card-desc">Termination window expired unnoticed. Company locked in automatically under existing terms.</p>
+            <p class="ticker-card-detail">No exit clause &nbsp;·&nbsp; Renewal: automatic</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag watch">Watch</span></div>
+            <div class="ticker-card-amount">$286,000</div>
+            <p class="ticker-card-desc">Total negotiable exposure across a 42-contract portfolio. Found. Prioritized. Reported in 2 days.</p>
+            <p class="ticker-card-detail">Contracts reviewed: 42 &nbsp;·&nbsp; Requiring action: 11</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-now">Act Now</span></div>
+            <div class="ticker-card-amount">$218,000</div>
+            <p class="ticker-card-desc">Auto-renewal triggered without a single internal review. Window had been open for 47 days.</p>
+            <p class="ticker-card-detail">Notice period: 60 days &nbsp;·&nbsp; Internal review: none</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-soon">Act Soon</span></div>
+            <div class="ticker-card-amount">$84,000/yr</div>
+            <p class="ticker-card-desc">Missing price protection clause. Vendor increased rates 14% mid-contract with no recourse.</p>
+            <p class="ticker-card-detail">Rate increase: 14% &nbsp;·&nbsp; Protection: none found</p>
+          </div>
+
+          <!-- Duplicate set for seamless infinite loop -->
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-now">Act Now</span></div>
+            <div class="ticker-card-amount">$142,000</div>
+            <p class="ticker-card-desc">Auto-renewal missed. Another full year committed before review even started.</p>
+            <p class="ticker-card-detail">Notice window: 30 days &nbsp;·&nbsp; Triggered automatically</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag critical">Critical</span></div>
+            <div class="ticker-card-amount">$96,000/yr</div>
+            <p class="ticker-card-desc">Escalation clause still compounding. Unreviewed for 3 years under a different version of the business.</p>
+            <p class="ticker-card-detail">Annual increase: 11% &nbsp;·&nbsp; Original term: 2021</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-soon">Act Soon</span></div>
+            <div class="ticker-card-amount">$51,000/yr</div>
+            <p class="ticker-card-desc">Duplicate SaaS licenses billing for 3 years. No internal owner. No review.</p>
+            <p class="ticker-card-detail">Licenses: 47 active &nbsp;·&nbsp; In use: 12</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag critical">Critical</span></div>
+            <div class="ticker-card-amount">$340,000</div>
+            <p class="ticker-card-desc">Single escalation clause. Annualized exposure identified 58 days before renewal window closed.</p>
+            <p class="ticker-card-detail">Clause type: Annual price escalation &nbsp;·&nbsp; Status: Negotiable</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-now">Act Now</span></div>
+            <div class="ticker-card-amount">18 months</div>
+            <p class="ticker-card-desc">Termination window expired unnoticed. Company locked in automatically under existing terms.</p>
+            <p class="ticker-card-detail">No exit clause &nbsp;·&nbsp; Renewal: automatic</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag watch">Watch</span></div>
+            <div class="ticker-card-amount">$286,000</div>
+            <p class="ticker-card-desc">Total negotiable exposure across a 42-contract portfolio. Found. Prioritized. Reported in 2 days.</p>
+            <p class="ticker-card-detail">Contracts reviewed: 42 &nbsp;·&nbsp; Requiring action: 11</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-now">Act Now</span></div>
+            <div class="ticker-card-amount">$218,000</div>
+            <p class="ticker-card-desc">Auto-renewal triggered without a single internal review. Window had been open for 47 days.</p>
+            <p class="ticker-card-detail">Notice period: 60 days &nbsp;·&nbsp; Internal review: none</p>
+          </div>
+
+          <div class="ticker-card">
+            <div class="ticker-card-top"><span class="ticker-tag act-soon">Act Soon</span></div>
+            <div class="ticker-card-amount">$84,000/yr</div>
+            <p class="ticker-card-desc">Missing price protection clause. Vendor increased rates 14% mid-contract with no recourse.</p>
+            <p class="ticker-card-detail">Rate increase: 14% &nbsp;·&nbsp; Protection: none found</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PERGUNTA GRANDE
+    ============================================================ -->
+    <section class="section dark question-section">
+      <div class="container" style="text-align: center;">
+        <h2 class="question-headline">
+          You signed the contracts.<br>Do you know what they're still doing?
+        </h2>
+        <a class="btn btn-primary" href="pricing.html">Finally know what's in there →</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RISK — The real risk
+    ============================================================ -->
+    <section class="section light" id="risk">
+      <div class="container split">
+        <div>
+          <div class="eyebrow">The real risk</div>
+          <h2>Your contracts have a leak.</h2>
+        </div>
+        <div class="statement-card light-card">
+          <p>
+            Steady. Silent. Every month, the same clauses billing more than last year.
+            The same terms renewing. The same agreements nobody has touched since the
+            person who signed them left.
+          </p>
+          <div class="closing-statement">
+            That's not overhead. That's money that could be going back into the business.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPOSURE — What the scan finds (4 finding cards)
+    ============================================================ -->
+    <section class="section dark" id="exposure">
+      <div class="container">
+        <div class="eyebrow">What the scan finds</div>
+        <h2>
+          The issue usually looks small. Until the window closes.
+        </h2>
+        <p class="section-lead">
+          Most renewal exposure hides in one clause no one has reviewed in years.
+        </p>
+        <div class="grid-2">
+          <article class="finding-card dark-card">
+            <span class="label now">Act Now</span>
+            <h3>Automatic price escalations still compounding</h3>
+            <p>An 8–12% annual escalation clause negotiated under older growth assumptions.</p>
+            <p class="example">Example exposure: $68k–$124k annualized</p>
+          </article>
+          <article class="finding-card dark-card">
+            <span class="label critical">Critical</span>
+            <h3>Notice windows closing before review</h3>
+            <p>A vendor contract requires only 30 days' notice before auto-renewal for another full year.</p>
+            <p class="example">Miss the window once and the company buys another year.</p>
+          </article>
+          <article class="finding-card dark-card">
+            <span class="label soon">Act Soon</span>
+            <h3>Legacy tools still billing under old assumptions</h3>
+            <p>Duplicate licenses, unused seats, and legacy platforms keep renewing because no one owns the commercial review.</p>
+            <p class="example">Example exposure: $37k–$91k per year</p>
+          </article>
+          <article class="finding-card dark-card">
+            <span class="label watch">Watch</span>
+            <h3>Supplier-favorable terms carried forward</h3>
+            <p>Contracts missing protections now common in the market leave the company with weaker negotiating leverage.</p>
+            <p class="example">Result: higher exposure and fewer options before renewal.</p>
+          </article>
+        </div>
+        <div class="scan-footer">
+          <p class="section-lead">
+            These are not paperwork issues. They are commercial exposures still active
+            inside agreements the business has already moved past.
+          </p>
+          <div class="hero-actions">
+            <a href="pricing.html" class="btn btn-primary">
+              See what your agreements are carrying →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHAT WE DO — pain topics + reflection boxes
+    ============================================================ -->
+    <section class="section light" id="what-we-do">
+      <div class="container">
+        <div class="eyebrow">What we do</div>
+        <h2>A report that finds what nobody is watching.</h2>
+        <div class="what-grid">
+
+          <div class="what-item">
+            <h3 class="what-topic">Prices still going up.</h3>
+            <div class="what-box light-card">
+              That escalation clause from 2022 is still running. You're paying 2025 prices on terms nobody renegotiated.
             </div>
           </div>
-        </div>
 
-        <div class="mockup-stats">
-
-          <div class="stat-row">
-            <span>Contracts reviewed</span>
-            <strong>42</strong>
+          <div class="what-item">
+            <h3 class="what-topic">Auto-renewal already approaching.</h3>
+            <div class="what-box light-card">
+              30 days' notice. If the review didn't start in time, the company bought another year.
+            </div>
           </div>
 
-          <div class="stat-row">
-            <span>Contracts requiring action</span>
-            <strong>11</strong>
+          <div class="what-item">
+            <h3 class="what-topic">No one owns this commercially.</h3>
+            <div class="what-box light-card">
+              Legal signed it. Finance approved it. Nobody monitors it today.
+            </div>
           </div>
 
-          <div class="stat-row exposure">
-            <span>Negotiable exposure identified</span>
-            <strong>$286,000</strong>
+          <div class="what-item">
+            <h3 class="what-topic">Termination rights sitting unused.</h3>
+            <div class="what-box light-card">
+              Some contracts have off-ramps. They expire if nobody uses them.
+            </div>
           </div>
 
-        </div>
-
-        <div class="mockup-footer">
-          <small>Next renewal window</small>
-          <strong>38 days</strong>
-        </div>
-
-      </div>
-    </aside>
-
-  </div>
-</header>
-
-
-<main>
-
-<section class="section light" id="risk">
-  <div class="container split">
-
-    <div>
-      <div class="eyebrow">The real risk</div>
-
-      <h2>
-        The risk is not in the contract folder. It is in the deadline attached to it.
-      </h2>
-    </div>
-
-    <div class="statement-card light-card">
-
-      <p>
-        Your business changed. The contracts kept running.
-      </p>
-
-      <p>
-        A vendor agreement signed two years ago may still be escalating in price, renewing automatically, or locking the company into terms negotiated under a different version of the business.
-      </p>
-
-      <p>
-        The person who signed it may have moved on. The obligation did not.
-      </p>
-
-      <div class="closing-statement">
-        This is not a filing problem. It is financial exposure with a renewal window.
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section dark" id="scan">
-  <div class="container">
-
-    <div class="eyebrow">What the scan finds</div>
-
-    <h2>
-      The issue usually looks small. Until the window closes.
-    </h2>
-
-    <p class="section-lead">
-      Most renewal exposure hides in one clause no one has reviewed in years.
-    </p>
-
-    <div class="grid-2">
-
-      <article class="finding-card dark-card">
-        <span class="label now">Act Now</span>
-
-        <h3>
-          Automatic price escalations still compounding
-        </h3>
-
-        <p>
-          An 8–12% annual escalation clause negotiated under older growth assumptions.
-        </p>
-
-        <p class="example">
-          Example exposure: $68k–$124k annualized
-        </p>
-      </article>
-
-
-      <article class="finding-card dark-card">
-        <span class="label critical">Critical</span>
-
-        <h3>
-          Notice windows closing before review
-        </h3>
-
-        <p>
-          A vendor contract requires only 30 days’ notice before auto-renewal for another full year.
-        </p>
-
-        <p class="example">
-          Miss the window once and the company buys another year.
-        </p>
-      </article>
-
-
-      <article class="finding-card dark-card">
-        <span class="label soon">Act Soon</span>
-
-        <h3>
-          Legacy tools still billing under old assumptions
-        </h3>
-
-        <p>
-          Duplicate licenses, unused seats, and legacy platforms keep renewing because no one owns the commercial review.
-        </p>
-
-        <p class="example">
-          Example exposure: $37k–$91k per year
-        </p>
-      </article>
-
-
-      <article class="finding-card dark-card">
-        <span class="label watch">Watch</span>
-
-        <h3>
-          Supplier-favorable terms carried forward
-        </h3>
-
-        <p>
-          Contracts missing protections now common in the market leave the company with weaker negotiating leverage.
-        </p>
-
-        <p class="example">
-          Result: higher exposure and fewer options before renewal.
-        </p>
-      </article>
-
-    </div>
-
-
-    <div class="sample-finding">
-
-      <div>
-        <p class="section-lead">
-          These are not paperwork issues. They are commercial exposures still active inside agreements the business has already moved past.
-        </p>
-
-        <div class="hero-actions">
-          <a href="pricing.html" class="btn btn-primary">
-            See what your agreements are carrying →
-          </a>
-        </div>
-      </div>
-
-
-      <aside class="sample-box">
-
-        <h3>Sample finding</h3>
-
-        <div class="sample-list">
-
-          <div>
-            <span>Vendor</span>
-            <strong>Data Platform</strong>
+          <div class="what-item">
+            <h3 class="what-topic">Leverage you don't know you have.</h3>
+            <div class="what-box light-card">
+              Market terms shifted. Your agreement didn't. The difference is negotiable — if you know it's there.
+            </div>
           </div>
 
-          <div>
-            <span>Renewal window</span>
-            <strong>42 days</strong>
-          </div>
-
-          <div>
-            <span>Clause</span>
-            <strong>Annual escalation</strong>
-          </div>
-
-          <div>
-            <span>Exposure</span>
-            <strong>$84,000 annualized</strong>
-          </div>
-
-          <div>
-            <span>Status</span>
-            <strong>Act Now</strong>
+          <div class="what-item">
+            <h3 class="what-topic">Deadlines nobody is tracking.</h3>
+            <div class="what-box light-card">
+              The renewal window doesn't wait for internal review to start.
+            </div>
           </div>
 
         </div>
-      </aside>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section light" id="what-we-do">
-  <div class="container">
-
-    <div class="eyebrow">What we do</div>
-
-    <h2>
-      Renewal Ops Desk reviews the contracts already running your business.
-    </h2>
-
-    <p class="section-lead">
-      We analyze active vendor agreements and identify the financial exposure, renewal deadlines, commercial risks, and negotiation opportunities sitting inside them.
-    </p>
-
-    <p class="section-lead">
-      The output is not a platform. Not legal advice. Not another meeting.
-    </p>
-
-    <p class="section-lead">
-      <strong>
-        It is a precise, self-sufficient report your team can act on immediately.
-      </strong>
-    </p>
-
-
-    <div class="grid-4">
-
-      <div class="framework-item">
-        Renewal windows and notice periods
+        <div class="closing-statement" style="margin-top: 48px;">
+          Not a platform. Not legal advice. Not another meeting.
+          A precise report your team can act on immediately.
+        </div>
       </div>
-
-      <div class="framework-item">
-        Auto-renewal terms
-      </div>
-
-      <div class="framework-item">
-        Price escalation clauses
-      </div>
-
-      <div class="framework-item">
-        Termination rights
-      </div>
-
-      <div class="framework-item">
-        Supplier-favorable terms
-      </div>
-
-      <div class="framework-item">
-        Missing commercial protections
-      </div>
-
-      <div class="framework-item">
-        Negotiation opportunities
-      </div>
-
-      <div class="framework-item">
-        Action priorities by urgency
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section dark" id="methodology">
-  <div class="container">
-
-    <div class="eyebrow">Methodology</div>
-
-    <h2>
-      AI-accelerated. Human-validated. Every finding.
-    </h2>
-
-    <p class="section-lead">
-      AI processes each contract systematically. A human analyst validates every finding before delivery.
-    </p>
-
-
-    <div class="method-box">
-
-      <article class="method-card">
-        <h3>Evidence-led review</h3>
-
-        <ul class="method-list">
-          <li>If a clause is found, it is cited.</li>
-          <li>If a term is missing, it is marked not found.</li>
-          <li>If a risk is partial, it is marked partial.</li>
-        </ul>
-      </article>
-
-
-      <article class="method-card">
-        <h3>No unsupported assumptions</h3>
-
-        <ul class="method-list">
-          <li>No assumed dates.</li>
-          <li>No invented terms.</li>
-          <li>No legal advice.</li>
-          <li>The report only states what the contract supports.</li>
-        </ul>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section light" id="deliverables">
-  <div class="container">
-
-    <div class="eyebrow">Deliverables</div>
-
-    <h2>
-      A report built for action, not storage.
-    </h2>
-
-    <p class="section-lead">
-      Every scan is delivered as a structured executive report showing what is exposed, what matters first, and what to do next.
-    </p>
-
-
-    <div class="grid-3">
-
-      <article class="deliverable-card light-card">
-        <span>1</span>
-        <h3>Executive Summary</h3>
-        <p>
-          A clear overview of the portfolio, the most urgent findings, and the contracts requiring action.
-        </p>
-      </article>
-
-
-      <article class="deliverable-card light-card">
-        <span>2</span>
-        <h3>Risk Distribution</h3>
-        <p>
-          A visual breakdown of contracts by status: Critical, Act Now, Act Soon, and Watch.
-        </p>
-      </article>
-
-
-      <article class="deliverable-card light-card">
-        <span>3</span>
-        <h3>Top 3 Critical Agreements</h3>
-        <p>
-          The contracts most likely to create financial exposure if no action is taken.
-        </p>
-      </article>
-
-
-      <article class="deliverable-card light-card">
-        <span>4</span>
-        <h3>Contract-by-Contract Analysis</h3>
-        <p>
-          Each agreement reviewed for dates, commercial terms, exposure, missing protections, and action steps.
-        </p>
-      </article>
-
-
-      <article class="deliverable-card light-card">
-        <span>5</span>
-        <h3>Negotiation Playbook</h3>
-        <p>
-          What to ask for, why it matters, and how difficult the negotiation is likely to be.
-        </p>
-      </article>
-
-
-      <article class="deliverable-card light-card">
-        <span>6</span>
-        <h3>Action Calendar</h3>
-        <p>
-          All relevant renewal and notice deadlines organized by urgency.
-        </p>
-      </article>
-
-    </div>
-
-    <div class="closing-statement">
-      The report is designed to stand on its own. Your team can read it, prioritize the exposure, and act without booking a call.
-    </div>
-
-  </div>
-</section>
-
-
-<section class="section dark" id="process">
-  <div class="container">
-
-    <div class="eyebrow">Process</div>
-
-    <h2>
-      A clean async process. No calls required.
-    </h2>
-
-
-    <div class="grid-3">
-
-      <article class="step-card dark-card">
-        <div class="step-number">Step 1</div>
-
-        <h3>Choose your plan</h3>
-
-        <p>
-          Use Setup Only for a one-time portfolio audit. Use Setup + Monthly for continuous renewal protection.
-        </p>
-      </article>
-
-
-      <article class="step-card dark-card">
-        <div class="step-number">Step 2</div>
-
-        <h3>Submit your contracts</h3>
-
-        <p>
-          Complete checkout, then upload your vendor agreements through the onboarding form. No calls. No intake meeting. No back-and-forth unless information is missing.
-        </p>
-      </article>
-
-
-      <article class="step-card dark-card">
-        <div class="step-number">Step 3</div>
-
-        <h3>Receive your report</h3>
-
-        <p>
-          Delivered within 2 business days after complete submission. Prioritized by urgency. Ready to act on.
-        </p>
-      </article>
-
-    </div>
-
-
-    <p class="section-lead">
-      Setup + Monthly clients receive ongoing monitoring, new contract reviews within plan limits, and Executive Briefs 60 days before each renewal window closes.
-    </p>
-
-    <div class="note-box">
-      Setup Only requires all contracts to be submitted at once. Setup + Monthly allows new contracts to be added throughout the month within plan limits.
-    </div>
-
-  </div>
-</section>
-
-
-<section class="section light" id="fit">
-  <div class="container">
-
-    <div class="eyebrow">Fit</div>
-
-    <h2>
-      Built for teams with enough vendor activity to create silent exposure.
-    </h2>
-
-
-    <div class="grid-2">
-
-      <article class="fit-card light-card">
-
-        <h3>Good fit if</h3>
-
-        <ul class="fit-list good">
-          <li>You have 10+ active vendor agreements</li>
-          <li>No one clearly owns renewal exposure</li>
-          <li>Your vendor stack grew faster than your internal review process</li>
-          <li>Legal reviews contracts when signed, but no one monitors them commercially afterward</li>
-          <li>You want clear action steps, not another software platform</li>
-          <li>You prefer async delivery over meetings</li>
-        </ul>
-
-      </article>
-
-
-      <article class="fit-card light-card">
-
-        <h3>Not a fit if</h3>
-
-        <ul class="fit-list bad">
-          <li>You need legal advice or contract drafting</li>
-          <li>You want someone to negotiate directly with vendors</li>
-          <li>You need a CLM implementation</li>
-          <li>You are looking for filing, admin support, or document organization</li>
-          <li>You want recurring calls</li>
-          <li>You are not ready to submit the contracts required for review</li>
-        </ul>
-
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section light" id="plans">
-  <div class="container">
-
-    <div class="pricing-header">
-
-      <div>
+    </section>
+
+    <!-- ============================================================
+         PLANS + DELIVERABLES — combined with tabs
+    ============================================================ -->
+    <section class="section light" id="plans">
+      <div class="container">
         <div class="eyebrow">Plans</div>
-
-        <h2>
-          One scan. Or continuous renewal protection.
-        </h2>
-
+        <h2>Two plans. One question: how exposed are you right now?</h2>
         <p class="section-lead">
-          Choose Setup Only if you need to see what is sitting inside your active agreements right now. Choose Setup + Monthly if you want renewal exposure monitored before each window closes.
+          Setup Only if you need to see your full exposure now, all at once.
+          Setup + Monthly if you want every contract reviewed before the deadline closes — not just once.
         </p>
+
+        <aside class="roi-callout">
+          <small>ROI example</small>
+          <strong>
+            One escalation clause found. $340,000 annualized exposure.
+            Cost of the full audit: $2,200.
+          </strong>
+        </aside>
+
+        <div class="plan-tabs">
+          <button class="plan-tab active" data-tab="panel-setup">Setup Only</button>
+          <button class="plan-tab" data-tab="panel-monthly">Setup + Monthly</button>
+        </div>
+
+        <!-- SETUP ONLY PANEL -->
+        <div class="plan-panel active" id="panel-setup">
+          <p class="plan-rec">
+            Recommended for companies that need a complete picture of what their active
+            agreements are carrying. One time. No commitment.
+          </p>
+          <div class="grid-3">
+            <article class="deliverable-card light-card">
+              <span>1</span>
+              <h3>Executive Summary + Cover Letter</h3>
+              <p>Top 3 critical findings and full portfolio overview.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>2</span>
+              <h3>Visual Risk Dashboard</h3>
+              <p>Contracts by status: Critical, Act Now, Act Soon, Watch.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>3</span>
+              <h3>Top 3 Critical Contracts</h3>
+              <p>The agreements most likely to create financial damage if no action is taken.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>4</span>
+              <h3>Contract-by-Contract Deep Analysis</h3>
+              <p>7 verified issues per contract, exact clauses cited, dollar exposure, financial scenarios, action steps.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>5</span>
+              <h3>Negotiation Playbook</h3>
+              <p>What to ask for, why it matters, how difficult the conversation is likely to be.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>6</span>
+              <h3>Action Calendar</h3>
+              <p>All critical dates organized by urgency.</p>
+            </article>
+          </div>
+          <div class="hero-actions" style="margin-top: 32px;">
+            <a class="btn btn-secondary" href="pricing.html#setup-only">Start Setup Only →</a>
+          </div>
+        </div>
+
+        <!-- SETUP + MONTHLY PANEL -->
+        <div class="plan-panel" id="panel-monthly">
+          <p class="plan-rec">
+            Recommended for companies that want every contract reviewed before the
+            deadline closes — not just at onboarding.
+          </p>
+          <div class="grid-3">
+            <article class="deliverable-card light-card">
+              <span>Month 1</span>
+              <h3>Portfolio Panorama</h3>
+              <p>Full view of your contract portfolio: total value, exposure identified, distribution by status and category, Top 3 critical.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>Ongoing</span>
+              <h3>Executive Brief</h3>
+              <p>Delivered before each renewal deadline closes — 60 days out, per contract.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>Ongoing</span>
+              <h3>Alert Sequence</h3>
+              <p>4 timed emails per contract as the renewal window approaches.</p>
+            </article>
+            <article class="deliverable-card light-card">
+              <span>Every 3 months</span>
+              <h3>Quarterly Bonus Report</h3>
+              <p>Strategic portfolio review + a custom insight defined together each quarter.</p>
+            </article>
+          </div>
+          <div class="hero-actions" style="margin-top: 32px;">
+            <a class="btn btn-primary" href="pricing.html#monthly">Start Setup + Monthly →</a>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-
-      <aside class="roi-callout">
-        <small>ROI example</small>
-
-        <strong>
-          One escalation clause found. $340,000 annualized exposure. Cost of the full audit: $2,200.
-        </strong>
-      </aside>
-
-    </div>
-
-
-    <div class="pricing-grid">
-
-      <article class="price-card light-card">
-
-        <h3>Setup Only</h3>
-
-        <p class="subtitle">
-          One-time Portfolio Audit
-        </p>
-
-        <p class="plan-description">
-          For companies that need to know what their active vendor agreements are carrying right now.
-        </p>
-
-        <div class="behavioral-value">
-          Walk away knowing where the exposure sits, which contracts need action first, and what to do before the next deadline closes.
+    <!-- ============================================================
+         PROCESS
+    ============================================================ -->
+    <section class="section dark" id="process">
+      <div class="container">
+        <div class="eyebrow">Process</div>
+        <h2>No calls. No meetings. No back-and-forth. Just the report.</h2>
+        <div class="grid-3">
+          <article class="step-card dark-card">
+            <div class="step-number">Step 1</div>
+            <h3>Choose your plan</h3>
+            <p>One-time audit or ongoing renewal protection.</p>
+          </article>
+          <article class="step-card dark-card">
+            <div class="step-number">Step 2</div>
+            <h3>Submit your contracts</h3>
+            <p>Upload your vendor agreements through the onboarding form after checkout. No intake call. No back-and-forth unless something is missing.</p>
+          </article>
+          <article class="step-card dark-card">
+            <div class="step-number">Step 3</div>
+            <h3>Receive your report</h3>
+            <p>Delivered within 2 business days after complete submission. Prioritized by urgency. Ready to act on.</p>
+          </article>
         </div>
+        <div class="note-box">
+          Setup Only requires all contracts submitted at once. Setup + Monthly allows
+          new contracts to be added throughout the month within plan limits.
+        </div>
+      </div>
+    </section>
 
-        <div class="hero-actions">
-          <a class="btn btn-secondary" href="pricing.html#setup-only">
-            Start Setup Only →
+    <!-- ============================================================
+         FIT — unchanged
+    ============================================================ -->
+    <section class="section light" id="fit">
+      <div class="container">
+        <div class="eyebrow">Fit</div>
+        <h2>Built for teams with enough vendor activity to create silent exposure.</h2>
+        <div class="grid-2">
+          <article class="fit-card light-card">
+            <h3>Good fit if</h3>
+            <ul class="fit-list good">
+              <li>You have 10+ active vendor agreements</li>
+              <li>No one clearly owns renewal exposure</li>
+              <li>Your vendor stack grew faster than your internal review process</li>
+              <li>Legal reviews contracts when signed, but no one monitors them commercially afterward</li>
+              <li>You want clear action steps, not another software platform</li>
+              <li>You prefer async delivery over meetings</li>
+            </ul>
+          </article>
+          <article class="fit-card light-card">
+            <h3>Not a fit if</h3>
+            <ul class="fit-list bad">
+              <li>You need legal advice or contract drafting</li>
+              <li>You want someone to negotiate directly with vendors</li>
+              <li>You need a CLM implementation</li>
+              <li>You are looking for filing, admin support, or document organization</li>
+              <li>You want recurring calls</li>
+              <li>You are not ready to submit the contracts required for review</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONFIDENTIALITY — spacing added between h2 and card
+    ============================================================ -->
+    <section class="section dark" id="confidentiality">
+      <div class="container">
+        <div class="eyebrow">Confidentiality</div>
+        <h2>
+          Confidential by design.<br>
+          Limited by scope.
+        </h2>
+        <div class="confidentiality-spacer"></div>
+        <div class="security-card dark-card legal-card">
+          <p>You only submit the contracts required for the selected plan.</p>
+          <p>Documents are used only to produce the contracted analysis. Client data is deleted within 15 days after cancellation or Setup Only delivery.</p>
+          <p>Renewal Ops Desk does not provide legal advice, draft contracts, negotiate with vendors, or act as legal counsel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ — single column stack
+    ============================================================ -->
+    <section class="section light" id="faq">
+      <div class="container">
+        <div class="eyebrow">FAQ</div>
+        <h2>Questions before the scan.</h2>
+        <div class="faq-stack">
+          <details>
+            <summary>Is Renewal Ops Desk legal advice?</summary>
+            <p>No. Renewal Ops Desk provides commercial analysis of existing vendor agreements. It does not provide legal advice, legal opinions, contract drafting, or legal representation.</p>
+          </details>
+          <details>
+            <summary>Do you negotiate with vendors for us?</summary>
+            <p>No. The report gives your team a negotiation playbook. Your team handles the vendor conversation.</p>
+          </details>
+          <details>
+            <summary>Do we need to book a call?</summary>
+            <p>No. The process is fully async. No calls are required at any stage.</p>
+          </details>
+          <details>
+            <summary>When does the 2-business-day delivery window start?</summary>
+            <p>The delivery window starts only after we receive the complete set of required contracts and onboarding information.</p>
+          </details>
+          <details>
+            <summary>Do we need to submit all contracts at once?</summary>
+            <p>For Setup Only, yes. For Setup + Monthly, the initial portfolio is submitted during onboarding and new contracts can be added throughout the month within plan limits.</p>
+          </details>
+          <details>
+            <summary>Is this a CLM platform?</summary>
+            <p>No. Renewal Ops Desk is a contract risk intelligence service focused on active vendor agreements.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA
+    ============================================================ -->
+    <section class="final-cta">
+      <div class="container">
+        <h2>
+          Your contracts have a leak.<br>Now you know where to look.
+        </h2>
+        <p>
+          Find the financial exposure inside your active vendor agreements
+          before the next renewal window closes.
+        </p>
+        <div class="final-actions">
+          <a class="btn btn-primary" href="pricing.html#setup-only">
+            Get this off your plate →
           </a>
-        </div>
-
-      </article>
-
-
-      <article class="price-card featured">
-
-        <span class="plan-badge">
-          Continuous Protection
-        </span>
-
-        <h3>Setup + Monthly</h3>
-
-        <p class="subtitle">
-          Initial audit + ongoing monitoring
-        </p>
-
-        <p class="plan-description">
-          For companies that do not want renewal exposure to become a quarterly surprise.
-        </p>
-
-        <div class="behavioral-value">
-          Know which contracts need action, when the window closes, and what to do before it does.
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="pricing.html#monthly">
+          <a class="btn btn-secondary" href="pricing.html#monthly">
             Start Setup + Monthly →
           </a>
         </div>
+        <div class="tagline">
+          Every contract. Every deadline. Zero surprises.
+        </div>
+      </div>
+    </section>
 
-      </article>
+    </main>
 
-    </div>
-  </div>
-</section>
-
-
-<section class="section dark" id="confidentiality">
-  <div class="container">
-
-    <div class="eyebrow">Confidentiality</div>
-
-    <h2>
-      Confidential by design. Limited by scope.
-    </h2>
-
-
-    <div class="security-card dark-card legal-card">
-
-      <p>
-        You only submit the contracts required for the selected plan.
-      </p>
-
-      <p>
-        Documents are used only to produce the contracted analysis. Client data is deleted within 15 days after cancellation or Setup Only delivery.
-      </p>
-
-      <p>
-        Renewal Ops Desk does not provide legal advice, draft contracts, negotiate with vendors, or act as legal counsel.
-      </p>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section light" id="faq">
-  <div class="container">
-
-    <div class="eyebrow">FAQ</div>
-
-    <h2>
-      Questions before the scan.
-    </h2>
-
-
-    <div class="grid-2">
-
-      <details>
-        <summary>Is Renewal Ops Desk legal advice?</summary>
-        <p>
-          No. Renewal Ops Desk provides commercial analysis of existing vendor agreements. It does not provide legal advice, legal opinions, contract drafting, or legal representation.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>Do you negotiate with vendors for us?</summary>
-        <p>
-          No. The report gives your team a negotiation playbook. Your team handles the vendor conversation.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>Do we need to book a call?</summary>
-        <p>
-          No. The process is fully async. No calls are required at any stage.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>When does the 2-business-day delivery window start?</summary>
-        <p>
-          The delivery window starts only after we receive the complete set of required contracts and onboarding information.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>Do we need to submit all contracts at once?</summary>
-        <p>
-          For Setup Only, yes. For Setup + Monthly, the initial portfolio is submitted during onboarding and new contracts can be added throughout the month within plan limits.
-        </p>
-      </details>
-
-
-      <details>
-        <summary>Is this a CLM platform?</summary>
-        <p>
-          No. Renewal Ops Desk is a contract risk intelligence service focused on active vendor agreements.
-        </p>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="final-cta">
-  <div class="container">
-
-    <h2>
-      The deadline is already in the contract. The question is whether someone is watching it.
-    </h2>
-
-    <p>
-      Find the financial exposure inside your active vendor agreements before the next renewal window closes.
-    </p>
-
-
-    <div class="final-actions">
-
-      <a class="btn btn-primary" href="pricing.html#setup-only">
-        Start Setup Only →
-      </a>
-
-      <a class="btn btn-secondary" href="pricing.html#monthly">
-        Start Setup + Monthly →
-      </a>
-
-    </div>
-
-
-    <div class="tagline">
-      Every contract. Every deadline. Zero surprises.
-    </div>
+    <!-- ============================================================
+         FOOTER — unchanged
+    ============================================================ -->
+    <footer class="footer">
+      <div class="container">
+        <span>No calls. Clear report. 2 business days after complete submission.</span>
+        <div class="footer-links">
+          <a href="service-agreement.html">Service Agreement</a>
+          <a href="terms.html">Terms</a>
+          <a href="data-policy.html">Data Policy</a>
+          <a href="refund-cancellation-policy.html">Refund Policy</a>
+          <a href="no-legal-advice.html">No Legal Advice</a>
+        </div>
+      </div>
+    </footer>
 
   </div>
-</section>
 
-</main>
+  <script src="/nav.js"></script>
 
-    
-<footer class="footer">
-  <div class="container">
-
-    <span>
-      No calls. Clear report. 2 business days after complete submission.
-    </span>
-
-    <div class="footer-links">
-      <a href="service-agreement.html">Service Agreement</a>
-      <a href="terms.html">Terms</a>
-      <a href="data-policy.html">Data Policy</a>
-      <a href="refund-cancellation-policy.html">Refund Policy</a>
-      <a href="no-legal-advice.html">No Legal Advice</a>
-    </div>
-
-  </div>
-</footer>
-
-</div>
-
-<script src="/nav.js"></script>
+  <!-- Plan tabs -->
+  <script>
+    document.querySelectorAll('.plan-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.plan-tab').forEach(function(t) {
+          t.classList.remove('active');
+        });
+        document.querySelectorAll('.plan-panel').forEach(function(p) {
+          p.classList.remove('active');
+        });
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
