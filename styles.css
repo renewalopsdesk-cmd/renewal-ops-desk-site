@@ -635,3 +635,391 @@ details p{margin-top:14px;color:var(--text-light);font-size:15px}
   line-height: 1.7;
   color: #666;
 }
+
+/* ================================================================
+   ROD — CSS ADDITIONS
+   Cole esse bloco no final do seu styles.css
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   HERO — single column, h1 maior
+   ---------------------------------------------------------------- */
+.hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+}
+
+/* Remove o grid de 2 colunas do hero (scan card foi removido) */
+.hero .hero-grid,
+.hero-grid {
+  display: block;
+}
+
+
+/* ----------------------------------------------------------------
+   TICKER — What we already found
+   ---------------------------------------------------------------- */
+.ticker-section {
+  overflow: hidden;
+  padding: 52px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: #161616;
+}
+
+.ticker-header {
+  padding: 0 40px 36px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ticker-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.ticker-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ccc;
+}
+
+.ticker-outer {
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 4px 40px;
+  animation: ticker-slide 55s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-card {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 24px;
+  border-radius: 10px;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+}
+
+.ticker-card-top {
+  display: flex;
+}
+
+.ticker-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Status colors — brand palette (sem azul) */
+.ticker-tag.critical { background: #FEE2E2; color: #991B1B; }
+.ticker-tag.act-now  { background: #FEF3C7; color: #92400E; }
+.ticker-tag.act-soon { background: #EBEBEB; color: #555555; }
+.ticker-tag.watch    { background: #DCFCE7; color: #166534; }
+
+.ticker-card-amount {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #f5f5f5;
+}
+
+.ticker-card-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #888;
+}
+
+.ticker-card-detail {
+  font-size: 11.5px;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 12px;
+  line-height: 1.5;
+  color: #444;
+}
+
+
+/* ----------------------------------------------------------------
+   QUESTION SECTION — pergunta grande
+   ---------------------------------------------------------------- */
+.question-section {
+  padding: 88px 40px;
+}
+
+.question-headline {
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.025em;
+  max-width: 560px;
+  margin: 0 auto 36px;
+}
+
+
+/* ----------------------------------------------------------------
+   SCAN SECTION — footer (replacing sample-finding)
+   ---------------------------------------------------------------- */
+.scan-footer {
+  margin-top: 40px;
+}
+
+.scan-footer .section-lead {
+  margin-bottom: 24px;
+}
+
+
+/* ----------------------------------------------------------------
+   WHAT WE DO — pain topics + reflection boxes
+   ---------------------------------------------------------------- */
+.what-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.what-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.what-topic {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.what-box {
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 18px 20px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+
+/* ----------------------------------------------------------------
+   PLAN TABS + PANELS
+   ---------------------------------------------------------------- */
+.plan-tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 40px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.plan-tab {
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: #aaa;
+  transition: color 0.15s, border-color 0.15s;
+  letter-spacing: -0.01em;
+}
+
+.plan-tab.active {
+  color: #1C1C1C;
+  border-bottom-color: #1C1C1C;
+}
+
+.plan-tab:hover {
+  color: #555;
+}
+
+.plan-panel {
+  display: none;
+  padding-top: 32px;
+}
+
+.plan-panel.active {
+  display: block;
+}
+
+.plan-rec {
+  font-size: 13.5px;
+  color: #888;
+  margin-bottom: 28px;
+  max-width: 580px;
+  line-height: 1.65;
+}
+
+
+/* ----------------------------------------------------------------
+   PLANS HEADLINE — smaller h2 for plans section
+   ---------------------------------------------------------------- */
+.plans-headline {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+
+/* ----------------------------------------------------------------
+   DELIVERABLES LIST — single column rows
+   ---------------------------------------------------------------- */
+.deliverables-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e8e8e8;
+}
+
+.deliverable-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.d-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #1C1C1C;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.d-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.d-body strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C1C1C;
+  letter-spacing: -0.01em;
+}
+
+.d-body span {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.55;
+}
+
+
+/* ----------------------------------------------------------------
+   PROCESS + FIT — smaller section h2s
+   ---------------------------------------------------------------- */
+#process h2,
+#fit h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+}
+
+
+/* ----------------------------------------------------------------
+   CONFIDENTIALITY — spacing between h2 and card
+   ---------------------------------------------------------------- */
+.confidentiality-spacer {
+  height: 36px;
+}
+
+
+/* ----------------------------------------------------------------
+   FAQ — h2 size + single column accordion
+   ---------------------------------------------------------------- */
+#faq h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.faq-stack {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  max-width: 680px;
+}
+
+/* Override any base styles that add rounded card look */
+.faq-stack details {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: none !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+  padding: 20px 0 !important;
+  box-shadow: none !important;
+}
+
+.faq-stack details:first-child {
+  border-top: 1px solid #e8e8e8 !important;
+}
+
+.faq-stack summary {
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  letter-spacing: -0.01em;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.faq-stack summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-stack summary::marker {
+  display: none;
+}
+
+.faq-stack details p {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+  padding: 0 !important;
+}
+
+
+/* ----------------------------------------------------------------
+   FINAL CTA — smaller h2
+   ---------------------------------------------------------------- */
+.final-cta h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
