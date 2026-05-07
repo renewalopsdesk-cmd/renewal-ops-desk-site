@@ -2582,3 +2582,41 @@ details {
     min-height: auto;
   }
 }
+
+/* PROOF QUESTION — BELOW TESTIMONIALS */
+
+.proof-question-inline {
+  margin-top: 34px;
+  padding: 28px 32px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.74);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--shadow-light);
+  text-align: center;
+}
+
+.proof-question-inline p {
+  max-width: none;
+  margin-bottom: 6px;
+  color: var(--muted-light);
+  font-size: clamp(22px, 2.4vw, 34px);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+
+.proof-question-inline h3 {
+  color: var(--ink-light);
+  font-size: clamp(30px, 3.5vw, 48px);
+  line-height: 1;
+}
+
+.proof-question-inline .btn {
+  margin-top: 22px;
+}
+
+@media (max-width: 640px) {
+  .proof-question-inline {
+    padding: 24px 20px;
+  }
+}
