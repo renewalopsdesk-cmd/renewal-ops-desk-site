@@ -2620,3 +2620,69 @@ details {
     padding: 24px 20px;
   }
 }
+
+/* FINAL LANDING REFINEMENTS */
+
+.testimonial-meta span {
+  text-transform: uppercase;
+}
+
+.proof-question-inline {
+  max-width: 1120px;
+  margin: 46px auto 0;
+  padding: 34px 38px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--shadow-light);
+  text-align: center;
+}
+
+.proof-question-inline h3 {
+  max-width: none;
+  color: var(--ink-light);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+
+.proof-question-inline .btn {
+  margin-top: 24px;
+}
+
+.operator-note {
+  max-width: 860px;
+  margin: 30px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-light);
+  text-align: center;
+}
+
+.operator-note span {
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted-light);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.operator-note .trust-links {
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@media (max-width: 860px) {
+  .proof-question-inline h3 {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .proof-question-inline {
+    padding: 28px 22px;
+    margin-top: 34px;
+  }
+}
