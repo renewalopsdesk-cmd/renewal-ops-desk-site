@@ -2434,3 +2434,151 @@ details {
 .nav .btn {
   padding: 13px 22px;
 }
+
+/* LANDING UPDATES — TESTIMONIALS + COMPACT ABOUT */
+
+.compact-question {
+  padding: 64px 0;
+}
+
+.compact-question .question-card {
+  padding: 42px 34px;
+}
+
+.compact-question .question-headline {
+  font-size: clamp(30px, 3.6vw, 48px);
+}
+
+.compact-question .question-line {
+  font-size: clamp(30px, 3.6vw, 48px);
+}
+
+.social-proof-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.testimonial-card {
+  padding: 22px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-light);
+}
+
+.testimonial-meta {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-light);
+}
+
+.testimonial-meta strong {
+  display: block;
+  color: var(--ink-light);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.testimonial-meta span {
+  display: block;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.compact-about-grid {
+  gap: 34px;
+}
+
+.compact-about-grid .section-title {
+  max-width: 680px;
+}
+
+.compact-about-grid .section-lead {
+  max-width: 620px;
+}
+
+.compact-about-pillars {
+  margin-top: 30px;
+}
+
+.compact-about-pillars .about-pillar {
+  padding: 22px;
+}
+
+.compact-about-pillars .about-pillar h3 {
+  font-size: 20px;
+}
+
+.compact-about-pillars .about-pillar p {
+  font-size: 13.5px;
+}
+
+.trust-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.trust-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line-light);
+  background: rgba(28,28,28,.045);
+  color: var(--ink-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.trust-links a:hover {
+  background: var(--black-3);
+  color: #fff;
+  border-color: var(--black-3);
+}
+
+@media (max-width: 1120px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .compact-question {
+    padding: 48px 0;
+  }
+
+  .compact-question .question-card {
+    padding: 34px 22px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    min-height: auto;
+  }
+}
