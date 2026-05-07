@@ -2266,3 +2266,100 @@ details {
     flex-wrap: wrap;
   }
 }
+
+/* PRICING SECTION — COMPACT ONE-SCREEN VERSION */
+
+.pricing-section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.pricing-intro {
+  align-items: start;
+  gap: 28px;
+}
+
+.pricing-section .section-title {
+  font-size: clamp(34px, 3.8vw, 58px);
+}
+
+.pricing-section .section-lead {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.pricing-note {
+  padding: 18px 22px;
+  min-height: auto;
+}
+
+.pricing-note strong {
+  font-size: 16px;
+}
+
+.pricing-note span {
+  font-size: 14px;
+}
+
+.pricing-tabs {
+  margin-top: 34px;
+}
+
+.pricing-panel {
+  padding-top: 28px;
+}
+
+.pricing-grid {
+  gap: 12px;
+}
+
+.pricing-card {
+  min-height: 390px;
+  padding: 20px 22px;
+}
+
+.pricing-card-top h3 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.pricing-card-top p {
+  font-size: 13.5px;
+  min-height: 38px;
+}
+
+.price-block {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.price-block strong {
+  font-size: clamp(34px, 3vw, 42px);
+}
+
+.price-block span {
+  margin-top: 7px;
+  font-size: 12.5px;
+}
+
+.pricing-list {
+  gap: 8px;
+  padding-top: 16px;
+  padding-bottom: 18px;
+}
+
+.pricing-list li {
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.pricing-badge {
+  margin-bottom: 14px;
+  padding: 5px 8px;
+  font-size: 8.5px;
+}
+
+.pricing-footnote,
+.enterprise-note {
+  margin-top: 16px;
+}
