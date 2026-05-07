@@ -2990,3 +2990,151 @@ details {
   color: var(--ink-light);
   font-weight: 700;
 }
+
+/* WHAT WE FOUND — DETAILED FINDING CARDS */
+
+.findings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.finding-card {
+  padding: 26px;
+}
+
+.finding-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.finding-top span {
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.finding-level {
+  padding: 6px 9px;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.finding-level.critical {
+  background: var(--critical-bg);
+  color: var(--critical-text);
+}
+
+.finding-level.now {
+  background: var(--now-bg);
+  color: var(--now-text);
+}
+
+.finding-level.soon {
+  background: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+.finding-card h3 {
+  margin-bottom: 20px;
+  color: var(--ink-light);
+  font-size: clamp(24px, 2.4vw, 34px);
+  letter-spacing: -.045em;
+}
+
+.finding-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.finding-metrics small,
+.finding-clause small {
+  display: block;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.finding-metrics strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink-light);
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.finding-clause {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(28,28,28,.035);
+  border: 1px solid var(--line-light);
+}
+
+.finding-clause p {
+  margin-top: 10px;
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.finding-analysis {
+  margin-top: 18px;
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.finding-flag {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-light);
+}
+
+.finding-flag strong {
+  display: block;
+  color: var(--ink-light);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.finding-flag p {
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .findings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .finding-card {
+    padding: 22px;
+  }
+
+  .finding-metrics {
+    grid-template-columns: 1fr;
+  }
+}
