@@ -2971,3 +2971,13 @@ details {
     padding-top: 0;
   }
 }
+
+.plan-note,
+.pricing-note-line,
+.enterprise-note {
+  display: block;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
