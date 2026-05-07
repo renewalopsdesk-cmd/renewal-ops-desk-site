@@ -2882,3 +2882,92 @@ details {
     font-size: 20px;
   }
 }
+
+/* PLANS — RESTORE DETAIL + COMPACT BOXES */
+
+.plans-section .section-header {
+  margin-bottom: 30px;
+}
+
+.plans-section .section-lead {
+  max-width: 760px;
+}
+
+.plan-tabs {
+  margin-top: 30px;
+  margin-bottom: 26px;
+}
+
+.plan-rec {
+  max-width: 780px;
+  margin-bottom: 22px;
+  color: var(--text-light);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.monthly-rec {
+  color: var(--ink-light);
+  font-weight: 600;
+}
+
+.deliverables-list {
+  gap: 12px;
+}
+
+.deliverable-row {
+  grid-template-columns: 120px 1fr;
+  padding: 18px 22px;
+  border-radius: 18px;
+}
+
+.featured-row {
+  background: var(--black-3);
+  border-color: var(--black-3);
+  color: #fff;
+}
+
+.featured-row .d-label {
+  color: rgba(255,255,255,.72);
+}
+
+.featured-row .d-body strong {
+  color: #fff;
+}
+
+.featured-row .d-body span {
+  color: rgba(255,255,255,.72);
+}
+
+.d-label {
+  padding-top: 3px;
+}
+
+.d-body strong {
+  font-size: 18px;
+}
+
+.d-body span {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.plan-note {
+  margin-top: 24px;
+  max-width: 860px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 760px) {
+  .deliverable-row {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .d-label {
+    padding-top: 0;
+  }
+}
