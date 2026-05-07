@@ -2010,3 +2010,72 @@ details {
   }
 }
 
+/* SPACING + HIERARCHY TEST PATCH */
+
+.hero {
+  padding: 125px 0 104px;
+}
+
+.hero-subheadline {
+  margin-top: 28px;
+}
+
+.hero-actions {
+  margin-top: 34px;
+}
+
+.secondary-line {
+  margin-top: 24px;
+}
+
+.section {
+  padding: 78px 0;
+}
+
+.section-lead {
+  margin-top: 14px;
+}
+
+.section-title {
+  max-width: 860px;
+}
+
+.question-section {
+  padding: 76px 0;
+}
+
+.compact-section {
+  padding: 72px 0;
+}
+
+.about-section {
+  padding-top: 76px;
+}
+
+.pricing-section {
+  padding-top: 72px;
+  padding-bottom: 78px;
+}
+
+.pricing-intro {
+  margin-bottom: 28px;
+}
+
+.final-cta {
+  padding: 96px 0 104px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 112px 0 72px;
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+
+  .final-cta {
+    padding: 82px 0 90px;
+  }
+}
+
