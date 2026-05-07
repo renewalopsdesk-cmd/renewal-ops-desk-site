@@ -2981,3 +2981,12 @@ details {
   margin-right: auto;
   text-align: center;
 }
+
+.one-line {
+  white-space: nowrap;
+}
+
+.plan-note strong {
+  color: var(--ink-light);
+  font-weight: 700;
+}
