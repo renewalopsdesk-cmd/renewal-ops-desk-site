@@ -3237,3 +3237,13 @@ details {
   gap: 14px !important;
   padding: 18px 0 !important;
 }
+
+#findings .report-frame .finding-metrics {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+  padding: 18px 0 !important;
+}
+
+#findings .report-frame .finding-metrics div {
+  min-width: 0 !important;
+}
