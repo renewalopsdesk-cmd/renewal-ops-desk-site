@@ -2265,7 +2265,7 @@ details {
 
 .social-proof-section {
   padding-top: 64px;
-  padding-bottom: 64px;
+  padding-bottom: 50px;
 }
 
 .social-proof-section .section-header {
@@ -2315,9 +2315,9 @@ details {
 
 .testimonial-footnote {
   max-width: 1200px;
-  margin: 42px auto 0;
+  margin: 22px auto 0;
   color: rgba(28,28,28,.48);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.4;
   text-align: center;
   white-space: nowrap;
