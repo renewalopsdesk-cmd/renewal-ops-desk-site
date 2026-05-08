@@ -2871,3 +2871,344 @@ details {
   }
 }
 
+/* =========================
+   WHAT WE FIND — FINAL CLEAN VERSION
+========================= */
+
+#findings.what-we-find-section {
+  padding-top: 68px;
+  padding-bottom: 68px;
+}
+
+#findings .what-find-layout.refined {
+  display: grid;
+  grid-template-columns: 0.88fr 0.72fr;
+  gap: 56px;
+  align-items: start;
+}
+
+#findings .what-find-left {
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+}
+
+#findings .what-find-left .eyebrow {
+  width: fit-content;
+  max-width: max-content;
+}
+
+#findings .what-find-left .section-title {
+  max-width: 520px;
+  font-size: clamp(30px, 3.2vw, 52px);
+  line-height: .98;
+  letter-spacing: -.06em;
+}
+
+/* Mini risk table */
+
+#findings .risk-table-title {
+  margin-top: 34px;
+  margin-bottom: 18px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(28,28,28,.14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#findings .risk-table-title span {
+  display: block;
+  color: rgba(28,28,28,.48);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+#findings .risk-table-title strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-light);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+#findings .risk-mini-table {
+  display: grid;
+  gap: 0;
+  max-width: 500px;
+  border-top: 1px solid rgba(28,28,28,.12);
+}
+
+#findings .risk-mini-row {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  column-gap: 16px;
+  row-gap: 5px;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(28,28,28,.12);
+}
+
+#findings .risk-mini-row .risk-label {
+  grid-row: span 2;
+}
+
+#findings .risk-mini-row strong {
+  color: rgba(28,28,28,.88);
+  font-size: 14px;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+}
+
+#findings .risk-mini-row p {
+  max-width: none;
+  color: rgba(28,28,28,.52);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+#findings .risk-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  min-width: 76px;
+  padding: 5px 7px;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+#findings .risk-label.critical {
+  background: var(--critical-bg);
+  color: var(--critical-text);
+}
+
+#findings .risk-label.now {
+  background: var(--now-bg);
+  color: var(--now-text);
+}
+
+#findings .risk-label.soon {
+  background: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+#findings .risk-label.watch {
+  background: var(--watch-bg);
+  color: var(--watch-text);
+}
+
+/* Report frame */
+
+#findings .report-frame {
+  position: relative;
+  overflow: hidden;
+
+  width: 560px;
+  max-width: 560px;
+  min-width: 560px;
+  height: 600px;
+  min-height: 600px;
+
+  justify-self: end;
+  transform: translateY(24px);
+
+  padding: 14px;
+  border-radius: 28px;
+  border: 1px solid rgba(28,28,28,.10);
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.42)),
+    rgba(28,28,28,.035);
+
+  box-shadow: 0 24px 70px rgba(28,28,28,.08);
+}
+
+/* Carousel */
+
+#findings .report-sample-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  scroll-behavior: smooth;
+}
+
+#findings .report-sample-scroll .finding-card {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+  padding: 28px 30px;
+  border-radius: 22px;
+  box-shadow: none;
+
+  overflow: hidden;
+}
+
+/* Report card content */
+
+#findings .report-frame .finding-card h3 {
+  font-size: 32px;
+}
+
+#findings .report-frame .finding-metrics {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 18px 0;
+}
+
+#findings .report-frame .finding-metrics div {
+  min-width: 0;
+}
+
+#findings .report-frame .finding-metrics strong {
+  font-size: 19px;
+}
+
+#findings .report-frame .finding-clause {
+  padding: 12px 14px;
+}
+
+#findings .report-frame .finding-clause p,
+#findings .report-frame .finding-analysis,
+#findings .report-frame .finding-flag p {
+  font-size: 12px;
+  line-height: 1.42;
+}
+
+/* Arrows */
+
+#findings .report-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+
+  width: 36px;
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border: 1px solid rgba(28,28,28,.12);
+
+  background: rgba(255,255,255,.72);
+  color: rgba(28,28,28,.72);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: 0 12px 30px rgba(28,28,28,.12);
+}
+
+#findings .report-prev {
+  left: 8px;
+}
+
+#findings .report-next {
+  right: 8px;
+}
+
+#findings .report-arrow:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* Section footnote */
+
+#findings .what-find-footnote {
+  max-width: 900px;
+  margin: 42px auto 0;
+  color: rgba(28,28,28,.38);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 980px) {
+  #findings .what-find-layout.refined {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  #findings .what-find-left {
+    max-width: 100%;
+  }
+
+  #findings .risk-mini-table {
+    max-width: 100%;
+  }
+
+  #findings .report-frame {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    justify-self: stretch;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  #findings.what-we-find-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  #findings .what-find-left .section-title {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+  #findings .risk-table-title span {
+    font-size: 19px;
+  }
+
+  #findings .risk-table-title strong {
+    font-size: 26px;
+  }
+
+  #findings .risk-mini-row {
+    grid-template-columns: 86px 1fr;
+    column-gap: 14px;
+  }
+
+  #findings .report-frame {
+    height: 620px;
+    min-height: 620px;
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  #findings .report-sample-scroll .finding-card {
+    padding: 22px;
+  }
+
+  #findings .report-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  #findings .what-find-footnote {
+    font-size: 12px;
+  }
+}
