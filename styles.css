@@ -2734,3 +2734,325 @@ details {
     padding: 12px 0;
   }
 }
+
+/* =========================
+   WHAT WE FIND — INTEGRATED REPORT + RISK TABLE
+========================= */
+
+.what-we-find-section {
+  padding-top: 68px;
+  padding-bottom: 64px;
+}
+
+.what-find-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.what-find-copy {
+  position: sticky;
+  top: 110px;
+}
+
+.what-find-copy .section-title {
+  max-width: 560px;
+  font-size: clamp(34px, 3.8vw, 56px);
+  line-height: .98;
+  letter-spacing: -.06em;
+}
+
+.what-find-copy .section-lead {
+  max-width: 520px;
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.report-sample-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(430px, 1fr);
+  gap: 18px;
+
+  overflow-x: auto;
+  padding: 4px 4px 18px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.report-sample-scroll > * {
+  scroll-snap-align: start;
+}
+
+.report-sample-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.report-sample-scroll::-webkit-scrollbar-thumb {
+  background: rgba(28,28,28,.22);
+  border-radius: 999px;
+}
+
+.report-sample-scroll .finding-card {
+  padding: 24px;
+  border-radius: 22px;
+}
+
+.report-sample-scroll .finding-card h3 {
+  font-size: clamp(24px, 2vw, 30px);
+}
+
+.report-sample-scroll .finding-metrics {
+  gap: 10px;
+}
+
+.report-sample-scroll .finding-metrics strong {
+  font-size: 18px;
+}
+
+.report-sample-scroll .finding-clause p,
+.report-sample-scroll .finding-analysis,
+.report-sample-scroll .finding-flag p {
+  font-size: 12.5px;
+}
+
+/* Dark risk table inside light section */
+
+.risk-table-wrap {
+  margin-top: 34px;
+  padding: 30px 32px;
+  border-radius: 24px;
+  background: #101010;
+  color: #fff;
+}
+
+.risk-table-wrap .findings-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin-bottom: 26px;
+}
+
+.risk-table-wrap .findings-title span {
+  font-size: .48em;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  opacity: .58;
+}
+
+.risk-table-wrap .findings-title strong {
+  display: block;
+  font-weight: 700;
+  letter-spacing: -.065em;
+}
+
+.risk-table {
+  display: grid;
+  gap: 0;
+  max-width: 100%;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.risk-row {
+  display: grid;
+  grid-template-columns: 118px 260px 1fr;
+  align-items: center;
+  gap: 22px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  background: transparent;
+}
+
+.risk-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 76px;
+  min-width: 76px;
+
+  padding: 5px 7px;
+  border-radius: 999px;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.risk-label.critical {
+  background: var(--critical-bg);
+  color: var(--critical-text);
+}
+
+.risk-label.now {
+  background: var(--now-bg);
+  color: var(--now-text);
+}
+
+.risk-label.soon {
+  background: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+.risk-label.watch {
+  background: var(--watch-bg);
+  color: var(--watch-text);
+}
+
+.risk-row h3 {
+  color: rgba(255,255,255,.92);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+}
+
+.risk-row p {
+  color: rgba(255,255,255,.52);
+  font-size: 12px;
+  line-height: 1.42;
+  max-width: none;
+}
+
+/* =========================
+   RESULTS — COMPACT EXECUTIVE SUMMARY
+========================= */
+
+.results-section {
+  padding-top: 52px;
+  padding-bottom: 58px;
+}
+
+.results-compact {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.results-compact .section-title {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.result-card {
+  padding: 18px 16px;
+  border-radius: 14px;
+}
+
+.result-card small {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.result-card strong {
+  display: block;
+  color: var(--ink-light);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: .95;
+  letter-spacing: -.06em;
+}
+
+.result-card span {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-light);
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.results-line {
+  margin: 22px auto 0;
+  text-align: center;
+}
+
+.results-line span {
+  color: rgba(28,28,28,.72);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+/* Responsive */
+
+@media (max-width: 980px) {
+  .what-find-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .what-find-copy {
+    position: relative;
+    top: auto;
+  }
+
+  .report-sample-scroll {
+    grid-auto-columns: minmax(82%, 1fr);
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .what-we-find-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .risk-table-wrap {
+    padding: 24px 22px;
+    overflow-x: auto;
+  }
+
+  .risk-row {
+    min-width: 720px;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(74%, 1fr);
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .results-grid > * {
+    scroll-snap-align: start;
+  }
+
+  .results-grid::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .results-grid::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.18);
+    border-radius: 999px;
+  }
+}
