@@ -2193,3 +2193,35 @@ details {
 .hero-metrics-line {
   transform: translateY(24px);
 }
+
+.hero {
+  padding: 104px 0 54px;
+}
+
+.hero-centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 560px;
+}
+
+.hero .badge {
+  margin-top: 18px;
+  margin-bottom: 34px;
+}
+
+.secondary-line {
+  margin-top: 42px;
+}
+
+.hero-metrics-line {
+  margin-top: 12px;
+  color: rgba(255,255,255,.22);
+}
+
+.secondary-line,
+.hero-metrics-line {
+  transform: translateY(24px);
+}
