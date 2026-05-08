@@ -2590,3 +2590,111 @@ details {
     font-size: clamp(30px, 8vw, 42px);
   }
 }
+
+/* =========================
+   WHAT WE CAN FIND — DARK INTELLIGENCE
+========================= */
+
+#findings.compact-section {
+  padding-top: 66px;
+  padding-bottom: 70px;
+}
+
+#findings .section-header {
+  margin-bottom: 34px;
+  text-align: left;
+}
+
+.findings-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.findings-title span {
+  font-size: .56em;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  opacity: .62;
+}
+
+.findings-title strong {
+  display: block;
+  font-weight: 700;
+  letter-spacing: -.06em;
+}
+
+#findings .compact-findings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 0;
+}
+
+#findings .compact-finding {
+  min-height: 178px;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+#findings .compact-finding h3 {
+  margin-bottom: 10px;
+  font-size: 19px;
+  line-height: 1.08;
+}
+
+#findings .compact-finding p {
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#findings .label {
+  margin-bottom: 14px;
+  padding: 6px 8px;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+@media (max-width: 980px) {
+  #findings .compact-findings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  #findings.compact-section {
+    padding-top: 56px;
+    padding-bottom: 60px;
+  }
+
+  #findings .compact-findings {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78%, 1fr);
+    grid-template-columns: none;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #findings .compact-findings > * {
+    scroll-snap-align: start;
+  }
+
+  #findings .compact-findings::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  #findings .compact-findings::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.22);
+    border-radius: 999px;
+  }
+
+  #findings .compact-finding {
+    min-height: 170px;
+  }
+}
