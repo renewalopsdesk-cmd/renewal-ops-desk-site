@@ -2145,4 +2145,26 @@ details {
   margin-top: 52px;
 }
 
+.hero {
+  padding: 72px 0 48px;
+}
+
+.hero-centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.secondary-line {
+  margin-top: 42px;
+}
+
+.hero-metrics-line {
+  margin-top: 14px;
+  color: rgba(255,255,255,.22);
+}
+
 
