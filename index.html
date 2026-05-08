@@ -1093,5 +1093,28 @@
       });
     });
   </script>
+  
+  <script>
+  const reportCarousel = document.getElementById("reportCarousel");
+  const reportPrev = document.querySelector(".report-prev");
+  const reportNext = document.querySelector(".report-next");
+
+  if (reportCarousel && reportPrev && reportNext) {
+    reportNext.addEventListener("click", () => {
+      reportCarousel.scrollBy({
+        left: reportCarousel.clientWidth,
+        behavior: "smooth"
+      });
+    });
+
+    reportPrev.addEventListener("click", () => {
+      reportCarousel.scrollBy({
+        left: -reportCarousel.clientWidth,
+        behavior: "smooth"
+      });
+    });
+  }
+</script>
+  
 </body>
 </html>
