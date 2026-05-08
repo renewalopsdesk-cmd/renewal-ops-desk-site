@@ -1105,24 +1105,21 @@
 
     if (!carousel || !prev || !next) return;
 
-    let currentIndex = 0;
     const cards = Array.from(carousel.querySelectorAll(".finding-card"));
+    let currentIndex = 0;
 
-    function goTo(index) {
-      currentIndex = (index + cards.length) % cards.length;
-
-      carousel.scrollTo({
-        left: currentIndex * carousel.clientWidth,
-        behavior: "smooth"
-      });
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
     next.addEventListener("click", function () {
-      goTo(currentIndex + 1);
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateCarousel();
     });
 
     prev.addEventListener("click", function () {
-      goTo(currentIndex - 1);
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updateCarousel();
     });
   });
 </script>
