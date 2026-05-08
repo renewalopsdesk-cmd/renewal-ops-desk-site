@@ -205,35 +205,67 @@
   </div>
 </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.getElementById("reportCarousel");
-    const prev = document.querySelector(".report-prev");
-    const next = document.querySelector(".report-next");
+<!-- WHAT WE FIND -->
+<section class="section light what-we-find-section" id="findings">
+  <div class="container">
+    <div class="what-find-layout refined">
 
-    if (!carousel || !prev || !next) return;
+      <div class="what-find-left">
+        <div class="eyebrow">What we find</div>
 
-    let currentIndex = 0;
-    const cards = Array.from(carousel.querySelectorAll(".finding-card"));
+        <h2 class="section-title">
+          The kind of exposure companies discover after signature.
+        </h2>
 
-    function goTo(index) {
-      currentIndex = (index + cards.length) % cards.length;
+        <h3 class="risk-table-title">
+          <span>Small clauses.</span>
+          <strong>Expensive consequences.</strong>
+        </h3>
 
-      carousel.scrollTo({
-        left: currentIndex * carousel.clientWidth,
-        behavior: "smooth"
-      });
-    }
+        <div class="risk-mini-table">
+          <div class="risk-mini-row">
+            <span class="risk-label critical">Critical</span>
+            <strong>Renewal windows closing</strong>
+            <p>Miss the notice period and the company may buy another year by default.</p>
+          </div>
 
-    next.addEventListener("click", function () {
-      goTo(currentIndex + 1);
-    });
+          <div class="risk-mini-row">
+            <span class="risk-label now">Act Now</span>
+            <strong>Prices still going up</strong>
+            <p>Escalation clauses still running under old assumptions.</p>
+          </div>
 
-    prev.addEventListener("click", function () {
-      goTo(currentIndex - 1);
-    });
-  });
-</script>
+          <div class="risk-mini-row">
+            <span class="risk-label soon">Act Soon</span>
+            <strong>Legacy tools still billing</strong>
+            <p>Unused seats, duplicate vendors, and services nobody actively owns.</p>
+          </div>
+
+          <div class="risk-mini-row">
+            <span class="risk-label watch">Watch</span>
+            <strong>Leverage left unused</strong>
+            <p>Terms may be negotiable, but only before the window closes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-frame">
+        <button class="report-arrow report-prev" type="button" aria-label="Previous report">←</button>
+
+        <div class="report-sample-scroll" id="reportCarousel">
+          <!-- mantém os 4 articles exatamente como estão -->
+        </div>
+
+        <button class="report-arrow report-next" type="button" aria-label="Next report">→</button>
+      </div>
+
+    </div>
+
+    <p class="what-find-footnote">
+      Client names and vendor details are confidential — and we prefer to keep it that way.
+    </p>
+  </div>
+</section>
     
 <!-- RESULTS -->
 <section class="section light results-section" id="results">
