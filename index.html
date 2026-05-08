@@ -1098,28 +1098,37 @@
       });
     });
   </script>
-  
   <script>
-  const reportCarousel = document.getElementById("reportCarousel");
-  const reportPrev = document.querySelector(".report-prev");
-  const reportNext = document.querySelector(".report-next");
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.getElementById("reportCarousel");
+    const prev = document.querySelector(".report-prev");
+    const next = document.querySelector(".report-next");
 
-  if (reportCarousel && reportPrev && reportNext) {
-    reportNext.addEventListener("click", () => {
-      reportCarousel.scrollBy({
-        left: reportCarousel.clientWidth,
+    if (!carousel || !prev || !next) return;
+
+    const getCards = () => Array.from(carousel.querySelectorAll(".finding-card"));
+    let currentIndex = 0;
+
+    function goToCard(index) {
+      const cards = getCards();
+      if (!cards.length) return;
+
+      currentIndex = (index + cards.length) % cards.length;
+
+      carousel.scrollTo({
+        left: cards[currentIndex].offsetLeft - carousel.offsetLeft,
         behavior: "smooth"
       });
+    }
+
+    next.addEventListener("click", function () {
+      goToCard(currentIndex + 1);
     });
 
-    reportPrev.addEventListener("click", () => {
-      reportCarousel.scrollBy({
-        left: -reportCarousel.clientWidth,
-        behavior: "smooth"
-      });
+    prev.addEventListener("click", function () {
+      goToCard(currentIndex - 1);
     });
-  }
+  });
 </script>
-  
 </body>
 </html>
