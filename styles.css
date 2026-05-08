@@ -765,62 +765,6 @@ details {
   line-height: 1.55;
 }
 
-/* =========================================================
-   RESULTS
-   ========================================================= */
-
-.results-section .section-header {
-  margin-bottom: 34px;
-}
-
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
-.result-card {
-  padding: 24px;
-}
-
-.result-card small {
-  display: block;
-  margin-bottom: 14px;
-  color: var(--muted-light);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.result-card strong {
-  display: block;
-  color: var(--ink-light);
-  font-size: clamp(34px, 4vw, 50px);
-  line-height: .95;
-  letter-spacing: -.06em;
-}
-
-.result-card span {
-  display: block;
-  margin-top: 12px;
-  color: var(--text-light);
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.results-line {
-  margin: 40px auto 0;
-  text-align: center;
-}
-
-.results-line span {
-  color: var(--ink-light);
-  font-size: clamp(20px, 2vw, 28px);
-  font-weight: 700;
-  letter-spacing: -.035em;
-}
 
 /* =========================================================
    WHAT WE FOUND — DETAILED FINDING CARDS
