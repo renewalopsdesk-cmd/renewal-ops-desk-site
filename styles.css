@@ -2129,6 +2129,7 @@ details {
 
 .hero-metrics-line {
   margin-top: 18px;
+  transform: translateY(18px);
   max-width: 720px;
   color: rgba(255,255,255,.42);
   font-family: "IBM Plex Mono", monospace;
