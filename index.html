@@ -1097,31 +1097,6 @@
         }
       });
     });
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.getElementById("reportCarousel");
-    const prev = document.querySelector(".report-prev");
-    const next = document.querySelector(".report-next");
-
-    if (!carousel || !prev || !next) return;
-
-    const cards = Array.from(carousel.querySelectorAll(".finding-card"));
-    let currentIndex = 0;
-
-    function updateCarousel() {
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    next.addEventListener("click", function () {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateCarousel();
-    });
-
-    prev.addEventListener("click", function () {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      updateCarousel();
-    });
-  });
-</script>
+  <script>
 </body>
 </html>
