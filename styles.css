@@ -2699,17 +2699,11 @@ details {
   }
 }
 
+#findings .compact-findings {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 #findings .compact-finding {
-  min-height: 138px;
-  padding: 18px;
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-
-#findings .compact-finding h3 {
-  font-size: 18px;
-}
-
-#findings .compact-finding p {
-  font-size: 12.5px;
+  min-height: 128px;
+  padding: 18px 20px;
 }
