@@ -2155,15 +2155,15 @@ details {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 650px;
+  min-height: 620px;
 }
 
 .secondary-line {
-  margin-top: 42px;
+  margin-top: 56px;
 }
 
 .hero-metrics-line {
-  margin-top: 14px;
+  margin-top: 12px;
   color: rgba(255,255,255,.22);
 }
 
