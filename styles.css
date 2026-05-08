@@ -2155,11 +2155,11 @@ details {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 570px;
+  min-height: 600px;
 }
 
 .secondary-line {
-  margin-top: 20px;
+  margin-top: 32px;
 }
 
 .hero-metrics-line {
@@ -2167,4 +2167,29 @@ details {
   color: rgba(255,255,255,.18);
 }
 
+.hero {
+  padding: 72px 0 48px;
+}
 
+.hero-centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+}
+
+.secondary-line {
+  margin-top: 42px;
+}
+
+.hero-metrics-line {
+  margin-top: 12px;
+  color: rgba(255,255,255,.22);
+}
+
+.secondary-line,
+.hero-metrics-line {
+  transform: translateY(24px);
+}
