@@ -1101,7 +1101,7 @@
         }
       });
     });
-  <script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.getElementById("reportCarousel");
     const prev = document.querySelector(".report-prev");
@@ -1109,27 +1109,18 @@
 
     if (!carousel || !prev || !next) return;
 
-    const getCards = () => Array.from(carousel.querySelectorAll(".finding-card"));
-    let currentIndex = 0;
-
-    function goToCard(index) {
-      const cards = getCards();
-      if (!cards.length) return;
-
-      currentIndex = (index + cards.length) % cards.length;
-
-      carousel.scrollTo({
-        left: cards[currentIndex].offsetLeft - carousel.offsetLeft,
+    next.addEventListener("click", function () {
+      carousel.scrollBy({
+        left: carousel.offsetWidth,
         behavior: "smooth"
       });
-    }
-
-    next.addEventListener("click", function () {
-      goToCard(currentIndex + 1);
     });
 
     prev.addEventListener("click", function () {
-      goToCard(currentIndex - 1);
+      carousel.scrollBy({
+        left: -carousel.offsetWidth,
+        behavior: "smooth"
+      });
     });
   });
 </script>
