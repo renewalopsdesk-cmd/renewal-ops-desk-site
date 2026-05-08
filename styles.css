@@ -3210,7 +3210,7 @@ details {
   max-width: 560px !important;
   min-width: 560px !important;
   height: 600px !important;
-  min-height: 760px !important;
+  min-height: 600px !important;
   justify-self: end !important;
   padding: 14px !important;
 }
