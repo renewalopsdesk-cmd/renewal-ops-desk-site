@@ -3247,3 +3247,38 @@ details {
 #findings .report-frame .finding-metrics div {
   min-width: 0 !important;
 }
+
+/* REPORT CAROUSEL — FIX SCROLL WIDTH */
+
+#findings .report-frame {
+  overflow: hidden !important;
+}
+
+#findings .report-sample-scroll {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+#findings .report-sample-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+#findings .report-sample-scroll .finding-card {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  scroll-snap-align: start !important;
+}
