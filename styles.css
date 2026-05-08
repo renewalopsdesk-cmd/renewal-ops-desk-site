@@ -2592,16 +2592,16 @@ details {
 }
 
 /* =========================
-   WHAT WE CAN FIND — RISK TABLE
+   WHAT WE CAN FIND — COMPACT RISK LIST
 ========================= */
 
 #findings.compact-section {
-  padding-top: 62px;
-  padding-bottom: 64px;
+  padding-top: 54px;
+  padding-bottom: 56px;
 }
 
 #findings .section-header {
-  margin-bottom: 34px;
+  margin-bottom: 28px;
   text-align: left;
 }
 
@@ -2609,40 +2609,40 @@ details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 2px;
 }
 
 .findings-title span {
-  font-size: .56em;
+  font-size: .48em;
   font-weight: 400;
-  letter-spacing: -.04em;
-  opacity: .62;
+  letter-spacing: -.035em;
+  opacity: .58;
 }
 
 .findings-title strong {
   display: block;
   font-weight: 700;
-  letter-spacing: -.06em;
+  letter-spacing: -.065em;
 }
 
 .risk-table {
   display: grid;
-  gap: 8px;
-  max-width: 1040px;
+  gap: 0;
+  max-width: 980px;
+  border-top: 1px solid rgba(255,255,255,.12);
 }
 
 .risk-row {
   display: grid;
-  grid-template-columns: 150px 280px 1fr;
+  grid-template-columns: 118px 260px 1fr;
   align-items: center;
   gap: 22px;
 
-  padding: 14px 18px;
+  padding: 13px 0;
 
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.11);
-
-  background: rgba(255,255,255,.045);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-radius: 0;
+  background: transparent;
 }
 
 .risk-label {
@@ -2650,14 +2650,14 @@ details {
   align-items: center;
   justify-content: center;
 
-  width: fit-content;
-  min-width: 92px;
+  width: 76px;
+  min-width: 76px;
 
-  padding: 7px 11px;
+  padding: 5px 7px;
   border-radius: 999px;
 
   font-family: "IBM Plex Mono", monospace;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -2684,15 +2684,16 @@ details {
 }
 
 .risk-row h3 {
-  color: #fff;
-  font-size: 20px;
+  color: rgba(255,255,255,.92);
+  font-size: 17px;
+  font-weight: 600;
   line-height: 1.05;
-  letter-spacing: -.035em;
+  letter-spacing: -.03em;
 }
 
 .risk-row p {
-  color: rgba(255,255,255,.58);
-  font-size: 13px;
+  color: rgba(255,255,255,.52);
+  font-size: 12.5px;
   line-height: 1.45;
   max-width: none;
 }
@@ -2705,7 +2706,7 @@ details {
   }
 
   .risk-row {
-    min-width: 760px;
+    min-width: 720px;
   }
 
   .risk-table::-webkit-scrollbar {
@@ -2720,16 +2721,16 @@ details {
 
 @media (max-width: 640px) {
   #findings.compact-section {
-    padding-top: 54px;
-    padding-bottom: 56px;
+    padding-top: 50px;
+    padding-bottom: 52px;
   }
 
   .findings-title span {
-    font-size: .62em;
+    font-size: .56em;
   }
 
   .risk-row {
-    grid-template-columns: 130px 240px 1fr;
-    padding: 13px 16px;
+    grid-template-columns: 105px 220px 1fr;
+    padding: 12px 0;
   }
 }
