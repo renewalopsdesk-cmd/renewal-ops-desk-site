@@ -3346,3 +3346,841 @@ details {
     padding-bottom: 36px;
   }
 }
+
+/* FINAL LANDING STRUCTURE REFINEMENTS — ROD */
+
+/* urgency bar */
+
+.urgency-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #f5f5f5;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 18px;
+}
+
+.nav {
+  top: 34px;
+}
+
+.hero {
+  padding-top: 176px;
+}
+
+/* hero refinements */
+
+.hero-proof-line {
+  margin-top: 22px;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* section spacing */
+
+.section {
+  padding-top: 92px;
+  padding-bottom: 92px;
+}
+
+.section-header.compact {
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* softer section */
+
+.section.soft {
+  background: #f5f5f5;
+}
+
+/* what we do */
+
+.what-grid,
+.security-grid,
+.process-grid,
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.plans-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card,
+.security-card,
+.process-card,
+.plan-type-card {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.card h3,
+.security-card h3,
+.process-card h3,
+.plan-type-card h3 {
+  font-size: 22px;
+  letter-spacing: -.03em;
+  margin-bottom: 12px;
+}
+
+.card p,
+.security-card p,
+.process-card p,
+.plan-type-card p {
+  color: var(--muted-light);
+  line-height: 1.6;
+}
+
+/* testimonials */
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.testimonial-card {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.testimonial-card p {
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: -.02em;
+  color: var(--ink-light);
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 22px;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* split layout */
+
+.split-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 54px;
+  align-items: start;
+}
+
+.copy-block p {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--muted-light);
+  margin-bottom: 22px;
+}
+
+.copy-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* fit */
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.fit-card {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 24px;
+  padding: 30px;
+}
+
+.fit-card.muted {
+  background: #f5f5f5;
+}
+
+.fit-card h3 {
+  font-size: 24px;
+  letter-spacing: -.03em;
+  margin-bottom: 18px;
+}
+
+.fit-card ul {
+  display: grid;
+  gap: 12px;
+  padding-left: 18px;
+  color: var(--muted-light);
+  line-height: 1.55;
+}
+
+/* risk map */
+
+.risk-map-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.risk-card {
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  padding: 26px;
+}
+
+.risk-card h3 {
+  color: #fff;
+  font-size: 22px;
+  letter-spacing: -.03em;
+  margin-bottom: 12px;
+}
+
+.risk-card p {
+  color: rgba(255,255,255,.68);
+  line-height: 1.55;
+}
+
+/* metrics strip */
+
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--line-light);
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.metric-card {
+  padding: 28px 22px;
+  border-right: 1px solid var(--line-light);
+}
+
+.metric-card:last-child {
+  border-right: none;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: .9;
+  letter-spacing: -.06em;
+  margin-bottom: 14px;
+}
+
+.metric-card span {
+  display: block;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+/* findings */
+
+.findings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.finding-card {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.finding-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.finding-card-header span,
+.finding-card-header strong {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.finding-card h3 {
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -.05em;
+  margin-bottom: 22px;
+}
+
+.finding-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.finding-metrics div {
+  background: #f5f5f5;
+  border: 1px solid var(--line-light);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.finding-metrics span {
+  display: block;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.finding-metrics strong {
+  font-size: 20px;
+  letter-spacing: -.03em;
+}
+
+.clause-box {
+  background: #1c1c1c;
+  color: rgba(255,255,255,.82);
+  border-radius: 18px;
+  padding: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.finding-commentary {
+  color: var(--muted-light);
+  line-height: 1.65;
+}
+
+.finding-tag {
+  display: inline-flex;
+  margin-top: 18px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* sample report CTA */
+
+.sample-section {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+.sample-box {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sample-box h2 {
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: .92;
+  letter-spacing: -.07em;
+  margin-top: 18px;
+}
+
+.sample-box p {
+  max-width: 700px;
+  margin: 24px auto 30px;
+  color: rgba(255,255,255,.68);
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+/* analysis table */
+
+.analysis-table {
+  border: 1px solid var(--line-light);
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.analysis-row {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr 1fr;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.analysis-row:last-child {
+  border-bottom: none;
+}
+
+.analysis-row span {
+  padding: 22px;
+  color: var(--muted-light);
+  line-height: 1.5;
+}
+
+.analysis-row span:first-child {
+  color: var(--ink-light);
+  font-weight: 700;
+}
+
+.analysis-row.header {
+  background: #f5f5f5;
+}
+
+.analysis-row.header span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* process */
+
+.process-card span {
+  display: inline-flex;
+  margin-bottom: 22px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+/* pricing */
+
+.pricing-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.pricing-tab {
+  border: 1px solid var(--line-light);
+  background: #fff;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.pricing-tab.active {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+.pricing-panel {
+  display: none;
+}
+
+.pricing-panel.active {
+  display: block;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.pricing-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 28px;
+  padding: 30px;
+}
+
+.pricing-card.highlighted {
+  border-color: #1c1c1c;
+}
+
+.plan-badge {
+  display: inline-flex;
+  margin-bottom: 18px;
+  background: #1c1c1c;
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.pricing-card h3 {
+  font-size: 28px;
+  letter-spacing: -.04em;
+}
+
+.price {
+  font-size: 54px;
+  line-height: .9;
+  letter-spacing: -.07em;
+  margin: 20px 0 8px;
+}
+
+.price-note {
+  display: block;
+  color: var(--muted-light);
+  margin-bottom: 20px;
+}
+
+.pricing-roi {
+  color: var(--muted-light);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.enterprise-note {
+  margin-top: 26px;
+  text-align: center;
+  color: var(--muted-light);
+}
+
+.enterprise-note a {
+  color: var(--ink-light);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* FAQ */
+
+.narrow {
+  max-width: 920px;
+}
+
+.faq-item {
+  border-top: 1px solid var(--line-light);
+  padding: 28px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.faq-item h3 {
+  font-size: 22px;
+  letter-spacing: -.03em;
+  margin-bottom: 12px;
+}
+
+.faq-item p {
+  color: var(--muted-light);
+  line-height: 1.65;
+}
+
+/* final CTA */
+
+.final-cta {
+  background: #1c1c1c;
+  color: #fff;
+  text-align: center;
+}
+
+.final-cta h2 {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(44px, 7vw, 86px);
+  line-height: .9;
+  letter-spacing: -.07em;
+}
+
+.final-cta p {
+  max-width: 720px;
+  margin: 26px auto 30px;
+  color: rgba(255,255,255,.68);
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.final-microcopy {
+  display: block;
+  margin-top: 18px;
+  color: rgba(255,255,255,.58);
+  font-size: 14px;
+}
+
+.final-cta strong {
+  display: block;
+  margin-top: 34px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+/* footer */
+
+.footer {
+  background: #111;
+  color: rgba(255,255,255,.58);
+  padding: 34px 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: rgba(255,255,255,.72);
+}
+
+/* mobile refinements */
+
+@media (max-width: 920px) {
+  .what-grid,
+  .security-grid,
+  .process-grid,
+  .risk-map-grid,
+  .pricing-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .split-layout,
+  .plans-grid,
+  .fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-strip {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78%, 1fr);
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .metric-card {
+    border-right: 1px solid var(--line-light);
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .urgency-bar {
+    height: 38px;
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .nav {
+    top: 38px;
+    padding: 14px 18px;
+    min-height: 66px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .brand span {
+    font-size: 13px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav .btn {
+    padding: 11px 14px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 138px 0 64px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 14vw, 72px);
+    line-height: .88;
+  }
+
+  .hero p {
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: .95;
+  }
+
+  .section-lead {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .findings-grid,
+  .fit-grid,
+  .pricing-grid,
+  .testimonial-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(82%, 1fr);
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .findings-grid > *,
+  .fit-grid > *,
+  .pricing-grid > *,
+  .testimonial-grid > * {
+    scroll-snap-align: start;
+  }
+
+  .findings-grid::-webkit-scrollbar,
+  .fit-grid::-webkit-scrollbar,
+  .pricing-grid::-webkit-scrollbar,
+  .testimonial-grid::-webkit-scrollbar,
+  .metrics-strip::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .findings-grid::-webkit-scrollbar-thumb,
+  .fit-grid::-webkit-scrollbar-thumb,
+  .pricing-grid::-webkit-scrollbar-thumb,
+  .testimonial-grid::-webkit-scrollbar-thumb,
+  .metrics-strip::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .18);
+    border-radius: 999px;
+  }
+
+  .finding-card,
+  .pricing-card,
+  .fit-card,
+  .testimonial-card,
+  .card,
+  .security-card,
+  .process-card,
+  .plan-type-card {
+    padding: 22px;
+  }
+
+  .finding-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .finding-metrics {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .clause-box {
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .finding-commentary {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .analysis-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .analysis-row {
+    min-width: 760px;
+  }
+
+  .sample-box h2,
+  .final-cta h2 {
+    font-size: clamp(40px, 12vw, 62px);
+  }
+
+  .price {
+    font-size: 42px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
