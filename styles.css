@@ -2373,8 +2373,8 @@ details {
   }
 
   .dark-testimonial {
-    min-height: auto;
-  }
+  min-height: 260px;
+}
 
   .testimonial-footnote {
     white-space: normal;
