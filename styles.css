@@ -2155,11 +2155,11 @@ details {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 620px;
+  min-height: 600px;
 }
 
 .secondary-line {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .hero-metrics-line {
