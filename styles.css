@@ -2415,3 +2415,10 @@ details {
     transform: translateY(4px);
   }
 }
+
+.premium-testimonials .testimonial-card.dark-testimonial {
+  height: 280px !important;
+  min-height: 280px !important;
+  padding-top: 38px !important;
+  padding-bottom: 38px !important;
+}
