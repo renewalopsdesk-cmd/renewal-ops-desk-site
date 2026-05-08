@@ -2592,12 +2592,12 @@ details {
 }
 
 /* =========================
-   WHAT WE CAN FIND — DARK INTELLIGENCE
+   WHAT WE CAN FIND — RISK TABLE
 ========================= */
 
 #findings.compact-section {
-  padding-top: 66px;
-  padding-bottom: 70px;
+  padding-top: 62px;
+  padding-bottom: 64px;
 }
 
 #findings .section-header {
@@ -2625,85 +2625,111 @@ details {
   letter-spacing: -.06em;
 }
 
-#findings .compact-findings {
+.risk-table {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 0;
+  gap: 8px;
+  max-width: 1040px;
 }
 
-#findings .compact-finding {
-  min-height: 178px;
-  padding: 20px;
-  border-radius: 18px;
+.risk-row {
+  display: grid;
+  grid-template-columns: 150px 280px 1fr;
+  align-items: center;
+  gap: 22px;
+
+  padding: 14px 18px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.11);
+
+  background: rgba(255,255,255,.045);
 }
 
-#findings .compact-finding h3 {
-  margin-bottom: 10px;
-  font-size: 19px;
-  line-height: 1.08;
-}
+.risk-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-#findings .compact-finding p {
-  color: rgba(255,255,255,.62);
-  font-size: 13px;
-  line-height: 1.5;
-}
+  width: fit-content;
+  min-width: 92px;
 
-#findings .label {
-  margin-bottom: 14px;
-  padding: 6px 8px;
+  padding: 7px 11px;
+  border-radius: 999px;
+
+  font-family: "IBM Plex Mono", monospace;
   font-size: 9px;
+  font-weight: 700;
   letter-spacing: .1em;
+  text-transform: uppercase;
 }
 
-@media (max-width: 980px) {
-  #findings .compact-findings {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.risk-label.critical {
+  background: var(--critical-bg);
+  color: var(--critical-text);
 }
 
-@media (max-width: 760px) {
-  #findings.compact-section {
-    padding-top: 56px;
-    padding-bottom: 60px;
-  }
+.risk-label.now {
+  background: var(--now-bg);
+  color: var(--now-text);
+}
 
-  #findings .compact-findings {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(78%, 1fr);
-    grid-template-columns: none;
-    gap: 14px;
+.risk-label.soon {
+  background: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+.risk-label.watch {
+  background: var(--watch-bg);
+  color: var(--watch-text);
+}
+
+.risk-row h3 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+
+.risk-row p {
+  color: rgba(255,255,255,.58);
+  font-size: 13px;
+  line-height: 1.45;
+  max-width: none;
+}
+
+@media (max-width: 860px) {
+  .risk-table {
     overflow-x: auto;
-    padding-bottom: 14px;
-    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
     -webkit-overflow-scrolling: touch;
   }
 
-  #findings .compact-findings > * {
-    scroll-snap-align: start;
+  .risk-row {
+    min-width: 760px;
   }
 
-  #findings .compact-findings::-webkit-scrollbar {
+  .risk-table::-webkit-scrollbar {
     height: 4px;
   }
 
-  #findings .compact-findings::-webkit-scrollbar-thumb {
+  .risk-table::-webkit-scrollbar-thumb {
     background: rgba(255,255,255,.22);
     border-radius: 999px;
   }
+}
 
-  #findings .compact-finding {
-    min-height: 170px;
+@media (max-width: 640px) {
+  #findings.compact-section {
+    padding-top: 54px;
+    padding-bottom: 56px;
   }
-}
 
-#findings .compact-findings {
-  grid-template-columns: repeat(2, 1fr);
-}
+  .findings-title span {
+    font-size: .62em;
+  }
 
-#findings .compact-finding {
-  min-height: 128px;
-  padding: 18px 20px;
+  .risk-row {
+    grid-template-columns: 130px 240px 1fr;
+    padding: 13px 16px;
+  }
 }
