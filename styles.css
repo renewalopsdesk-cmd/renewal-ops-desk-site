@@ -2698,3 +2698,18 @@ details {
     min-height: 170px;
   }
 }
+
+#findings .compact-finding {
+  min-height: 138px;
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+#findings .compact-finding h3 {
+  font-size: 18px;
+}
+
+#findings .compact-finding p {
+  font-size: 12.5px;
+}
