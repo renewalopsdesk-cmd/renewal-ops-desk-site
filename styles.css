@@ -3143,3 +3143,67 @@ details {
     height: 32px;
   }
 }
+
+/* WHAT WE FIND — FINAL REFINEMENTS */
+
+.what-find-left .eyebrow {
+  width: fit-content;
+  max-width: max-content;
+}
+
+.what-find-left .section-title {
+  font-size: clamp(32px, 3.4vw, 54px);
+}
+
+.risk-table-title {
+  margin-top: 32px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.risk-table-title span {
+  color: rgba(28,28,28,.52);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
+
+.risk-table-title strong {
+  color: var(--ink-light);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: .96;
+  letter-spacing: -.055em;
+}
+
+.risk-mini-table {
+  margin-top: 0;
+}
+
+.what-find-layout.refined {
+  grid-template-columns: .95fr .95fr;
+  gap: 32px;
+}
+
+.report-frame {
+  max-width: 660px;
+  justify-self: end;
+}
+
+.report-frame .finding-card {
+  padding: 22px 24px;
+}
+
+.report-frame .finding-card h3 {
+  font-size: clamp(26px, 2.2vw, 36px);
+}
+
+.report-frame .finding-clause {
+  padding: 14px 16px;
+}
+
+.report-frame .finding-analysis {
+  line-height: 1.5;
+}
