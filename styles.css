@@ -2265,7 +2265,7 @@ details {
 
 .social-proof-section {
   padding-top: 64px;
-  padding-bottom: 50px;
+  padding-bottom: 64px;
 }
 
 .social-proof-section .section-header {
@@ -2317,11 +2317,12 @@ details {
   max-width: 1200px;
   margin: 22px auto 0;
   color: rgba(28,28,28,.48);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   text-align: center;
   white-space: nowrap;
-} 
+  transform: translateY(18px);
+}
 
 @media (max-width: 820px) {
   .premium-testimonials {
