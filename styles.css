@@ -2126,3 +2126,15 @@ details {
     font-size: 40px;
   }
 }
+
+.hero-metrics-line {
+  margin-top: 18px;
+  max-width: 720px;
+  color: rgba(255,255,255,.42);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1.55;
+}
