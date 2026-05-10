@@ -997,31 +997,6 @@ details {
   line-height: 1.55;
 }
 
-/* =========================================================
-   SECURITY & CONFIDENTIALITY
-   ========================================================= */
-
-#confidentiality .grid-2 {
-  margin-top: 34px;
-}
-
-.legal-card {
-  padding: 30px;
-}
-
-.legal-card p,
-.legal-card li {
-  font-size: 16px;
-}
-
-.legal-card p {
-  margin-top: 14px;
-}
-
-.security-card p {
-  color: var(--text-dark);
-}
-
 
 /* =========================================================
    PLANS
