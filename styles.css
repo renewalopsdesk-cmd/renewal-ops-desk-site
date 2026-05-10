@@ -3558,136 +3558,197 @@ font-size: 16px;
 }
 
 /* =========================
-   SAMPLE REPORT — THIN STRIP
+   SAMPLE REPORT — DARK SYSTEM STRIP
 ========================= */
 
 .sample-report-section {
   padding-top: 34px;
-  padding-bottom: 42px;
+  padding-bottom: 38px;
+  background: #101010;
 }
 
-.sample-strip {
+.sample-strip-v2 {
   display: grid;
-  grid-template-columns: .55fr 1.45fr auto;
-  gap: 28px;
+  grid-template-columns: .45fr 1.35fr auto;
+  gap: 32px;
   align-items: center;
 
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 28px 0;
 
-  border-top: 1px solid rgba(28,28,28,.12);
-  border-bottom: 1px solid rgba(28,28,28,.12);
+  padding: 30px 0;
+
+  border-top: 1px solid rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(255,255,255,.10);
 }
 
-.sample-strip-copy {
+.sample-copy {
   padding-left: 28px;
-  border-left: 1px solid rgba(28,28,28,.12);
+  border-left: 1px solid rgba(255,255,255,.10);
 }
 
-.sample-strip-copy h2 {
+.sample-copy h2 {
   margin: 0;
-  color: var(--ink-light);
-  font-size: clamp(24px, 2.5vw, 36px);
-  line-height: 1;
-  letter-spacing: -.055em;
-}
 
-.sample-strip-copy p {
-  max-width: 680px;
-  margin-top: 10px;
-  color: rgba(28,28,28,.58);
-  font-size: 13px;
-  line-height: 1.5;
-}
+  color: #fff;
 
-.sample-strip .btn {
-  white-space: nowrap;
-}
-
-/* =========================
-   COMMERCIAL ANALYSIS — THIN TABLE
-========================= */
-
-.analysis-section {
-  padding-top: 48px;
-  padding-bottom: 58px;
-}
-
-.analysis-header-v2 {
-  display: grid;
-  grid-template-columns: .95fr 1.05fr;
-  gap: 48px;
-  align-items: end;
-
-  max-width: 1120px;
-  margin: 0 auto 28px;
-}
-
-.analysis-header-v2 h2 {
-  margin-top: 18px;
-  color: var(--ink-light);
-  font-size: clamp(28px, 3vw, 44px);
+  font-size: clamp(26px, 2.6vw, 40px);
   line-height: .98;
   letter-spacing: -.06em;
 }
 
-.analysis-header-v2 p {
-  max-width: 560px;
+.sample-copy p {
+  max-width: 700px;
+  margin-top: 12px;
+
+  color: rgba(255,255,255,.58);
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sample-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sample-action a {
+  color: #fff;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* =========================
+   COMMERCIAL ANALYSIS — SYSTEM TABLE
+========================= */
+
+.analysis-section {
+  padding-top: 48px;
+  padding-bottom: 56px;
+}
+
+.analysis-header-v3 {
+  max-width: 1120px;
+  margin: 0 auto 28px;
+}
+
+.analysis-header-v3 h2 {
+  margin-top: 18px;
+
+  color: var(--ink-light);
+
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: .98;
+  letter-spacing: -.06em;
+}
+
+.analysis-header-v3 p {
+  max-width: 720px;
+  margin-top: 14px;
+
   color: rgba(28,28,28,.58);
+
   font-size: 15px;
   line-height: 1.55;
 }
 
-.analysis-table-v2 {
+.analysis-table-v3 {
   max-width: 1120px;
   margin: 0 auto;
+
   border-top: 1px solid rgba(28,28,28,.12);
 }
 
-.analysis-row-v2 {
+.analysis-line {
   display: grid;
-  grid-template-columns: .8fr 1.25fr .95fr;
+  grid-template-columns: 72px .8fr 1.2fr .9fr;
   gap: 28px;
   align-items: start;
 
   padding: 18px 0;
-  border-bottom: 1px solid rgba(28,28,28,.10);
+
+  border-bottom: 1px solid rgba(28,28,28,.08);
 }
 
-.analysis-row-v2.header {
-  padding: 12px 0;
-}
+.analysis-number {
+  color: rgba(28,28,28,.34);
 
-.analysis-row-v2.header span {
-  color: rgba(28,28,28,.44);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 
-.analysis-row-v2 strong {
+.analysis-line strong {
   color: var(--ink-light);
+
   font-size: 15px;
   line-height: 1.2;
   letter-spacing: -.02em;
 }
 
-.analysis-row-v2 p {
-  color: rgba(28,28,28,.58);
+.analysis-line p {
+  color: rgba(28,28,28,.56);
+
   font-size: 13px;
   line-height: 1.45;
 }
 
-.analysis-note-v2 {
+.analysis-note-v3 {
   max-width: 1120px;
   margin: 20px auto 0;
+
   color: rgba(28,28,28,.42);
+
   font-size: 12.5px;
   line-height: 1.5;
   text-align: center;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .sample-strip-v2 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sample-copy {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .sample-action {
+    justify-content: flex-start;
+  }
+
+  .analysis-table-v3 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .analysis-line {
+    min-width: 860px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sample-report-section {
+    padding-top: 30px;
+    padding-bottom: 34px;
+  }
+
+  .analysis-section {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
 }
 
 /* Responsive */
@@ -3747,7 +3808,7 @@ font-size: 16px;
   }
 
   .results-question-v3 {
-    font-size: clamp(26px, 8vw, 38px);
+    font-size: clamp(22px, 6vw, 32px);
   }
 
   .sample-report-section {
