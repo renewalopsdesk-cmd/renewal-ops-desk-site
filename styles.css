@@ -3761,57 +3761,114 @@ details {
 }
 
 /* =========================
-   METHODOLOGY — SMALLER / TIGHTER
+   METHODOLOGY — COMPACT INFO SECTION
 ========================= */
 
 .methodology-section {
-  padding-top: 38px;
-  padding-bottom: 48px;
+  padding-top: 30px;
+  padding-bottom: 42px;
 }
 
 .methodology-frame {
   max-width: 1120px;
-  padding: 24px 26px;
+  margin: 0 auto;
+  padding: 22px 24px 20px;
+  border: 1px solid rgba(28,28,28,.10);
   border-radius: 22px;
+  background: rgba(28,28,28,.018);
 }
 
 .methodology-main {
-  grid-template-columns: 250px 1fr;
-  gap: 36px;
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 34px;
   margin-top: 22px;
   align-items: start;
 }
 
+.methodology-founder {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
 .methodology-founder img {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 .methodology-founder strong {
-  font-size: 14px;
+  display: block;
+  color: var(--ink-light);
+  font-size: 13.5px;
+  line-height: 1.2;
 }
 
 .methodology-founder span {
-  font-size: 10.5px;
+  display: block;
+  margin-top: 3px;
+  color: rgba(28,28,28,.52);
+  font-size: 10px;
+  line-height: 1.4;
 }
 
-.methodology-quote p {
-  max-width: 760px;
-  font-size: clamp(15px, 1.25vw, 18px);
-  line-height: 1.42;
-  letter-spacing: -.02em;
-}
-
-.methodology-quote p + p {
+.methodology-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 12px;
 }
 
+.methodology-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(28,28,28,.12);
+  color: rgba(28,28,28,.72);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.methodology-links a:hover {
+  background: rgba(28,28,28,.06);
+  color: var(--ink-light);
+}
+
+.methodology-quote p {
+  max-width: 780px;
+  color: var(--ink-light);
+  font-size: clamp(13.5px, 1.1vw, 16px);
+  line-height: 1.45;
+  letter-spacing: -.015em;
+}
+
+.methodology-quote p + p {
+  margin-top: 10px;
+}
+
 .methodology-footer {
-  margin-top: 22px;
+  margin-top: 20px;
   padding-top: 14px;
+  border-top: 1px solid rgba(28,28,28,.08);
 }
 
 .methodology-footer span {
-  font-size: 9.5px;
+  color: rgba(28,28,28,.44);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .methodology-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
 }
