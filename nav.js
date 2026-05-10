@@ -80,3 +80,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateArrows();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav");
+  const menuToggle = document.querySelector(".mobile-menu-toggle");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  if (!nav || !menuToggle) return;
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("nav-open");
+    document.body.classList.toggle("menu-open");
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("nav-open");
+      document.body.classList.remove("menu-open");
+    });
+  });
+});
