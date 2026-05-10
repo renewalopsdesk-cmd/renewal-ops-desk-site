@@ -3509,3 +3509,224 @@ details {
     font-size: clamp(30px, 8vw, 42px);
   }
 }
+
+/* =========================
+   SECURITY & CONFIDENTIALITY
+========================= */
+
+.security-section {
+  padding-top: 46px;
+  padding-bottom: 52px;
+}
+
+.security-header {
+  max-width: 860px;
+  margin: 0 auto 24px;
+}
+
+.security-header h2 {
+  margin-top: 18px;
+
+  color: var(--ink-light);
+
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: .96;
+  letter-spacing: -.06em;
+}
+
+.security-header p {
+  max-width: 720px;
+  margin-top: 14px;
+
+  color: rgba(28,28,28,.58);
+
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.security-card {
+  padding: 18px 18px 20px;
+
+  border: 1px solid rgba(28,28,28,.10);
+  border-radius: 16px;
+
+  background: rgba(28,28,28,.022);
+}
+
+.security-card span {
+  display: block;
+  margin-bottom: 10px;
+
+  color: rgba(28,28,28,.34);
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.security-card strong {
+  display: block;
+
+  color: var(--ink-light);
+
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.security-card p {
+  margin-top: 10px;
+
+  color: rgba(28,28,28,.58);
+
+  font-size: 12.5px;
+  line-height: 1.48;
+}
+
+/* =========================
+   METHODOLOGY / FOUNDER
+========================= */
+
+.methodology-section {
+  padding-top: 24px;
+  padding-bottom: 56px;
+}
+
+.methodology-frame {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  padding: 26px 28px 24px;
+
+  border: 1px solid rgba(28,28,28,.10);
+  border-radius: 22px;
+
+  background: rgba(28,28,28,.018);
+}
+
+.methodology-main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 42px;
+
+  margin-top: 26px;
+}
+
+.methodology-founder {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.methodology-founder img {
+  width: 62px;
+  height: 62px;
+
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.methodology-founder strong {
+  display: block;
+
+  color: var(--ink-light);
+
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.methodology-founder span {
+  display: block;
+  margin-top: 4px;
+
+  color: rgba(28,28,28,.52);
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.methodology-quote p {
+  max-width: 760px;
+
+  color: var(--ink-light);
+
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.28;
+  letter-spacing: -.03em;
+}
+
+.methodology-quote p + p {
+  margin-top: 18px;
+}
+
+.methodology-footer {
+  margin-top: 30px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(28,28,28,.08);
+}
+
+.methodology-footer span {
+  color: rgba(28,28,28,.44);
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .security-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .security-card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
+
+  .methodology-main {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .security-section {
+    padding-top: 40px;
+    padding-bottom: 46px;
+  }
+
+  .methodology-section {
+    padding-bottom: 48px;
+  }
+
+  .methodology-frame {
+    padding: 24px 22px;
+    border-radius: 18px;
+  }
+
+  .methodology-quote p {
+    font-size: clamp(18px, 6vw, 24px);
+  }
+}
