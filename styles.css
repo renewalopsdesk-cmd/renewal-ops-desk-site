@@ -4631,15 +4631,34 @@ details {
 
 /* ANNUAL */
 
-.annual-link {
-  display: inline-flex;
+.annual-pill {
   margin-top: 14px;
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-light);
+  text-decoration: none;
+}
+
+.annual-pill span {
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.annual-pill strong {
   color: var(--ink-light);
   font-size: 13px;
-  font-weight: 700;
-  line-height: 1.45;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 /* BUTTON */
