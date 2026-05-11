@@ -4368,7 +4368,13 @@ details {
   }
 }
 
-/* PLANS / PRICING */
+/* =========================
+   PLANS / PRICING
+========================= */
+
+.pricing-section {
+  position: relative;
+}
 
 .plan-model-grid {
   margin-top: 44px;
@@ -4439,27 +4445,52 @@ details {
   background: var(--ink-light);
 }
 
+.monthly-note {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-light);
+  color: var(--ink-light) !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* SAMPLE REPORT CTA */
+
 .sample-report-cta {
+  max-width: 820px;
   margin: 30px auto 0;
-  padding: 24px;
-  max-width: 720px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   border: 1px solid var(--line-light);
   border-radius: 24px;
   background: #f8f8f8;
-  text-align: center;
+}
+
+.sample-report-cta span {
+  display: block;
+  color: var(--ink-light);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.02em;
 }
 
 .sample-report-cta p {
-  margin: 0 0 14px;
+  margin: 5px 0 0;
   color: var(--muted-light);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .btn-secondary {
   background: #fff;
   color: var(--ink-light);
   border: 1px solid var(--line-light);
+  white-space: nowrap;
 }
+
+/* TABS */
 
 .pricing-tabs {
   width: fit-content;
@@ -4493,6 +4524,8 @@ details {
   color: #fff;
 }
 
+/* GRID */
+
 .pricing-grid {
   display: none;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4503,8 +4536,10 @@ details {
   display: grid;
 }
 
+/* CARD */
+
 .pricing-card {
-  min-height: 330px;
+  min-height: 500px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -4515,6 +4550,10 @@ details {
   box-shadow: 0 18px 55px rgba(0, 0, 0, .04);
 }
 
+.setup-only-card {
+  min-height: 330px;
+}
+
 .pricing-card h3 {
   margin: 0;
   color: var(--ink-light);
@@ -4522,6 +4561,8 @@ details {
   line-height: 1;
   letter-spacing: -.04em;
 }
+
+/* PRICE */
 
 .price-block {
   margin-top: 30px;
@@ -4537,25 +4578,66 @@ details {
   letter-spacing: -.06em;
 }
 
-.price-block span,
-.price-block small {
+.price-block span {
   display: block;
   margin-top: 9px;
   color: var(--muted-light);
-  font-size: 14px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
   line-height: 1.4;
+  text-transform: uppercase;
 }
 
-.price-block small {
-  color: var(--ink-light);
-  font-weight: 600;
+/* PAYMENT BREAKDOWN */
+
+.payment-breakdown {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
 }
+
+.payment-breakdown p {
+  margin: 0;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line-light);
+  border-radius: 14px;
+  background: #f8f8f8;
+  color: var(--muted-light);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.payment-breakdown b {
+  color: var(--ink-light);
+}
+
+/* ANNUAL */
+
+.annual-link {
+  display: block;
+  margin-top: 14px;
+  color: var(--ink-light);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* BUTTON */
 
 .pricing-btn {
   width: 100%;
   margin-top: 28px;
   justify-content: center;
 }
+
+/* ENTERPRISE */
 
 .enterprise-note {
   max-width: 860px;
@@ -4581,6 +4663,8 @@ details {
   text-underline-offset: 4px;
 }
 
+/* MOBILE */
+
 @media (max-width: 900px) {
   .plan-model-grid,
   .pricing-grid {
@@ -4591,6 +4675,21 @@ details {
   .pricing-card {
     padding: 26px;
     border-radius: 24px;
+  }
+
+  .pricing-card,
+  .setup-only-card {
+    min-height: auto;
+  }
+
+  .sample-report-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sample-report-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .pricing-tabs {
