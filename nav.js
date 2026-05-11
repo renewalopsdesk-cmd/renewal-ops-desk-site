@@ -173,3 +173,64 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
   <main>
 
+   document.addEventListener('DOMContentLoaded', function () {
+
+  const MAKE_WEBHOOK = 'https://hook.eu1.make.com/SEU_WEBHOOK_DO_MAKE_AQUI';
+
+  const modal     = document.getElementById('sampleModal');
+  const closeBtn  = document.getElementById('sampleModalClose');
+  const overlay   = document.querySelector('.sample-modal-overlay');
+  const form      = document.getElementById('sampleLeadForm');
+  const success   = document.getElementById('sampleSuccess');
+  const triggers  = document.querySelectorAll('.sample-modal-trigger');
+
+  // Abre o modal
+  triggers.forEach(btn => {
+    btn.addEventListener('click', () => modal.classList.add('active'));
+  });
+
+  // Fecha o modal
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  // Fecha com ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Submete para o Make
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    const payload = {
+      email:   document.getElementById('sampleEmail').value,
+      company: document.getElementById('sampleCompany').value
+    };
+
+    try {
+      await fetch(MAKE_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      form.style.display = 'none';
+      success.classList.add('active');
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get sample report →';
+      alert('Something went wrong. Please try again.');
+    }
+  });
+
+});
+
+
+
