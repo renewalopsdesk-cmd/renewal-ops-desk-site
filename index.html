@@ -1081,64 +1081,41 @@
     </div>
   </footer>
 
-  <!-- SAMPLE REPORT MODAL -->
 <div class="sample-modal" id="sampleModal">
-  <div class="sample-modal-overlay"></div>
+  <div class="sample-modal-backdrop"></div>
 
   <div class="sample-modal-card">
-    <button class="sample-modal-close" id="sampleModalClose" type="button">
-      ×
-    </button>
+    <button class="sample-modal-close" type="button" aria-label="Close modal">×</button>
 
-    <div class="sample-modal-content">
-      <span class="sample-modal-eyebrow">Sample report</span>
+    <div class="eyebrow">Sample report</div>
 
-      <h3>See the report before you submit your agreements.</h3>
+    <h2>See the report before you submit your agreements.</h2>
 
-      <p>
-        Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure,
-        pricing escalations, notice windows, and prioritized commercial findings.
-      </p>
+    <p>
+      Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure, pricing escalations, notice windows, and prioritized commercial findings.
+    </p>
 
-      <form id="sampleLeadForm">
-        <div class="sample-field">
-          <label for="sampleEmail">Work email</label>
-          <input
-            id="sampleEmail"
-            type="email"
-            name="email"
-            placeholder="name@company.com"
-            required
-          />
-        </div>
-
-        <div class="sample-field">
-          <label for="sampleCompany">Company name</label>
-          <input
-            id="sampleCompany"
-            type="text"
-            name="company"
-            placeholder="Company name"
-            required
-          />
-        </div>
-
-        <button type="submit" class="btn btn-primary sample-submit-btn">
-          Get sample report →
-        </button>
-
-        <span class="sample-modal-note">
-          Sent within 24 hours. No call required.
-        </span>
-      </form>
-
-      <div class="sample-success" id="sampleSuccess">
-        <strong>Sample report sent.</strong>
-        <p>Check your inbox.</p>
+    <form class="sample-report-form">
+      <div class="form-field">
+        <label for="sample-email">Work email</label>
+        <input id="sample-email" type="email" placeholder="name@company.com" required />
       </div>
-    </div>
+
+      <div class="form-field">
+        <label for="sample-company">Company name</label>
+        <input id="sample-company" type="text" placeholder="Company name" required />
+      </div>
+
+      <button class="btn btn-primary sample-form-btn" type="submit">
+        Get sample report →
+      </button>
+
+      <p class="sample-form-note">Sent within 24 hours. No call required.</p>
+    </form>
   </div>
 </div>
+  
   <script src="/js/nav.js"></script>
+  
   </body>
 </html>
