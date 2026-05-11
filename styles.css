@@ -3566,3 +3566,46 @@ body.modal-open {
 .side-note {
   align-self: start;
 }
+
+/* PRICING PAGE — DESKTOP SCALE DOWN */
+
+@media (min-width: 769px) {
+  .pricing-private-hero h1,
+  .pricing-title {
+    font-size: clamp(52px, 5vw, 76px) !important;
+    line-height: .95 !important;
+  }
+
+  .pricing-private-hero p,
+  .pricing-subtitle,
+  .pricing-section .section-lead {
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+  }
+
+  .pricing-private-section h2,
+  .pricing-section h2,
+  .pricing-compare h2 {
+    font-size: clamp(36px, 3.5vw, 52px) !important;
+    line-height: 1 !important;
+  }
+
+  .pricing-card h3,
+  .plan-model-card h3 {
+    font-size: 26px !important;
+  }
+
+  .price-block strong,
+  .plan-price,
+  .pricing-price {
+    font-size: clamp(44px, 4vw, 58px) !important;
+  }
+
+  .pricing-card p,
+  .pricing-card li,
+  .plan-model-card p,
+  .plan-model-card li {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+}
