@@ -3498,3 +3498,71 @@ body.modal-open {
   top: 16px;
   right: 16px;
 }
+
+/* LEGAL PAGES — CONTENT FIX */
+
+.legal-card {
+  padding: 34px 38px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line-light);
+  box-shadow: var(--shadow-light);
+}
+
+.legal-card h2,
+.legal-card h3 {
+  margin-top: 34px;
+  margin-bottom: 14px;
+  color: var(--ink-light);
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.legal-card h2:first-child,
+.legal-card h3:first-child {
+  margin-top: 0;
+}
+
+.legal-card p {
+  margin: 0 0 16px;
+  max-width: 860px;
+  color: var(--text-light);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.legal-card ul,
+.legal-card ol {
+  margin: 14px 0 22px;
+  padding-left: 22px;
+  color: var(--text-light);
+}
+
+.legal-card li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.legal-card strong {
+  color: var(--ink-light);
+  font-weight: 700;
+}
+
+.legal-card .mono,
+.legal-card small {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+.legal-layout {
+  align-items: start;
+}
+
+.side-note {
+  align-self: start;
+}
