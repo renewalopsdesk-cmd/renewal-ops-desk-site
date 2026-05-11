@@ -1,9 +1,10 @@
 /* =========================================================
-   MOBILE REDESIGN V3 — ROD — PRODUCTION READY
-   Baseado nas práticas dos top 10 sites mobile do mundo
+   MOBILE REDESIGN V4 — ROD — PRODUCTION READY
+   Corrigido com base em auditoria do DOM ao vivo
    ========================================================= */
 
 /* ─── RESET FOUNDATION ─── */
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -24,15 +25,22 @@ img, video, svg {
   height: auto;
 }
 
+/* ========================================================
+   BREAKPOINT PRINCIPAL — ≤768px
+   ======================================================== */
 @media (max-width: 768px) {
 
   /* ─── GLOBAL ─── */
+
   .section,
   .section.light,
   .section.dark {
     padding-top: 52px !important;
     padding-bottom: 52px !important;
-    overflow-x: hidden !important;
+    /* FIX: overflow-x: hidden corta os scroll-grids horizontais.
+       Precisa ser visible para que os grids com margin negativa funcionem.
+       O body já tem overflow-x: hidden que contém o resultado final. */
+    overflow-x: visible !important;
   }
 
   .container {
@@ -42,22 +50,24 @@ img, video, svg {
     max-width: 100% !important;
   }
 
-  /* Tipografia base — ≥16px nos inputs evita zoom iOS */
+  /* Tipografia base */
   h1, h2, h3, h4, h5, h6 {
     word-break: break-word !important;
     overflow-wrap: break-word !important;
     hyphens: auto !important;
+    white-space: normal !important; /* FIX: desfaz white-space:nowrap do desktop */
   }
 
   h2,
   .section-title {
-    font-size: clamp(28px, 8.5vw, 40px) !important;
-    line-height: 1.0 !important;
+    font-size: clamp(26px, 8vw, 38px) !important;
+    line-height: 1.05 !important;
     letter-spacing: -.04em !important;
+    white-space: normal !important;
   }
 
   h3 {
-    font-size: clamp(18px, 5vw, 24px) !important;
+    font-size: clamp(17px, 5vw, 22px) !important;
     line-height: 1.15 !important;
   }
 
@@ -75,7 +85,14 @@ img, video, svg {
     letter-spacing: .08em !important;
   }
 
-  /* Botões — toque mínimo de 44px (Apple HIG + Android) */
+  /* FIX: white-space:nowrap no .testimonial-footnote causa overflow */
+  .testimonial-footnote {
+    white-space: normal !important;
+    text-align: center !important;
+    font-size: 12px !important;
+  }
+
+  /* Botões — toque mínimo 44px (Apple HIG + Android) */
   .btn,
   a.btn,
   button {
@@ -86,10 +103,17 @@ img, video, svg {
   }
 
   /* ─── NAV ─── */
+  /* FIX: O mobile-menu-toggle está display:none no base CSS sem override.
+     FIX: O nav-desktop-cta precisa sumir no mobile. */
+
   .nav {
     height: 64px !important;
     min-height: 64px !important;
-    padding: 0 20px !important;
+    /* FIX: safe-area deve ser adicionada ao padding existente, não substituí-lo */
+    padding: max(env(safe-area-inset-top, 0px), 0px) 20px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     background: #101010 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -99,23 +123,59 @@ img, video, svg {
     left: 0 !important;
     right: 0 !important;
     z-index: 1000 !important;
+    /* FIX: altura total = 64px + safe-area */
+    height: calc(64px + env(safe-area-inset-top, 0px)) !important;
   }
 
+  /* FIX CRÍTICO: Mostrar hamburguer no mobile */
+  .mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hamburguer lines — caso o botão use spans internos */
+  .mobile-menu-toggle span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    background: #fff !important;
+    border-radius: 2px !important;
+    transition: transform 0.25s ease, opacity 0.2s ease !important;
+    max-width: none !important;
+  }
+
+  /* FIX CRÍTICO: Esconder CTA desktop no mobile */
+  .nav-desktop-cta {
+    display: none !important;
+  }
+
+  /* FIX: nav-links como drawer mobile */
   .nav-links {
     position: fixed !important;
-    top: 64px !important;
+    top: calc(64px + env(safe-area-inset-top, 0px)) !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    height: calc(100dvh - 64px) !important;
+    height: calc(100dvh - 64px - env(safe-area-inset-top, 0px)) !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
     padding: 32px 24px !important;
     background: #101010 !important;
-    gap: 8px !important;
+    gap: 0 !important;
     overflow-y: auto !important;
     display: none !important;
+    z-index: 999 !important;
   }
 
   .nav-links.open {
@@ -123,14 +183,18 @@ img, video, svg {
   }
 
   .nav-links a {
-    font-size: 13px !important;
-    padding: 12px 0 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    padding: 16px 0 !important;
     width: 100% !important;
     border-bottom: 1px solid rgba(255,255,255,.06) !important;
+    color: rgba(255,255,255,.88) !important;
+    letter-spacing: -.02em !important;
   }
 
+  /* CTA dentro do drawer mobile */
   .nav-cta {
-    margin-top: 20px !important;
+    margin-top: 24px !important;
     width: 100% !important;
   }
 
@@ -146,25 +210,29 @@ img, video, svg {
   }
 
   /* ─── HERO ─── */
+
   .hero {
-    padding-top: 100px !important;
+    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 36px) !important;
     padding-bottom: 52px !important;
     overflow: hidden !important;
   }
 
+  /* FIX: min-height: 560px do desktop cria espaço vazio desnecessário */
   .hero-centered {
     text-align: center !important;
     align-items: center !important;
+    min-height: 0 !important;
   }
 
   .hero h1,
   .hero-title {
-    font-size: clamp(40px, 12.5vw, 60px) !important;
-    line-height: .92 !important;
-    letter-spacing: -.055em !important;
+    font-size: clamp(38px, 11.5vw, 58px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.05em !important;
     max-width: 100% !important;
     width: 100% !important;
     word-break: break-word !important;
+    white-space: normal !important;
   }
 
   .hero-subheadline {
@@ -195,6 +263,8 @@ img, video, svg {
     max-width: 100% !important;
     margin-top: 24px !important;
     text-align: center !important;
+    /* FIX: reseta o transform que pode cortar texto em viewports pequenas */
+    transform: none !important;
   }
 
   .hero-metrics-line {
@@ -202,14 +272,17 @@ img, video, svg {
     max-width: 100% !important;
     text-align: center !important;
     margin-top: 16px !important;
+    /* FIX: reseta transform */
+    transform: none !important;
   }
 
-  /* Decorative circle off-screen — hide on mobile */
+  /* Círculo decorativo — esconder no mobile */
   .hero::after {
     display: none !important;
   }
 
   /* ─── ABOUT ─── */
+
   .about-compact {
     padding: 48px 0 !important;
   }
@@ -220,7 +293,7 @@ img, video, svg {
   }
 
   .compact-intro h2 {
-    font-size: clamp(26px, 8vw, 36px) !important;
+    font-size: clamp(24px, 7.5vw, 34px) !important;
     line-height: 1.05 !important;
   }
 
@@ -229,13 +302,12 @@ img, video, svg {
     margin-top: 12px !important;
   }
 
-  /* Cards about — empilhar em coluna única */
+  /* Cards about — coluna única */
   .about-service-cards {
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
     overflow: visible !important;
-    overflow-x: visible !important;
     width: 100% !important;
   }
 
@@ -248,7 +320,7 @@ img, video, svg {
   }
 
   .about-service-card h3 {
-    font-size: 16px !important;
+    font-size: 15px !important;
     margin-bottom: 6px !important;
     line-height: 1.2 !important;
   }
@@ -256,15 +328,24 @@ img, video, svg {
   .about-service-card p {
     font-size: 13px !important;
     line-height: 1.45 !important;
-    color: #666 !important;
   }
 
-  /* ─── CLIENT FINDINGS (proof) — scroll horizontal ─── */
+  /* ─── PROOF / TESTIMONIALS — scroll horizontal ─── */
+
+  /* FIX CRÍTICO: A seção pai tinha overflow-x: hidden que cortava o scroll.
+     Isso é corrigido acima no .section.light override.
+     Abaixo, garantimos o scroll funciona com os valores corretos. */
+
+  .proof-section {
+    overflow-x: visible !important; /* reforço explícito */
+  }
+
   .proof-grid {
     display: grid !important;
     grid-auto-flow: column !important;
-    grid-auto-columns: 85% !important;
-    grid-template-columns: none !important;
+    /* FIX: 'none' não limpa o valor computado — usar 'unset' ou valor explícito */
+    grid-template-columns: unset !important;
+    grid-auto-columns: 82% !important;
     overflow-x: auto !important;
     overscroll-behavior-x: contain !important;
     -webkit-overflow-scrolling: touch !important;
@@ -275,8 +356,9 @@ img, video, svg {
     padding-right: 20px !important;
     margin-left: -20px !important;
     margin-right: -20px !important;
-    /* Hide scrollbar mas mantém funcional */
+    /* Oculta scrollbar mas mantém funcional */
     scrollbar-width: none !important;
+    max-width: none !important; /* remove o max-width que * { max-width:100% } aplica */
   }
 
   .proof-grid::-webkit-scrollbar {
@@ -285,6 +367,7 @@ img, video, svg {
 
   .proof-grid > * {
     scroll-snap-align: start !important;
+    min-width: 0 !important;
   }
 
   .proof-card {
@@ -309,12 +392,12 @@ img, video, svg {
     gap: 8px !important;
     padding: 14px !important;
     margin-top: 20px !important;
+    width: 100% !important;
   }
 
   .proof-stat {
     text-align: center !important;
     padding: 0 !important;
-    border: none !important;
   }
 
   .proof-stat strong {
@@ -329,27 +412,31 @@ img, video, svg {
     margin-top: 4px !important;
   }
 
-  /* ─── WHY WE DO THIS — empilhar ─── */
-  .about-why,
-  [id="about"] .section-split,
-  .section-split {
+  /* ─── WHY SECTION ─── */
+
+  /* FIX: .why-section .split é um grid 2 colunas não coberto pelo mobile CSS */
+  .why-section .split,
+  .split {
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
   }
 
-  .about-why h2,
-  .about-why .section-title {
-    font-size: clamp(28px, 9vw, 40px) !important;
+  .why-section .section-title {
+    font-size: clamp(26px, 8vw, 36px) !important;
+    max-width: 100% !important;
   }
 
-  .about-why p {
+  .why-section .statement-card p {
     font-size: 15px !important;
     line-height: 1.55 !important;
   }
 
   /* ─── FIT ─── */
-  .fit-grid {
+
+  /* FIX: O HTML usa .grid-2 para os fit cards, não .fit-grid */
+  .fit-grid,
+  #fit .grid-2 {
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
@@ -373,13 +460,140 @@ img, video, svg {
     line-height: 1.5 !important;
   }
 
-  /* ─── FINDINGS (risk table) ─── */
+  /* ─── FINDINGS (what-we-find) ─── */
+
   .compact-section {
     padding-top: 48px !important;
     padding-bottom: 52px !important;
   }
 
-  /* Risk table — virar cards empilhados */
+  /* FIX CRÍTICO: O .what-find-layout é um grid 2-col que comprime o report-frame a ~34px.
+     Precisa ser resetado para coluna única ANTES de fixar o report-frame. */
+  #findings .what-find-layout,
+  #findings .what-find-layout.refined {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    grid-template-columns: unset !important;
+  }
+
+  #findings .what-find-left {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Risk mini table — manter visível e responsivo */
+  #findings .risk-mini-table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #findings .risk-mini-row {
+    display: grid !important;
+    grid-template-columns: 80px 1fr !important;
+    column-gap: 12px !important;
+    row-gap: 4px !important;
+    padding: 10px 0 !important;
+    width: 100% !important;
+  }
+
+  #findings .risk-mini-row .risk-label {
+    grid-row: span 2 !important;
+    align-self: center !important;
+  }
+
+  #findings .risk-mini-row strong {
+    font-size: 13px !important;
+  }
+
+  #findings .risk-mini-row p {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* FIX CRÍTICO: report-frame tinha width/min-width: 560px fixos */
+  #findings .report-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    transform: none !important;
+    border-radius: 20px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Scroll horizontal para os finding cards */
+  #findings .report-sample-scroll {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-template-columns: unset !important;
+    grid-auto-columns: 88% !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 12px !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 4px 4px 16px !important;
+    scrollbar-width: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  #findings .report-sample-scroll::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  #findings .report-sample-scroll .finding-card {
+    display: block !important;
+    scroll-snap-align: start !important;
+    padding: 20px !important;
+    min-width: 0 !important;
+    /* FIX: flex: 0 0 100% do desktop força largura — reset */
+    flex: none !important;
+    width: auto !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(28,28,28,.10) !important;
+    background: #fff !important;
+  }
+
+  /* Esconder botões prev/next — substituídos pelo swipe */
+  #findings .report-arrow {
+    display: none !important;
+  }
+
+  #findings .what-find-footnote {
+    font-size: 12px !important;
+    margin-top: 24px !important;
+    text-align: center !important;
+  }
+
+  .finding-card h3 {
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+  }
+
+  .finding-metrics {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .finding-metrics strong {
+    font-size: 18px !important;
+  }
+
+  .finding-clause p,
+  .finding-analysis,
+  .finding-flag p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Risk table (seção separada se existir) */
   .risk-table {
     display: flex !important;
     flex-direction: column !important;
@@ -393,67 +607,17 @@ img, video, svg {
     padding: 16px 0 !important;
     gap: 6px !important;
     border-bottom: 1px solid rgba(255,255,255,.08) !important;
-  }
-
-  /* Report frame findings — scroll horizontal */
-  #findings .report-frame {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    min-height: 0 !important;
-    transform: none !important;
-  }
-
-  #findings .report-sample-scroll {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: 88% !important;
-    grid-template-columns: none !important;
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 12px !important;
-    scroll-snap-type: x mandatory !important;
-    padding-bottom: 12px !important;
-    scrollbar-width: none !important;
-  }
-
-  #findings .report-sample-scroll::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  #findings .report-sample-scroll .finding-card {
-    display: block !important;
-    scroll-snap-align: start !important;
-    padding: 20px !important;
-    min-width: 0 !important;
-  }
-
-  #findings .report-arrow {
-    display: none !important;
-  }
-
-  .finding-card h3 {
-    font-size: 22px !important;
-    line-height: 1.1 !important;
-  }
-
-  .finding-metrics strong {
-    font-size: 22px !important;
-  }
-
-  .finding-clause p,
-  .finding-analysis,
-  .finding-flag p {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
+    grid-template-columns: unset !important;
   }
 
   /* ─── RESULTS ─── */
+
+  /* FIX CRÍTICO: white-space:nowrap no h2 causava overflow de 499px */
   .results-header-v3 h2 {
-    font-size: clamp(26px, 8vw, 38px) !important;
+    font-size: clamp(24px, 7.5vw, 34px) !important;
     line-height: 1.0 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 
   .results-grid-v3 {
@@ -469,7 +633,7 @@ img, video, svg {
   }
 
   .results-grid-v3 strong {
-    font-size: 34px !important;
+    font-size: 30px !important;
     line-height: .9 !important;
     letter-spacing: -.06em !important;
   }
@@ -481,22 +645,51 @@ img, video, svg {
   }
 
   .results-question-v3 {
-    font-size: clamp(17px, 5vw, 22px) !important;
+    font-size: clamp(16px, 5vw, 20px) !important;
     margin-top: 28px !important;
     padding: 0 4px !important;
+    white-space: normal !important;
   }
 
   /* ─── SAMPLE REPORT SECTION ─── */
+
   .sample-report-section {
     padding: 44px 0 !important;
   }
 
+  /* FIX CRÍTICO: O elemento real é .sample-report-lead (grid 2-col), não .sample-report-inner */
+  .sample-report-lead,
+  .sample-strip-v2,
   .sample-report-inner {
     display: flex !important;
     flex-direction: column !important;
-    gap: 32px !important;
+    gap: 28px !important;
+    padding: 28px 20px !important;
+    grid-template-columns: unset !important;
+    width: 100% !important;
   }
 
+  .sample-report-copy h2 {
+    font-size: clamp(26px, 8vw, 36px) !important;
+    line-height: .98 !important;
+    white-space: normal !important;
+  }
+
+  .sample-report-copy p {
+    font-size: 14px !important;
+    margin-top: 12px !important;
+  }
+
+  .sample-action {
+    justify-content: flex-start !important;
+  }
+
+  .sample-action a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Form dentro do sample-report-section (não modal) */
   .sample-report-form {
     width: 100% !important;
     padding: 24px 20px !important;
@@ -505,7 +698,7 @@ img, video, svg {
   .form-field input,
   .form-field select,
   .form-field textarea {
-    font-size: 16px !important; /* Evita zoom iOS */
+    font-size: 16px !important; /* Evita zoom no iOS */
     height: 52px !important;
   }
 
@@ -516,13 +709,35 @@ img, video, svg {
   }
 
   /* ─── COMMERCIAL ANALYSIS TABLE ─── */
+
+  /* FIX: .analysis-header-v3 é grid 2-col não coberto pelo mobile CSS original */
+  .analysis-header-v3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    grid-template-columns: unset !important;
+    margin-bottom: 24px !important;
+  }
+
+  .analysis-header-v3 h2 {
+    font-size: clamp(24px, 7.5vw, 34px) !important;
+    white-space: normal !important;
+  }
+
+  .analysis-header-v3 p {
+    font-size: 14px !important;
+    max-width: 100% !important;
+  }
+
   /* Tabela 3 colunas → cards empilhados */
   .analysis-table,
+  .analysis-table-v4,
   .risk-table-v4 {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
     overflow: visible !important;
+    border-radius: 16px !important;
   }
 
   .analysis-head-v4 {
@@ -532,9 +747,10 @@ img, video, svg {
   .analysis-row-v4 {
     display: flex !important;
     flex-direction: column !important;
-    padding: 16px 0 !important;
+    padding: 16px 20px !important;
     gap: 6px !important;
     border-bottom: 1px solid rgba(28,28,28,.08) !important;
+    grid-template-columns: unset !important;
   }
 
   .analysis-row-v4 strong {
@@ -554,6 +770,7 @@ img, video, svg {
   }
 
   /* ─── SECURITY ─── */
+
   .security-grid,
   .security-cards {
     display: flex !important;
@@ -567,7 +784,7 @@ img, video, svg {
     border-radius: 16px !important;
   }
 
-  .security-card h3 {
+  .security-card strong {
     font-size: 16px !important;
   }
 
@@ -576,32 +793,37 @@ img, video, svg {
   }
 
   /* ─── METHODOLOGY / FOUNDER ─── */
+
   .methodology-section {
     padding: 48px 0 !important;
   }
 
-  /* FIX: Eliminar espaço em branco gigante */
-  .methodology-layout,
-  .methodology-inner {
+  /* FIX CRÍTICO: O mobile CSS original targetava .methodology-layout e .methodology-inner
+     que NÃO EXISTEM no HTML. Os elementos reais são .methodology-frame e .methodology-main.
+     .methodology-main tem grid-template-columns: 285px 1fr — fixo, causa overflow. */
+
+  .methodology-frame {
+    padding: 20px !important;
+    border-radius: 18px !important;
+    overflow: visible !important;
+  }
+
+  .methodology-main {
     display: flex !important;
     flex-direction: column !important;
-    gap: 28px !important;
-    min-height: 0 !important;
-    height: auto !important;
+    gap: 24px !important;
+    grid-template-columns: unset !important;
+    margin-top: 20px !important;
   }
 
-  .methodology-content {
-    order: 2 !important;
-    min-height: 0 !important;
-  }
-
+  /* Foto + info do fundador — layout inline */
   .methodology-founder {
     display: grid !important;
     grid-template-columns: 72px 1fr !important;
     gap: 14px !important;
     align-items: center !important;
-    order: 1 !important;
-    min-height: 0 !important;
+    width: 100% !important;
+    position: static !important; /* remove qualquer positioning herdado */
   }
 
   .methodology-founder img {
@@ -612,7 +834,7 @@ img, video, svg {
   }
 
   .methodology-founder strong {
-    font-size: 17px !important;
+    font-size: 16px !important;
     display: block !important;
   }
 
@@ -620,6 +842,7 @@ img, video, svg {
     font-size: 12px !important;
     display: block !important;
     margin-top: 2px !important;
+    max-width: 100% !important;
   }
 
   .methodology-links {
@@ -627,46 +850,62 @@ img, video, svg {
     gap: 8px !important;
     flex-wrap: wrap !important;
     margin-top: 12px !important;
+    position: static !important; /* contexto para o filho absolute */
   }
 
-  .methodology-links a {
+  /* FIX CRÍTICO: O 2º link tem position:absolute no CSS base — flutuaria fora do layout mobile */
+  .methodology-links a,
+  .methodology-links a:nth-child(2) {
+    position: static !important;
     font-size: 11px !important;
     padding: 8px 12px !important;
+    min-height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .methodology-quote {
-    margin-top: 20px !important;
+    margin-top: 0 !important;
   }
 
   .methodology-quote p {
-    font-size: 17px !important;
-    line-height: 1.35 !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+
+  .methodology-top {
+    width: 100% !important;
   }
 
   /* ─── PLANS & PRICING ─── */
-  .plans-section {
+
+  .plans-section,
+  .pricing-section {
     padding: 52px 0 !important;
   }
 
-  /* "Not sure" prompt card — empilhar */
+  /* "Not sure" prompt card */
   .plan-prompt,
-  .analysis-note {
+  .sample-report-cta {
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
     padding: 20px !important;
     width: 100% !important;
     margin-bottom: 24px !important;
+    align-items: flex-start !important;
   }
 
   .plan-prompt h3,
-  .analysis-note h3 {
-    font-size: 18px !important;
+  .sample-report-cta span {
+    font-size: 17px !important;
     line-height: 1.2 !important;
   }
 
   .plan-prompt .btn,
-  .analysis-note .btn {
+  .sample-report-cta .btn,
+  .sample-report-cta a {
     width: 100% !important;
     text-align: center !important;
     justify-content: center !important;
@@ -676,8 +915,8 @@ img, video, svg {
   .plan-model-grid {
     display: grid !important;
     grid-auto-flow: column !important;
+    grid-template-columns: unset !important; /* FIX: era 'none', precisa 'unset' */
     grid-auto-columns: 85% !important;
-    grid-template-columns: none !important;
     overflow-x: auto !important;
     overscroll-behavior-x: contain !important;
     -webkit-overflow-scrolling: touch !important;
@@ -689,6 +928,7 @@ img, video, svg {
     margin-left: -20px !important;
     margin-right: -20px !important;
     scrollbar-width: none !important;
+    max-width: none !important;
   }
 
   .plan-model-grid::-webkit-scrollbar {
@@ -702,23 +942,32 @@ img, video, svg {
   }
 
   /* Pricing tabs */
+  .pricing-tabs,
   .plan-tabs {
-    gap: 8px !important;
+    gap: 6px !important;
     margin-top: 28px !important;
     margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    border-radius: 16px !important;
   }
 
+  .pricing-tab,
   .plan-tab {
     font-size: 10px !important;
     padding: 10px 14px !important;
+    flex: 1 !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
   }
 
   /* Pricing grid — scroll horizontal */
   .pricing-grid {
     display: grid !important;
     grid-auto-flow: column !important;
+    grid-template-columns: unset !important; /* FIX: era 'none' */
     grid-auto-columns: 85% !important;
-    grid-template-columns: none !important;
     overflow-x: auto !important;
     overscroll-behavior-x: contain !important;
     -webkit-overflow-scrolling: touch !important;
@@ -730,182 +979,8 @@ img, video, svg {
     margin-left: -20px !important;
     margin-right: -20px !important;
     scrollbar-width: none !important;
+    max-width: none !important;
   }
 
-  .pricing-grid::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .pricing-card {
-    scroll-snap-align: start !important;
-    padding: 22px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    min-width: 0 !important;
-  }
-
-  .pricing-panel {
-    display: none !important;
-  }
-
-  .pricing-panel.active {
-    display: block !important;
-  }
-
-  .pricing-card .btn {
-    width: 100% !important;
-    justify-content: center !important;
-    margin-top: auto !important;
-  }
-
-  .pricing-note-line,
-  .enterprise-note {
-    font-size: 13px !important;
-    padding: 0 4px !important;
-    text-align: center !important;
-  }
-
-  /* ─── FAQ ─── */
-  .faq-section {
-    padding: 52px 0 !important;
-  }
-
-  .faq-heading .section-title {
-    font-size: clamp(28px, 8vw, 40px) !important;
-  }
-
-  .faq-stack {
-    margin-top: 24px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .faq-stack details {
-    width: 100% !important;
-    overflow: hidden !important;
-  }
-
-  .faq-stack summary {
-    font-size: 15px !important;
-    line-height: 1.4 !important;
-    padding: 16px 0 !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    cursor: pointer !important;
-    list-style: none !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-  }
-
-  .faq-stack details p,
-  .faq-stack details div {
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-    padding-bottom: 16px !important;
-    word-break: break-word !important;
-  }
-
-  /* ─── FINAL CTA ─── */
-  .final-cta {
-    padding: 56px 0 60px !important;
-    text-align: center !important;
-  }
-
-  .final-cta h2 {
-    font-size: clamp(30px, 9.5vw, 44px) !important;
-    line-height: .98 !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-  }
-
-  .final-cta p {
-    font-size: 15px !important;
-    margin-top: 16px !important;
-  }
-
-  .final-cta .btn {
-    min-height: 52px !important;
-    font-size: 13px !important;
-    padding: 14px 20px !important;
-    max-width: 340px !important;
-    width: 100% !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-    text-align: center !important;
-    justify-content: center !important;
-    margin-top: 24px !important;
-  }
-
-  .tagline {
-    font-size: 9.5px !important;
-    margin-top: 16px !important;
-    letter-spacing: .1em !important;
-  }
-
-  /* ─── FOOTER ─── */
-  .footer {
-    padding: 28px 0 24px !important;
-  }
-
-  .footer-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    align-items: flex-start !important;
-  }
-
-  .footer p,
-  .footer a {
-    font-size: 12.5px !important;
-    line-height: 1.5 !important;
-  }
-
-  .footer-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px 14px !important;
-  }
-
-  /* ─── SAFE AREA (notch / home indicator) ─── */
-  .nav {
-    padding-top: env(safe-area-inset-top) !important;
-  }
-
-  .footer {
-    padding-bottom: max(24px, env(safe-area-inset-bottom)) !important;
-  }
-
-}
-
-/* ─── EXTRA SMALL (< 380px — SE, Galaxy A) ─── */
-@media (max-width: 380px) {
-
-  .hero h1,
-  .hero-title {
-    font-size: clamp(34px, 11vw, 44px) !important;
-  }
-
-  h2,
-  .section-title {
-    font-size: clamp(24px, 8.5vw, 34px) !important;
-  }
-
-  .proof-grid,
-  .pricing-grid,
-  .plan-model-grid,
-  #findings .report-sample-scroll {
-    grid-auto-columns: 90% !important;
-  }
-
-  .results-grid-v3 {
-    grid-template-columns: 1fr !important;
-  }
-
-  .container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-}
+  /* FIX: .pricing-grid.active é a seleção no CSS base mas no mobile queremos
+     ambos os estados com o mesmo comportamento de grid
