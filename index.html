@@ -1080,76 +1080,30 @@
     </div>
   </footer>
 
-  <script src="/nav.js"></script>
-
-  <script>
-    const pricingTabs = document.querySelectorAll(".pricing-tab");
-    const monthlyPanel = document.getElementById("monthly-panel");
-    const setupPanel = document.getElementById("setup-panel");
-
-    pricingTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        pricingTabs.forEach((item) => item.classList.remove("active"));
-        tab.classList.add("active");
-
-        if (tab.dataset.tab === "monthly") {
-          monthlyPanel.classList.add("active");
-          setupPanel.classList.remove("active");
-        } else {
-          setupPanel.classList.add("active");
-          monthlyPanel.classList.remove("active");
-        }
-      });
-    });
-
-    const planTabs = document.querySelectorAll(".plan-tab");
-    const monthlyPlan = document.getElementById("monthly-plan");
-    const setupPlan = document.getElementById("setup-plan");
-
-    planTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        planTabs.forEach((item) => item.classList.remove("active"));
-        tab.classList.add("active");
-
-        if (tab.dataset.plan === "monthly") {
-          monthlyPlan.classList.add("active");
-          setupPlan.classList.remove("active");
-        } else {
-          setupPlan.classList.add("active");
-          monthlyPlan.classList.remove("active");
-        }
-      });
-    });
-  <script>
-
-    <!-- SAMPLE REPORT MODAL -->
-
+  <!-- SAMPLE REPORT MODAL -->
 <div class="sample-modal" id="sampleModal">
   <div class="sample-modal-overlay"></div>
 
   <div class="sample-modal-card">
-    <button class="sample-modal-close" id="sampleModalClose">
+    <button class="sample-modal-close" id="sampleModalClose" type="button">
       ×
     </button>
 
     <div class="sample-modal-content">
-      <span class="sample-modal-eyebrow">
-        SAMPLE REPORT
-      </span>
+      <span class="sample-modal-eyebrow">Sample report</span>
 
-      <h3>
-        See the report before you submit your agreements.
-      </h3>
+      <h3>See the report before you submit your agreements.</h3>
 
       <p>
-        Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure, pricing escalations, notice windows, and prioritized commercial findings.
+        Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure,
+        pricing escalations, notice windows, and prioritized commercial findings.
       </p>
 
       <form id="sampleLeadForm">
         <div class="sample-field">
-          <label>Work email</label>
-
+          <label for="sampleEmail">Work email</label>
           <input
+            id="sampleEmail"
             type="email"
             name="email"
             placeholder="name@company.com"
@@ -1158,9 +1112,9 @@
         </div>
 
         <div class="sample-field">
-          <label>Company name</label>
-
+          <label for="sampleCompany">Company name</label>
           <input
+            id="sampleCompany"
             type="text"
             name="company"
             placeholder="Company name"
@@ -1179,13 +1133,10 @@
 
       <div class="sample-success" id="sampleSuccess">
         <strong>Sample report sent.</strong>
-
-        <p>
-          Check your inbox.
-        </p>
+        <p>Check your inbox.</p>
       </div>
     </div>
   </div>
 </div>
-</body>
+  </body>
 </html>
