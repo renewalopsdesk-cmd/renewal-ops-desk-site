@@ -5115,3 +5115,136 @@ details {
   font-size: 11px;
   line-height: 1.35;
 }
+
+   /* SAMPLE MODAL */
+
+.sample-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .22s ease;
+}
+
+.sample-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sample-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.68);
+  backdrop-filter: blur(10px);
+}
+
+.sample-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 32px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 30px 100px rgba(0,0,0,.4);
+}
+
+.sample-modal-content {
+  padding: 38px;
+}
+
+.sample-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.sample-modal-eyebrow {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,.72);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sample-modal-content h3 {
+  max-width: 420px;
+  color: #fff;
+  font-size: clamp(34px,4vw,54px);
+  line-height: .94;
+  letter-spacing: -.06em;
+}
+
+.sample-modal-content p {
+  margin-top: 18px;
+  color: rgba(255,255,255,.68);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.sample-field {
+  margin-top: 18px;
+}
+
+.sample-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,.58);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sample-field input {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+}
+
+.sample-submit-btn {
+  width: 100%;
+  margin-top: 22px;
+  justify-content: center;
+}
+
+.sample-modal-note {
+  display: block;
+  margin-top: 14px;
+  color: rgba(255,255,255,.42);
+  text-align: center;
+  font-size: 12px;
+}
+
+.sample-success {
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  color: #fff;
+}
+
+.sample-success.active {
+  display: block;
+}
