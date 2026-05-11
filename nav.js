@@ -111,33 +111,45 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+/* SAMPLE REPORT MODAL */
+const sampleModal = document.getElementById("sampleModal");
+const modalClose = document.querySelector(".sample-modal-close");
+const modalBackdrop = document.querySelector(".sample-modal-backdrop");
 
-  /* SAMPLE REPORT MODAL */
-  const sampleModal = document.getElementById("sampleModal");
-  const modalTriggers = document.querySelectorAll(".sample-modal-trigger");
-  const modalClose = document.querySelector(".sample-modal-close");
-  const modalBackdrop = document.querySelector(".sample-modal-backdrop");
+function openSampleModal(event) {
+  if (event) event.preventDefault();
 
-  if (sampleModal && modalTriggers.length && modalClose && modalBackdrop) {
-    modalTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        sampleModal.classList.add("active");
-        document.body.classList.add("modal-open");
-      });
-    });
+  if (!sampleModal) return;
 
-    function closeSampleModal() {
-      sampleModal.classList.remove("active");
-      document.body.classList.remove("modal-open");
-    }
+  sampleModal.classList.add("active");
+  document.body.classList.add("modal-open");
+}
 
-    modalClose.addEventListener("click", closeSampleModal);
-    modalBackdrop.addEventListener("click", closeSampleModal);
+function closeSampleModal() {
+  if (!sampleModal) return;
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && sampleModal.classList.contains("active")) {
-        closeSampleModal();
-      }
-    });
+  sampleModal.classList.remove("active");
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest(".sample-modal-trigger");
+
+  if (trigger) {
+    openSampleModal(event);
+  }
+});
+
+if (modalClose) {
+  modalClose.addEventListener("click", closeSampleModal);
+}
+
+if (modalBackdrop) {
+  modalBackdrop.addEventListener("click", closeSampleModal);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeSampleModal();
   }
 });
