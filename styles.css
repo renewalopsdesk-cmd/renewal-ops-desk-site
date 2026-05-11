@@ -4540,7 +4540,7 @@ details {
 
 .pricing-card {
   min-height: 500px;
-  padding: 30px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
