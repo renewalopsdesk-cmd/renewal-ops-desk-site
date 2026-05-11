@@ -4960,3 +4960,104 @@ details {
     font-size: 15px;
   }
 }
+
+/* PROOF / TESTIMONIALS */
+
+.proof-section {
+  position: relative;
+}
+
+.proof-grid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.proof-card {
+  padding: 28px;
+  border: 1px solid var(--line-light);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 18px 55px rgba(0,0,0,.04);
+}
+
+.proof-amount {
+  margin-bottom: 22px;
+  color: var(--ink-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.proof-card blockquote {
+  margin: 0;
+  color: var(--ink-light);
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: -.02em;
+}
+
+.proof-meta {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-light);
+  color: var(--muted-light);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* AGGREGATE STATS */
+
+.proof-stats {
+  margin-top: 28px;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  border: 1px solid var(--line-light);
+  border-radius: 28px;
+  background: #f8f8f8;
+}
+
+.proof-stat strong {
+  display: block;
+  color: var(--ink-light);
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.proof-stat span {
+  display: block;
+  margin-top: 8px;
+  max-width: 220px;
+  color: var(--muted-light);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .proof-grid,
+  .proof-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .proof-card blockquote {
+    font-size: 16px;
+  }
+
+  .proof-stats {
+    padding: 22px;
+    border-radius: 24px;
+  }
+}
