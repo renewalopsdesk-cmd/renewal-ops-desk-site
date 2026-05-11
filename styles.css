@@ -4590,36 +4590,49 @@ details {
   text-transform: uppercase;
 }
 
-/* PAYMENT BREAKDOWN */
+/* FIRST PAYMENT NOTE */
 
-.payment-breakdown {
-  margin-top: 20px;
-  display: grid;
-  gap: 8px;
-}
-
-.payment-breakdown p {
-  margin: 0;
-  padding: 12px 14px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  border: 1px solid var(--line-light);
-  border-radius: 14px;
-  background: #f8f8f8;
+.first-payment-note {
+  margin: 14px 0 0;
+  max-width: 360px;
   color: var(--muted-light);
   font-size: 13px;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 
-.payment-breakdown b {
+/* AFTER PAYMENT */
+
+.after-payment-box {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid var(--line-light);
+  border-radius: 18px;
+  background: #f8f8f8;
+}
+
+.after-payment-box small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.after-payment-box b {
+  display: block;
   color: var(--ink-light);
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -.04em;
 }
 
 /* ANNUAL */
 
 .annual-link {
-  display: block;
+  display: inline-flex;
   margin-top: 14px;
   color: var(--ink-light);
   font-size: 13px;
