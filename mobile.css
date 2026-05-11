@@ -1361,3 +1361,276 @@ svg {
     color: #101010 !important;
   }
 }
+
+/* =========================================================
+   RENEWAL OPS DESK — PRICING MOBILE.CSS
+   Save as /pricing-mobile.css
+   Loaded after /mobile.css on the pricing page only.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  body {
+    background: #f6f6f3;
+  }
+
+  .pricing-private-hero {
+    padding: calc(64px + env(safe-area-inset-top, 0px) + 46px) 0 52px;
+    text-align: left;
+  }
+
+  .pricing-private-hero h1 {
+    font-size: clamp(40px, 12vw, 56px);
+    line-height: .9;
+    letter-spacing: -.07em;
+    max-width: 100%;
+  }
+
+  .pricing-private-hero p {
+    margin-top: 22px;
+    font-size: 16px;
+    line-height: 1.48;
+    max-width: 100%;
+  }
+
+  .pricing-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .pricing-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 50px;
+    font-size: 13px;
+  }
+
+  .pricing-hero-note {
+    margin-top: 22px;
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  .pricing-section-private {
+    padding: 52px 0;
+    overflow-x: clip;
+  }
+
+  .pricing-section-private.dark {
+    padding: 54px 0;
+  }
+
+  .private-section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .private-section-head h2 {
+    font-size: clamp(30px, 9vw, 42px);
+    line-height: .96;
+    letter-spacing: -.06em;
+  }
+
+  .private-section-head p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .plan-explainer-grid,
+  .decision-strip,
+  .timeline-grid,
+  .sample-cta-private,
+  .pricing-final .final-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .explainer-card,
+  .private-pricing-card,
+  .timeline-step,
+  .decision-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .explainer-card h3 {
+    font-size: 28px;
+  }
+
+  .explainer-card p,
+  .explainer-card li {
+    font-size: 13px;
+  }
+
+  .decision-strip {
+    margin-top: 24px;
+  }
+
+  .decision-card strong {
+    font-size: 18px;
+  }
+
+  .decision-card p {
+    font-size: 12.5px;
+  }
+
+  .pricing-card-grid {
+    display: grid;
+    grid-template-columns: 85% 85% 85%;
+    grid-auto-flow: column;
+    grid-auto-columns: 85%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding: 0 20px 16px;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    max-width: none;
+    scrollbar-width: none;
+  }
+
+  .pricing-card-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .private-pricing-card {
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  .private-pricing-card h3 {
+    font-size: 25px;
+  }
+
+  .plan-volume,
+  .pricing-note-small {
+    font-size: 12.5px;
+  }
+
+  .main-price {
+    margin-top: 22px;
+  }
+
+  .main-price strong {
+    font-size: clamp(40px, 12vw, 52px);
+  }
+
+  .annual-link {
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .annual-link strong {
+    font-size: 15px;
+  }
+
+  .plan-includes {
+    margin-top: 18px;
+    gap: 9px;
+  }
+
+  .plan-includes li {
+    font-size: 12.5px;
+  }
+
+  .payment-info-box {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 18px;
+    font-size: 13px;
+  }
+
+  .timeline-step strong {
+    font-size: 17px;
+  }
+
+  .timeline-step p {
+    font-size: 12.5px;
+  }
+
+  .included-grid-private {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .included-grid-private span {
+    padding: 12px 10px;
+    font-size: 11px;
+    line-height: 1.25;
+    border-radius: 16px;
+  }
+
+  .sample-cta-private {
+    padding: 24px;
+    border-radius: 24px;
+    gap: 18px;
+  }
+
+  .sample-cta-private h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .sample-cta-private p {
+    font-size: 14px;
+  }
+
+  .sample-cta-private .btn,
+  .pricing-final .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 50px;
+  }
+
+  .pricing-faq {
+    max-width: 100%;
+  }
+
+  .pricing-faq details {
+    padding: 18px 0;
+  }
+
+  .pricing-faq summary {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .pricing-faq p {
+    font-size: 13px;
+  }
+
+  .pricing-final {
+    padding: 58px 0 64px;
+  }
+
+  .pricing-final h2 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .pricing-final p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 390px) {
+  .pricing-card-grid {
+    grid-template-columns: 88% 88% 88%;
+    grid-auto-columns: 88%;
+  }
+
+  .main-price strong {
+    font-size: 38px;
+  }
+
+  .included-grid-private {
+    grid-template-columns: 1fr;
+  }
+}
+
