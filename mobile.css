@@ -1,10 +1,13 @@
 /* =========================================================
-   MOBILE REDESIGN V4 — ROD — PRODUCTION READY
-   Corrigido com base em auditoria do DOM ao vivo
+   RENEWAL OPS DESK — MOBILE.CSS — PRODUCTION
+   Mobile-first override system.
+   Substitui completamente o mobile.css anterior.
+   Estratégia: min-width para cima (mobile-first base)
+   com overrides @media (max-width) apenas onde necessário
+   para não interferir com valores desktop.
    ========================================================= */
 
-/* ─── RESET FOUNDATION ─── */
-
+/* ─── FOUNDATION RESET (sem media query — aplica em tudo) ─── */
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -15,972 +18,1226 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  max-width: 100%;
 }
 
-img, video, svg {
+img,
+video,
+svg {
   max-width: 100%;
   height: auto;
 }
 
-/* ========================================================
-   BREAKPOINT PRINCIPAL — ≤768px
-   ======================================================== */
+/* =========================================================
+   BREAKPOINT PRINCIPAL — até 768px
+   ========================================================= */
 @media (max-width: 768px) {
 
-  /* ─── GLOBAL ─── */
+  /* ─── GLOBAL LAYOUT ─── */
 
   .section,
   .section.light,
   .section.dark {
-    padding-top: 52px !important;
-    padding-bottom: 52px !important;
-    /* FIX: overflow-x: hidden corta os scroll-grids horizontais.
-       Precisa ser visible para que os grids com margin negativa funcionem.
-       O body já tem overflow-x: hidden que contém o resultado final. */
-    overflow-x: visible !important;
+    padding-top: 52px;
+    padding-bottom: 52px;
+    overflow-x: clip; /* clip permite scroll interno sem vazar pro body */
   }
 
   .container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    max-width: 100%;
   }
 
-  /* Tipografia base */
+  /* ─── TIPOGRAFIA GLOBAL ─── */
+
   h1, h2, h3, h4, h5, h6 {
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
-    white-space: normal !important; /* FIX: desfaz white-space:nowrap do desktop */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   h2,
   .section-title {
-    font-size: clamp(26px, 8vw, 38px) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -.04em !important;
-    white-space: normal !important;
+    font-size: clamp(26px, 8vw, 38px);
+    line-height: 1.05;
+    letter-spacing: -.04em;
+    white-space: normal;
   }
 
   h3 {
-    font-size: clamp(17px, 5vw, 22px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(17px, 5vw, 22px);
+    line-height: 1.15;
   }
 
-  p,
-  li,
-  .section-lead {
-    font-size: 15px !important;
-    line-height: 1.55 !important;
+  p, li, .section-lead {
+    font-size: 15px;
+    line-height: 1.55;
   }
 
   .eyebrow,
   .badge {
-    font-size: 9px !important;
-    padding: 6px 10px !important;
-    letter-spacing: .08em !important;
+    font-size: 9px;
+    padding: 6px 10px;
+    letter-spacing: .08em;
   }
 
-  /* FIX: white-space:nowrap no .testimonial-footnote causa overflow */
   .testimonial-footnote {
-    white-space: normal !important;
-    text-align: center !important;
-    font-size: 12px !important;
+    white-space: normal;
+    text-align: center;
+    font-size: 12px;
   }
 
-  /* Botões — toque mínimo 44px (Apple HIG + Android) */
+  /* Toque mínimo 44px (Apple HIG) */
   .btn,
   a.btn,
   button {
-    min-height: 48px !important;
-    min-width: 44px !important;
-    touch-action: manipulation !important;
-    -webkit-tap-highlight-color: transparent !important;
+    min-height: 48px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* ─── NAV ─── */
-  /* FIX: O mobile-menu-toggle está display:none no base CSS sem override.
-     FIX: O nav-desktop-cta precisa sumir no mobile. */
 
   .nav {
-    height: 64px !important;
-    min-height: 64px !important;
-    /* FIX: safe-area deve ser adicionada ao padding existente, não substituí-lo */
-    padding: max(env(safe-area-inset-top, 0px), 0px) 20px 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    background: #101010 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: 0 1px 0 rgba(255,255,255,.08) !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 1000 !important;
-    /* FIX: altura total = 64px + safe-area */
-    height: calc(64px + env(safe-area-inset-top, 0px)) !important;
+    height: calc(64px + env(safe-area-inset-top, 0px));
+    min-height: 64px;
+    padding: env(safe-area-inset-top, 0px) 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #101010;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 1px 0 rgba(255,255,255,.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
   }
 
-  /* FIX CRÍTICO: Mostrar hamburguer no mobile */
+  /* ── Hamburguer — mostrar ── */
   .mobile-menu-toggle {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 5px !important;
-    width: 44px !important;
-    height: 44px !important;
-    border: none !important;
-    background: transparent !important;
-    cursor: pointer !important;
-    padding: 8px !important;
-    flex-shrink: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 8px;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* Hamburguer lines — caso o botão use spans internos */
   .mobile-menu-toggle span {
-    display: block !important;
-    width: 22px !important;
-    height: 2px !important;
-    background: #fff !important;
-    border-radius: 2px !important;
-    transition: transform 0.25s ease, opacity 0.2s ease !important;
-    max-width: none !important;
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
+    max-width: none;
   }
 
-  /* FIX CRÍTICO: Esconder CTA desktop no mobile */
+  /* Animação X quando aberto */
+  .nav.nav-open .mobile-menu-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav.nav-open .mobile-menu-toggle span:nth-child(2) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Esconder CTA desktop ── */
   .nav-desktop-cta {
-    display: none !important;
+    display: none;
   }
 
-  /* FIX: nav-links como drawer mobile */
+  /* ── nav-links: drawer mobile ──
+     FIX CRÍTICO: O JS adiciona .nav-open ao .nav (não .open ao .nav-links).
+     A regra correta é: .nav.nav-open .nav-links { display: flex }
+  */
   .nav-links {
-    position: fixed !important;
-    top: calc(64px + env(safe-area-inset-top, 0px)) !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    height: calc(100dvh - 64px - env(safe-area-inset-top, 0px)) !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding: 32px 24px !important;
-    background: #101010 !important;
-    gap: 0 !important;
-    overflow-y: auto !important;
-    display: none !important;
-    z-index: 999 !important;
+    position: fixed;
+    top: calc(64px + env(safe-area-inset-top, 0px));
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100dvh - 64px - env(safe-area-inset-top, 0px));
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 32px 24px;
+    background: #101010;
+    gap: 0;
+    overflow-y: auto;
+    display: none; /* escondido por padrão */
+    z-index: 999;
   }
 
-  .nav-links.open {
-    display: flex !important;
+  /* Abre com a classe que o JS realmente adiciona (.nav-open no .nav) */
+  .nav.nav-open .nav-links {
+    display: flex;
   }
 
   .nav-links a {
-    font-size: 18px !important;
-    font-weight: 600 !important;
-    padding: 16px 0 !important;
-    width: 100% !important;
-    border-bottom: 1px solid rgba(255,255,255,.06) !important;
-    color: rgba(255,255,255,.88) !important;
-    letter-spacing: -.02em !important;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    color: rgba(255,255,255,.88);
+    letter-spacing: -.02em;
   }
 
-  /* CTA dentro do drawer mobile */
-  .nav-cta {
-    margin-top: 24px !important;
-    width: 100% !important;
+  /* CTA dentro do drawer */
+  .mobile-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 20px;
+    border-radius: 999px;
+    background: #fff;
+    color: #101010;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -.01em;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .nav-cta .btn {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-
+  /* Body lock quando menu aberto */
   body.menu-open {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
 
   /* ─── HERO ─── */
 
   .hero {
-    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 36px) !important;
-    padding-bottom: 52px !important;
-    overflow: hidden !important;
+    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 36px);
+    padding-bottom: 52px;
+    overflow: hidden;
   }
 
-  /* FIX: min-height: 560px do desktop cria espaço vazio desnecessário */
   .hero-centered {
-    text-align: center !important;
-    align-items: center !important;
-    min-height: 0 !important;
+    text-align: center;
+    align-items: center;
+    min-height: 0;
   }
 
   .hero h1,
   .hero-title {
-    font-size: clamp(38px, 11.5vw, 58px) !important;
-    line-height: .94 !important;
-    letter-spacing: -.05em !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    word-break: break-word !important;
-    white-space: normal !important;
+    font-size: clamp(38px, 11.5vw, 58px);
+    line-height: .94;
+    letter-spacing: -.05em;
+    max-width: 100%;
+    width: 100%;
+    word-break: break-word;
+    white-space: normal;
   }
 
   .hero-subheadline {
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-    max-width: 100% !important;
-    margin-top: 20px !important;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 100%;
+    margin-top: 20px;
   }
 
   .hero-actions {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-    margin-top: 28px !important;
-    width: 100% !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    width: 100%;
   }
 
   .hero-actions .btn {
-    width: 100% !important;
-    max-width: 320px !important;
-    justify-content: center !important;
-    font-size: 14px !important;
-    padding: 14px 20px !important;
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    font-size: 14px;
+    padding: 14px 20px;
   }
 
   .secondary-line {
-    font-size: 13px !important;
-    max-width: 100% !important;
-    margin-top: 24px !important;
-    text-align: center !important;
-    /* FIX: reseta o transform que pode cortar texto em viewports pequenas */
-    transform: none !important;
+    font-size: 13px;
+    max-width: 100%;
+    margin-top: 24px;
+    text-align: center;
+    transform: none;
   }
 
   .hero-metrics-line {
-    font-size: 9px !important;
-    max-width: 100% !important;
-    text-align: center !important;
-    margin-top: 16px !important;
-    /* FIX: reseta transform */
-    transform: none !important;
+    font-size: 9px;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    transform: none;
   }
 
-  /* Círculo decorativo — esconder no mobile */
+  /* Círculo decorativo — ocultar */
   .hero::after {
-    display: none !important;
+    display: none;
   }
 
   /* ─── ABOUT ─── */
 
   .about-compact {
-    padding: 48px 0 !important;
+    padding: 48px 0;
   }
 
   .compact-intro {
-    text-align: center !important;
-    margin-bottom: 28px !important;
+    text-align: center;
+    margin-bottom: 28px;
   }
 
   .compact-intro h2 {
-    font-size: clamp(24px, 7.5vw, 34px) !important;
-    line-height: 1.05 !important;
+    font-size: clamp(24px, 7.5vw, 34px);
+    line-height: 1.05;
   }
 
   .compact-intro p {
-    font-size: 15px !important;
-    margin-top: 12px !important;
+    font-size: 15px;
+    margin-top: 12px;
   }
 
-  /* Cards about — coluna única */
   .about-service-cards {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    overflow: visible !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: visible;
+    width: 100%;
   }
 
   .about-service-card {
-    width: 100% !important;
-    min-width: 0 !important;
-    padding: 18px 20px !important;
-    border-radius: 16px !important;
-    scroll-snap-align: none !important;
+    width: 100%;
+    min-width: 0;
+    padding: 18px 20px;
+    border-radius: 16px;
   }
 
   .about-service-card h3 {
-    font-size: 15px !important;
-    margin-bottom: 6px !important;
-    line-height: 1.2 !important;
+    font-size: 15px;
+    margin-bottom: 6px;
+    line-height: 1.2;
   }
 
   .about-service-card p {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
-  /* ─── PROOF / TESTIMONIALS — scroll horizontal ─── */
-
-  /* FIX CRÍTICO: A seção pai tinha overflow-x: hidden que cortava o scroll.
-     Isso é corrigido acima no .section.light override.
-     Abaixo, garantimos o scroll funciona com os valores corretos. */
+  /* ─── PROOF / TESTIMONIALS ─── */
+  /*
+     FIX CRÍTICO: grid-template-columns do desktop (repeat(3,1fr))
+     sobrepõe grid-auto-columns. É preciso forçar
+     grid-template-columns para um único valor de coluna
+     OU usar grid-template-columns: none + grid-auto-flow: column.
+     A solução correta: zerar grid-template-columns explicitamente.
+  */
 
   .proof-section {
-    overflow-x: visible !important; /* reforço explícito */
+    overflow-x: clip;
   }
 
   .proof-grid {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    /* FIX: 'none' não limpa o valor computado — usar 'unset' ou valor explícito */
-    grid-template-columns: unset !important;
-    grid-auto-columns: 82% !important;
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 12px !important;
-    scroll-snap-type: x mandatory !important;
-    padding-bottom: 16px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin-left: -20px !important;
-    margin-right: -20px !important;
-    /* Oculta scrollbar mas mantém funcional */
-    scrollbar-width: none !important;
-    max-width: none !important; /* remove o max-width que * { max-width:100% } aplica */
+    display: grid;
+    grid-template-columns: 82% 82% 82%; /* força 3 colunas explícitas em 82% */
+    grid-auto-columns: 82%;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    scrollbar-width: none;
+    max-width: none;
+    width: calc(100% + 40px);
   }
 
   .proof-grid::-webkit-scrollbar {
-    display: none !important;
+    display: none;
   }
 
   .proof-grid > * {
-    scroll-snap-align: start !important;
-    min-width: 0 !important;
+    scroll-snap-align: start;
+    min-width: 0;
   }
 
   .proof-card {
-    padding: 20px !important;
-    border-radius: 20px !important;
-    min-width: 0 !important;
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 0;
   }
 
   .proof-card blockquote {
-    font-size: 15px !important;
-    line-height: 1.48 !important;
+    font-size: 15px;
+    line-height: 1.48;
   }
 
   .proof-amount,
   .proof-meta {
-    font-size: 11px !important;
+    font-size: 11px;
   }
 
   .proof-stats {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-    padding: 14px !important;
-    margin-top: 20px !important;
-    width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 14px;
+    margin-top: 20px;
+    width: 100%;
   }
 
   .proof-stat {
-    text-align: center !important;
-    padding: 0 !important;
+    text-align: center;
+    padding: 0;
   }
 
   .proof-stat strong {
-    font-size: 20px !important;
-    display: block !important;
+    font-size: 20px;
+    display: block;
   }
 
   .proof-stat span {
-    font-size: 9.5px !important;
-    line-height: 1.3 !important;
-    display: block !important;
-    margin-top: 4px !important;
+    font-size: 9.5px;
+    line-height: 1.3;
+    display: block;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* ─── WHY SECTION ─── */
 
-  /* FIX: .why-section .split é um grid 2 colunas não coberto pelo mobile CSS */
   .why-section .split,
   .split {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .why-section .section-title {
-    font-size: clamp(26px, 8vw, 36px) !important;
-    max-width: 100% !important;
+    font-size: clamp(26px, 8vw, 36px);
+    max-width: 100%;
   }
 
   .why-section .statement-card p {
-    font-size: 15px !important;
-    line-height: 1.55 !important;
+    font-size: 15px;
+    line-height: 1.55;
   }
 
   /* ─── FIT ─── */
 
-  /* FIX: O HTML usa .grid-2 para os fit cards, não .fit-grid */
   .fit-grid,
   #fit .grid-2 {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    margin-top: 28px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
   }
 
   .fit-card {
-    width: 100% !important;
-    padding: 20px !important;
-    border-radius: 18px !important;
+    width: 100%;
+    padding: 20px;
+    border-radius: 18px;
   }
 
   #fit .fit-card h3 {
-    font-size: 19px !important;
-    margin-bottom: 14px !important;
-    letter-spacing: -.03em !important;
+    font-size: 19px;
+    margin-bottom: 14px;
+    letter-spacing: -.03em;
   }
 
   #fit .fit-list li {
-    font-size: 14px !important;
-    line-height: 1.5 !important;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   /* ─── FINDINGS (what-we-find) ─── */
 
   .compact-section {
-    padding-top: 48px !important;
-    padding-bottom: 52px !important;
+    padding-top: 48px;
+    padding-bottom: 52px;
   }
 
-  /* FIX CRÍTICO: O .what-find-layout é um grid 2-col que comprime o report-frame a ~34px.
-     Precisa ser resetado para coluna única ANTES de fixar o report-frame. */
   #findings .what-find-layout,
   #findings .what-find-layout.refined {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 28px !important;
-    grid-template-columns: unset !important;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    grid-template-columns: unset;
   }
 
   #findings .what-find-left {
-    max-width: 100% !important;
-    width: 100% !important;
+    max-width: 100%;
+    width: 100%;
   }
 
-  /* Risk mini table — manter visível e responsivo */
   #findings .risk-mini-table {
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
   }
 
   #findings .risk-mini-row {
-    display: grid !important;
-    grid-template-columns: 80px 1fr !important;
-    column-gap: 12px !important;
-    row-gap: 4px !important;
-    padding: 10px 0 !important;
-    width: 100% !important;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    column-gap: 12px;
+    row-gap: 4px;
+    padding: 10px 0;
+    width: 100%;
   }
 
   #findings .risk-mini-row .risk-label {
-    grid-row: span 2 !important;
-    align-self: center !important;
+    grid-row: span 2;
+    align-self: center;
   }
 
   #findings .risk-mini-row strong {
-    font-size: 13px !important;
+    font-size: 13px;
   }
 
   #findings .risk-mini-row p {
-    font-size: 11px !important;
-    line-height: 1.35 !important;
+    font-size: 11px;
+    line-height: 1.35;
   }
 
   /* FIX CRÍTICO: report-frame tinha width/min-width: 560px fixos */
   #findings .report-frame {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    min-height: 0 !important;
-    transform: none !important;
-    border-radius: 20px !important;
-    padding: 0 !important;
-    overflow: visible !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    transform: none;
+    border-radius: 20px;
+    padding: 0;
+    overflow: clip;
+    justify-self: unset;
   }
 
-  /* Scroll horizontal para os finding cards */
   #findings .report-sample-scroll {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-template-columns: unset !important;
-    grid-auto-columns: 88% !important;
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 12px !important;
-    scroll-snap-type: x mandatory !important;
-    padding: 4px 4px 16px !important;
-    scrollbar-width: none !important;
-    width: 100% !important;
-    height: auto !important;
+    display: grid;
+    grid-template-columns: 88% 88% 88% 88%; /* 4 cards explícitos */
+    grid-auto-columns: 88%;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 16px;
+    scrollbar-width: none;
+    width: 100%;
+    height: auto;
   }
 
   #findings .report-sample-scroll::-webkit-scrollbar {
-    display: none !important;
+    display: none;
   }
 
   #findings .report-sample-scroll .finding-card {
-    display: block !important;
-    scroll-snap-align: start !important;
-    padding: 20px !important;
-    min-width: 0 !important;
-    /* FIX: flex: 0 0 100% do desktop força largura — reset */
-    flex: none !important;
-    width: auto !important;
-    min-height: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-    border-radius: 18px !important;
-    border: 1px solid rgba(28,28,28,.10) !important;
-    background: #fff !important;
+    display: block;
+    scroll-snap-align: start;
+    padding: 20px;
+    min-width: 0;
+    flex: none;
+    width: auto;
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+    border-radius: 18px;
+    border: 1px solid rgba(28,28,28,.10);
+    background: #fff;
   }
 
-  /* Esconder botões prev/next — substituídos pelo swipe */
+  /* Esconder prev/next — substituídos por swipe */
   #findings .report-arrow {
-    display: none !important;
+    display: none;
   }
 
   #findings .what-find-footnote {
-    font-size: 12px !important;
-    margin-top: 24px !important;
-    text-align: center !important;
+    font-size: 12px;
+    margin-top: 24px;
+    text-align: center;
   }
 
   .finding-card h3 {
-    font-size: 22px !important;
-    line-height: 1.1 !important;
+    font-size: 22px;
+    line-height: 1.1;
   }
 
   .finding-metrics {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
   .finding-metrics strong {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .finding-clause p,
   .finding-analysis,
   .finding-flag p {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
-  /* Risk table (seção separada se existir) */
   .risk-table {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
   }
 
   .risk-row {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 16px 0 !important;
-    gap: 6px !important;
-    border-bottom: 1px solid rgba(255,255,255,.08) !important;
-    grid-template-columns: unset !important;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    gap: 6px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    grid-template-columns: unset;
   }
 
   /* ─── RESULTS ─── */
 
-  /* FIX CRÍTICO: white-space:nowrap no h2 causava overflow de 499px */
+  /* FIX CRÍTICO: white-space:nowrap no h2 causava overflow de ~499px */
   .results-header-v3 h2 {
-    font-size: clamp(24px, 7.5vw, 34px) !important;
-    line-height: 1.0 !important;
-    white-space: normal !important;
-    word-break: break-word !important;
+    font-size: clamp(24px, 7.5vw, 34px);
+    line-height: 1.0;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .results-grid-v3 {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-    margin-top: 28px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 28px;
   }
 
   .results-grid-v3 article {
-    padding: 18px !important;
-    border-radius: 16px !important;
+    padding: 18px;
+    border-radius: 16px;
   }
 
   .results-grid-v3 strong {
-    font-size: 30px !important;
-    line-height: .9 !important;
-    letter-spacing: -.06em !important;
+    font-size: 30px;
+    line-height: .9;
+    letter-spacing: -.06em;
   }
 
   .results-grid-v3 span {
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    margin-top: 10px !important;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 10px;
   }
 
   .results-question-v3 {
-    font-size: clamp(16px, 5vw, 20px) !important;
-    margin-top: 28px !important;
-    padding: 0 4px !important;
-    white-space: normal !important;
+    font-size: clamp(16px, 5vw, 20px);
+    margin-top: 28px;
+    padding: 0 4px;
+    white-space: normal;
   }
 
   /* ─── SAMPLE REPORT SECTION ─── */
 
   .sample-report-section {
-    padding: 44px 0 !important;
+    padding: 44px 0;
   }
 
-  /* FIX CRÍTICO: O elemento real é .sample-report-lead (grid 2-col), não .sample-report-inner */
   .sample-report-lead,
   .sample-strip-v2,
   .sample-report-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 28px !important;
-    padding: 28px 20px !important;
-    grid-template-columns: unset !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 28px 20px;
+    grid-template-columns: unset;
+    width: 100%;
   }
 
   .sample-report-copy h2 {
-    font-size: clamp(26px, 8vw, 36px) !important;
-    line-height: .98 !important;
-    white-space: normal !important;
+    font-size: clamp(26px, 8vw, 36px);
+    line-height: .98;
+    white-space: normal;
   }
 
   .sample-report-copy p {
-    font-size: 14px !important;
-    margin-top: 12px !important;
+    font-size: 14px;
+    margin-top: 12px;
   }
 
   .sample-action {
-    justify-content: flex-start !important;
+    justify-content: flex-start;
   }
 
   .sample-action a {
-    width: 100% !important;
-    justify-content: center !important;
+    width: 100%;
+    justify-content: center;
   }
 
-  /* Form dentro do sample-report-section (não modal) */
   .sample-report-form {
-    width: 100% !important;
-    padding: 24px 20px !important;
+    width: 100%;
+    padding: 24px 20px;
   }
 
+  /* Evita zoom automático no iOS (inputs < 16px trigam zoom) */
   .form-field input,
   .form-field select,
   .form-field textarea {
-    font-size: 16px !important; /* Evita zoom no iOS */
-    height: 52px !important;
+    font-size: 16px;
+    height: 52px;
   }
 
   .sample-form-btn {
-    width: 100% !important;
-    height: 52px !important;
-    font-size: 14px !important;
+    width: 100%;
+    height: 52px;
+    font-size: 14px;
   }
 
   /* ─── COMMERCIAL ANALYSIS TABLE ─── */
 
-  /* FIX: .analysis-header-v3 é grid 2-col não coberto pelo mobile CSS original */
   .analysis-header-v3 {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    grid-template-columns: unset !important;
-    margin-bottom: 24px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    grid-template-columns: unset;
+    margin-bottom: 24px;
   }
 
   .analysis-header-v3 h2 {
-    font-size: clamp(24px, 7.5vw, 34px) !important;
-    white-space: normal !important;
+    font-size: clamp(24px, 7.5vw, 34px);
+    white-space: normal;
   }
 
   .analysis-header-v3 p {
-    font-size: 14px !important;
-    max-width: 100% !important;
+    font-size: 14px;
+    max-width: 100%;
   }
 
-  /* Tabela 3 colunas → cards empilhados */
   .analysis-table,
   .analysis-table-v4,
   .risk-table-v4 {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    overflow: visible !important;
-    border-radius: 16px !important;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: visible;
+    border-radius: 16px;
   }
 
   .analysis-head-v4 {
-    display: none !important; /* Headers viram labels inline */
+    display: none;
   }
 
   .analysis-row-v4 {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 16px 20px !important;
-    gap: 6px !important;
-    border-bottom: 1px solid rgba(28,28,28,.08) !important;
-    grid-template-columns: unset !important;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 20px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(28,28,28,.08);
+    grid-template-columns: unset;
   }
 
   .analysis-row-v4 strong {
-    font-size: 15px !important;
-    line-height: 1.2 !important;
+    font-size: 15px;
+    line-height: 1.2;
   }
 
   .analysis-row-v4 p {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .analysis-note-v3 {
-    font-size: 12px !important;
-    text-align: left !important;
-    margin-top: 16px !important;
+    font-size: 12px;
+    text-align: left;
+    margin-top: 16px;
   }
 
   /* ─── SECURITY ─── */
 
   .security-grid,
   .security-cards {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    margin-top: 24px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
   }
 
   .security-card {
-    padding: 20px !important;
-    border-radius: 16px !important;
+    padding: 20px;
+    border-radius: 16px;
   }
 
   .security-card strong {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 
   .security-card p {
-    font-size: 13.5px !important;
+    font-size: 13.5px;
   }
 
   /* ─── METHODOLOGY / FOUNDER ─── */
 
   .methodology-section {
-    padding: 48px 0 !important;
+    padding: 48px 0;
   }
 
-  /* FIX CRÍTICO: O mobile CSS original targetava .methodology-layout e .methodology-inner
-     que NÃO EXISTEM no HTML. Os elementos reais são .methodology-frame e .methodology-main.
-     .methodology-main tem grid-template-columns: 285px 1fr — fixo, causa overflow. */
-
   .methodology-frame {
-    padding: 20px !important;
-    border-radius: 18px !important;
-    overflow: visible !important;
+    padding: 20px;
+    border-radius: 18px;
+    overflow: visible;
   }
 
   .methodology-main {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
-    grid-template-columns: unset !important;
-    margin-top: 20px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    grid-template-columns: unset;
+    margin-top: 20px;
   }
 
-  /* Foto + info do fundador — layout inline */
   .methodology-founder {
-    display: grid !important;
-    grid-template-columns: 72px 1fr !important;
-    gap: 14px !important;
-    align-items: center !important;
-    width: 100% !important;
-    position: static !important; /* remove qualquer positioning herdado */
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 14px;
+    align-items: center;
+    width: 100%;
+    position: static;
   }
 
   .methodology-founder img {
-    width: 72px !important;
-    height: 72px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .methodology-founder strong {
-    font-size: 16px !important;
-    display: block !important;
+    font-size: 16px;
+    display: block;
   }
 
   .methodology-founder span {
-    font-size: 12px !important;
-    display: block !important;
-    margin-top: 2px !important;
-    max-width: 100% !important;
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+    max-width: 100%;
   }
 
   .methodology-links {
-    display: flex !important;
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-    margin-top: 12px !important;
-    position: static !important; /* contexto para o filho absolute */
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    position: static;
   }
 
-  /* FIX CRÍTICO: O 2º link tem position:absolute no CSS base — flutuaria fora do layout mobile */
+  /* FIX CRÍTICO: 2º link tem position:absolute no CSS base */
   .methodology-links a,
   .methodology-links a:nth-child(2) {
-    position: static !important;
-    font-size: 11px !important;
-    padding: 8px 12px !important;
-    min-height: 36px !important;
-    display: inline-flex !important;
-    align-items: center !important;
+    position: static;
+    font-size: 11px;
+    padding: 8px 12px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .methodology-quote {
-    margin-top: 0 !important;
+    margin-top: 0;
   }
 
   .methodology-quote p {
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-    max-width: 100% !important;
-  }
-
-  .methodology-top {
-    width: 100% !important;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 100%;
   }
 
   /* ─── PLANS & PRICING ─── */
 
   .plans-section,
   .pricing-section {
-    padding: 52px 0 !important;
+    padding: 52px 0;
   }
 
-  /* "Not sure" prompt card */
   .plan-prompt,
   .sample-report-cta {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    padding: 20px !important;
-    width: 100% !important;
-    margin-bottom: 24px !important;
-    align-items: flex-start !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 24px;
+    align-items: flex-start;
   }
 
   .plan-prompt h3,
   .sample-report-cta span {
-    font-size: 17px !important;
-    line-height: 1.2 !important;
+    font-size: 17px;
+    line-height: 1.2;
   }
 
   .plan-prompt .btn,
   .sample-report-cta .btn,
   .sample-report-cta a {
-    width: 100% !important;
-    text-align: center !important;
-    justify-content: center !important;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
-  /* Plan model grid — scroll horizontal */
+  /* Plan model cards — scroll horizontal */
   .plan-model-grid {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-template-columns: unset !important; /* FIX: era 'none', precisa 'unset' */
-    grid-auto-columns: 85% !important;
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 12px !important;
-    scroll-snap-type: x mandatory !important;
-    padding-bottom: 16px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin-left: -20px !important;
-    margin-right: -20px !important;
-    scrollbar-width: none !important;
-    max-width: none !important;
+    display: grid;
+    grid-template-columns: 85% 85%;   /* 2 colunas explícitas em 85% */
+    grid-auto-columns: 85%;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    scrollbar-width: none;
+    max-width: none;
+    width: calc(100% + 40px);
   }
 
   .plan-model-grid::-webkit-scrollbar {
-    display: none !important;
+    display: none;
   }
 
   .plan-model-card {
-    scroll-snap-align: start !important;
-    padding: 22px !important;
-    min-width: 0 !important;
+    scroll-snap-align: start;
+    padding: 22px;
+    min-width: 0;
   }
 
   /* Pricing tabs */
   .pricing-tabs,
   .plan-tabs {
-    gap: 6px !important;
-    margin-top: 28px !important;
-    margin-bottom: 20px !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-    border-radius: 16px !important;
+    gap: 6px;
+    margin-top: 28px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap; /* mantém na mesma linha */
+    width: 100%;
+    border-radius: 16px;
   }
 
   .pricing-tab,
   .plan-tab {
-    font-size: 10px !important;
-    padding: 10px 14px !important;
-    flex: 1 !important;
-    text-align: center !important;
-    justify-content: center !important;
-    min-height: 44px !important;
+    font-size: 10px;
+    padding: 10px 14px;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    min-height: 44px;
   }
 
-  /* Pricing grid — scroll horizontal */
+  /*
+     FIX CRÍTICO: Pricing panels + pricing grid.
+
+     O problema tem duas camadas:
+     1. .pricing-panel { display: none } no styles.css — correto
+     2. .pricing-panel.active { display: block } no styles.css — vira "block"
+     3. Mas .pricing-grid é também .pricing-panel.
+        No mobile queremos display: grid no painel ativo.
+        O override "display: grid !important" no mobile.css anterior
+        quebrava isso ao forçar display:grid em TODOS incluindo os inativos.
+
+     Solução: não usar !important no display do .pricing-grid.
+     Deixar .pricing-panel { display: none } do styles.css funcionar.
+     Sobrescrever apenas o layout do painel ATIVO.
+  */
+
+  /* Painel inativo: herda display:none do styles.css — não mexer */
+  /* Painel ativo: forçar grid com scroll horizontal */
+  .pricing-panel.active,
+  .pricing-grid.active {
+    display: grid;
+    grid-template-columns: 85% 85% 85%; /* 3 colunas explícitas = 3 cards */
+    grid-auto-columns: 85%;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    scrollbar-width: none;
+    max-width: none;
+    width: calc(100% + 40px);
+  }
+
+  .pricing-panel.active::-webkit-scrollbar,
+  .pricing-grid.active::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pricing-card {
+    scroll-snap-align: start;
+    min-width: 0;
+    min-height: auto;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .price-block strong {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .pricing-list li {
+    font-size: 13px;
+  }
+
+  .enterprise-note {
+    font-size: 13px;
+    padding: 16px 18px;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  /* ─── FAQ ─── */
+
+  .faq-section {
+    padding: 52px 0 60px;
+  }
+
+  /* FIX: layout 2 colunas vira coluna única */
+  .faq-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    grid-template-columns: unset;
+  }
+
+  .faq-heading .section-title {
+    font-size: clamp(28px, 8.5vw, 42px);
+    line-height: .96;
+    white-space: normal;
+  }
+
+  .faq-stack {
+    max-width: 100%;
+  }
+
+  .faq-stack summary {
+    font-size: 15px;
+    line-height: 1.35;
+    padding-right: 8px;
+  }
+
+  .faq-stack details p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ─── FINAL CTA ─── */
+
+  .final-cta {
+    padding: 64px 0 72px;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(28px, 8vw, 42px);
+    white-space: normal;
+  }
+
+  .final-cta p {
+    font-size: 16px;
+    margin: 16px auto 28px;
+    max-width: 100%;
+  }
+
+  .final-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .final-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* ─── FOOTER ─── */
+
+  .footer .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* ─── SAMPLE MODAL ─── */
+
+  .sample-modal {
+    padding: 16px;
+    align-items: flex-end; /* desliza de baixo no mobile */
+  }
+
+  .sample-modal-card {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 28px 24px;
+    border-radius: 24px 24px 16px 16px;
+  }
+
+  .sample-modal-card h2 {
+    font-size: clamp(26px, 7.5vw, 32px);
+    line-height: .98;
+    white-space: normal;
+  }
+
+  .sample-modal-card > p {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  .sample-modal-card .form-field input {
+    font-size: 16px; /* evita zoom iOS */
+    height: 52px;
+  }
+
+  .sample-modal-card .sample-form-btn {
+    height: 52px;
+    width: 100%;
+  }
+
+} /* fim @media (max-width: 768px) */
+
+/* =========================================================
+   BREAKPOINT PEQUENO — até 390px (iPhone 14)
+   Ajustes finos sobre o bloco acima
+   ========================================================= */
+@media (max-width: 390px) {
+
+  .hero h1,
+  .hero-title {
+    font-size: clamp(34px, 10.5vw, 46px);
+  }
+
+  .hero-actions .btn {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  h2,
+  .section-title {
+    font-size: clamp(24px, 7.5vw, 34px);
+  }
+
+  .pricing-panel.active,
+  .pricing-grid.active {
+    grid-template-columns: 88% 88% 88%;
+  }
+
+  .proof-grid {
+    grid-template-columns: 88% 88% 88%;
+  }
+
+  .plan-model-grid {
+    grid-template-columns: 88% 88%;
+  }
+
+  .proof-stat strong {
+    font-size: 18px;
+  }
+
+  .results-grid-v3 strong {
+    font-size: 26px;
+  }
+
+  .sample-modal-card {
+    padding: 24px 18px;
+  }
+
+} /* fim @media (max-width: 390px) */
+
+/* =========================================================
+   BREAKPOINT TABLET — 769px → 1024px
+   Corrige grids que ficam apertados em tablet portrait
+   ========================================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .container {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
   .pricing-grid {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-template-columns: unset !important; /* FIX: era 'none' */
-    grid-auto-columns: 85% !important;
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 12px !important;
-    scroll-snap-type: x mandatory !important;
-    padding-bottom: 16px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin-left: -20px !important;
-    margin-right: -20px !important;
-    scrollbar-width: none !important;
-    max-width: none !important;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
   }
 
-  /* FIX: .pricing-grid.active é a seleção no CSS base mas no mobile queremos
-     ambos os estados com o mesmo comportamento de grid
+  .proof-grid {
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+  }
+
+  .testimonial-grid,
+  .premium-testimonials {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .methodology-main {
+    grid-template-columns: 220px 1fr;
+    display: grid;
+  }
+
+  #findings .what-find-layout.refined {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
+  #findings .report-frame {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .analysis-header-v3 {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
+  .results-grid-v3 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+} /* fim @media tablet */
