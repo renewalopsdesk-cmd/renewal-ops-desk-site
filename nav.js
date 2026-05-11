@@ -100,3 +100,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll("[data-pricing-tab]");
+  const panels = document.querySelectorAll("[data-pricing-panel]");
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      const target = tab.dataset.pricingTab;
+
+      tabs.forEach(function (item) {
+        item.classList.remove("active");
+      });
+
+      panels.forEach(function (panel) {
+        panel.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+
+      const activePanel = document.querySelector(
+        `[data-pricing-panel="${target}"]`
+      );
+
+      if (activePanel) {
+        activePanel.classList.add("active");
+      }
+    });
+  });
+});
