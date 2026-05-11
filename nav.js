@@ -133,104 +133,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+// Sample Report Modal
+document.addEventListener("DOMContentLoaded", () => {
+  const sampleModal = document.getElementById("sampleModal");
+  const modalTriggers = document.querySelectorAll(".sample-modal-trigger");
+  const modalClose = document.querySelector(".sample-modal-close");
+  const modalBackdrop = document.querySelector(".sample-modal-backdrop");
 
-  <title>Renewal Ops Desk | Contract Risk Intelligence</title>
-  <meta name="description" content="Renewal Ops Desk helps B2B teams find renewal exposure, pricing escalations, notice windows, and money leaks hidden inside active vendor agreements." />
+  if (!sampleModal || !modalTriggers.length || !modalClose || !modalBackdrop) return;
 
-  <link rel="icon" href="/logo-mark.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/logo-mark.png" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-
-<body>
- <nav class="nav">
-  <a href="/" class="brand" aria-label="Renewal Ops Desk home">
-    <img class="brand-mark" src="/logo-mark.png" alt="Renewal Ops Desk logo" />
-    <span>Renewal Ops Desk</span>
-  </a>
-
-  <button class="mobile-menu-toggle" type="button" aria-label="Open menu">
-    <span></span>
-    <span></span>
-  </button>
-
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#results">Results</a>
-    <a href="#findings">Findings</a>
-    <a href="#fit">Fit</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-    <a class="mobile-nav-cta" href="#sample-report">Get Sample Report</a>
-  </div>
-
-  <a class="btn btn-primary nav-desktop-cta" href="#sample-report">Get Sample Report</a>
-</nav>
-  <main>
-
-   document.addEventListener('DOMContentLoaded', function () {
-
-  const MAKE_WEBHOOK = 'https://hook.eu1.make.com/gzkfzaliat85z58mf4bkmwha5xn5yep9';
-
-  const modal     = document.getElementById('sampleModal');
-  const closeBtn  = document.getElementById('sampleModalClose');
-  const overlay   = document.querySelector('.sample-modal-overlay');
-  const form      = document.getElementById('sampleLeadForm');
-  const success   = document.getElementById('sampleSuccess');
-  const triggers  = document.querySelectorAll('.sample-modal-trigger');
-
-  // Abre o modal
-  triggers.forEach(btn => {
-    btn.addEventListener('click', () => modal.classList.add('active'));
+  modalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      sampleModal.classList.add("active");
+      document.body.classList.add("modal-open");
+    });
   });
 
-  // Fecha o modal
-  function closeModal() {
-    modal.classList.remove('active');
+  function closeSampleModal() {
+    sampleModal.classList.remove("active");
+    document.body.classList.remove("modal-open");
   }
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', closeModal);
 
-  // Fecha com ESC
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-  });
+  modalClose.addEventListener("click", closeSampleModal);
+  modalBackdrop.addEventListener("click", closeSampleModal);
 
-  // Submete para o Make
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-
-    const payload = {
-      email:   document.getElementById('sampleEmail').value,
-      company: document.getElementById('sampleCompany').value
-    };
-
-    try {
-      await fetch(MAKE_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      form.style.display = 'none';
-      success.classList.add('active');
-    } catch (err) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Get sample report →';
-      alert('Something went wrong. Please try again.');
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && sampleModal.classList.contains("active")) {
+      closeSampleModal();
     }
   });
-
 });
-
 
 
