@@ -3391,3 +3391,81 @@ details {
 body.modal-open {
   overflow: hidden;
 }
+
+/* SAMPLE MODAL — FORM CLEANUP */
+
+.sample-modal-card {
+  max-width: 620px;
+  padding: 40px 44px;
+}
+
+.sample-modal-card h2 {
+  max-width: 520px;
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: .95;
+}
+
+.sample-modal-card p {
+  max-width: 520px;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.sample-modal-card .sample-report-form {
+  margin-top: 28px;
+  padding: 24px;
+  gap: 16px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(28, 28, 28, .08);
+  box-shadow: 0 18px 50px rgba(28, 28, 28, .06);
+}
+
+.sample-modal-card .form-field {
+  gap: 8px;
+}
+
+.sample-modal-card .form-field label {
+  color: #666666;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.sample-modal-card .form-field input {
+  height: 54px;
+  color: #1c1c1c !important;
+  background: #f6f6f3 !important;
+  border: 1px solid rgba(28, 28, 28, .16);
+  border-radius: 16px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.sample-modal-card .form-field input::placeholder {
+  color: rgba(28, 28, 28, .35);
+}
+
+.sample-modal-card .form-field input:focus {
+  color: #1c1c1c !important;
+  background: #ffffff !important;
+  border-color: rgba(28, 28, 28, .38);
+  box-shadow: 0 0 0 4px rgba(28, 28, 28, .06);
+}
+
+.sample-modal-card .sample-form-btn {
+  height: 58px;
+  margin-top: 10px;
+}
+
+.sample-modal-card .sample-form-note {
+  margin: 8px auto 0;
+  color: #555555;
+  font-size: 14px;
+  text-align: center;
+}
