@@ -212,3 +212,8 @@ document.addEventListener("DOMContentLoaded", () => {
   connectSampleForm("sampleLeadFormInline", "sampleInlineEmail", "sampleInlineCompany");
   connectSampleForm("sampleLeadFormModal", "sampleModalEmail", "sampleModalCompany");
 });
+
+document.querySelector('[data-nav-toggle]')?.addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('open');
+  document.body.classList.toggle('menu-open');
+});
