@@ -1095,15 +1095,15 @@
       Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure, pricing escalations, notice windows, and prioritized commercial findings.
     </p>
 
-    <form class="sample-report-form">
+    <form class="sample-report-form" id="sampleLeadFormModal">
       <div class="form-field">
-        <label for="sample-email">Work email</label>
-        <input id="sample-email" type="email" placeholder="name@company.com" required />
+        <label for="sampleModalEmail">Work email</label>
+        <input id="sampleModalEmail" name="email" type="email" placeholder="name@company.com" required />
       </div>
 
       <div class="form-field">
-        <label for="sample-company">Company name</label>
-        <input id="sample-company" type="text" placeholder="Company name" required />
+        <label for="sampleModalCompany">Company name</label>
+        <input id="sampleModalCompany" name="company" type="text" placeholder="Company name" required />
       </div>
 
       <button class="btn btn-primary sample-form-btn" type="submit">
