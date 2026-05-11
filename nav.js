@@ -132,3 +132,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Renewal Ops Desk | Contract Risk Intelligence</title>
+  <meta name="description" content="Renewal Ops Desk helps B2B teams find renewal exposure, pricing escalations, notice windows, and money leaks hidden inside active vendor agreements." />
+
+  <link rel="icon" href="/logo-mark.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/logo-mark.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+ <nav class="nav">
+  <a href="/" class="brand" aria-label="Renewal Ops Desk home">
+    <img class="brand-mark" src="/logo-mark.png" alt="Renewal Ops Desk logo" />
+    <span>Renewal Ops Desk</span>
+  </a>
+
+  <button class="mobile-menu-toggle" type="button" aria-label="Open menu">
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#results">Results</a>
+    <a href="#findings">Findings</a>
+    <a href="#fit">Fit</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a class="mobile-nav-cta" href="#sample-report">Get Sample Report</a>
+  </div>
+
+  <a class="btn btn-primary nav-desktop-cta" href="#sample-report">Get Sample Report</a>
+</nav>
+  <main>
+
