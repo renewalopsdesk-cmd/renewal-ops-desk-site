@@ -5090,14 +5090,19 @@ details {
     font-size: 11px;
   }
 
-  .proof-stats {
-    margin-top: 14px;
-    padding: 20px;
-    gap: 16px;
-    border-radius: 20px;
-  }
+.proof-stats {
+  margin-top: 16px;
+  padding: 14px 20px;
+  gap: 16px;
+  border-radius: 18px;
+}
 
-  .proof-stat span {
-    max-width: none;
-  }
+.proof-stat strong {
+  font-size: clamp(24px, 2.2vw, 32px);
+}
+
+.proof-stat span {
+  margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.35;
 }
