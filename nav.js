@@ -154,49 +154,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   /* SAMPLE REPORT FORM → MAKE */
-const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/gzkfzaliat85z58mf4bkmwha5xn5yep9";
+  const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/gzkfzaliat85z58mf4bkmwha5xn5yep9";
 
-function connectSampleForm(formId, emailId, companyId) {
-  const form = document.getElementById(formId);
-  const email = document.getElementById(emailId);
-  const company = document.getElementById(companyId);
+  function connectSampleForm(formId, emailId, companyId) {
+    const form = document.getElementById(formId);
+    const email = document.getElementById(emailId);
+    const company = document.getElementById(companyId);
 
-  if (!form || !email || !company) return;
+    if (!form || !email || !company) return;
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
 
-    submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
 
-    try {
-      await fetch(MAKE_WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email.value,
-          company: company.value,
-          source: formId,
-          page: window.location.href,
-        }),
-      });
+      try {
+        await fetch(MAKE_WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email.value,
+            company: company.value,
+            source: formId,
+            page: window.location.href,
+          }),
+        });
 
-      submitButton.textContent = "Sample report sent";
-      form.reset();
-    } catch (error) {
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
-      alert("Something went wrong. Please try again.");
-    }
-  });
-}
+        submitButton.textContent = "Sample report sent";
+        form.reset();
 
-connectSampleForm("sampleLeadFormInline", "sampleInlineEmail", "sampleInlineCompany");
-connectSampleForm("sampleLeadFormModal", "sampleModalEmail", "sampleModalCompany");
+        if (formId === "sampleLeadFormModal") {
+          setTimeout(() => {
+            closeSampleModal();
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }, 700);
+        } else {
+          setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }, 1200);
+        }
+      } catch (error) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  }
+
+  connectSampleForm("sampleLeadFormInline", "sampleInlineEmail", "sampleInlineCompany");
+  connectSampleForm("sampleLeadFormModal", "sampleModalEmail", "sampleModalCompany");
 });
-
