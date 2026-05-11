@@ -3111,8 +3111,8 @@ details {
 }
 
 .faq-heading {
-  position: sticky;
-  top: 110px;
+  position: static;
+  top: auto;
 }
 
 .faq-heading .section-title {
