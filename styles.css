@@ -4632,7 +4632,8 @@ details {
 /* ANNUAL */
 
 .annual-pill {
-  margin-top: 14px;
+  margin-top: 18px;
+  margin-bottom: 22px;
   padding: 13px 15px;
   display: flex;
   align-items: center;
@@ -4665,7 +4666,7 @@ details {
 
 .pricing-btn {
   width: 100%;
-  margin-top: 28px;
+  margin-top: 18px;
   justify-content: center;
 }
 
