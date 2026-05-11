@@ -5027,31 +5027,31 @@ details {
 }
 
 .proof-stats {
-  margin-top: 18px;
-  padding: 18px 22px;
+  margin-top: 16px;
+  padding: 14px 20px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
   border: 1px solid var(--line-light);
-  border-radius: 22px;
+  border-radius: 18px;
   background: #f8f8f8;
 }
 
 .proof-stat strong {
   display: block;
   color: var(--ink-light);
-  font-size: clamp(28px, 2.6vw, 38px);
+  font-size: clamp(24px, 2.2vw, 32px);
   line-height: 1;
   letter-spacing: -.05em;
 }
 
 .proof-stat span {
   display: block;
-  margin-top: 6px;
+  margin-top: 5px;
   max-width: 220px;
   color: var(--muted-light);
-  font-size: 12px;
-  line-height: 1.42;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 /* MOBILE */
