@@ -1115,5 +1115,71 @@
       });
     });
   <script>
+
+    <!-- SAMPLE REPORT MODAL -->
+
+<div class="sample-modal" id="sampleModal">
+  <div class="sample-modal-overlay"></div>
+
+  <div class="sample-modal-card">
+    <button class="sample-modal-close" id="sampleModalClose">
+      ×
+    </button>
+
+    <div class="sample-modal-content">
+      <span class="sample-modal-eyebrow">
+        SAMPLE REPORT
+      </span>
+
+      <h3>
+        See the report before you submit your agreements.
+      </h3>
+
+      <p>
+        Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure, pricing escalations, notice windows, and prioritized commercial findings.
+      </p>
+
+      <form id="sampleLeadForm">
+        <div class="sample-field">
+          <label>Work email</label>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="name@company.com"
+            required
+          />
+        </div>
+
+        <div class="sample-field">
+          <label>Company name</label>
+
+          <input
+            type="text"
+            name="company"
+            placeholder="Company name"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary sample-submit-btn">
+          Get sample report →
+        </button>
+
+        <span class="sample-modal-note">
+          Sent within 24 hours. No call required.
+        </span>
+      </form>
+
+      <div class="sample-success" id="sampleSuccess">
+        <strong>Sample report sent.</strong>
+
+        <p>
+          Check your inbox.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
