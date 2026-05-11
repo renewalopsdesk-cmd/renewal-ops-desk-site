@@ -1,757 +1,520 @@
 /* =========================================================
-   RENEWAL OPS DESK — MOBILE-FIRST EXPERIENCE
-   Replace entire mobile.css with this file.
+   MOBILE REDESIGN V2 — ROD
+   Paste at the END of mobile.css
    ========================================================= */
 
 @media (max-width: 768px) {
-  /* RESET */
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden !important;
-    background: #f4f4f1;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    max-width: 100%;
-  }
-
-  body {
-    font-size: 16px;
-  }
-
-  main,
-  section,
-  .section,
-  .hero,
-  .footer,
-  .final-cta {
-    width: 100%;
-    overflow-x: hidden !important;
-  }
-
-  .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin: 0 auto !important;
-  }
-
+  /* GLOBAL */
   .section,
   .section.light,
   .section.dark {
-    padding: 64px 0 !important;
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
   }
 
-  /* MOBILE TYPE SYSTEM */
-  h1,
-  .hero h1 {
-    font-size: clamp(48px, 14vw, 64px) !important;
-    line-height: .88 !important;
-    letter-spacing: -.075em !important;
+  .container {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
   }
 
   h2,
-  .section-title,
-  .compact-intro h2,
-  .why-section .section-title,
-  #fit .section-title,
-  .results-header-v3 h2,
-  .pricing-section .section-title,
-  .faq-heading .section-title,
-  .analysis-header-v3 h2 {
-    font-size: clamp(38px, 11vw, 52px) !important;
-    line-height: .92 !important;
-    letter-spacing: -.07em !important;
-  }
-
-  h3 {
-    font-size: 26px !important;
-    line-height: 1 !important;
-    letter-spacing: -.045em !important;
+  .section-title {
+    font-size: clamp(30px, 8.8vw, 40px) !important;
+    line-height: .96 !important;
   }
 
   p,
   li,
-  .section-lead,
-  .compact-intro p,
-  .hero-subheadline {
-    font-size: 17px !important;
+  .section-lead {
+    font-size: 14px !important;
     line-height: 1.48 !important;
   }
 
   .eyebrow,
   .badge {
-    font-size: 9px !important;
-    letter-spacing: .13em !important;
-    padding: 8px 11px !important;
+    font-size: 8px !important;
+    padding: 7px 9px !important;
   }
 
   /* NAV */
   .nav {
-    height: 76px !important;
-    padding: 14px 18px !important;
-    background: rgba(16,16,16,.96) !important;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
-
-  .brand {
-    gap: 10px !important;
-    z-index: 10001;
-  }
-
-  .brand-mark {
-    width: 38px !important;
-    height: 38px !important;
-  }
-
-  .brand span {
-    font-size: 15px !important;
-    letter-spacing: -.035em;
-  }
-
-  .nav-desktop-cta,
-  .nav .btn {
-    display: none !important;
-  }
-
-  .mobile-menu-toggle {
-    display: flex !important;
-    width: 52px;
-    height: 52px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,.16);
-    background: rgba(255,255,255,.05);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 6px;
-    z-index: 10001;
-  }
-
-  .mobile-menu-toggle span {
-    width: 18px;
-    height: 1px;
-    background: #fff;
-    display: block;
+    height: 72px !important;
+    min-height: 72px !important;
+    background: #101010 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,.28);
   }
 
   .nav-links {
-    position: fixed !important;
-    inset: 0;
-    z-index: 10000;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    padding: 96px 26px 32px;
-    background: #090909;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: .25s ease;
-  }
-
-  .nav.nav-open .nav-links {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+    top: 72px !important;
+    height: calc(100vh - 72px) !important;
+    inset: 72px 0 0 0 !important;
+    justify-content: flex-start !important;
+    padding: 24px 24px 32px !important;
+    background: #101010 !important;
   }
 
   .nav-links a {
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,.1);
-    color: #fff;
-    font-size: 14px !important;
-    letter-spacing: .09em;
+    font-size: 12px !important;
+    padding: 15px 0 !important;
   }
 
-  .mobile-nav-cta {
-    margin-top: 24px;
-    background: #fff !important;
-    color: #111 !important;
-    border-radius: 999px;
-    justify-content: center !important;
-    padding: 17px !important;
+  .mobile-menu-toggle {
+    width: 46px !important;
+    height: 46px !important;
   }
 
-  /* HERO — MOBILE LANDING EXPERIENCE */
+  /* HERO */
   .hero {
-    padding: 122px 0 72px !important;
-    min-height: auto !important;
-    text-align: center;
+    padding-top: 108px !important;
+    padding-bottom: 48px !important;
   }
 
-  .hero-centered {
-    min-height: auto !important;
-  }
-
-  .hero .badge {
-    margin-bottom: 34px !important;
+  .hero h1 {
+    font-size: clamp(50px, 15vw, 68px) !important;
+    line-height: .88 !important;
   }
 
   .hero-subheadline {
-    margin: 26px auto 0 !important;
-    max-width: 340px !important;
-    color: rgba(255,255,255,.72) !important;
+    font-size: 16px !important;
+    max-width: 330px !important;
   }
 
   .hero-actions {
-    margin-top: 34px !important;
-    width: 100%;
-    display: grid !important;
-    grid-template-columns: 1fr;
-    gap: 12px;
+    margin-top: 26px !important;
+    gap: 10px !important;
   }
 
-  .btn,
-  .hero-actions .btn,
-  .pricing-btn {
-    width: 100% !important;
-    min-height: 56px;
-    border-radius: 999px;
-    font-size: 15px !important;
+  .hero-actions .btn {
+    min-height: 48px !important;
+    font-size: 13px !important;
+    padding: 12px 18px !important;
   }
 
   .secondary-line {
-    margin-top: 36px !important;
-    font-size: 15px !important;
-    color: rgba(255,255,255,.58) !important;
-    transform: none !important;
+    font-size: 12.5px !important;
+    max-width: 310px !important;
+    margin-top: 26px !important;
   }
 
   .hero-metrics-line {
-    margin-top: 18px !important;
-    font-size: 10px !important;
-    line-height: 1.6 !important;
-    color: rgba(255,255,255,.28) !important;
-    transform: none !important;
-  }
-
-  .hero::after,
-  .final-cta::before,
-  .final-cta::after {
-    display: none !important;
-  }
-
-  /* MOBILE SECTIONS — EVERYTHING STACKS */
-  .split,
-  .grid-2,
-  .grid-3,
-  .about-service-cards,
-  .proof-grid,
-  .proof-stats,
-  .fit-scroll-grid,
-  .what-find-layout,
-  .what-find-layout.refined,
-  .results-grid-v3,
-  .sample-report-lead,
-  .analysis-header-v3,
-  .security-grid,
-  .methodology-main,
-  .plan-model-grid,
-  .pricing-grid,
-  .faq-layout {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-    overflow: visible !important;
-  }
-
-  /* CARDS */
-  .light-card,
-  .dark-card,
-  .about-service-card,
-  .proof-card,
-  .fit-card,
-  .finding-card,
-  .pricing-card,
-  .plan-model-card,
-  .security-card,
-  .statement-card,
-  .methodology-frame,
-  .sample-report-form,
-  .results-grid-v3 article {
-    width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    padding: 24px !important;
-    border-radius: 24px !important;
+    font-size: 8.5px !important;
+    max-width: 330px !important;
   }
 
   /* ABOUT */
-  .about-compact {
-    padding: 72px 0 !important;
-  }
-
-  .compact-intro {
-    text-align: left !important;
-  }
-
-  .compact-intro .eyebrow {
-    margin-bottom: 22px !important;
+  .compact-intro h2 {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    text-align: center !important;
   }
 
   .compact-intro p {
-    margin-top: 22px !important;
-    color: #555 !important;
+    font-size: 14px !important;
+    max-width: 330px !important;
+    text-align: center !important;
   }
 
   .about-service-cards {
-    margin-top: 34px !important;
+    gap: 10px !important;
+  }
+
+  .about-service-card {
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
   }
 
   .about-service-card h3 {
-    font-size: 20px !important;
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
   }
 
   .about-service-card p {
-    font-size: 14px !important;
+    font-size: 11.5px !important;
+    line-height: 1.38 !important;
+    color: #666 !important;
   }
 
-  /* PROOF */
-  .proof-section {
-    padding: 72px 0 !important;
+  /* CLIENT FINDINGS — horizontal cards */
+  .proof-grid {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 82% !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px !important;
   }
 
-  .proof-section .section-head {
-    text-align: left !important;
+  .proof-grid > * {
+    scroll-snap-align: start;
+  }
+
+  .proof-card {
+    padding: 20px !important;
+    border-radius: 20px !important;
   }
 
   .proof-card blockquote {
-    font-size: 19px !important;
-    line-height: 1.48 !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
   }
 
-  .proof-amount {
-    font-size: 11px !important;
-  }
-
+  .proof-amount,
   .proof-meta {
-    font-size: 12px !important;
+    font-size: 10px !important;
   }
 
   .proof-stats {
-    padding: 26px !important;
-    border-radius: 24px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    padding: 14px !important;
   }
 
   .proof-stat {
-    text-align: left !important;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(28,28,28,.08);
-  }
-
-  .proof-stat:last-child {
-    border-bottom: none;
+    text-align: center !important;
+    padding: 0 !important;
+    border: none !important;
   }
 
   .proof-stat strong {
-    font-size: 40px !important;
+    font-size: 22px !important;
   }
 
-  /* WHY */
-  .why-section .split {
-    gap: 28px !important;
+  .proof-stat span {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
   }
 
-  .why-section .statement-card p {
-    font-size: 17px !important;
-  }
-
-  .closing-statement {
-    font-size: 16px !important;
-  }
-
-  /* FIT — NO SIDE CAROUSEL */
+  /* FIT — horizontal scroll */
   #fit .section-title {
-    font-size: clamp(36px, 10vw, 48px) !important;
+    font-size: clamp(28px, 8vw, 38px) !important;
   }
 
-  .fit-scroll-grid {
-    margin-top: 28px !important;
+  #fit .fit-scroll-grid {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 86% !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    scroll-snap-type: x mandatory;
   }
 
-  .fit-list li {
-    font-size: 15px !important;
-    line-height: 1.55 !important;
+  #fit .fit-card {
+    scroll-snap-align: start;
+    padding: 20px !important;
+  }
+
+  #fit .fit-card h3 {
+    font-size: 22px !important;
+  }
+
+  #fit .fit-list li {
+    font-size: 13px !important;
+    line-height: 1.42 !important;
   }
 
   /* WHAT WE FIND */
   #findings .section-title {
-    font-size: clamp(38px, 11vw, 52px) !important;
+    font-size: clamp(30px, 8.5vw, 40px) !important;
   }
 
-  .risk-table-title {
-    margin-top: 34px !important;
-    padding-top: 24px;
-    border-top: 1px solid var(--line-light);
+  #findings .risk-table-title span {
+    font-size: 17px !important;
   }
 
-  .risk-table-title span {
-    font-size: 22px !important;
+  #findings .risk-table-title strong {
+    font-size: 25px !important;
   }
 
-  .risk-table-title strong {
-    display: block;
-    font-size: 32px !important;
-    line-height: 1 !important;
+  .risk-mini-row strong {
+    font-size: 17px !important;
   }
 
-  .risk-mini-table {
-    margin-top: 24px !important;
-  }
-
-  .risk-mini-row {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 8px;
-    padding: 18px 0 !important;
-    border-bottom: 1px solid var(--line-light);
-  }
-
-  .risk-label {
-    width: fit-content !important;
-    min-width: 0 !important;
-  }
-
-  /* REPORT CARD — SHOW ONLY FIRST ON MOBILE */
-  #findings .report-frame {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 10px !important;
-    overflow: hidden !important;
-    border-radius: 26px !important;
+  .risk-mini-row p {
+    font-size: 12.5px !important;
   }
 
   #findings .report-sample-scroll {
-    display: block !important;
-    overflow: visible !important;
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 88% !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    scroll-snap-type: x mandatory;
   }
 
   #findings .report-sample-scroll .finding-card {
     display: block !important;
-    margin-bottom: 0 !important;
+    scroll-snap-align: start;
+    padding: 20px !important;
   }
 
   #findings .report-sample-scroll .finding-card:not(:first-child) {
-    display: none !important;
+    display: block !important;
   }
 
   #findings .report-arrow {
     display: none !important;
   }
 
-  .finding-metrics {
-    grid-template-columns: 1fr !important;
+  .finding-card h3 {
+    font-size: 26px !important;
   }
 
   .finding-metrics strong {
-    font-size: 32px !important;
+    font-size: 24px !important;
+  }
+
+  .finding-clause p,
+  .finding-analysis,
+  .finding-flag p {
+    font-size: 12.5px !important;
   }
 
   /* RESULTS */
   .results-header-v3 h2 {
-    white-space: normal !important;
+    font-size: clamp(28px, 8vw, 38px) !important;
   }
 
   .results-grid-v3 article {
-    text-align: left !important;
+    padding: 18px !important;
   }
 
   .results-grid-v3 strong {
-    font-size: 54px !important;
+    font-size: 36px !important;
+  }
+
+  .results-grid-v3 span {
+    font-size: 12px !important;
   }
 
   .results-question-v3 {
-    margin-top: 32px !important;
-    font-size: 24px !important;
-    line-height: 1.1 !important;
-    text-align: center;
+    font-size: 18px !important;
   }
 
   /* SAMPLE REPORT */
-  .sample-report-section {
-    padding: 72px 0 !important;
-  }
-
   .sample-report-lead {
-    padding: 28px !important;
-    border-radius: 28px !important;
+    padding: 22px !important;
+    gap: 18px !important;
   }
 
   .sample-report-copy h2 {
-    font-size: clamp(38px, 11vw, 52px) !important;
+    font-size: clamp(28px, 8vw, 38px) !important;
+  }
+
+  .sample-report-copy p {
+    font-size: 13.5px !important;
+  }
+
+  .sample-context {
+    font-size: 10px !important;
+  }
+
+  .sample-report-form {
+    padding: 18px !important;
   }
 
   .sample-report-form input {
-    height: 54px !important;
-    background: #fff !important;
-    color: #111 !important;
+    height: 46px !important;
   }
 
-  /* ANALYSIS — CARD STACK INSTEAD OF TABLE */
-  .analysis-table-v4 {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-    border: none !important;
-    overflow: visible !important;
+  .sample-form-btn {
+    min-height: 48px !important;
+    font-size: 13px !important;
   }
 
-  .analysis-head-v4 {
-    display: none !important;
-  }
-
+  /* COMMERCIAL ANALYSIS */
   .analysis-row-v4 {
-    display: block !important;
-    min-width: 0 !important;
-    padding: 24px !important;
-    border: 1px solid var(--line-light) !important;
-    border-radius: 22px !important;
-    background: rgba(255,255,255,.65);
+    background: #fff !important;
+    padding: 18px !important;
   }
 
   .analysis-row-v4 strong {
-    display: block;
-    font-size: 24px !important;
-    margin-bottom: 10px;
+    font-size: 19px !important;
+    font-weight: 800 !important;
   }
 
   .analysis-row-v4 p {
-    font-size: 15px !important;
-    margin-top: 8px !important;
-    white-space: normal !important;
+    font-size: 12.5px !important;
   }
 
   /* SECURITY */
   .security-section {
-    background: #101010 !important;
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
   }
 
   .security-header h2 {
-    color: #fff !important;
+    font-size: clamp(28px, 8vw, 38px) !important;
   }
 
   .security-header p {
-    color: rgba(255,255,255,.62) !important;
+    font-size: 13.5px !important;
   }
 
   .security-card {
-    background: rgba(255,255,255,.045) !important;
-    border: 1px solid rgba(255,255,255,.12) !important;
+    padding: 18px !important;
   }
 
   .security-card strong {
-    color: #fff !important;
+    font-size: 18px !important;
   }
 
   .security-card p {
-    color: rgba(255,255,255,.65) !important;
+    font-size: 12.5px !important;
   }
 
-  /* FOUNDER */
+  /* METHODOLOGY */
+  .methodology-section {
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
+  }
+
   .methodology-frame {
-    padding: 26px !important;
+    padding: 20px !important;
   }
 
   .methodology-founder {
-    display: grid !important;
-    grid-template-columns: 96px 1fr !important;
-    gap: 16px !important;
-    align-items: center;
+    grid-template-columns: 76px 1fr !important;
+    gap: 14px !important;
   }
 
   .methodology-founder img {
-    width: 96px !important;
-    height: 96px !important;
-    object-fit: cover;
-    border-radius: 18px !important;
+    width: 76px !important;
+    height: 76px !important;
   }
 
-  .methodology-links {
-    display: grid !important;
-    gap: 8px !important;
-    margin-top: 10px !important;
+  .methodology-founder strong {
+    font-size: 17px !important;
   }
 
-  .methodology-links a {
-    width: fit-content !important;
-    padding: 9px 12px !important;
+  .methodology-founder span {
     font-size: 12px !important;
   }
 
+  .methodology-links a {
+    font-size: 10.5px !important;
+    padding: 7px 10px !important;
+  }
+
   .methodology-quote p {
-    font-size: 24px !important;
-    line-height: 1.25 !important;
-    letter-spacing: -.045em !important;
+    font-size: 18px !important;
+    line-height: 1.28 !important;
   }
 
-  /* PRICING */
-  .pricing-tabs {
+  /* PLANS + PRICING */
+  .plan-model-grid,
+  .pricing-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-    width: 100% !important;
-    overflow: visible !important;
-  }
-
-  .pricing-tab {
-    width: 100% !important;
-    font-size: 9px !important;
-    padding: 13px 8px !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 86% !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px !important;
   }
 
   .plan-model-card,
   .pricing-card {
-    overflow: hidden !important;
+    scroll-snap-align: start;
+    padding: 20px !important;
+  }
+
+  .pricing-panel {
+    display: none !important;
+  }
+
+  .pricing-panel.active {
+    display: grid !important;
+  }
+
+  .pricing-tabs {
+    position: sticky;
+    top: 82px;
+    z-index: 5;
+    background: #f4f4f1;
+    padding: 8px;
+    border-radius: 999px;
   }
 
   .pricing-card h3,
   .plan-model-card h3 {
-    font-size: 32px !important;
+    font-size: 24px !important;
+  }
+
+  .plan-model-card p,
+  .plan-model-card li {
+    font-size: 12.5px !important;
   }
 
   .price-block strong {
-    font-size: clamp(54px, 16vw, 72px) !important;
-  }
-
-  .after-payment-box {
-    width: 100% !important;
-    padding: 18px !important;
+    font-size: 42px !important;
   }
 
   .after-payment-box b {
-    font-size: 36px !important;
-  }
-
-  .annual-pill {
-    display: grid !important;
-    grid-template-columns: auto 1fr;
-    gap: 12px;
-    width: 100% !important;
-    padding: 16px !important;
-    overflow: hidden !important;
+    font-size: 26px !important;
   }
 
   .annual-pill strong {
-    font-size: 24px !important;
-    white-space: normal !important;
+    font-size: 18px !important;
   }
 
-  .enterprise-note {
-    padding: 22px !important;
-    border-radius: 22px !important;
-  }
-
-  /* FAQ */
-  .faq-heading {
-    position: static !important;
-  }
-
-  .faq-stack summary {
-    font-size: 17px !important;
-    line-height: 1.3 !important;
-  }
-
-  .faq-stack details {
-    padding: 22px 0 !important;
-  }
-
-  /* FINAL CTA */
-  .final-cta {
-    padding: 76px 0 82px !important;
-    text-align: center;
-  }
-
-  .final-cta h2 {
-    font-size: clamp(48px, 14vw, 66px) !important;
-    line-height: .9 !important;
-  }
-
-  .tagline {
-    font-size: 11px !important;
-    line-height: 1.5 !important;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 32px 0 !important;
-  }
-
-  .footer .container {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-
-  .footer-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 12px 16px !important;
-  }
-
-  .footer-links a {
-    font-size: 14px !important;
-  }
-
-  /* MODAL */
-  .sample-modal {
-    padding: 18px !important;
-  }
-
-  .sample-modal-card {
-    width: min(440px, calc(100vw - 32px)) !important;
-    max-height: calc(100vh - 40px) !important;
-    padding: 28px !important;
-    border-radius: 26px !important;
-  }
-
-  .sample-modal-card h2 {
-    font-size: 30px !important;
-  }
-
-  .sample-modal-card .sample-report-form {
-    padding: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-}
-
-@media (max-width: 420px) {
-  .container {
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-  }
-
-  h1,
-  .hero h1 {
-    font-size: 46px !important;
-  }
-
-  h2,
-  .section-title {
-    font-size: 38px !important;
-  }
-
-  .brand span {
+  .pricing-btn {
+    min-height: 48px !important;
     font-size: 13px !important;
   }
 
-  .methodology-founder {
-    grid-template-columns: 1fr !important;
+  /* FAQ */
+  .faq-heading .section-title {
+    font-size: clamp(30px, 8vw, 40px) !important;
   }
 
-  .methodology-founder img {
-    width: 120px !important;
-    height: 120px !important;
+  .faq-stack summary {
+    font-size: 14.5px !important;
+  }
+
+  .faq-stack details p {
+    font-size: 13px !important;
+  }
+
+  /* FINAL CTA + FOOTER */
+  .final-cta {
+    padding: 54px 0 58px !important;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(34px, 10vw, 46px) !important;
+  }
+
+  .final-cta p {
+    font-size: 15px !important;
+  }
+
+  .final-cta .btn {
+    min-height: 48px !important;
+    font-size: 12.5px !important;
+  }
+
+  .tagline {
+    font-size: 9px !important;
+  }
+
+  .footer {
+    padding: 24px 0 !important;
+  }
+
+  .footer p,
+  .footer a {
+    font-size: 12.5px !important;
+  }
+
+  .footer-links {
+    gap: 10px 14px !important;
   }
 }
