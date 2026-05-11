@@ -1241,3 +1241,123 @@ svg {
   }
 
 } /* fim @media tablet */
+
+/* =========================================================
+   INTERNAL / LEGAL PAGES — MOBILE FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .page-hero {
+    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 36px);
+    padding-bottom: 36px;
+  }
+
+  .page-hero h1,
+  .page-hero .section-title {
+    font-size: clamp(30px, 8.5vw, 42px);
+    line-height: .96;
+    letter-spacing: -.05em;
+    white-space: normal;
+  }
+
+  .page-hero p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .legal-section,
+  .section.light.legal-section,
+  .section.light:has(.legal-layout) {
+    padding-top: 44px;
+    padding-bottom: 52px;
+  }
+
+  .legal-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    grid-template-columns: unset;
+    width: 100%;
+  }
+
+  .side-note {
+    position: static;
+    top: auto;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .side-note p,
+  .side-note li,
+  .side-note .check {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .legal-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 20px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .legal-card h1,
+  .legal-card h2,
+  .legal-card h3 {
+    font-size: 21px;
+    line-height: 1.12;
+    letter-spacing: -.03em;
+    margin-top: 26px;
+    margin-bottom: 10px;
+    white-space: normal;
+  }
+
+  .legal-card h1:first-child,
+  .legal-card h2:first-child,
+  .legal-card h3:first-child {
+    margin-top: 0;
+  }
+
+  .legal-card p,
+  .legal-card li {
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 100%;
+    color: var(--text-light);
+  }
+
+  .legal-card ul,
+  .legal-card ol {
+    padding-left: 18px;
+    margin: 12px 0 20px;
+  }
+
+  .legal-card * {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* MOBILE NAV CTA — visible text */
+@media (max-width: 768px) {
+  .mobile-nav-cta,
+  .nav-links .mobile-nav-cta,
+  .nav-links a.mobile-nav-cta,
+  .nav-links button.mobile-nav-cta {
+    background: #ffffff !important;
+    color: #101010 !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+  }
+
+  .mobile-nav-cta,
+  .mobile-nav-cta * {
+    color: #101010 !important;
+  }
+}
