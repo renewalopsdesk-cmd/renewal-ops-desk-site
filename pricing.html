@@ -16,74 +16,103 @@
   <style>
     :root { --black:#101010; --ink:#1c1c1c; --paper:#f6f6f3; --line:#deded8; --muted:#666; }
     body { background:var(--paper); }
-    .pricing-private-hero { padding:138px 0 72px; background:linear-gradient(180deg,#111 0%,#0b0b0b 100%); color:#fff; text-align:center; overflow:hidden; }
-    .pricing-private-hero h1 { max-width:940px; margin:0 auto; color:#fff; font-size:clamp(54px,7vw,92px); line-height:.92; letter-spacing:-.07em; }
-    .pricing-private-hero p { max-width:720px; margin:28px auto 0; color:rgba(255,255,255,.68); font-size:20px; line-height:1.5; letter-spacing:-.02em; }
-    .pricing-hero-actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:34px; }
-    .pricing-hero-note { margin-top:28px; color:rgba(255,255,255,.4); font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; }
-    .pricing-section-private { padding:76px 0; background:var(--paper); color:var(--ink); }
+
+    .pricing-private-hero { padding:132px 0 68px; background:linear-gradient(180deg,#111 0%,#0b0b0b 100%); color:#fff; text-align:center; overflow:hidden; }
+    .pricing-private-hero h1 { max-width:880px; margin:0 auto; color:#fff; font-size:clamp(48px,5.4vw,76px); line-height:.94; letter-spacing:-.07em; }
+    .pricing-private-hero p { max-width:700px; margin:24px auto 0; color:rgba(255,255,255,.68); font-size:17px; line-height:1.55; letter-spacing:-.02em; }
+    .pricing-hero-actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:32px; }
+    .pricing-hero-note { margin-top:26px; color:rgba(255,255,255,.4); font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; }
+
+    .pricing-section-private { padding:70px 0; background:var(--paper); color:var(--ink); }
     .pricing-section-private.dark { background:var(--black); color:#fff; }
-    .private-section-head { display:grid; grid-template-columns:1fr .7fr; gap:42px; align-items:end; margin-bottom:32px; }
-    .private-section-head h2 { max-width:760px; color:inherit; font-size:clamp(36px,4.6vw,64px); line-height:.94; letter-spacing:-.065em; }
-    .private-section-head p { max-width:520px; color:var(--muted); font-size:16px; line-height:1.6; }
+
+    .private-section-head { display:grid; grid-template-columns:1fr .72fr; gap:40px; align-items:end; margin-bottom:30px; }
+    .private-section-head h2 { max-width:720px; color:inherit; font-size:clamp(34px,3.8vw,52px); line-height:.98; letter-spacing:-.06em; }
+    .private-section-head p { max-width:520px; color:var(--muted); font-size:15px; line-height:1.6; }
     .dark .private-section-head p { color:rgba(255,255,255,.62); }
+
     .plan-explainer-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-    .explainer-card, .private-pricing-card, .timeline-step, .decision-card { border-radius:26px; background:#fff; border:1px solid var(--line); box-shadow:0 24px 70px rgba(28,28,28,.06); }
-    .explainer-card { padding:30px; }
+    .explainer-card, .private-pricing-card, .timeline-step, .decision-card { border-radius:24px; background:#fff; border:1px solid var(--line); box-shadow:0 24px 70px rgba(28,28,28,.06); }
+    .explainer-card { padding:28px; }
     .explainer-card.featured { background:#101010; border-color:#101010; color:#fff; }
-    .explainer-card h3 { font-size:34px; color:inherit; letter-spacing:-.055em; line-height:.98; margin-bottom:14px; }
-    .explainer-card p, .explainer-card li { color:var(--muted); font-size:15px; line-height:1.6; }
+    .explainer-card h3 { font-size:28px; color:inherit; letter-spacing:-.055em; line-height:1; margin-bottom:14px; }
+    .explainer-card p, .explainer-card li { color:var(--muted); font-size:14px; line-height:1.55; }
     .explainer-card.featured p, .explainer-card.featured li { color:rgba(255,255,255,.68); }
-    .explainer-card ul { list-style:none; display:grid; gap:10px; margin-top:24px; }
+    .explainer-card ul { list-style:none; display:grid; gap:9px; margin-top:22px; }
     .explainer-card li { position:relative; padding-left:18px; }
     .explainer-card li::before { content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:50%; background:currentColor; opacity:.45; }
+
     .plan-label, .timeline-step small, .decision-card small { display:inline-flex; margin-bottom:12px; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
-    .decision-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:38px; }
-    .decision-card { padding:22px; background:rgba(255,255,255,.72); }
-    .decision-card strong { display:block; font-size:22px; letter-spacing:-.04em; line-height:1.06; color:var(--ink); }
-    .decision-card p { margin-top:10px; color:var(--muted); font-size:14px; line-height:1.55; }
+
+    .decision-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:34px; }
+    .decision-card { padding:20px; background:rgba(255,255,255,.72); }
+    .decision-card strong { display:block; font-size:20px; letter-spacing:-.04em; line-height:1.08; color:var(--ink); }
+    .decision-card p { margin-top:9px; color:var(--muted); font-size:13px; line-height:1.5; }
+
     .pricing-card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .private-pricing-card { display:flex; flex-direction:column; padding:28px; background:rgba(255,255,255,.78); }
+    .private-pricing-card { display:flex; flex-direction:column; padding:26px; background:rgba(255,255,255,.78); }
     .dark .private-pricing-card { background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04)); border-color:rgba(255,255,255,.12); box-shadow:none; }
-    .private-pricing-card h3 { color:inherit; font-size:31px; letter-spacing:-.055em; line-height:1; margin-bottom:8px; }
-    .plan-volume, .pricing-note-small { color:var(--muted); font-size:14px; line-height:1.45; }
+    .private-pricing-card h3 { color:inherit; font-size:28px; letter-spacing:-.055em; line-height:1; margin-bottom:8px; }
+    .plan-volume, .pricing-note-small { color:var(--muted); font-size:13px; line-height:1.45; }
     .dark .plan-volume, .dark .pricing-note-small { color:rgba(255,255,255,.62); }
-    .main-price { margin:28px 0 10px; }
-    .main-price strong { display:block; color:inherit; font-size:clamp(46px,4.8vw,62px); line-height:.86; letter-spacing:-.075em; }
-    .main-price span { display:block; margin-top:10px; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+
+    .main-price { margin:24px 0 14px; }
+    .main-price strong { display:block; color:inherit; font-size:clamp(42px,4vw,54px); line-height:.9; letter-spacing:-.075em; }
+    .main-price span { display:block; margin-top:9px; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
     .dark .main-price span { color:rgba(255,255,255,.5); }
-    .pricing-note-small { min-height:44px; margin-bottom:22px; }
-    .plan-includes { list-style:none; display:grid; gap:10px; margin:20px 0 28px; }
-    .plan-includes li { position:relative; padding-left:18px; color:var(--muted); font-size:14px; line-height:1.45; }
-    .dark .plan-includes li { color:rgba(255,255,255,.68); }
-    .plan-includes li::before { content:"✓"; position:absolute; left:0; top:0; color:currentColor; opacity:.65; font-weight:700; }
+
+    .pricing-note-small { min-height:38px; margin-bottom:20px; }
+
     .private-pricing-card .btn { width:100%; margin-top:auto; }
+
     .secondary-payment { display:grid; gap:10px; margin-top:12px; }
-    .annual-link { display:flex; justify-content:space-between; align-items:center; gap:14px; padding:14px 16px; border-radius:16px; background:rgba(28,28,28,.055); border:1px solid rgba(28,28,28,.08); color:var(--ink); text-decoration:none; }
+
+    .annual-link { display:grid; gap:4px; padding:14px 16px; border-radius:16px; background:rgba(28,28,28,.055); border:1px solid rgba(28,28,28,.08); color:var(--ink); text-decoration:none; }
     .dark .annual-link { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12); color:#fff; }
     .annual-link span { font-family:"IBM Plex Mono",monospace; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
-    .annual-link strong { font-size:17px; letter-spacing:-.035em; line-height:1; }
-    .payment-info-box { padding:22px 24px; margin-top:28px; border-radius:22px; background:rgba(255,255,255,.68); border:1px solid var(--line); color:var(--muted); font-size:14px; line-height:1.6; }
+    .annual-link strong { font-size:17px; letter-spacing:-.035em; line-height:1.05; }
+    .annual-link small { color:var(--muted); font-size:12px; line-height:1.4; }
+    .dark .annual-link small { color:rgba(255,255,255,.56); }
+
+    .payment-info-box { padding:20px 22px; margin-top:26px; border-radius:22px; background:rgba(255,255,255,.68); border:1px solid var(--line); color:var(--muted); font-size:14px; line-height:1.6; }
     .dark .payment-info-box { background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.12); color:rgba(255,255,255,.62); }
     .payment-info-box strong { color:var(--ink); } .dark .payment-info-box strong { color:#fff; }
+
     .timeline-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-    .timeline-step { padding:22px; background:rgba(255,255,255,.76); }
-    .timeline-step strong { display:block; color:var(--ink); font-size:18px; letter-spacing:-.035em; margin-bottom:8px; }
+    .timeline-step { padding:20px; background:rgba(255,255,255,.76); }
+    .timeline-step strong { display:block; color:var(--ink); font-size:17px; letter-spacing:-.035em; margin-bottom:8px; }
     .timeline-step p { color:var(--muted); font-size:13px; line-height:1.5; }
+
     .included-grid-private { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-    .included-grid-private span { padding:14px 16px; border-radius:999px; background:rgba(255,255,255,.74); border:1px solid var(--line); color:var(--ink); font-size:13px; text-align:center; }
-    .sample-cta-private { padding:34px; border-radius:30px; background:#101010; color:#fff; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; }
-    .sample-cta-private h2 { color:#fff; font-size:clamp(34px,4vw,52px); line-height:.96; letter-spacing:-.06em; }
-    .sample-cta-private p { margin-top:12px; color:rgba(255,255,255,.62); font-size:16px; line-height:1.55; }
+    .included-grid-private span { padding:13px 14px; border-radius:999px; background:rgba(255,255,255,.74); border:1px solid var(--line); color:var(--ink); font-size:13px; text-align:center; }
+
+    .sample-cta-private { padding:32px; border-radius:28px; background:#101010; color:#fff; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; }
+    .sample-cta-private h2 { color:#fff; font-size:clamp(30px,3.4vw,44px); line-height:.98; letter-spacing:-.06em; }
+    .sample-cta-private p { margin-top:12px; color:rgba(255,255,255,.62); font-size:15px; line-height:1.55; }
+
     .pricing-faq { max-width:860px; margin:0 auto; }
     .pricing-faq details { background:transparent; border-radius:0; border:none; border-bottom:1px solid var(--line); padding:22px 0; box-shadow:none; }
     .pricing-faq details:first-child { border-top:1px solid var(--line); }
-    .pricing-faq summary { cursor:pointer; list-style:none; color:var(--ink); font-size:17px; font-weight:700; letter-spacing:-.02em; }
+    .pricing-faq summary { cursor:pointer; list-style:none; color:var(--ink); font-size:16px; font-weight:700; letter-spacing:-.02em; }
     .pricing-faq summary::-webkit-details-marker { display:none; }
     .pricing-faq p { margin-top:12px; color:var(--muted); font-size:14px; line-height:1.65; }
-    .pricing-final { padding:82px 0; background:#101010; color:#fff; text-align:center; }
-    .pricing-final h2 { max-width:760px; margin:0 auto; color:#fff; font-size:clamp(42px,5vw,72px); line-height:.92; letter-spacing:-.07em; }
-    .pricing-final p { margin:22px auto 30px; max-width:580px; color:rgba(255,255,255,.62); font-size:17px; line-height:1.55; }
+
+    .pricing-final { padding:76px 0; background:#101010; color:#fff; text-align:center; }
+    .pricing-final h2 { max-width:720px; margin:0 auto; color:#fff; font-size:clamp(38px,4.4vw,58px); line-height:.94; letter-spacing:-.07em; }
+    .pricing-final p { margin:20px auto 28px; max-width:560px; color:rgba(255,255,255,.62); font-size:16px; line-height:1.55; }
+
+    @media (max-width: 768px) {
+      .pricing-private-hero { padding:108px 0 54px; }
+      .pricing-private-hero h1 { font-size:clamp(38px,10vw,48px); }
+      .pricing-private-hero p { font-size:15px; }
+      .pricing-section-private { padding:52px 0; }
+      .private-section-head, .plan-explainer-grid, .decision-strip, .pricing-card-grid, .timeline-grid, .included-grid-private, .sample-cta-private { grid-template-columns:1fr; }
+      .private-section-head { gap:16px; }
+      .private-section-head h2 { font-size:clamp(30px,8vw,38px); }
+      .explainer-card, .private-pricing-card { padding:22px; }
+      .pricing-card-grid { gap:14px; }
+      .sample-cta-private { padding:24px; }
+    }
   </style>
 </head>
 
@@ -94,6 +123,7 @@
         <img class="brand-mark" src="/logo-mark.png" alt="Renewal Ops Desk logo" />
         <span>Renewal Ops Desk</span>
       </a>
+
       <div class="nav-links">
         <a href="#overview">Overview</a>
         <a href="#monthly">Monthly</a>
@@ -102,19 +132,29 @@
         <a href="#faq">FAQ</a>
         <button class="mobile-nav-cta sample-modal-trigger" type="button">Get Sample Report</button>
       </div>
+
       <button class="btn btn-primary nav-desktop-cta sample-modal-trigger" type="button">Get Sample Report</button>
-      <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span></button>
+
+      <button class="mobile-menu-toggle" type="button" aria-label="Open menu">
+        <span></span>
+      </button>
     </nav>
 
     <header class="pricing-private-hero">
       <div class="container">
         <div class="badge">Private pricing page</div>
+
         <h1>Choose the right level of contract visibility.</h1>
-        <p>Renewal Ops Desk helps Finance and Operations teams understand what active vendor agreements are still doing after signature — renewals, notice windows, pricing escalations, and commercial exposure.</p>
+
+        <p>
+          Renewal Ops Desk helps Finance and Operations teams understand what active vendor agreements are still doing after signature — renewals, notice windows, pricing escalations, and commercial exposure.
+        </p>
+
         <div class="pricing-hero-actions">
           <a class="btn btn-primary" href="#monthly">View monthly plans</a>
           <a class="btn btn-secondary" href="#setup-only">View setup only</a>
         </div>
+
         <div class="pricing-hero-note">Commercial analysis only · No legal advice · No vendor contact</div>
       </div>
     </header>
@@ -123,60 +163,407 @@
       <section class="pricing-section-private" id="overview">
         <div class="container">
           <div class="private-section-head">
-            <div><div class="eyebrow">Plan overview</div><h2>Two ways to regain contract visibility.</h2></div>
-            <p>Choose a one-time audit when you need immediate clarity, or ongoing monitoring when you want renewal exposure tracked continuously after the initial setup.</p>
+            <div>
+              <div class="eyebrow">Plan overview</div>
+              <h2>Two ways to regain contract visibility.</h2>
+            </div>
+
+            <p>
+              Choose a one-time audit for immediate clarity, or ongoing monitoring when you want renewal exposure tracked after setup.
+            </p>
           </div>
+
           <div class="plan-explainer-grid">
-            <article class="explainer-card featured"><span class="plan-label">Setup + Monthly</span><h3>For teams that want ongoing protection.</h3><p>Best for companies that do not want renewal risk, pricing increases, or notice windows to become surprise operational problems.</p><ul><li>Initial setup + first month monitoring fee</li><li>Recurring billing is activated separately after onboarding</li><li>Annual upfront option available with two months included</li><li>Designed for ongoing renewal visibility</li></ul></article>
-            <article class="explainer-card"><span class="plan-label">Setup Only</span><h3>For teams that need one complete audit.</h3><p>Best for companies that need to understand the current portfolio now, without ongoing monitoring or monthly reporting.</p><ul><li>One-time commercial portfolio review</li><li>All active contracts submitted together</li><li>Prioritized report and action calendar</li><li>No recurring monitoring after delivery</li></ul></article>
+            <article class="explainer-card featured">
+              <span class="plan-label">Setup + Monthly</span>
+              <h3>For ongoing protection.</h3>
+              <p>
+                Best for teams that want renewal risk, pricing increases, and notice windows monitored after the initial setup.
+              </p>
+
+              <ul>
+                <li>Initial setup + first month monitoring fee</li>
+                <li>Future recurring monthly billing sent separately</li>
+                <li>Annual upfront option includes 2 months free</li>
+              </ul>
+            </article>
+
+            <article class="explainer-card">
+              <span class="plan-label">Setup Only</span>
+              <h3>For one complete audit.</h3>
+              <p>
+                Best for teams that need current portfolio visibility without ongoing monitoring.
+              </p>
+
+              <ul>
+                <li>One-time commercial portfolio review</li>
+                <li>All active contracts submitted together</li>
+                <li>Prioritized report and action calendar</li>
+              </ul>
+            </article>
           </div>
+
           <div class="decision-strip">
-            <article class="decision-card"><small>Best for</small><strong>Finance and Ops teams</strong><p>Teams that own vendor spend but do not have a clear renewal owner.</p></article>
-            <article class="decision-card"><small>What we review</small><strong>Active vendor agreements</strong><p>Renewals, notice windows, pricing terms, escalation clauses, and commercial exposure.</p></article>
-            <article class="decision-card"><small>What this is not</small><strong>Not legal advice</strong><p>No contract drafting, legal review, legal opinion, representation, or vendor contact.</p></article>
+            <article class="decision-card">
+              <small>Best for</small>
+              <strong>Finance and Ops teams</strong>
+              <p>Teams carrying vendor spend without a clear renewal owner.</p>
+            </article>
+
+            <article class="decision-card">
+              <small>We review</small>
+              <strong>Active vendor agreements</strong>
+              <p>Renewals, notice windows, pricing terms, and commercial exposure.</p>
+            </article>
+
+            <article class="decision-card">
+              <small>Scope</small>
+              <strong>Commercial only</strong>
+              <p>No legal advice, legal opinions, representation, or vendor contact.</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="pricing-section-private dark" id="monthly">
         <div class="container">
-          <div class="private-section-head"><div><div class="eyebrow">Setup + Monthly</div><h2>Initial setup + first month monitoring.</h2></div><p>This payment covers the initial portfolio setup and first month monitoring fee. Future recurring monthly billing is activated separately after onboarding and setup completion.</p></div>
-          <div class="pricing-card-grid">
-            <article class="private-pricing-card"><span class="plan-label">Starter</span><h3>0–25 active contracts</h3><p class="plan-volume">For smaller vendor portfolios that still carry meaningful renewal exposure.</p><div class="main-price"><strong>$2,194</strong><span>setup + first month</span></div><p class="pricing-note-small">Includes $1,497 setup fee + $697 first month monitoring.</p><a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/fZu00b27P8n33iG9cm8EM06">Start Starter →</a><div class="secondary-payment"><a class="annual-link" href="https://buy.stripe.com/28E14ffYF1YFbPc1JU8EM09"><span>Annual upfront</span><strong>$6,970/year</strong></a></div><ul class="plan-includes"><li>Initial portfolio setup</li><li>First month monitoring</li><li>Renewal exposure visibility</li><li>Commercial reporting</li></ul></article>
-            <article class="private-pricing-card"><span class="plan-label">Growth</span><h3>26–50 active contracts</h3><p class="plan-volume">For growing teams with more vendors, more renewals, and more commercial exposure.</p><div class="main-price"><strong>$3,394</strong><span>setup + first month</span></div><p class="pricing-note-small">Includes $2,297 setup fee + $1,097 first month monitoring.</p><a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/6oU8wHcMt1YFaL83S28EM07">Start Growth →</a><div class="secondary-payment"><a class="annual-link" href="https://buy.stripe.com/fZu00b4fX46NaL83S28EM0a"><span>Annual upfront</span><strong>$10,970/year</strong></a></div><ul class="plan-includes"><li>Expanded portfolio coverage</li><li>First month monitoring</li><li>Priority renewal visibility</li><li>Executive commercial reporting</li></ul></article>
-            <article class="private-pricing-card"><span class="plan-label">Guardian</span><h3>51–75 active contracts</h3><p class="plan-volume">For larger portfolios where missed renewal windows can create material exposure.</p><div class="main-price"><strong>$4,694</strong><span>setup + first month</span></div><p class="pricing-note-small">Includes $2,997 setup fee + $1,697 first month monitoring.</p><a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/4gM6oz9Ahavb7yW3S28EM08">Start Guardian →</a><div class="secondary-payment"><a class="annual-link" href="https://buy.stripe.com/8x214fdQx6eVf1ofAK8EM0b"><span>Annual upfront</span><strong>$16,970/year</strong></a></div><ul class="plan-includes"><li>Highest standard portfolio coverage</li><li>First month monitoring</li><li>Renewal and pricing exposure visibility</li><li>Executive reporting structure</li></ul></article>
+          <div class="private-section-head">
+            <div>
+              <div class="eyebrow">Setup + Monthly</div>
+              <h2>Initial setup + first month monitoring.</h2>
+            </div>
+
+            <p>
+              This payment covers setup and first month monitoring. Future recurring monthly billing is activated separately after onboarding.
+            </p>
           </div>
-          <div class="payment-info-box"><strong>Important:</strong> Setup + Monthly checkout covers the initial setup and first month monitoring fee only. Future monthly recurring billing is sent separately after onboarding and setup completion. Annual upfront links can be used instead when the client wants to prepay monitoring with two months included.</div>
+
+          <div class="pricing-card-grid">
+            <article class="private-pricing-card">
+              <span class="plan-label">Starter</span>
+              <h3>0–25 active contracts</h3>
+
+              <div class="main-price">
+                <strong>$2,194</strong>
+                <span>setup + first month</span>
+              </div>
+
+              <p class="pricing-note-small">$1,497 setup + $697 first month monitoring.</p>
+
+              <a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/fZu00b27P8n33iG9cm8EM06">
+                Start Starter →
+              </a>
+
+              <div class="secondary-payment">
+                <a class="annual-link" href="https://buy.stripe.com/28E14ffYF1YFbPc1JU8EM09">
+                  <span>Annual upfront</span>
+                  <strong>$6,970/year</strong>
+                  <small>Pay 10 months, get 12 — 2 months free.</small>
+                </a>
+              </div>
+            </article>
+
+            <article class="private-pricing-card">
+              <span class="plan-label">Growth</span>
+              <h3>26–50 active contracts</h3>
+
+              <div class="main-price">
+                <strong>$3,394</strong>
+                <span>setup + first month</span>
+              </div>
+
+              <p class="pricing-note-small">$2,297 setup + $1,097 first month monitoring.</p>
+
+              <a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/6oU8wHcMt1YFaL83S28EM07">
+                Start Growth →
+              </a>
+
+              <div class="secondary-payment">
+                <a class="annual-link" href="https://buy.stripe.com/fZu00b4fX46NaL83S28EM0a">
+                  <span>Annual upfront</span>
+                  <strong>$10,970/year</strong>
+                  <small>Pay 10 months, get 12 — 2 months free.</small>
+                </a>
+              </div>
+            </article>
+
+            <article class="private-pricing-card">
+              <span class="plan-label">Guardian</span>
+              <h3>51–75 active contracts</h3>
+
+              <div class="main-price">
+                <strong>$4,694</strong>
+                <span>setup + first month</span>
+              </div>
+
+              <p class="pricing-note-small">$2,997 setup + $1,697 first month monitoring.</p>
+
+              <a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/4gM6oz9Ahavb7yW3S28EM08">
+                Start Guardian →
+              </a>
+
+              <div class="secondary-payment">
+                <a class="annual-link" href="https://buy.stripe.com/8x214fdQx6eVf1ofAK8EM0b">
+                  <span>Annual upfront</span>
+                  <strong>$16,970/year</strong>
+                  <small>Pay 10 months, get 12 — 2 months free.</small>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="payment-info-box">
+            <strong>Important:</strong> Setup + Monthly checkout covers the initial setup and first month monitoring fee only. Future monthly recurring billing is sent separately after onboarding and setup completion.
+          </div>
         </div>
       </section>
 
       <section class="pricing-section-private" id="setup-only">
         <div class="container">
-          <div class="private-section-head"><div><div class="eyebrow">Setup Only</div><h2>One-time portfolio audit.</h2></div><p>For companies that want a complete commercial review of their current active vendor agreements, without ongoing monitoring.</p></div>
-          <div class="pricing-card-grid">
-            <article class="private-pricing-card"><span class="plan-label">Starter</span><h3>0–25 active contracts</h3><div class="main-price"><strong>$2,200</strong><span>one-time audit</span></div><a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/cNiaEPaEl8n35qObku8EM00">Start Starter →</a><ul class="plan-includes"><li>One-time portfolio review</li><li>Renewal and notice window visibility</li><li>Commercial exposure flags</li><li>Prioritized action list</li></ul></article>
-            <article class="private-pricing-card"><span class="plan-label">Growth</span><h3>26–50 active contracts</h3><div class="main-price"><strong>$3,200</strong><span>one-time audit</span></div><a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/dRm00b5k1cDjg5sagq8EM01">Start Growth →</a><ul class="plan-includes"><li>Everything in Starter</li><li>Expanded contract coverage</li><li>Financial exposure visibility</li><li>Finance-ready reporting</li></ul></article>
-            <article class="private-pricing-card"><span class="plan-label">Guardian</span><h3>51–75 active contracts</h3><div class="main-price"><strong>$4,200</strong><span>one-time audit</span></div><a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/8x27sD5k1bzfbPcbku8EM02">Start Guardian →</a><ul class="plan-includes"><li>Everything in Growth</li><li>Highest standard audit coverage</li><li>Deeper portfolio visibility</li><li>Executive-ready report</li></ul></article>
+          <div class="private-section-head">
+            <div>
+              <div class="eyebrow">Setup Only</div>
+              <h2>One-time portfolio audit.</h2>
+            </div>
+
+            <p>
+              For companies that want a complete commercial review of their current active vendor agreements, without ongoing monitoring.
+            </p>
           </div>
-          <div class="payment-info-box"><strong>Setup Only rule:</strong> all contracts must be submitted together in the initial onboarding. Later documents may not be included in the same review unless separately agreed.</div>
+
+          <div class="pricing-card-grid">
+            <article class="private-pricing-card">
+              <span class="plan-label">Starter</span>
+              <h3>0–25 active contracts</h3>
+
+              <div class="main-price">
+                <strong>$2,200</strong>
+                <span>one-time audit</span>
+              </div>
+
+              <a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/cNiaEPaEl8n35qObku8EM00">
+                Start Starter →
+              </a>
+            </article>
+
+            <article class="private-pricing-card">
+              <span class="plan-label">Growth</span>
+              <h3>26–50 active contracts</h3>
+
+              <div class="main-price">
+                <strong>$3,200</strong>
+                <span>one-time audit</span>
+              </div>
+
+              <a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/dRm00b5k1cDjg5sagq8EM01">
+                Start Growth →
+              </a>
+            </article>
+
+            <article class="private-pricing-card">
+              <span class="plan-label">Guardian</span>
+              <h3>51–75 active contracts</h3>
+
+              <div class="main-price">
+                <strong>$4,200</strong>
+                <span>one-time audit</span>
+              </div>
+
+              <a class="btn btn-primary pricing-btn" href="https://buy.stripe.com/8x27sD5k1bzfbPcbku8EM02">
+                Start Guardian →
+              </a>
+            </article>
+          </div>
+
+          <div class="payment-info-box">
+            <strong>Setup Only rule:</strong> all contracts must be submitted together in the initial onboarding. Later documents may not be included in the same review unless separately agreed.
+          </div>
         </div>
       </section>
 
-      <section class="pricing-section-private" id="how-it-works"><div class="container"><div class="private-section-head"><div><div class="eyebrow">Process</div><h2>Simple, async, and built for busy teams.</h2></div><p>Renewal Ops Desk is designed to work without calls, meetings, vendor contact, or software implementation.</p></div><div class="timeline-grid"><article class="timeline-step"><small>01</small><strong>Choose plan</strong><p>Select the plan that matches your active contract volume and monitoring preference.</p></article><article class="timeline-step"><small>02</small><strong>Complete onboarding</strong><p>Submit company details, portfolio information, and the active agreements for review.</p></article><article class="timeline-step"><small>03</small><strong>Portfolio review</strong><p>Renewal dates, notice windows, escalation clauses, and commercial exposure are mapped.</p></article><article class="timeline-step"><small>04</small><strong>Receive output</strong><p>Get clear reporting, action priorities, and monitoring setup based on the selected plan.</p></article></div></div></section>
+      <section class="pricing-section-private" id="how-it-works">
+        <div class="container">
+          <div class="private-section-head">
+            <div>
+              <div class="eyebrow">Process</div>
+              <h2>Simple, async, and built for busy teams.</h2>
+            </div>
 
-      <section class="pricing-section-private"><div class="container"><div class="private-section-head"><div><div class="eyebrow">Included</div><h2>Every plan is built around commercial clarity.</h2></div><p>The scope stays focused: financial and operational visibility around active vendor agreements.</p></div><div class="included-grid-private"><span>Renewal window visibility</span><span>Pricing escalation review</span><span>Auto-renewal flags</span><span>Commercial exposure summary</span><span>Notice period tracking</span><span>Prioritized action list</span><span>Finance-ready reporting</span><span>No legal advice</span></div></div></section>
+            <p>No calls, no vendor contact, no software implementation.</p>
+          </div>
 
-      <section class="pricing-section-private"><div class="container"><div class="sample-cta-private"><div><h2>Want to see the report before choosing?</h2><p>Request a redacted sample report showing how Renewal Ops Desk presents findings, exposure, notice windows, and recommended action areas.</p></div><button class="btn btn-primary sample-modal-trigger" type="button">Get Sample Report →</button></div></div></section>
+          <div class="timeline-grid">
+            <article class="timeline-step">
+              <small>01</small>
+              <strong>Choose plan</strong>
+              <p>Select based on active contract volume.</p>
+            </article>
 
-      <section class="pricing-section-private" id="faq"><div class="container"><div class="private-section-head"><div><div class="eyebrow">FAQ</div><h2>Before you choose a plan.</h2></div></div><div class="pricing-faq"><details><summary>What does the Setup + Monthly payment include?</summary><p>It includes the initial portfolio setup and the first month monitoring fee. Future recurring monthly billing is activated separately after onboarding and setup completion.</p></details><details><summary>Can we pay upfront annually?</summary><p>Yes. Annual upfront monitoring links are available for Starter, Growth, and Guardian and include two months on us compared with paying monthly for 12 months.</p></details><details><summary>What is the difference between Setup Only and Setup + Monthly?</summary><p>Setup Only is a one-time audit of the current portfolio. Setup + Monthly includes initial setup and ongoing monitoring after onboarding, designed for teams that want renewal visibility to continue.</p></details><details><summary>Do you provide legal advice?</summary><p>No. Renewal Ops Desk provides commercial and operational contract analysis only. We do not provide legal advice, legal review, contract drafting, legal representation, or legal opinions.</p></details><details><summary>Do you contact vendors?</summary><p>No. Renewal Ops Desk does not contact vendors, negotiate on your behalf, send notices, or represent your company. The service gives your team visibility and recommended action areas.</p></details><details><summary>What if we have more than 75 active contracts?</summary><p>Enterprise review is available for larger portfolios. Email hello@renewalopsdesk.com and we can scope the right structure.</p></details></div></div></section>
+            <article class="timeline-step">
+              <small>02</small>
+              <strong>Complete onboarding</strong>
+              <p>Submit company details and agreements.</p>
+            </article>
 
-      <section class="pricing-final"><div class="container"><h2>Choose visibility before the next renewal window closes.</h2><p>Start with a one-time audit, or choose ongoing monitoring if you want contract risk visibility to continue after setup.</p><div class="final-actions"><a class="btn btn-primary" href="#monthly">View monthly plans</a><a class="btn btn-secondary" href="#setup-only">View setup only</a></div></div></section>
+            <article class="timeline-step">
+              <small>03</small>
+              <strong>Portfolio review</strong>
+              <p>Renewals, windows, pricing, and exposure are mapped.</p>
+            </article>
+
+            <article class="timeline-step">
+              <small>04</small>
+              <strong>Receive output</strong>
+              <p>Get reporting and action priorities.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing-section-private">
+        <div class="container">
+          <div class="private-section-head">
+            <div>
+              <div class="eyebrow">Included</div>
+              <h2>Every plan is built around commercial clarity.</h2>
+            </div>
+
+            <p>The plan level changes by contract volume. The review framework stays the same.</p>
+          </div>
+
+          <div class="included-grid-private">
+            <span>Renewal windows</span>
+            <span>Pricing escalations</span>
+            <span>Auto-renewal flags</span>
+            <span>Commercial exposure</span>
+            <span>Notice periods</span>
+            <span>Action priorities</span>
+            <span>Finance-ready reporting</span>
+            <span>No legal advice</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing-section-private">
+        <div class="container">
+          <div class="sample-cta-private">
+            <div>
+              <h2>Want to see the report before choosing?</h2>
+              <p>Request a redacted sample report showing findings, exposure, notice windows, and recommended action areas.</p>
+            </div>
+
+            <button class="btn btn-primary sample-modal-trigger" type="button">Get Sample Report →</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing-section-private" id="faq">
+        <div class="container">
+          <div class="private-section-head">
+            <div>
+              <div class="eyebrow">FAQ</div>
+              <h2>Before you choose a plan.</h2>
+            </div>
+          </div>
+
+          <div class="pricing-faq">
+            <details>
+              <summary>What does the Setup + Monthly payment include?</summary>
+              <p>It includes the initial portfolio setup and the first month monitoring fee. Future recurring monthly billing is activated separately after onboarding and setup completion.</p>
+            </details>
+
+            <details>
+              <summary>Can we pay upfront annually?</summary>
+              <p>Yes. Annual upfront monitoring links are available for Starter, Growth, and Guardian. They include 2 months free compared with paying monthly for 12 months.</p>
+            </details>
+
+            <details>
+              <summary>What is the difference between Setup Only and Setup + Monthly?</summary>
+              <p>Setup Only is a one-time audit. Setup + Monthly includes initial setup and ongoing monitoring after onboarding.</p>
+            </details>
+
+            <details>
+              <summary>Do you provide legal advice?</summary>
+              <p>No. Renewal Ops Desk provides commercial and operational contract analysis only.</p>
+            </details>
+
+            <details>
+              <summary>Do you contact vendors?</summary>
+              <p>No. Renewal Ops Desk does not contact vendors, negotiate, send notices, or represent your company.</p>
+            </details>
+
+            <details>
+              <summary>What if we have more than 75 active contracts?</summary>
+              <p>Enterprise review is available for larger portfolios. Email hello@renewalopsdesk.com and we can scope the right structure.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing-final">
+        <div class="container">
+          <h2>Choose visibility before the next renewal window closes.</h2>
+          <p>Start with a one-time audit, or choose ongoing monitoring if you want contract risk visibility to continue after setup.</p>
+
+          <div class="final-actions">
+            <a class="btn btn-primary" href="#monthly">View monthly plans</a>
+            <a class="btn btn-secondary" href="#setup-only">View setup only</a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer"><div class="container"><div><strong>Renewal Ops Desk</strong><p>Contract risk intelligence for active vendor portfolios.</p></div><div class="footer-links"><a href="/service-agreement">Service Agreement</a><a href="/terms">Terms</a><a href="/data-policy">Data Policy</a><a href="/refund-cancellation-policy">Refund Policy</a><a href="/no-legal-advice">No Legal Advice</a><a href="mailto:hello@renewalopsdesk.com">hello@renewalopsdesk.com</a></div></div></footer>
+    <footer class="footer">
+      <div class="container">
+        <div>
+          <strong>Renewal Ops Desk</strong>
+          <p>Contract risk intelligence for active vendor portfolios.</p>
+        </div>
 
-    <div class="sample-modal" id="sampleModal"><div class="sample-modal-backdrop"></div><div class="sample-modal-card"><button class="sample-modal-close" type="button" aria-label="Close modal">×</button><div class="eyebrow">Sample report</div><h2>See the report before you submit your agreements.</h2><p>Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure, pricing escalations, notice windows, and prioritized commercial findings.</p><form class="sample-report-form" id="sampleLeadFormModal"><div class="form-field"><label for="sampleModalEmail">Work email</label><input id="sampleModalEmail" name="email" type="email" placeholder="name@company.com" required /></div><div class="form-field"><label for="sampleModalCompany">Company name</label><input id="sampleModalCompany" name="company" type="text" placeholder="Company name" required /></div><button class="btn btn-primary sample-form-btn" type="submit">Get sample report →</button><p class="sample-form-note">Sent within 24 hours. No call required.</p></form></div></div>
+        <div class="footer-links">
+          <a href="/service-agreement">Service Agreement</a>
+          <a href="/terms">Terms</a>
+          <a href="/data-policy">Data Policy</a>
+          <a href="/refund-cancellation-policy">Refund Policy</a>
+          <a href="/no-legal-advice">No Legal Advice</a>
+          <a href="mailto:hello@renewalopsdesk.com">hello@renewalopsdesk.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="sample-modal" id="sampleModal">
+      <div class="sample-modal-backdrop"></div>
+
+      <div class="sample-modal-card">
+        <button class="sample-modal-close" type="button" aria-label="Close modal">×</button>
+
+        <div class="eyebrow">Sample report</div>
+
+        <h2>See the report before you submit your agreements.</h2>
+
+        <p>
+          Get a redacted sample report showing how Renewal Ops Desk presents renewal exposure, pricing escalations, notice windows, and prioritized commercial findings.
+        </p>
+
+        <form class="sample-report-form" id="sampleLeadFormModal">
+          <div class="form-field">
+            <label for="sampleModalEmail">Work email</label>
+            <input id="sampleModalEmail" name="email" type="email" placeholder="name@company.com" required />
+          </div>
+
+          <div class="form-field">
+            <label for="sampleModalCompany">Company name</label>
+            <input id="sampleModalCompany" name="company" type="text" placeholder="Company name" required />
+          </div>
+
+          <button class="btn btn-primary sample-form-btn" type="submit">Get sample report →</button>
+
+          <p class="sample-form-note">Sent within 24 hours. No call required.</p>
+        </form>
+      </div>
+    </div>
   </div>
+
   <script src="/nav.js"></script>
 </body>
 </html>
