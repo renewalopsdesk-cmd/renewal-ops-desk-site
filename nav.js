@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const tabs = document.querySelectorAll("[data-pricing-tab]");
   const panels = document.querySelectorAll("[data-pricing-panel]");
