@@ -1,16 +1,16 @@
 /* =========================================================
-   RENEWAL OPS DESK — CLEAN MOBILE.CSS
-   Use after styles.css:
-   <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)">
+   RENEWAL OPS DESK — MOBILE-FIRST EXPERIENCE
+   Replace entire mobile.css with this file.
    ========================================================= */
 
 @media (max-width: 768px) {
-  /* GLOBAL FIX */
+  /* RESET */
   html,
   body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden !important;
+    background: #f4f4f1;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -22,10 +22,9 @@
   }
 
   body {
-    background: #f6f6f3 !important;
+    font-size: 16px;
   }
 
-  .page,
   main,
   section,
   .section,
@@ -33,125 +32,88 @@
   .footer,
   .final-cta {
     width: 100%;
-    max-width: 100%;
     overflow-x: hidden !important;
   }
 
   .container {
-    width: calc(100% - 32px) !important;
-    max-width: calc(100% - 32px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .light::before,
-  .dark::before,
-  .hero::before,
-  .page-hero::before {
     width: 100% !important;
     max-width: 100% !important;
-    left: 0 !important;
-    transform: none !important;
-  }
-
-  .dark,
-  .hero,
-  .final-cta,
-  .footer {
-    background: #101010 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin: 0 auto !important;
   }
 
   .section,
   .section.light,
   .section.dark {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
+    padding: 64px 0 !important;
   }
 
-  /* TYPOGRAPHY */
-  h1,
-  h2,
-  h3,
-  p,
-  li,
-  .section-title,
-  .section-lead {
-    max-width: 100% !important;
-  }
-
+  /* MOBILE TYPE SYSTEM */
   h1,
   .hero h1 {
-    font-size: clamp(44px, 13vw, 60px) !important;
-    line-height: .9 !important;
-    letter-spacing: -.07em !important;
+    font-size: clamp(48px, 14vw, 64px) !important;
+    line-height: .88 !important;
+    letter-spacing: -.075em !important;
   }
 
   h2,
   .section-title,
   .compact-intro h2,
-  .social-proof-section .section-title,
   .why-section .section-title,
+  #fit .section-title,
   .results-header-v3 h2,
-  .analysis-header-v3 h2,
   .pricing-section .section-title,
-  .faq-heading .section-title {
-    font-size: clamp(34px, 10vw, 46px) !important;
-    line-height: .96 !important;
-    letter-spacing: -.06em !important;
+  .faq-heading .section-title,
+  .analysis-header-v3 h2 {
+    font-size: clamp(38px, 11vw, 52px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.07em !important;
   }
 
   h3 {
-    font-size: 24px !important;
-    line-height: 1.05 !important;
+    font-size: 26px !important;
+    line-height: 1 !important;
+    letter-spacing: -.045em !important;
   }
 
   p,
   li,
   .section-lead,
   .compact-intro p,
-  .security-header p,
-  .analysis-header-v3 p {
-    font-size: 16px !important;
-    line-height: 1.55 !important;
+  .hero-subheadline {
+    font-size: 17px !important;
+    line-height: 1.48 !important;
   }
 
   .eyebrow,
   .badge {
-    font-size: 9.5px !important;
-    padding: 7px 10px !important;
-    letter-spacing: .11em !important;
-  }
-
-  .section-header,
-  .section-head {
-    margin-bottom: 26px !important;
+    font-size: 9px !important;
+    letter-spacing: .13em !important;
+    padding: 8px 11px !important;
   }
 
   /* NAV */
-  body.menu-open {
-    overflow: hidden;
-  }
-
   .nav {
-    padding: 12px 16px !important;
-    min-height: 72px !important;
-    gap: 12px !important;
+    height: 76px !important;
+    padding: 14px 18px !important;
+    background: rgba(16,16,16,.96) !important;
+    border-bottom: 1px solid rgba(255,255,255,.08);
   }
 
   .brand {
-    gap: 9px !important;
-    position: relative;
+    gap: 10px !important;
     z-index: 10001;
   }
 
-  .brand span {
-    font-size: 14px !important;
-    letter-spacing: -.03em;
+  .brand-mark {
+    width: 38px !important;
+    height: 38px !important;
   }
 
-  .brand-mark {
-    width: 34px !important;
-    height: 34px !important;
+  .brand span {
+    font-size: 15px !important;
+    letter-spacing: -.035em;
   }
 
   .nav-desktop-cta,
@@ -160,35 +122,24 @@
   }
 
   .mobile-menu-toggle {
-    position: relative;
-    z-index: 10001;
-    display: inline-flex !important;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    width: 48px;
-    height: 48px;
+    display: flex !important;
+    width: 52px;
+    height: 52px;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,.14);
-    background: rgba(255,255,255,.045);
-    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.05);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10001;
   }
 
   .mobile-menu-toggle span {
-    display: block;
     width: 18px;
     height: 1px;
-    margin: 0 auto;
     background: #fff;
-    transition: transform .25s ease, opacity .25s ease;
-  }
-
-  .nav.nav-open .mobile-menu-toggle span:first-child {
-    transform: translateY(3.5px) rotate(45deg);
-  }
-
-  .nav.nav-open .mobile-menu-toggle span:last-child {
-    transform: translateY(-3.5px) rotate(-45deg);
+    display: block;
   }
 
   .nav-links {
@@ -197,17 +148,13 @@
     z-index: 10000;
     display: flex !important;
     flex-direction: column;
-    align-items: stretch;
     justify-content: center;
-    gap: 0;
-    padding: 96px 24px 30px;
-    background:
-      radial-gradient(circle at 20% 0%, rgba(255,255,255,.08), transparent 32%),
-      linear-gradient(180deg, #101010 0%, #090909 100%);
+    padding: 96px 26px 32px;
+    background: #090909;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity .25s ease, transform .25s ease;
+    transform: translateY(-8px);
+    transition: .25s ease;
   }
 
   .nav.nav-open .nav-links {
@@ -217,96 +164,73 @@
   }
 
   .nav-links a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(255,255,255,.10);
-    color: rgba(255,255,255,.88);
-    font-size: 13px !important;
-    letter-spacing: .08em;
-  }
-
-  .nav-links a::after {
-    content: "→";
-    color: rgba(255,255,255,.4);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    color: #fff;
+    font-size: 14px !important;
+    letter-spacing: .09em;
   }
 
   .mobile-nav-cta {
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 22px;
-    padding: 16px 18px !important;
-    border: 1px solid rgba(255,255,255,.18) !important;
-    border-radius: 999px;
-    background: #fff;
+    margin-top: 24px;
+    background: #fff !important;
     color: #111 !important;
-    text-align: center;
+    border-radius: 999px;
+    justify-content: center !important;
+    padding: 17px !important;
   }
 
-  .mobile-nav-cta::after {
-    display: none !important;
-  }
-
-  /* BUTTONS */
-  .btn {
-    width: 100%;
-    min-height: 52px;
-    padding: 15px 20px !important;
-    font-size: 14px !important;
-  }
-
-  /* HERO */
+  /* HERO — MOBILE LANDING EXPERIENCE */
   .hero {
-    padding: 104px 0 56px !important;
+    padding: 122px 0 72px !important;
     min-height: auto !important;
+    text-align: center;
   }
 
   .hero-centered {
     min-height: auto !important;
-    justify-content: flex-start !important;
   }
 
   .hero .badge {
-    margin-top: 8px !important;
-    margin-bottom: 28px !important;
+    margin-bottom: 34px !important;
   }
 
   .hero-subheadline {
-    margin-top: 24px !important;
-    font-size: 18px !important;
-    line-height: 1.45 !important;
+    margin: 26px auto 0 !important;
+    max-width: 340px !important;
+    color: rgba(255,255,255,.72) !important;
   }
 
   .hero-actions {
+    margin-top: 34px !important;
     width: 100%;
-    margin-top: 32px !important;
-    flex-direction: column;
-    align-items: stretch;
+    display: grid !important;
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .hero-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .secondary-line,
-  .hero-metrics-line {
-    transform: none !important;
+  .btn,
+  .hero-actions .btn,
+  .pricing-btn {
+    width: 100% !important;
+    min-height: 56px;
+    border-radius: 999px;
+    font-size: 15px !important;
   }
 
   .secondary-line {
-    margin-top: 32px !important;
+    margin-top: 36px !important;
     font-size: 15px !important;
-    line-height: 1.45 !important;
+    color: rgba(255,255,255,.58) !important;
+    transform: none !important;
   }
 
   .hero-metrics-line {
     margin-top: 18px !important;
     font-size: 10px !important;
-    line-height: 1.55 !important;
-    opacity: .85;
+    line-height: 1.6 !important;
+    color: rgba(255,255,255,.28) !important;
+    transform: none !important;
   }
 
   .hero::after,
@@ -315,190 +239,181 @@
     display: none !important;
   }
 
-  /* NO BROKEN HORIZONTAL CAROUSELS */
-  .testimonial-grid,
-  .premium-testimonials,
+  /* MOBILE SECTIONS — EVERYTHING STACKS */
+  .split,
   .grid-2,
   .grid-3,
-  .compact-findings,
-  .results-grid,
-  .results-grid-v3,
-  .findings-grid,
-  .pricing-grid,
-  .fit-scroll-grid,
+  .about-service-cards,
   .proof-grid,
   .proof-stats,
-  .security-grid,
-  .plan-model-grid,
-  .about-service-cards,
-  .methodology-main,
-  .sample-report-lead,
-  .analysis-header-v3,
+  .fit-scroll-grid,
   .what-find-layout,
   .what-find-layout.refined,
-  .split,
-  .why-section .split,
+  .results-grid-v3,
+  .sample-report-lead,
+  .analysis-header-v3,
+  .security-grid,
+  .methodology-main,
+  .plan-model-grid,
+  .pricing-grid,
   .faq-layout {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    grid-auto-flow: row !important;
-    grid-auto-columns: unset !important;
-    overflow-x: hidden !important;
-    gap: 16px !important;
-    padding-bottom: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .testimonial-grid > *,
-  .premium-testimonials > *,
-  .grid-2 > *,
-  .grid-3 > *,
-  .compact-findings > *,
-  .results-grid > *,
-  .results-grid-v3 > *,
-  .findings-grid > *,
-  .pricing-grid > *,
-  .fit-scroll-grid > *,
-  .proof-grid > *,
-  .proof-stats > *,
-  .security-grid > *,
-  .plan-model-grid > *,
-  .about-service-cards > *,
-  .methodology-main > *,
-  .sample-report-lead > *,
-  .analysis-header-v3 > *,
-  .what-find-layout > *,
-  .split > *,
-  .faq-layout > * {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
+    gap: 18px !important;
+    overflow: visible !important;
   }
 
   /* CARDS */
   .light-card,
   .dark-card,
-  .testimonial-card,
-  .dark-testimonial,
+  .about-service-card,
   .proof-card,
   .fit-card,
+  .finding-card,
   .pricing-card,
   .plan-model-card,
   .security-card,
-  .finding-card,
   .statement-card,
   .methodology-frame,
-  .sample-report-form {
-    padding: 24px !important;
-    border-radius: 22px !important;
-    min-height: auto !important;
-    height: auto !important;
+  .sample-report-form,
+  .results-grid-v3 article {
     width: 100% !important;
-    max-width: 100% !important;
     min-width: 0 !important;
-  }
-
-  .about-service-card {
-    padding: 20px !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 24px !important;
+    border-radius: 24px !important;
   }
 
   /* ABOUT */
   .about-compact {
-    padding-top: 54px !important;
-    padding-bottom: 54px !important;
+    padding: 72px 0 !important;
   }
 
   .compact-intro {
-    text-align: center;
+    text-align: left !important;
+  }
+
+  .compact-intro .eyebrow {
+    margin-bottom: 22px !important;
   }
 
   .compact-intro p {
-    margin-top: 18px !important;
+    margin-top: 22px !important;
+    color: #555 !important;
+  }
+
+  .about-service-cards {
+    margin-top: 34px !important;
+  }
+
+  .about-service-card h3 {
+    font-size: 20px !important;
+  }
+
+  .about-service-card p {
+    font-size: 14px !important;
   }
 
   /* PROOF */
   .proof-section {
-    padding-top: 54px !important;
-    padding-bottom: 54px !important;
+    padding: 72px 0 !important;
+  }
+
+  .proof-section .section-head {
+    text-align: left !important;
   }
 
   .proof-card blockquote {
-    font-size: 18px !important;
-    line-height: 1.5 !important;
+    font-size: 19px !important;
+    line-height: 1.48 !important;
+  }
+
+  .proof-amount {
+    font-size: 11px !important;
   }
 
   .proof-meta {
     font-size: 12px !important;
-    line-height: 1.5 !important;
   }
 
   .proof-stats {
-    margin-top: 18px !important;
-    padding: 22px !important;
-    border-radius: 22px !important;
+    padding: 26px !important;
+    border-radius: 24px !important;
   }
 
   .proof-stat {
-    text-align: center;
+    text-align: left !important;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(28,28,28,.08);
+  }
+
+  .proof-stat:last-child {
+    border-bottom: none;
   }
 
   .proof-stat strong {
-    font-size: 34px !important;
+    font-size: 40px !important;
   }
 
-  .proof-stat span {
-    font-size: 13px !important;
-    line-height: 1.4 !important;
+  /* WHY */
+  .why-section .split {
+    gap: 28px !important;
   }
 
-  /* WHY / FIT */
-  .why-section .section-title,
-  #fit .section-title {
-    font-size: clamp(36px, 11vw, 48px) !important;
+  .why-section .statement-card p {
+    font-size: 17px !important;
   }
 
   .closing-statement {
     font-size: 16px !important;
   }
 
-  .fit-list {
-    gap: 14px !important;
+  /* FIT — NO SIDE CAROUSEL */
+  #fit .section-title {
+    font-size: clamp(36px, 10vw, 48px) !important;
+  }
+
+  .fit-scroll-grid {
+    margin-top: 28px !important;
   }
 
   .fit-list li {
     font-size: 15px !important;
+    line-height: 1.55 !important;
   }
 
-  /* FINDINGS */
-  #findings.what-we-find-section {
-    padding-top: 58px !important;
-    padding-bottom: 58px !important;
+  /* WHAT WE FIND */
+  #findings .section-title {
+    font-size: clamp(38px, 11vw, 52px) !important;
   }
 
-  #findings .what-find-left .section-title {
-    font-size: clamp(38px, 11vw, 50px) !important;
+  .risk-table-title {
+    margin-top: 34px !important;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-light);
   }
 
-  #findings .risk-table-title span {
+  .risk-table-title span {
     font-size: 22px !important;
   }
 
-  #findings .risk-table-title strong {
-    font-size: 30px !important;
+  .risk-table-title strong {
+    display: block;
+    font-size: 32px !important;
     line-height: 1 !important;
   }
 
   .risk-mini-table {
-    display: grid !important;
-    gap: 0 !important;
+    margin-top: 24px !important;
   }
 
   .risk-mini-row {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 8px !important;
+    gap: 8px;
     padding: 18px 0 !important;
+    border-bottom: 1px solid var(--line-light);
   }
 
   .risk-label {
@@ -506,25 +421,24 @@
     min-width: 0 !important;
   }
 
+  /* REPORT CARD — SHOW ONLY FIRST ON MOBILE */
   #findings .report-frame {
     width: 100% !important;
-    max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
     padding: 10px !important;
-    border-radius: 22px !important;
     overflow: hidden !important;
+    border-radius: 26px !important;
   }
 
   #findings .report-sample-scroll {
     display: block !important;
-    overflow-x: hidden !important;
+    overflow: visible !important;
   }
 
   #findings .report-sample-scroll .finding-card {
-    width: 100% !important;
-    margin-bottom: 16px !important;
-    padding: 24px !important;
+    display: block !important;
+    margin-bottom: 0 !important;
   }
 
   #findings .report-sample-scroll .finding-card:not(:first-child) {
@@ -535,91 +449,61 @@
     display: none !important;
   }
 
-  .finding-top {
-    align-items: flex-start !important;
-    gap: 10px !important;
-  }
-
   .finding-metrics {
     grid-template-columns: 1fr !important;
-    gap: 14px !important;
   }
 
   .finding-metrics strong {
-    font-size: 30px !important;
-  }
-
-  .finding-clause {
-    padding: 18px !important;
+    font-size: 32px !important;
   }
 
   /* RESULTS */
-  .results-section {
-    padding-top: 54px !important;
-    padding-bottom: 58px !important;
-  }
-
   .results-header-v3 h2 {
     white-space: normal !important;
   }
 
   .results-grid-v3 article {
-    padding: 24px !important;
-    border-radius: 22px !important;
+    text-align: left !important;
   }
 
   .results-grid-v3 strong {
-    font-size: 48px !important;
+    font-size: 54px !important;
   }
 
   .results-question-v3 {
-    font-size: 22px !important;
-    line-height: 1.12 !important;
+    margin-top: 32px !important;
+    font-size: 24px !important;
+    line-height: 1.1 !important;
     text-align: center;
   }
 
   /* SAMPLE REPORT */
   .sample-report-section {
-    padding-top: 58px !important;
-    padding-bottom: 58px !important;
+    padding: 72px 0 !important;
   }
 
   .sample-report-lead {
     padding: 28px !important;
-    border-radius: 24px !important;
+    border-radius: 28px !important;
   }
 
   .sample-report-copy h2 {
-    font-size: clamp(38px, 11vw, 48px) !important;
-    line-height: .96 !important;
-  }
-
-  .sample-report-copy p {
-    font-size: 16px !important;
+    font-size: clamp(38px, 11vw, 52px) !important;
   }
 
   .sample-report-form input {
     height: 54px !important;
-    color: #111 !important;
     background: #fff !important;
-    font-size: 16px !important;
+    color: #111 !important;
   }
 
-  .sample-form-btn {
-    width: 100% !important;
-  }
-
-  /* ANALYSIS */
-  .analysis-table-v4,
-  .analysis-row-v4 {
-    width: 100% !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-  }
-
+  /* ANALYSIS — CARD STACK INSTEAD OF TABLE */
   .analysis-table-v4 {
-    display: block !important;
-    border-radius: 22px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    border: none !important;
+    overflow: visible !important;
   }
 
   .analysis-head-v4 {
@@ -628,57 +512,68 @@
 
   .analysis-row-v4 {
     display: block !important;
-    padding: 22px !important;
-    border-bottom: 1px solid var(--line-light);
+    min-width: 0 !important;
+    padding: 24px !important;
+    border: 1px solid var(--line-light) !important;
+    border-radius: 22px !important;
+    background: rgba(255,255,255,.65);
   }
 
   .analysis-row-v4 strong {
     display: block;
+    font-size: 24px !important;
     margin-bottom: 10px;
-    font-size: 22px !important;
   }
 
   .analysis-row-v4 p {
-    white-space: normal !important;
-    overflow: visible !important;
     font-size: 15px !important;
-  }
-
-  .analysis-note-v3 {
-    font-size: 16px !important;
+    margin-top: 8px !important;
+    white-space: normal !important;
   }
 
   /* SECURITY */
   .security-section {
-    padding-top: 58px !important;
-    padding-bottom: 58px !important;
+    background: #101010 !important;
   }
 
-  .security-grid {
-    gap: 14px !important;
+  .security-header h2 {
+    color: #fff !important;
+  }
+
+  .security-header p {
+    color: rgba(255,255,255,.62) !important;
   }
 
   .security-card {
-    background: rgba(255,255,255,.04);
+    background: rgba(255,255,255,.045) !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
   }
 
-  /* METHODOLOGY */
+  .security-card strong {
+    color: #fff !important;
+  }
+
+  .security-card p {
+    color: rgba(255,255,255,.65) !important;
+  }
+
+  /* FOUNDER */
   .methodology-frame {
-    padding: 24px !important;
+    padding: 26px !important;
   }
 
   .methodology-founder {
     display: grid !important;
-    grid-template-columns: 110px 1fr !important;
-    gap: 18px !important;
+    grid-template-columns: 96px 1fr !important;
+    gap: 16px !important;
     align-items: center;
   }
 
   .methodology-founder img {
-    width: 110px !important;
-    height: 110px !important;
+    width: 96px !important;
+    height: 96px !important;
     object-fit: cover;
-    border-radius: 20px !important;
+    border-radius: 18px !important;
   }
 
   .methodology-links {
@@ -689,24 +584,29 @@
 
   .methodology-links a {
     width: fit-content !important;
-    font-size: 12px !important;
     padding: 9px 12px !important;
+    font-size: 12px !important;
   }
 
   .methodology-quote p {
     font-size: 24px !important;
-    line-height: 1.22 !important;
-    letter-spacing: -.04em !important;
-  }
-
-  .methodology-footer span {
-    font-size: 12px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -.045em !important;
   }
 
   /* PRICING */
-  .pricing-section {
-    padding-top: 58px !important;
-    padding-bottom: 58px !important;
+  .pricing-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .pricing-tab {
+    width: 100% !important;
+    font-size: 9px !important;
+    padding: 13px 8px !important;
   }
 
   .plan-model-card,
@@ -714,47 +614,13 @@
     overflow: hidden !important;
   }
 
-  .plan-model-card ul,
-  .pricing-card ul {
-    padding-left: 18px !important;
-  }
-
-  .pricing-tabs {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-    overflow: hidden !important;
-  }
-
-  .pricing-tab {
-    width: 100% !important;
-    padding: 12px 8px !important;
-    font-size: 9px !important;
-    text-align: center;
-  }
-
-  .pricing-card {
-    padding: 28px !important;
-  }
-
   .pricing-card h3,
   .plan-model-card h3 {
-    font-size: 30px !important;
-    line-height: 1 !important;
+    font-size: 32px !important;
   }
 
   .price-block strong {
-    font-size: clamp(48px, 16vw, 66px) !important;
-    line-height: .9 !important;
-  }
-
-  .monthly-price-block strong {
-    font-size: clamp(48px, 16vw, 64px) !important;
-  }
-
-  .first-payment-note {
-    font-size: 15px !important;
+    font-size: clamp(54px, 16vw, 72px) !important;
   }
 
   .after-payment-box {
@@ -763,78 +629,51 @@
   }
 
   .after-payment-box b {
-    font-size: 34px !important;
+    font-size: 36px !important;
   }
 
   .annual-pill {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
     width: 100% !important;
-    max-width: 100% !important;
+    padding: 16px !important;
     overflow: hidden !important;
-    padding: 16px 18px !important;
-  }
-
-  .annual-pill span {
-    flex: 0 0 auto;
-    font-size: 10px !important;
   }
 
   .annual-pill strong {
-    min-width: 0 !important;
-    font-size: 26px !important;
-    line-height: 1 !important;
+    font-size: 24px !important;
     white-space: normal !important;
   }
 
-  .pricing-btn {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
   .enterprise-note {
-    padding: 20px !important;
-    border-radius: 20px !important;
-    font-size: 15px !important;
+    padding: 22px !important;
+    border-radius: 22px !important;
   }
 
   /* FAQ */
-  .faq-section {
-    padding-top: 58px !important;
-    padding-bottom: 58px !important;
-  }
-
   .faq-heading {
     position: static !important;
-    top: auto !important;
   }
 
   .faq-stack summary {
-    font-size: 16px !important;
-    line-height: 1.35 !important;
+    font-size: 17px !important;
+    line-height: 1.3 !important;
   }
 
   .faq-stack details {
-    padding: 20px 0 !important;
+    padding: 22px 0 !important;
   }
 
-  .faq-stack details p {
-    font-size: 15px !important;
-  }
-
-  /* FINAL CTA / FOOTER */
+  /* FINAL CTA */
   .final-cta {
-    padding: 72px 0 76px !important;
+    padding: 76px 0 82px !important;
+    text-align: center;
   }
 
   .final-cta h2 {
-    font-size: clamp(44px, 13vw, 62px) !important;
-    line-height: .92 !important;
-  }
-
-  .final-cta p {
-    font-size: 18px !important;
+    font-size: clamp(48px, 14vw, 66px) !important;
+    line-height: .9 !important;
   }
 
   .tagline {
@@ -842,15 +681,15 @@
     line-height: 1.5 !important;
   }
 
+  /* FOOTER */
   .footer {
-    padding: 28px 0 !important;
+    padding: 32px 0 !important;
   }
 
   .footer .container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 18px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px;
   }
 
   .footer-links {
@@ -869,19 +708,14 @@
   }
 
   .sample-modal-card {
-    width: min(460px, calc(100vw - 32px)) !important;
+    width: min(440px, calc(100vw - 32px)) !important;
     max-height: calc(100vh - 40px) !important;
     padding: 28px !important;
-    border-radius: 24px !important;
+    border-radius: 26px !important;
   }
 
   .sample-modal-card h2 {
     font-size: 30px !important;
-    line-height: .98 !important;
-  }
-
-  .sample-modal-card > p {
-    font-size: 15px !important;
   }
 
   .sample-modal-card .sample-report-form {
@@ -894,31 +728,22 @@
 
 @media (max-width: 420px) {
   .container {
-    width: calc(100% - 28px) !important;
-    max-width: calc(100% - 28px) !important;
-  }
-
-  .brand span {
-    font-size: 13px !important;
-  }
-
-  .brand-mark {
-    width: 32px !important;
-    height: 32px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
   }
 
   h1,
   .hero h1 {
-    font-size: 44px !important;
+    font-size: 46px !important;
   }
 
   h2,
   .section-title {
-    font-size: 36px !important;
+    font-size: 38px !important;
   }
 
-  .final-cta h2 {
-    font-size: 42px !important;
+  .brand span {
+    font-size: 13px !important;
   }
 
   .methodology-founder {
@@ -928,13 +753,5 @@
   .methodology-founder img {
     width: 120px !important;
     height: 120px !important;
-  }
-
-  .methodology-quote p {
-    font-size: 22px !important;
-  }
-
-  .annual-pill strong {
-    font-size: 22px !important;
   }
 }
