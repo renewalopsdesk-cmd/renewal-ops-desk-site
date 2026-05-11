@@ -5054,6 +5054,15 @@ details {
   line-height: 1.35;
 }
 
+.proof-stat {
+  text-align: center;
+}
+
+.proof-stat span {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* MOBILE */
 
 @media (max-width: 900px) {
