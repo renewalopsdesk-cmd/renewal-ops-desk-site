@@ -1436,3 +1436,155 @@ img, video, svg {
     margin-bottom: 16px;
   }
 }
+
+     /* =========================================================
+   ROD — SAMPLE REPORT PAGE V3 MOBILE
+   Paste at end of mobile.css
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+  .sample-hero-compact {
+    padding: 104px 0 42px;
+  }
+
+  .sample-hero-inner h1 {
+    font-size: clamp(38px, 11vw, 54px);
+  }
+
+  .sample-hero-inner p {
+    font-size: 15.5px;
+  }
+
+  .sample-hero-actions,
+  .sample-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sample-hero-actions .btn,
+  .sample-cta .btn {
+    width: 100%;
+  }
+
+  .sample-footnote-strip p {
+    text-align: left;
+    font-size: 11.5px;
+  }
+
+  .sample-main-head .section-title {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .sample-tabs-wrap {
+    top: 82px;
+    margin: 22px 0 16px;
+  }
+
+  .sample-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    border-radius: 22px;
+  }
+
+  .sample-tab {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .coupon-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 7px;
+    padding: 16px;
+  }
+
+  .monthly-shell,
+  .setup-shell {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .monthly-intro,
+  .setup-intro,
+  .panorama-split,
+  .monthly-system-grid,
+  .quarterly-grid,
+  .setup-email,
+  .impact-scenarios {
+    grid-template-columns: 1fr;
+  }
+
+  .monthly-intro,
+  .setup-intro,
+  .monthly-dashboard,
+  .executive-brief,
+  .setup-report,
+  .setup-email,
+  .system-card,
+  .quarterly-review,
+  .sample-cta {
+    padding: 20px;
+  }
+
+  .monthly-intro h2,
+  .setup-intro h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .monthly-command-card,
+  .setup-note {
+    width: 100%;
+  }
+
+  .metric-grid-4,
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-label-row,
+  .contract-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ops-table,
+  .calendar-table {
+    overflow-x: auto;
+  }
+
+  .ops-row {
+    min-width: 720px;
+    grid-template-columns: 110px 150px 240px 90px;
+    font-size: 12px;
+  }
+
+  .cal-row {
+    min-width: 720px;
+    grid-template-columns: 150px 110px 220px 220px;
+    font-size: 12px;
+  }
+
+  .quarterly-grid article,
+  .email-sequence article,
+  .watch-card,
+  .contract-report-card {
+    padding: 16px;
+  }
+
+  .brief-cover h3,
+  .sample-cta h3,
+  .setup-email h3 {
+    font-size: 24px;
+  }
+
+  .playbook-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .exposure-table div {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
