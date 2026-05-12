@@ -7,6 +7,26 @@
 /* -----------------------------
    TOKENS + RESET
 ----------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700;800&display=swap");
+
+/* Critical layout aliases */
+.container,
+.sr-container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+main,
+.sample-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
 
 :root {
   --black: #101010;
