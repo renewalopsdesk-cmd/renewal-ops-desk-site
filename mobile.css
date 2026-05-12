@@ -1260,254 +1260,179 @@ img, video, svg {
     min-height: 48px;
     display: flex;
 
-   /* =========================================================
-   RENEWAL OPS DESK — SAMPLE REPORT MOBILE ADD-ON
-   Paste at the bottom of mobile.css
+ /* =========================================================
+   RENEWAL OPS DESK — SAMPLE REPORT MOBILE
+   Paste at the end of mobile.css
    ========================================================= */
 
 @media screen and (max-width: 768px) {
-  .sample-hero {
-    padding: 112px 0 54px;
-  }
+  .sample-hero { padding: 112px 0 54px; }
 
   .sample-hero-grid,
   .sample-note-card,
-  .sample-path-grid,
-  .sample-deliverable-header,
-  .sample-report-layout,
-  .setup-overview-grid,
-  .panorama-body,
-  .monitoring-grid,
-  .executive-brief-showcase,
-  .quarterly-bonus,
-  .sample-offer-grid {
+  .panel-hero,
+  .sample-subgrid,
+  .setup-email-card {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .sample-hero-copy h1 {
     font-size: clamp(46px, 13vw, 64px);
-    line-height: .94;
+    line-height: .95;
   }
 
   .sample-hero-copy p {
     font-size: 17px;
-    line-height: 1.5;
   }
 
-  .sample-hero-actions {
+  .sample-hero-actions,
+  .premium-cta,
+  .setup-cta {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .sample-hero-actions .btn {
+  .sample-hero-actions .btn,
+  .premium-cta .btn,
+  .setup-cta .btn {
     width: 100%;
   }
 
-  .sample-hero-console,
-  .sample-note-card,
-  .sample-path-card,
-  .monthly-panorama,
-  .executive-brief-showcase,
-  .quarterly-bonus,
-  .offer-card {
-    padding: 22px;
-    border-radius: 22px;
+  .monthly-premium-card,
+  .monthly-panel-shell,
+  .setup-panel-shell,
+  .sample-note-card {
+    border-radius: 24px;
+    padding: 20px;
+  }
+
+  .console-metrics,
+  .monthly-flow-grid,
+  .preview-metrics-row,
+  .top-watch-list,
+  .setup-preview-grid {
+    grid-template-columns: 1fr;
   }
 
   .console-topline,
-  .preview-header,
-  .contract-sample-header,
-  .playbook-top,
-  .panorama-header,
-  .monitoring-card-head {
-    flex-direction: column;
+  .preview-header {
     align-items: flex-start;
-  }
-
-  .console-metrics,
-  .preview-metrics-row,
-  .contract-facts-grid,
-  .panorama-metrics {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .sample-path-card h3,
-  .panorama-header h3,
-  .brief-left h2,
-  .quarterly-bonus h2,
-  .offer-card h3 {
-    font-size: 32px;
-  }
-
-  .sample-deliverable-header {
-    gap: 18px;
-  }
-
-  .sample-deliverable-header p {
-    font-size: 15px;
-  }
-
-  .sample-report-nav {
-    position: relative;
-    top: auto;
-    display: flex;
+    flex-direction: column;
     gap: 8px;
-    overflow-x: auto;
-    padding: 12px;
-    border-radius: 18px;
-    scrollbar-width: none;
   }
 
-  .sample-report-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .sample-report-nav span {
-    display: none;
-  }
-
-  .sample-report-nav a {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding: 10px 12px;
-    background: rgba(255,255,255,.045);
-  }
-
-  .sample-preview-block {
-    padding: 20px;
-    border-radius: 22px;
-  }
-
-  .risk-ring {
-    width: 138px;
-    height: 138px;
-  }
-
-  .risk-ring::after {
-    inset: 28px;
-  }
-
-  .impact-scenarios {
+  .sample-tabs {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 8px;
   }
 
-  .calendar-table,
-  .sheet-preview {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  .sample-tab {
+    width: 100%;
+    min-width: 0;
   }
 
-  .calendar-row,
-  .sheet-row {
-    min-width: 680px;
+  .sample-discount-bar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: center;
+    padding: 18px;
   }
 
-  .workflow-lane {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+  .panel-hero {
+    padding: 22px;
   }
 
-  .workflow-lane::-webkit-scrollbar {
-    display: none;
+  .panel-hero h2,
+  .sample-note-card h2 {
+    font-size: clamp(30px, 9vw, 42px);
   }
 
-  .workflow-lane article {
-    flex: 0 0 76%;
-    min-height: 220px;
-    scroll-snap-align: start;
+  .premium-badge-stack,
+  .setup-delivery-note {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
   }
 
-  .workflow-lane span {
-    margin-bottom: 34px;
-  }
-
-  .monitoring-card {
+  .ops-board,
+  .email-sequence-card,
+  .panorama-preview,
+  .report-page-card,
+  .setup-email-card,
+  .premium-cta,
+  .setup-cta {
     padding: 20px;
   }
 
-  .alert-sequence article {
+  .ops-table {
+    border-radius: 14px;
+    overflow-x: auto;
+  }
+
+  .ops-row {
+    min-width: 720px;
+    grid-template-columns: 120px 140px 220px 90px;
+    font-size: 12px;
+  }
+
+  .preview-metrics-row article,
+  .top-watch-list div,
+  .flow-card,
+  .email-timeline div,
+  .playbook-mini div,
+  .calendar-mini div {
     padding: 15px;
   }
 
-  .brief-cover {
-    padding: 24px 18px;
-  }
-
-  .brief-cover strong {
-    font-size: 24px;
-  }
-
-  .comparison-table {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .comparison-row {
-    min-width: 640px;
-    grid-template-columns: 1fr .75fr 1fr;
-    padding: 16px 18px;
-  }
-
-  .sample-faq-section .split {
+  .finding-metrics.mini {
     grid-template-columns: 1fr;
+  }
+
+  .premium-cta h3,
+  .setup-cta h3,
+  .setup-email-card h3 {
+    font-size: 25px;
   }
 }
 
-@media screen and (max-width: 520px) {
-  .sample-hero-copy h1 {
-    font-size: 44px;
+/* =========================================================
+   SAMPLE REPORT V2 — MOBILE MONTHLY-FIRST REFINEMENTS
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+  .sample-tabs {
+    position: sticky;
+    top: 82px;
+    width: 100%;
+    border-radius: 22px;
+    padding: 8px;
   }
 
-  .sample-hero-note {
-    font-size: 9.5px !important;
-  }
-
-  .console-metrics,
-  .preview-metrics-row,
-  .contract-facts-grid,
-  .panorama-metrics {
+  .monthly-deep-copy,
+  .monthly-operating-model,
+  .monthly-unlocks,
+  .monthly-flow-grid.expanded {
     grid-template-columns: 1fr;
   }
 
-  .sample-note-card,
-  .sample-path-card,
-  .sample-hero-console,
-  .sample-preview-block,
-  .monthly-panorama,
-  .executive-brief-showcase,
-  .quarterly-bonus,
-  .offer-card {
-    padding: 18px;
-    border-radius: 20px;
+  .monthly-deep-copy article,
+  .monthly-operating-model {
+    padding: 20px;
   }
 
-  .sample-path-card h3,
-  .contract-sample-header h3,
-  .panorama-header h3,
-  .brief-left h2,
-  .quarterly-bonus h2,
-  .offer-card h3 {
-    font-size: 28px;
+  .monthly-deep-copy h3,
+  .monthly-operating-model h3 {
+    font-size: 24px;
   }
 
-  .top-findings-mini,
-  .risk-ring-card,
-  .playbook-card,
-  .email-preview,
-  .status-bars,
-  .watching-list {
-    padding: 18px;
+  .monthly-unlocks article {
+    padding: 16px;
   }
 
-  .workflow-lane article {
-    flex-basis: 84%;
+  .panorama-intro {
+    font-size: 14px;
+    margin-bottom: 16px;
   }
 }
