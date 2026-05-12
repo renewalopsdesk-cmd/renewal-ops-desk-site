@@ -5024,3 +5024,12 @@ body.modal-open {
   background: linear-gradient(180deg, #191919 0%, #111111 100%) !important;
   box-shadow: 0 18px 40px rgba(0,0,0,.16) !important;
 }
+
+/* SAMPLE CTA — center eyebrow */
+.sample-cta-v2 .cta-context {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
