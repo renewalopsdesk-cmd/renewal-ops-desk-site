@@ -4980,48 +4980,51 @@ body.modal-open {
 }
 
 /* ============================================================
-   SAMPLE REPORT — FINAL CTA FIX
+   SAMPLE REPORT — FINAL CTA REAL SELECTORS FIX
    Cola no FINAL do styles.css
    ============================================================ */
 
-.final-cta-section {
+.sr-final-cta {
   position: relative !important;
   overflow: hidden !important;
   background:
-    radial-gradient(circle at 25% 10%, rgba(255,255,255,.08), transparent 0, transparent 28%),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.07), transparent 0, transparent 34%),
     #101010 !important;
-  padding: 92px 0 72px !important;
-  text-align: center !important;
+  padding: 92px 0 76px !important;
   border-top: 1px solid rgba(255,255,255,.08) !important;
+  text-align: center !important;
 }
 
-.final-cta-inner {
+.sr-final-inner {
   width: min(860px, calc(100% - 40px)) !important;
   margin: 0 auto !important;
   text-align: center !important;
 }
 
-.final-cta-coupon {
+.sr-coupon-pill {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 10px !important;
   width: fit-content !important;
+  max-width: 100% !important;
   margin: 0 auto 26px !important;
-  padding: 8px 12px 8px 8px !important;
+  padding: 8px 14px 8px 8px !important;
   border-radius: 999px !important;
   background: rgba(255,255,255,.055) !important;
   border: 1px solid rgba(255,255,255,.16) !important;
   color: rgba(255,255,255,.72) !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
 }
 
-.coupon-badge {
+.sr-coupon-pill span {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 5px 10px !important;
   border-radius: 999px !important;
-  background: #fff !important;
+  background: #F6F6F3 !important;
   color: #101010 !important;
   font-family: "IBM Plex Mono", monospace !important;
   font-size: 10px !important;
@@ -5029,36 +5032,31 @@ body.modal-open {
   letter-spacing: .08em !important;
 }
 
-.coupon-text {
-  color: rgba(255,255,255,.72) !important;
-  font-size: 13px !important;
-  line-height: 1.2 !important;
-}
-
-.final-cta-section h2 {
+.sr-final-cta h2 {
   max-width: 850px !important;
   margin: 0 auto !important;
   color: #fff !important;
   font-size: clamp(42px, 5vw, 72px) !important;
+  font-weight: 600 !important;
   line-height: .92 !important;
   letter-spacing: -.065em !important;
   text-align: center !important;
 }
 
-.final-sub {
+.sr-final-cta p {
   max-width: 620px !important;
-  margin: 22px auto 32px !important;
+  margin: 22px auto 0 !important;
   color: rgba(255,255,255,.62) !important;
   font-size: 17px !important;
   line-height: 1.55 !important;
   text-align: center !important;
 }
 
-.final-cta-btn {
-  margin: 0 auto !important;
+.sr-final-cta .btn {
+  margin: 32px auto 0 !important;
 }
 
-.final-cta-urgency {
+.sr-final-note {
   max-width: 620px !important;
   margin: 20px auto 0 !important;
   color: rgba(255,255,255,.46) !important;
@@ -5067,38 +5065,37 @@ body.modal-open {
   text-align: center !important;
 }
 
-/* Footer alignment */
-.footer {
-  padding: 32px 0 !important;
+/* Footer alignment for this page */
+.sr-final-cta + .footer {
   background: #101010 !important;
   border-top: 1px solid rgba(255,255,255,.08) !important;
 }
 
-.footer .container {
+.sr-final-cta + .footer .container {
   align-items: center !important;
 }
 
 /* Mobile */
 @media screen and (max-width: 768px) {
-  .final-cta-section {
+  .sr-final-cta {
     padding: 64px 0 54px !important;
   }
 
-  .final-cta-coupon {
+  .sr-coupon-pill {
     flex-direction: column !important;
     border-radius: 22px !important;
     padding: 12px !important;
   }
 
-  .final-cta-section h2 {
+  .sr-final-cta h2 {
     font-size: clamp(34px, 11vw, 48px) !important;
   }
 
-  .final-cta-btn {
+  .sr-final-cta .btn {
     width: 100% !important;
   }
 
-  .footer .container {
+  .sr-final-cta + .footer .container {
     align-items: flex-start !important;
   }
 }
