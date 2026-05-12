@@ -4921,3 +4921,38 @@ body.modal-open {
 .final-cta-urgency strong {
   color: #fff;
 }
+
+/* SAMPLE REPORT — keep tabs static + lighten report background */
+
+/* Mantém o switch Setup + Monthly / Setup Only parado */
+.sample-tabs-wrap {
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.sample-tabs-wrap.sample-tabs-hidden {
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Clareia o fundo cinza do relatório */
+.executive-brief.light-card,
+.monthly-dashboard.light-card,
+.setup-report.light-card {
+  background: rgba(255, 255, 255, 0.86) !important;
+}
+
+/* Clareia blocos internos do relatório */
+.brief-section,
+.clause-table div,
+.exposure-table div,
+.metric-grid-4 article,
+.status-bars,
+.category-table,
+.top-three-watch {
+  background-color: rgba(255, 255, 255, 0.62) !important;
+}
