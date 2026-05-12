@@ -4184,3 +4184,254 @@ body.modal-open {
   margin: 14px auto 22px;
   color: var(--text-dark);
 }
+
+/* ============================================================
+   SAMPLE REPORT — PREMIUM REFINEMENT OVERRIDES
+   Cola no final do styles.css
+   ============================================================ */
+
+/* 1. Menos “landing”, mais sala executiva */
+.sr-hero {
+  padding: 96px 0 54px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 0, transparent 32%),
+    linear-gradient(180deg, #0F0F0F 0%, #101010 100%) !important;
+}
+
+.sr-hero h1 {
+  max-width: 760px !important;
+  font-size: clamp(40px, 4.7vw, 64px) !important;
+  line-height: .96 !important;
+}
+
+.sr-hero-sub {
+  max-width: 620px !important;
+  font-size: 15.5px !important;
+  color: rgba(255,255,255,.58) !important;
+}
+
+.sr-hero-proof-line {
+  color: rgba(255,255,255,.38) !important;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 10px !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+/* 2. Reduzir altura geral da página */
+.sr-proof,
+.sr-bridge,
+.sr-faq,
+.sr-sample-section {
+  padding: 48px 0 !important;
+}
+
+/* 3. Menos radius “SaaS fofo”, mais report executivo */
+.sr-stat,
+.sr-proof-card,
+.sr-bridge-item,
+.sr-deliverable-block,
+.sr-portfolio-note,
+.sr-coupon-bar,
+.sr-brief-card,
+.sr-contract-card,
+.sr-upgrade-hint,
+.sr-delivery-email,
+.sr-panel-intro,
+.sr-panel-cta-block,
+.sr-brief-pricing,
+.sr-metric-card,
+.sr-clause-compare > div,
+.sr-exposure-table > div,
+.sr-brief-plan,
+.sr-quarterly-grid article,
+.sr-contract-meta > div,
+.sr-scenario-grid > div {
+  border-radius: 10px !important;
+}
+
+/* 4. Mais densidade, menos cards gigantes */
+.sr-stat,
+.sr-proof-card,
+.sr-bridge-item,
+.sr-deliverable-block,
+.sr-portfolio-note,
+.sr-coupon-bar,
+.sr-brief-card,
+.sr-contract-card {
+  padding: 18px !important;
+}
+
+.sr-panel-intro,
+.sr-panel-cta-block,
+.sr-brief-pricing {
+  padding: 24px !important;
+}
+
+/* 5. Reports mais parecidos com documento, menos UI kit */
+.sr-deliverable-block:not(.dark),
+.sr-brief-card,
+.sr-contract-card {
+  background: #F8F8F5 !important;
+  border: 1px solid #DADAD2 !important;
+  box-shadow: none !important;
+}
+
+.sr-metric-card,
+.sr-clause-compare > div,
+.sr-exposure-table > div,
+.sr-contract-meta > div,
+.sr-scenario-grid > div,
+.sr-quarterly-grid article {
+  background: #FFFFFF !important;
+  border: 1px solid #DCDCD4 !important;
+  box-shadow: none !important;
+}
+
+/* 6. Linhas mais finas e aspecto de relatório */
+.sr-deliverable-label,
+.sr-portfolio-label,
+.sr-email-num,
+.sr-brief-label,
+.sr-brief-pricing-label {
+  font-size: 9px !important;
+  letter-spacing: .12em !important;
+}
+
+.sr-deliverable-block h4 {
+  font-size: 24px !important;
+  line-height: 1.05 !important;
+  margin-top: 6px !important;
+}
+
+.sr-deliverable-desc,
+.sr-top3-item p,
+.sr-brief-card p,
+.sr-brief-card li,
+.sr-contract-card p,
+.sr-contract-card li {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+/* 7. Monthly mais forte e mais “sistema interno” */
+.sr-panel-intro,
+.sr-deliverable-block.dark,
+.sr-panel-cta-block,
+.sr-brief-pricing {
+  background:
+    linear-gradient(180deg, #151515 0%, #0F0F0F 100%) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+}
+
+.sr-panel-intro h3 {
+  max-width: 760px !important;
+  font-size: clamp(28px, 3.5vw, 44px) !important;
+}
+
+/* 8. Monitoring layer com cara de console */
+.sr-calendar-table {
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+}
+
+.sr-table-head {
+  background: rgba(255,255,255,.10) !important;
+}
+
+.sr-table-row {
+  padding: 10px 12px !important;
+  font-size: 12px !important;
+}
+
+/* 9. Email cards menos fofos */
+.sr-email-card {
+  border-radius: 8px !important;
+  background: rgba(255,255,255,.055) !important;
+}
+
+/* 10. Top stats menos “marketing afiliado” */
+.sr-proof-stats {
+  gap: 10px !important;
+  margin-bottom: 26px !important;
+}
+
+.sr-stat {
+  text-align: left !important;
+}
+
+.sr-stat strong {
+  font-size: 28px !important;
+}
+
+.sr-stat span {
+  font-size: 11.5px !important;
+}
+
+/* 11. Proof cards mais sóbrios */
+.sr-proof-cards {
+  gap: 12px !important;
+}
+
+.sr-proof-card blockquote {
+  border-left: 1px solid #CFCFC7 !important;
+  padding-left: 14px !important;
+  font-size: 13px !important;
+}
+
+/* 12. Tabs mais estáticos e sérios */
+.sr-tab-bar {
+  box-shadow: none !important;
+  border-radius: 999px !important;
+}
+
+.sr-tab {
+  letter-spacing: .1em !important;
+}
+
+/* 13. Final CTA com mais peso */
+.final-cta-section {
+  padding: 90px 40px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.07), transparent 0, transparent 34%),
+    #0F0F0F !important;
+}
+
+.final-cta-section h2 {
+  max-width: 780px !important;
+  font-size: clamp(38px, 5vw, 68px) !important;
+  line-height: .92 !important;
+}
+
+.final-sub {
+  color: rgba(255,255,255,.56) !important;
+}
+
+/* 14. Mobile refinement */
+@media screen and (max-width: 768px) {
+  .sr-hero {
+    padding: 92px 0 46px !important;
+  }
+
+  .sr-proof,
+  .sr-bridge,
+  .sr-faq,
+  .sr-sample-section {
+    padding: 42px 0 !important;
+  }
+
+  .sr-panel-intro,
+  .sr-deliverable-block,
+  .sr-panel-cta-block,
+  .sr-brief-pricing {
+    padding: 18px !important;
+  }
+
+  .sr-stat strong {
+    font-size: 26px !important;
+  }
+
+  .final-cta-section {
+    padding: 64px 20px !important;
+  }
+}
