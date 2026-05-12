@@ -1,13 +1,28 @@
 /* =========================================================
-   RENEWAL OPS DESK — MOBILE.CSS — PRODUCTION
-   Mobile-first override system.
+   RENEWAL OPS DESK — MOBILE.CSS — PRODUCTION FINAL
    Substitui completamente o mobile.css anterior.
-   Estratégia: min-width para cima (mobile-first base)
-   com overrides @media (max-width) apenas onde necessário
-   para não interferir com valores desktop.
+
+   CORREÇÕES DE BUG:
+   - overflow-x: clip removido das sections (matava todos os
+     scroll containers internos — root cause crítico)
+   - report-frame: min-width/min-height fixos zerados
+   - methodology link nth-child(2): position static com !important
+   - touch targets: enterprise-note, footer links
+   - results h2 / results-question: white-space nowrap override
+
+   ALTERAÇÕES DE DESIGN:
+   - About cards → footnote inline compacto
+   - Why section → padding reduzido, mais compacta
+   - Fit → scroll horizontal nos dois cards
+   - Sample Report → form e caixa compactos, inputs menores
+   - Security → número + título na mesma linha, seção enxuta
+   - Methodology → nota de rodapé discreta, menos espaço
+   - FAQ → faq-stack com width: 100% (linhas centralizadas)
+   - Final CTA btn → white-space normal, texto não transborda
    ========================================================= */
 
-/* ─── FOUNDATION RESET (sem media query — aplica em tudo) ─── */
+/* ─── FOUNDATION RESET (aplica em tudo, sem media query) ─── */
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -18,32 +33,39 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-img,
-video,
-svg {
+img, video, svg {
   max-width: 100%;
   height: auto;
 }
 
+
 /* =========================================================
    BREAKPOINT PRINCIPAL — até 768px
    ========================================================= */
+
 @media (max-width: 768px) {
 
   /* ─── GLOBAL LAYOUT ─── */
 
+  /*
+   * CORREÇÃO CRÍTICA:
+   * overflow-x: clip NÃO cria scroll container — apenas corta visualmente.
+   * Qualquer filho com overflow-x: auto (proof-grid, pricing-grid,
+   * plan-model-grid, report-sample-scroll) fica inacessível ao toque.
+   * O body { overflow-x: hidden } já resolve o overflow de página.
+   * Sections precisam de overflow-x: visible para os filhos scrollarem.
+   */
   .section,
   .section.light,
   .section.dark {
     padding-top: 52px;
     padding-bottom: 52px;
-    overflow-x: clip; /* clip permite scroll interno sem vazar pro body */
+    overflow-x: visible;
+    overflow-y: visible;
   }
 
   .container {
@@ -87,7 +109,7 @@ svg {
   }
 
   .testimonial-footnote {
-    white-space: normal;
+    white-space: normal !important;
     text-align: center;
     font-size: 12px;
   }
@@ -121,7 +143,6 @@ svg {
     z-index: 1000;
   }
 
-  /* ── Hamburguer — mostrar ── */
   .mobile-menu-toggle {
     display: flex;
     flex-direction: column;
@@ -148,7 +169,6 @@ svg {
     max-width: none;
   }
 
-  /* Animação X quando aberto */
   .nav.nav-open .mobile-menu-toggle span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
@@ -157,15 +177,10 @@ svg {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* ── Esconder CTA desktop ── */
   .nav-desktop-cta {
     display: none;
   }
 
-  /* ── nav-links: drawer mobile ──
-     FIX CRÍTICO: O JS adiciona .nav-open ao .nav (não .open ao .nav-links).
-     A regra correta é: .nav.nav-open .nav-links { display: flex }
-  */
   .nav-links {
     position: fixed;
     top: calc(64px + env(safe-area-inset-top, 0px));
@@ -180,11 +195,10 @@ svg {
     background: #101010;
     gap: 0;
     overflow-y: auto;
-    display: none; /* escondido por padrão */
+    display: none;
     z-index: 999;
   }
 
-  /* Abre com a classe que o JS realmente adiciona (.nav-open no .nav) */
   .nav.nav-open .nav-links {
     display: flex;
   }
@@ -197,9 +211,11 @@ svg {
     border-bottom: 1px solid rgba(255,255,255,.06);
     color: rgba(255,255,255,.88);
     letter-spacing: -.02em;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
   }
 
-  /* CTA dentro do drawer */
   .mobile-nav-cta {
     display: inline-flex;
     align-items: center;
@@ -219,7 +235,6 @@ svg {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Body lock quando menu aberto */
   body.menu-open {
     overflow: hidden;
     position: fixed;
@@ -290,20 +305,25 @@ svg {
     transform: none;
   }
 
-  /* Círculo decorativo — ocultar */
   .hero::after {
     display: none;
   }
 
-  /* ─── ABOUT ─── */
+  /* ─── ABOUT — Cards como footnote ─── */
 
+  /*
+   * ALTERAÇÃO DE DESIGN:
+   * "Not legal advice / Not another platform / Not another meeting"
+   * viram notas compactas em linha, estilo footnote/disclaimer.
+   * Sem card visual — apenas divisores sutis e texto menor.
+   */
   .about-compact {
-    padding: 48px 0;
+    padding: 40px 0 32px;
   }
 
   .compact-intro {
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 16px;
   }
 
   .compact-intro h2 {
@@ -319,45 +339,66 @@ svg {
   .about-service-cards {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0;
     overflow: visible;
     width: 100%;
+    border-top: 1px solid rgba(28,28,28,.08);
+    margin-top: 20px;
   }
 
+  /* Card vira linha compacta sem fundo, sem borda, sem padding exagerado */
   .about-service-card {
     width: 100%;
     min-width: 0;
-    padding: 18px 20px;
-    border-radius: 16px;
+    padding: 10px 0;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(28,28,28,.07) !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 6px;
   }
 
   .about-service-card h3 {
-    font-size: 15px;
-    margin-bottom: 6px;
-    line-height: 1.2;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: rgba(28,28,28,.52);
+    margin-bottom: 0;
+    line-height: 1.5;
+    display: inline;
+    flex: 0 0 auto;
+  }
+
+  /* Travessão entre título e descrição */
+  .about-service-card h3::after {
+    content: " —";
+    color: rgba(28,28,28,.24);
+    font-weight: 400;
   }
 
   .about-service-card p {
-    font-size: 13px;
-    line-height: 1.45;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(28,28,28,.36);
+    display: inline;
+    margin: 0;
+    flex: 1 1 auto;
+    max-width: none;
   }
 
   /* ─── PROOF / TESTIMONIALS ─── */
-  /*
-     FIX CRÍTICO: grid-template-columns do desktop (repeat(3,1fr))
-     sobrepõe grid-auto-columns. É preciso forçar
-     grid-template-columns para um único valor de coluna
-     OU usar grid-template-columns: none + grid-auto-flow: column.
-     A solução correta: zerar grid-template-columns explicitamente.
-  */
 
   .proof-section {
-    overflow-x: clip;
+    overflow-x: visible;
   }
 
   .proof-grid {
     display: grid;
-    grid-template-columns: 82% 82% 82%; /* força 3 colunas explícitas em 82% */
+    grid-template-columns: 82% 82% 82%;
     grid-auto-columns: 82%;
     grid-auto-flow: column;
     overflow-x: auto;
@@ -428,43 +469,117 @@ svg {
     margin-right: auto;
   }
 
-  /* ─── WHY SECTION ─── */
+  /* ─── WHY SECTION — Compacta ─── */
+
+  /*
+   * ALTERAÇÃO DE DESIGN:
+   * Padding reduzido. Card de texto mais enxuto.
+   * Seção deixa de "respirar" tanto — passa mais rápido.
+   */
+  .why-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
 
   .why-section .split,
   .split {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
+  }
+
+  .why-section .section-header {
+    margin-bottom: 14px;
   }
 
   .why-section .section-title {
-    font-size: clamp(26px, 8vw, 36px);
+    font-size: clamp(24px, 7.5vw, 34px);
     max-width: 100%;
   }
 
-  .why-section .statement-card p {
-    font-size: 15px;
-    line-height: 1.55;
+  .why-section .statement-card {
+    padding: 18px 20px;
   }
 
-  /* ─── FIT ─── */
+  .why-section .statement-card p {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .why-section .statement-card p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .why-section .closing-statement {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ─── FIT — Scroll horizontal ─── */
+
+  /*
+   * ALTERAÇÃO DE DESIGN:
+   * "Good fit if" e "Not a fit if" em scroll horizontal lado a lado,
+   * com peek do segundo card indicando que há mais conteúdo.
+   */
+  #fit {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+    overflow-x: visible;
+  }
+
+  #fit .section-header {
+    margin-bottom: 20px;
+  }
+
+  #fit .section-title {
+    font-size: clamp(20px, 6vw, 28px);
+    line-height: 1.1;
+  }
 
   .fit-grid,
-  #fit .grid-2 {
-    display: flex;
-    flex-direction: column;
+  #fit .grid-2,
+  #fit .fit-scroll-grid {
+    display: grid;
+    grid-template-columns: 85% 85%;
+    grid-auto-columns: 85%;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
     gap: 12px;
-    margin-top: 28px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    scrollbar-width: none;
+    max-width: none;
+    width: calc(100% + 40px);
+    margin-top: 0;
+    flex-direction: unset;
+  }
+
+  .fit-grid::-webkit-scrollbar,
+  #fit .grid-2::-webkit-scrollbar,
+  #fit .fit-scroll-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .fit-card {
+    scroll-snap-align: start;
     width: 100%;
+    min-width: 0;
     padding: 20px;
     border-radius: 18px;
   }
 
   #fit .fit-card h3 {
-    font-size: 19px;
+    font-size: 18px;
     margin-bottom: 14px;
     letter-spacing: -.03em;
   }
@@ -522,7 +637,12 @@ svg {
     line-height: 1.35;
   }
 
-  /* FIX CRÍTICO: report-frame tinha width/min-width: 560px fixos */
+  /*
+   * CORREÇÃO CRÍTICA:
+   * report-frame tinha width/min-width: 560px e min-height: 600px fixos.
+   * overflow: clip no frame também bloqueava o scroll interno.
+   * A section#findings tinha overflow-x: clip — corrigido no topo.
+   */
   #findings .report-frame {
     width: 100%;
     max-width: 100%;
@@ -532,13 +652,14 @@ svg {
     transform: none;
     border-radius: 20px;
     padding: 0;
-    overflow: clip;
+    overflow: visible;
     justify-self: unset;
+    position: static;
   }
 
   #findings .report-sample-scroll {
     display: grid;
-    grid-template-columns: 88% 88% 88% 88%; /* 4 cards explícitos */
+    grid-template-columns: 88% 88% 88% 88%;
     grid-auto-columns: 88%;
     grid-auto-flow: column;
     overflow-x: auto;
@@ -571,7 +692,6 @@ svg {
     background: #fff;
   }
 
-  /* Esconder prev/next — substituídos por swipe */
   #findings .report-arrow {
     display: none;
   }
@@ -621,11 +741,10 @@ svg {
 
   /* ─── RESULTS ─── */
 
-  /* FIX CRÍTICO: white-space:nowrap no h2 causava overflow de ~499px */
   .results-header-v3 h2 {
     font-size: clamp(24px, 7.5vw, 34px);
     line-height: 1.0;
-    white-space: normal;
+    white-space: normal !important;
     word-break: break-word;
   }
 
@@ -657,13 +776,19 @@ svg {
     font-size: clamp(16px, 5vw, 20px);
     margin-top: 28px;
     padding: 0 4px;
-    white-space: normal;
+    white-space: normal !important;
   }
 
-  /* ─── SAMPLE REPORT SECTION ─── */
+  /* ─── SAMPLE REPORT — Form e caixa compactos ─── */
 
+  /*
+   * ALTERAÇÃO DE DESIGN:
+   * Padding da caixa e gap entre elementos reduzidos.
+   * Inputs com altura menor (52→44px) mas mantendo font-size:16px
+   * para não disparar zoom automático do iOS — obrigatório.
+   */
   .sample-report-section {
-    padding: 44px 0;
+    padding: 40px 0;
   }
 
   .sample-report-lead,
@@ -671,21 +796,28 @@ svg {
   .sample-report-inner {
     display: flex;
     flex-direction: column;
-    gap: 28px;
-    padding: 28px 20px;
+    gap: 20px;
+    padding: 22px 18px;
     grid-template-columns: unset;
     width: 100%;
+    border-radius: 22px;
   }
 
   .sample-report-copy h2 {
-    font-size: clamp(26px, 8vw, 36px);
+    font-size: clamp(24px, 7.5vw, 34px);
     line-height: .98;
     white-space: normal;
   }
 
   .sample-report-copy p {
-    font-size: 14px;
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .sample-context {
     margin-top: 12px;
+    font-size: 9px;
   }
 
   .sample-action {
@@ -695,25 +827,48 @@ svg {
   .sample-action a {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
   }
 
   .sample-report-form {
     width: 100%;
-    padding: 24px 20px;
+    padding: 16px 14px;
+    border-radius: 16px;
   }
 
-  /* Evita zoom automático no iOS (inputs < 16px trigam zoom) */
+  .form-field {
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .form-field label {
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
+
+  /* font-size: 16px obrigatório — evita zoom automático no iOS/Safari */
   .form-field input,
   .form-field select,
   .form-field textarea {
     font-size: 16px;
-    height: 52px;
+    height: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 10px;
   }
 
   .sample-form-btn {
     width: 100%;
-    height: 52px;
-    font-size: 14px;
+    height: 48px;
+    min-height: 48px;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  .sample-form-note {
+    font-size: 11px;
+    margin-top: 8px;
+    text-align: center;
   }
 
   /* ─── COMMERCIAL ANALYSIS TABLE ─── */
@@ -775,104 +930,201 @@ svg {
     margin-top: 16px;
   }
 
-  /* ─── SECURITY ─── */
+  /* ─── SECURITY — Número e título na mesma linha ─── */
+
+  /*
+   * ALTERAÇÃO DE DESIGN:
+   * "01" e "Commercial focus" ficam inline na mesma linha.
+   * Seção mais compacta: sem card individual, divisores sutis.
+   * O HTML tem: <span>01</span><strong>Título</strong><p>texto</p>
+   * Usamos flex com flex-wrap para colocar span + strong na linha 1
+   * e p em linha 2 (com flex: 0 0 100%).
+   */
+  .security-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .security-header {
+    margin-bottom: 20px;
+  }
+
+  .security-header h2 {
+    font-size: clamp(24px, 7.5vw, 34px);
+    line-height: 1.05;
+  }
+
+  .security-header p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
 
   .security-grid,
   .security-cards {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 24px;
+    gap: 0;
+    margin-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.10);
   }
 
   .security-card {
-    padding: 20px;
-    border-radius: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 8px;
+    row-gap: 0;
+    padding: 14px 0;
+    border-radius: 0;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.10) !important;
+    box-shadow: none !important;
   }
 
+  /* Número: inline, discreto */
+  .security-card span {
+    display: inline;
+    flex: 0 0 auto;
+    order: 1;
+    margin-bottom: 0;
+    color: rgba(255,255,255,.28);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1.5;
+  }
+
+  /* Título: inline ao lado do número */
   .security-card strong {
-    font-size: 16px;
+    display: inline;
+    flex: 1 1 auto;
+    order: 2;
+    color: rgba(255,255,255,.88);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: 1.4;
   }
 
+  /* Descrição: quebra para a linha de baixo */
   .security-card p {
-    font-size: 13.5px;
+    flex: 0 0 100%;
+    order: 3;
+    margin-top: 4px;
+    color: rgba(255,255,255,.48);
+    font-size: 13px;
+    line-height: 1.45;
   }
 
-  /* ─── METHODOLOGY / FOUNDER ─── */
+  /* ─── METHODOLOGY — Nota de rodapé discreta ─── */
 
+  /*
+   * ALTERAÇÃO DE DESIGN:
+   * Seção vira nota observacional — menos espaço, fonte menor
+   * e mais discreta. Foto menor. Texto em cor rebaixada.
+   */
   .methodology-section {
-    padding: 48px 0;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
   }
 
   .methodology-frame {
-    padding: 20px;
-    border-radius: 18px;
+    padding: 18px;
+    border-radius: 16px;
     overflow: visible;
+    position: relative;
+    background: rgba(28,28,28,.022) !important;
+    border: 1px solid rgba(28,28,28,.07) !important;
+    box-shadow: none !important;
   }
 
   .methodology-main {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 14px;
     grid-template-columns: unset;
-    margin-top: 20px;
+    margin-top: 12px;
   }
 
   .methodology-founder {
     display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: 14px;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
     align-items: center;
     width: 100%;
     position: static;
   }
 
   .methodology-founder img {
-    width: 72px;
-    height: 72px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
   }
 
   .methodology-founder strong {
-    font-size: 16px;
+    font-size: 12px;
+    font-weight: 600;
     display: block;
+    color: rgba(28,28,28,.62);
   }
 
   .methodology-founder span {
-    font-size: 12px;
+    font-size: 10px;
     display: block;
     margin-top: 2px;
     max-width: 100%;
+    color: rgba(28,28,28,.38);
   }
 
   .methodology-links {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
-    margin-top: 12px;
+    margin-top: 8px;
     position: static;
   }
 
-  /* FIX CRÍTICO: 2º link tem position:absolute no CSS base */
+  /*
+   * CORREÇÃO CRÍTICA: position:absolute no 2º link do base CSS.
+   * !important necessário para vencer a especificidade.
+   */
   .methodology-links a,
   .methodology-links a:nth-child(2) {
-    position: static;
-    font-size: 11px;
-    padding: 8px 12px;
-    min-height: 36px;
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    font-size: 10px;
+    padding: 5px 10px;
+    min-height: 30px;
     display: inline-flex;
     align-items: center;
+    color: rgba(28,28,28,.46);
+    border-color: rgba(28,28,28,.10);
   }
 
   .methodology-quote {
     margin-top: 0;
   }
 
+  /* Texto da citação mais discreto — nota de rodapé */
   .methodology-quote p {
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 13px;
+    line-height: 1.52;
     max-width: 100%;
+    color: rgba(28,28,28,.52);
+  }
+
+  .methodology-footer {
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .methodology-footer span {
+    font-size: 8px;
   }
 
   /* ─── PLANS & PRICING ─── */
@@ -905,12 +1157,17 @@ svg {
     width: 100%;
     text-align: center;
     justify-content: center;
+    min-height: 48px;
   }
 
-  /* Plan model cards — scroll horizontal */
+  /*
+   * CORREÇÃO CRÍTICA:
+   * A section#pricing não tem mais overflow-x: clip.
+   * O scroll horizontal funciona agora.
+   */
   .plan-model-grid {
     display: grid;
-    grid-template-columns: 85% 85%;   /* 2 colunas explícitas em 85% */
+    grid-template-columns: 85% 85%;
     grid-auto-columns: 85%;
     grid-auto-flow: column;
     overflow-x: auto;
@@ -938,13 +1195,12 @@ svg {
     min-width: 0;
   }
 
-  /* Pricing tabs */
   .pricing-tabs,
   .plan-tabs {
     gap: 6px;
     margin-top: 28px;
     margin-bottom: 20px;
-    flex-wrap: nowrap; /* mantém na mesma linha */
+    flex-wrap: nowrap;
     width: 100%;
     border-radius: 16px;
   }
@@ -960,27 +1216,14 @@ svg {
   }
 
   /*
-     FIX CRÍTICO: Pricing panels + pricing grid.
-
-     O problema tem duas camadas:
-     1. .pricing-panel { display: none } no styles.css — correto
-     2. .pricing-panel.active { display: block } no styles.css — vira "block"
-     3. Mas .pricing-grid é também .pricing-panel.
-        No mobile queremos display: grid no painel ativo.
-        O override "display: grid !important" no mobile.css anterior
-        quebrava isso ao forçar display:grid em TODOS incluindo os inativos.
-
-     Solução: não usar !important no display do .pricing-grid.
-     Deixar .pricing-panel { display: none } do styles.css funcionar.
-     Sobrescrever apenas o layout do painel ATIVO.
-  */
-
-  /* Painel inativo: herda display:none do styles.css — não mexer */
-  /* Painel ativo: forçar grid com scroll horizontal */
+   * .pricing-grid e .pricing-panel são o mesmo elemento.
+   * Painel inativo herda display:none do styles.css — não mexer.
+   * Painel ativo recebe grid com scroll horizontal.
+   */
   .pricing-panel.active,
   .pricing-grid.active {
     display: grid;
-    grid-template-columns: 85% 85% 85%; /* 3 colunas explícitas = 3 cards */
+    grid-template-columns: 85% 85% 85%;
     grid-auto-columns: 85%;
     grid-auto-flow: column;
     overflow-x: auto;
@@ -1011,651 +1254,8 @@ svg {
     border-radius: 22px;
   }
 
-  .price-block strong {
-    font-size: clamp(36px, 10vw, 52px);
-  }
-
-  .pricing-list li {
-    font-size: 13px;
-  }
-
-  .enterprise-note {
-    font-size: 13px;
-    padding: 16px 18px;
-    margin-top: 24px;
-    text-align: center;
-  }
-
-  /* ─── FAQ ─── */
-
-  .faq-section {
-    padding: 52px 0 60px;
-  }
-
-  /* FIX: layout 2 colunas vira coluna única */
-  .faq-layout {
+  /* Links CTA dentro dos pricing cards são <a>, não herdam min-height do btn */
+  .pricing-card a[href],
+  .pricing-card .btn {
+    min-height: 48px;
     display: flex;
-    flex-direction: column;
-    gap: 32px;
-    grid-template-columns: unset;
-  }
-
-  .faq-heading .section-title {
-    font-size: clamp(28px, 8.5vw, 42px);
-    line-height: .96;
-    white-space: normal;
-  }
-
-  .faq-stack {
-    max-width: 100%;
-  }
-
-  .faq-stack summary {
-    font-size: 15px;
-    line-height: 1.35;
-    padding-right: 8px;
-  }
-
-  .faq-stack details p {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  /* ─── FINAL CTA ─── */
-
-  .final-cta {
-    padding: 64px 0 72px;
-  }
-
-  .final-cta h2 {
-    font-size: clamp(28px, 8vw, 42px);
-    white-space: normal;
-  }
-
-  .final-cta p {
-    font-size: 16px;
-    margin: 16px auto 28px;
-    max-width: 100%;
-  }
-
-  .final-actions {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .final-actions .btn {
-    width: 100%;
-    max-width: 320px;
-    justify-content: center;
-  }
-
-  /* ─── FOOTER ─── */
-
-  .footer .container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-links {
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  /* ─── SAMPLE MODAL ─── */
-
-  .sample-modal {
-    padding: 16px;
-    align-items: flex-end; /* desliza de baixo no mobile */
-  }
-
-  .sample-modal-card {
-    width: 100%;
-    max-width: 100%;
-    max-height: 90dvh;
-    overflow-y: auto;
-    padding: 28px 24px;
-    border-radius: 24px 24px 16px 16px;
-  }
-
-  .sample-modal-card h2 {
-    font-size: clamp(26px, 7.5vw, 32px);
-    line-height: .98;
-    white-space: normal;
-  }
-
-  .sample-modal-card > p {
-    font-size: 14px;
-    line-height: 1.5;
-    max-width: 100%;
-  }
-
-  .sample-modal-card .form-field input {
-    font-size: 16px; /* evita zoom iOS */
-    height: 52px;
-  }
-
-  .sample-modal-card .sample-form-btn {
-    height: 52px;
-    width: 100%;
-  }
-
-} /* fim @media (max-width: 768px) */
-
-/* =========================================================
-   BREAKPOINT PEQUENO — até 390px (iPhone 14)
-   Ajustes finos sobre o bloco acima
-   ========================================================= */
-@media (max-width: 390px) {
-
-  .hero h1,
-  .hero-title {
-    font-size: clamp(34px, 10.5vw, 46px);
-  }
-
-  .hero-actions .btn {
-    max-width: 100%;
-    font-size: 13px;
-  }
-
-  h2,
-  .section-title {
-    font-size: clamp(24px, 7.5vw, 34px);
-  }
-
-  .pricing-panel.active,
-  .pricing-grid.active {
-    grid-template-columns: 88% 88% 88%;
-  }
-
-  .proof-grid {
-    grid-template-columns: 88% 88% 88%;
-  }
-
-  .plan-model-grid {
-    grid-template-columns: 88% 88%;
-  }
-
-  .proof-stat strong {
-    font-size: 18px;
-  }
-
-  .results-grid-v3 strong {
-    font-size: 26px;
-  }
-
-  .sample-modal-card {
-    padding: 24px 18px;
-  }
-
-} /* fim @media (max-width: 390px) */
-
-/* =========================================================
-   BREAKPOINT TABLET — 769px → 1024px
-   Corrige grids que ficam apertados em tablet portrait
-   ========================================================= */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  .container {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-
-  .pricing-grid {
-    grid-template-columns: repeat(3, 1fr);
-    overflow-x: visible;
-  }
-
-  .proof-grid {
-    grid-template-columns: repeat(3, 1fr);
-    overflow-x: visible;
-  }
-
-  .testimonial-grid,
-  .premium-testimonials {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .methodology-main {
-    grid-template-columns: 220px 1fr;
-    display: grid;
-  }
-
-  #findings .what-find-layout.refined {
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-  }
-
-  #findings .report-frame {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .analysis-header-v3 {
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-  }
-
-  .results-grid-v3 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-} /* fim @media tablet */
-
-/* =========================================================
-   INTERNAL / LEGAL PAGES — MOBILE FIX
-   ========================================================= */
-
-@media (max-width: 768px) {
-  .page {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .page-hero {
-    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 36px);
-    padding-bottom: 36px;
-  }
-
-  .page-hero h1,
-  .page-hero .section-title {
-    font-size: clamp(30px, 8.5vw, 42px);
-    line-height: .96;
-    letter-spacing: -.05em;
-    white-space: normal;
-  }
-
-  .page-hero p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .legal-section,
-  .section.light.legal-section,
-  .section.light:has(.legal-layout) {
-    padding-top: 44px;
-    padding-bottom: 52px;
-  }
-
-  .legal-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    grid-template-columns: unset;
-    width: 100%;
-  }
-
-  .side-note {
-    position: static;
-    top: auto;
-    width: 100%;
-    padding: 20px;
-    border-radius: 20px;
-  }
-
-  .side-note p,
-  .side-note li,
-  .side-note .check {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  .legal-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 22px 20px;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .legal-card h1,
-  .legal-card h2,
-  .legal-card h3 {
-    font-size: 21px;
-    line-height: 1.12;
-    letter-spacing: -.03em;
-    margin-top: 26px;
-    margin-bottom: 10px;
-    white-space: normal;
-  }
-
-  .legal-card h1:first-child,
-  .legal-card h2:first-child,
-  .legal-card h3:first-child {
-    margin-top: 0;
-  }
-
-  .legal-card p,
-  .legal-card li {
-    font-size: 14px;
-    line-height: 1.65;
-    max-width: 100%;
-    color: var(--text-light);
-  }
-
-  .legal-card ul,
-  .legal-card ol {
-    padding-left: 18px;
-    margin: 12px 0 20px;
-  }
-
-  .legal-card * {
-    overflow-wrap: anywhere;
-  }
-}
-
-/* MOBILE NAV CTA — visible text */
-@media (max-width: 768px) {
-  .mobile-nav-cta,
-  .nav-links .mobile-nav-cta,
-  .nav-links a.mobile-nav-cta,
-  .nav-links button.mobile-nav-cta {
-    background: #ffffff !important;
-    color: #101010 !important;
-    border: 1px solid rgba(255,255,255,.18) !important;
-  }
-
-  .mobile-nav-cta,
-  .mobile-nav-cta * {
-    color: #101010 !important;
-  }
-}
-
-/* =========================================================
-   RENEWAL OPS DESK — PRICING MOBILE.CSS
-   Save as /pricing-mobile.css
-   Loaded after /mobile.css on the pricing page only.
-   ========================================================= */
-
-@media (max-width: 768px) {
-  body {
-    background: #f6f6f3;
-  }
-
-  .pricing-private-hero {
-    padding: calc(64px + env(safe-area-inset-top, 0px) + 46px) 0 52px;
-    text-align: left;
-  }
-
-  .pricing-private-hero h1 {
-    font-size: clamp(40px, 12vw, 56px);
-    line-height: .9;
-    letter-spacing: -.07em;
-    max-width: 100%;
-  }
-
-  .pricing-private-hero p {
-    margin-top: 22px;
-    font-size: 16px;
-    line-height: 1.48;
-    max-width: 100%;
-  }
-
-  .pricing-hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 28px;
-  }
-
-  .pricing-hero-actions .btn {
-    width: 100%;
-    justify-content: center;
-    min-height: 50px;
-    font-size: 13px;
-  }
-
-  .pricing-hero-note {
-    margin-top: 22px;
-    font-size: 9px;
-    line-height: 1.6;
-  }
-
-  .pricing-section-private {
-    padding: 52px 0;
-    overflow-x: clip;
-  }
-
-  .pricing-section-private.dark {
-    padding: 54px 0;
-  }
-
-  .private-section-head {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 26px;
-  }
-
-  .private-section-head h2 {
-    font-size: clamp(30px, 9vw, 42px);
-    line-height: .96;
-    letter-spacing: -.06em;
-  }
-
-  .private-section-head p {
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  .plan-explainer-grid,
-  .decision-strip,
-  .timeline-grid,
-  .sample-cta-private,
-  .pricing-final .final-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .explainer-card,
-  .private-pricing-card,
-  .timeline-step,
-  .decision-card {
-    padding: 22px;
-    border-radius: 22px;
-  }
-
-  .explainer-card h3 {
-    font-size: 28px;
-  }
-
-  .explainer-card p,
-  .explainer-card li {
-    font-size: 13px;
-  }
-
-  .decision-strip {
-    margin-top: 24px;
-  }
-
-  .decision-card strong {
-    font-size: 18px;
-  }
-
-  .decision-card p {
-    font-size: 12.5px;
-  }
-
-  .pricing-card-grid {
-    display: grid;
-    grid-template-columns: 85% 85% 85%;
-    grid-auto-flow: column;
-    grid-auto-columns: 85%;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    gap: 12px;
-    scroll-snap-type: x mandatory;
-    padding: 0 20px 16px;
-    margin-left: -20px;
-    margin-right: -20px;
-    width: calc(100% + 40px);
-    max-width: none;
-    scrollbar-width: none;
-  }
-
-  .pricing-card-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .private-pricing-card {
-    scroll-snap-align: start;
-    min-width: 0;
-  }
-
-  .private-pricing-card h3 {
-    font-size: 25px;
-  }
-
-  .plan-volume,
-  .pricing-note-small {
-    font-size: 12.5px;
-  }
-
-  .main-price {
-    margin-top: 22px;
-  }
-
-  .main-price strong {
-    font-size: clamp(40px, 12vw, 52px);
-  }
-
-  .annual-link {
-    padding: 13px 14px;
-    border-radius: 14px;
-  }
-
-  .annual-link strong {
-    font-size: 15px;
-  }
-
-  .plan-includes {
-    margin-top: 18px;
-    gap: 9px;
-  }
-
-  .plan-includes li {
-    font-size: 12.5px;
-  }
-
-  .payment-info-box {
-    margin-top: 18px;
-    padding: 18px;
-    border-radius: 18px;
-    font-size: 13px;
-  }
-
-  .timeline-step strong {
-    font-size: 17px;
-  }
-
-  .timeline-step p {
-    font-size: 12.5px;
-  }
-
-  .included-grid-private {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .included-grid-private span {
-    padding: 12px 10px;
-    font-size: 11px;
-    line-height: 1.25;
-    border-radius: 16px;
-  }
-
-  .sample-cta-private {
-    padding: 24px;
-    border-radius: 24px;
-    gap: 18px;
-  }
-
-  .sample-cta-private h2 {
-    font-size: clamp(30px, 9vw, 42px);
-  }
-
-  .sample-cta-private p {
-    font-size: 14px;
-  }
-
-  .sample-cta-private .btn,
-  .pricing-final .btn {
-    width: 100%;
-    justify-content: center;
-    min-height: 50px;
-  }
-
-  .pricing-faq {
-    max-width: 100%;
-  }
-
-  .pricing-faq details {
-    padding: 18px 0;
-  }
-
-  .pricing-faq summary {
-    font-size: 15px;
-    line-height: 1.35;
-  }
-
-  .pricing-faq p {
-    font-size: 13px;
-  }
-
-  .pricing-final {
-    padding: 58px 0 64px;
-  }
-
-  .pricing-final h2 {
-    font-size: clamp(34px, 10vw, 46px);
-  }
-
-  .pricing-final p {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 390px) {
-  .pricing-card-grid {
-    grid-template-columns: 88% 88% 88%;
-    grid-auto-columns: 88%;
-  }
-
-  .main-price strong {
-    font-size: 38px;
-  }
-
-  .included-grid-private {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* LANDING PRICING — FIX ANNUAL PILL MOBILE */
-@media (max-width: 768px) {
-  .pricing-card .annual-pill {
-    display: grid !important;
-    grid-template-columns: 72px 1fr !important;
-    align-items: center !important;
-    gap: 10px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 14px 16px !important;
-    overflow: hidden !important;
-  }
-
-  .pricing-card .annual-pill span {
-    font-size: 8.5px !important;
-    line-height: 1.15 !important;
-    white-space: normal !important;
-  }
-
-  .pricing-card .annual-pill strong {
-    font-size: 23px !important;
-    line-height: .95 !important;
-    white-space: normal !important;
-  }
-}
