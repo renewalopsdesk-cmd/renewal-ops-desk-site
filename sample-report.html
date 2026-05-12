@@ -51,13 +51,25 @@
     }
 
     .sr-page {
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .nav-sample {
-      background: rgba(245,245,242,.78);
+      background: rgba(17,17,17,.92);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(28,28,28,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-sample .brand,
+    .nav-sample .brand span {
+      color: #fff;
+    }
+
+    .nav-sample .btn-primary {
+      background: #fff;
+      color: #111;
+      border-color: #fff;
     }
 
     .nav-sample .mobile-menu-toggle {
