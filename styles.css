@@ -3635,3 +3635,497 @@ body.modal-open {
   white-space: normal !important;
 }
 
+/* ============================================================
+   SAMPLE REPORT — DESKTOP/TABLET
+   COLAR NO FINAL DO styles.css
+   ============================================================ */
+
+/* ---------- HERO ---------- */
+
+.sample-hero-compact {
+  position: relative;
+  padding: 112px 0 48px;
+  overflow: hidden;
+}
+
+.sample-hero-inner {
+  width: min(920px, calc(100% - 40px));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sample-hero-inner h1 {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: clamp(46px, 5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.sample-hero-inner p {
+  max-width: 690px;
+  margin: 18px auto 0;
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.sample-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* ---------- PREVIEW STRIP ---------- */
+
+.preview-strip {
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  padding: 28px 40px;
+  background: var(--paper);
+}
+
+.preview-strip-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.preview-strip-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.preview-strip-item h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+.preview-strip-item p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ---------- TABS ---------- */
+
+.sample-tabs-wrap {
+  position: static !important;
+  display: flex;
+  justify-content: center;
+  margin: 26px 0 18px;
+}
+
+.sample-tabs {
+  display: inline-flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(246,246,243,.88);
+  border: 1px solid rgba(28,28,28,.08);
+  box-shadow: 0 18px 50px rgba(28,28,28,.1);
+}
+
+.sample-tab {
+  min-width: 210px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.sample-tab.active,
+.sample-tab[aria-selected="true"] {
+  color: #fff;
+  background: linear-gradient(180deg,#1c1c1c 0%,#0f0f0f 100%);
+}
+
+/* ---------- COUPON ---------- */
+
+.coupon-card {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.coupon-card span {
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.coupon-card strong {
+  font-size: 18px;
+  letter-spacing: -.03em;
+}
+
+.coupon-card p {
+  max-width: none;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* ---------- PANELS ---------- */
+
+.sample-panel {
+  display: none;
+}
+
+.sample-panel.active {
+  display: block;
+}
+
+/* ---------- MONTHLY ---------- */
+
+.monthly-shell {
+  padding: 24px;
+  border-radius: var(--radius-xl);
+}
+
+.monthly-intro,
+.setup-intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+}
+
+.monthly-intro h2,
+.setup-intro h2 {
+  max-width: 760px;
+  font-size: clamp(34px,4vw,54px);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.monthly-intro p,
+.setup-intro p {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.monthly-command-card,
+.setup-note {
+  width: 260px;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.monthly-command-card strong,
+.setup-note strong {
+  display: block;
+  margin-top: 14px;
+  font-size: 28px;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+/* ---------- REPORT SURFACE ---------- */
+
+.monthly-dashboard,
+.executive-brief,
+.setup-report,
+.setup-email {
+  margin-top: 14px;
+  padding: 26px;
+  background: #f7f7f4;
+  border: 1px solid #e6e6df;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 70px rgba(28,28,28,.06);
+}
+
+.report-label-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.report-label-row span {
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.report-label-row strong {
+  font-size: 18px;
+  letter-spacing: -.03em;
+}
+
+/* ---------- METRICS ---------- */
+
+.metric-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+}
+
+.metric-grid-4 article {
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e1e1db;
+}
+
+.metric-grid-4 small {
+  display: block;
+  color: var(--muted-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.metric-grid-4 strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 30px;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+/* ---------- TABLES ---------- */
+
+.panorama-split,
+.monthly-system-grid,
+.quarterly-grid,
+.impact-scenarios {
+  display: grid;
+  gap: 14px;
+}
+
+.panorama-split {
+  grid-template-columns: .9fr 1.1fr;
+}
+
+.monthly-system-grid {
+  grid-template-columns: 1.2fr .8fr;
+}
+
+.quarterly-grid {
+  grid-template-columns: repeat(4,1fr);
+}
+
+.impact-scenarios {
+  grid-template-columns: repeat(3,1fr);
+}
+
+.status-bars,
+.category-table,
+.top-three-watch,
+.system-card,
+.quarterly-review {
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.ops-table,
+.calendar-table {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.ops-row,
+.cal-row {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+}
+
+.ops-row {
+  grid-template-columns: .75fr 1fr 1.5fr auto;
+}
+
+.cal-row {
+  grid-template-columns: 150px 110px 1fr 1.2fr;
+}
+
+/* ---------- CONTRACT CARDS ---------- */
+
+.setup-contracts {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.contract-report-card {
+  padding: 22px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid var(--line-light);
+}
+
+.contract-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.contract-head h3 {
+  margin-top: 10px;
+  font-size: 26px;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.facts-grid div {
+  padding: 13px;
+  border-radius: 14px;
+  background: rgba(28,28,28,.035);
+  border: 1px solid var(--line-light);
+}
+
+/* ---------- EXECUTIVE BRIEF ---------- */
+
+.brief-cover {
+  padding: 22px;
+  border-radius: 20px;
+  background: linear-gradient(180deg,#191919 0%,#111111 100%);
+  box-shadow: 0 18px 40px rgba(0,0,0,.16);
+}
+
+.brief-cover h3 {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.brief-section {
+  padding: 24px 0;
+  border-bottom: 1px solid #e2e2dc;
+}
+
+.brief-section:last-child {
+  border-bottom: none;
+}
+
+.clause-table,
+.exposure-table {
+  display: grid;
+  gap: 12px;
+}
+
+.clause-table div,
+.exposure-table div {
+  background: #fff;
+  border: 1px solid #e1e1db;
+  border-radius: 18px;
+  padding: 18px 20px;
+}
+
+/* ---------- CTA ---------- */
+
+.sample-cta-v2 {
+  background: #101010;
+  border-radius: 22px;
+  padding: 34px 38px;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.sample-cta-v2 .cta-context {
+  display: block;
+  width: 100%;
+  margin: 0 auto 12px;
+  text-align: center;
+  color: var(--muted-dark);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.sample-cta-v2 h3 {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+
+.sample-cta-v2 .cta-sub {
+  max-width: 520px;
+  margin: 14px auto 26px;
+  color: var(--muted-dark);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------- FAQ ---------- */
+
+.mini-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.mini-faq-item {
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+/* ---------- FINAL CTA ---------- */
+
+.final-cta-section {
+  padding: 88px 40px;
+  text-align: center;
+}
+
+.final-cta-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
