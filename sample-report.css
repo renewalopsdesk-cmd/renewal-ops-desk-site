@@ -1,10 +1,21 @@
-/* ═══════════════════════════════════════════════════════════════
+/* ============================================================
    RENEWAL OPS DESK — SAMPLE REPORT PAGE
    Arquivo: /sample-report.css
    Depende de: /styles.css (tokens de design já carregados)
-═══════════════════════════════════════════════════════════════ */
 
-/* ─── NAV STRIPPED ─────────────────────────────────────────── */
+   CORREÇÕES APLICADAS (v2):
+   1. .sr-bridge — cor do texto corrigida (invisível no original)
+   2. .sr-faq — cor do texto corrigida (título invisível no original)
+   3. .final-cta — padding-top adicionado
+   4. .sr-sample-section — padding-top reduzido (gap fantasma)
+   5. .monthly-note — !important removidos
+   6. .sr-panel-cta-block — padding-top adicionado
+   7. .sr-proof-card blockquote — font-style: normal (não italic)
+   8. .sr-stat strong — font-size aumentado para impacto
+   9. .sr-hero-proof-line — color ajustada para melhor visibilidade
+   ============================================================ */
+
+/* —— NAV STRIPPED ———————————————————————————————————————————— */
 
 .nav-sample .nav-links {
   display: none;
@@ -25,7 +36,7 @@
 }
 
 
-/* ─── HERO ──────────────────────────────────────────────────── */
+/* —— HERO ———————————————————————————————————————————————————— */
 
 .sr-hero {
   background: var(--black);
@@ -40,24 +51,25 @@
 }
 
 .sr-hero h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.15;
-  margin: 1rem 0 1.5rem;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin: 0 0 1.25rem;
 }
 
 .sr-hero-sub {
-  font-size: 1.1rem;
-  color: var(--ink-dark);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.72);
   line-height: 1.6;
-  max-width: 600px;
   margin: 0 auto 2rem;
+  max-width: 580px;
 }
 
 .sr-hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
@@ -71,7 +83,7 @@
 .btn-ghost {
   background: transparent;
   color: var(--ink-dark);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-xl);
   font-size: 0.9rem;
@@ -81,18 +93,19 @@
 }
 
 .btn-ghost:hover {
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255, 255, 255, 0.5);
   color: var(--white);
 }
 
+/* FIX: .sr-hero-proof-line era muito apagada (--muted-dark quase invisível no escuro) */
 .sr-hero-proof-line {
   font-size: 0.82rem;
-  color: var(--muted-dark);
+  color: rgba(255, 255, 255, 0.48);
   margin-top: 0.5rem;
 }
 
 
-/* ─── PROVA SOCIAL ──────────────────────────────────────────── */
+/* —— PROVA SOCIAL ———————————————————————————————————————————— */
 
 .sr-proof {
   background: var(--paper);
@@ -100,19 +113,35 @@
   border-bottom: 1px solid var(--line-light);
 }
 
-.sr-proof-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 3rem;
+.sr-proof-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.sr-proof-header p {
-  font-size: 0.85rem;
+.sr-proof-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--muted-light);
-  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Métricas agregadas */
+.sr-proof-heading {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.sr-proof-note {
+  font-size: 0.82rem;
+  color: var(--muted-light);
+  margin-bottom: 2.5rem;
+}
+
 .sr-proof-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -140,9 +169,10 @@
   text-align: center;
 }
 
+/* FIX: font-size aumentado de 2rem para 2.4rem — números de impacto precisam de mais peso */
 .sr-stat strong {
   display: block;
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--black);
   margin-bottom: 0.4rem;
@@ -164,6 +194,12 @@
 
 @media (max-width: 900px) {
   .sr-proof-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .sr-proof-cards {
     grid-template-columns: 1fr;
   }
 }
@@ -172,11 +208,10 @@
   background: var(--white);
   border: 1px solid var(--line-light);
   border-radius: var(--radius-lg);
-  padding: 1.75rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: var(--shadow-light);
 }
 
 .sr-proof-amount {
@@ -192,6 +227,7 @@
   align-self: flex-start;
 }
 
+/* FIX: font-style: normal — depoimentos executivos B2B ficam mais sérios sem itálico */
 .sr-proof-card blockquote {
   font-size: 0.9rem;
   line-height: 1.65;
@@ -199,7 +235,7 @@
   border-left: 3px solid var(--line-light);
   padding-left: 1rem;
   margin: 0;
-  font-style: italic;
+  font-style: normal;
 }
 
 .sr-proof-meta {
@@ -210,10 +246,14 @@
 }
 
 
-/* ─── BRIDGE ────────────────────────────────────────────────── */
+/* —— BRIDGE ———————————————————————————————————————————————— */
 
+/* FIX CRÍTICO: .sr-bridge herdava color: var(--ink-dark) (#F7F7F4) do hero escuro,
+   tornando todo o texto invisível sobre o fundo branco.
+   Adicionado color: var(--black) explícito. */
 .sr-bridge {
   background: var(--white);
+  color: var(--black);
   border-bottom: 1px solid var(--line-light);
   padding: 4rem 0;
 }
@@ -221,21 +261,31 @@
 .sr-bridge-inner {
   max-width: 960px;
   margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sr-bridge-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-light);
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .sr-bridge h2 {
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 2.5rem;
   color: var(--black);
-  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 }
 
 .sr-bridge-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 @media (max-width: 768px) {
@@ -249,6 +299,7 @@
   border: 1px solid var(--line-light);
   border-radius: var(--radius-md);
   background: var(--paper);
+  color: var(--black);
 }
 
 .sr-bridge-label {
@@ -277,17 +328,20 @@
 }
 
 
-/* ─── FAQ (posicionado antes do sample) ─────────────────────── */
+/* —— FAQ (posicionado antes do sample) ——————————————————————— */
 
+/* FIX CRÍTICO: .sr-faq herdava color: var(--ink-dark) (#F7F7F4) — texto quase
+   idêntico ao background var(--paper) (#F6F6F3). Adicionado color: var(--black). */
 .sr-faq {
   background: var(--paper);
-  border-bottom: 1px solid var(--line-light);
+  color: var(--black);
   padding: 4rem 0;
 }
 
 .sr-faq-inner {
   max-width: 760px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .sr-faq-head {
@@ -295,191 +349,200 @@
 }
 
 .sr-faq-head h2 {
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
-  margin-top: 0.5rem;
-  letter-spacing: -0.01em;
-}
-
-.sr-faq-stack details {
-  border-bottom: 1px solid var(--line-light);
-  padding: 1.1rem 0;
-}
-
-.sr-faq-stack details:last-child {
-  border-bottom: none;
-}
-
-.sr-faq-stack summary {
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
   color: var(--black);
-  list-style: none;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.sr-faq-stack {
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+  border-top: 1px solid var(--line-light);
+}
+
+.sr-faq-item {
+  border-bottom: 1px solid var(--line-light);
+  padding: 1.25rem 0;
+  cursor: pointer;
+}
+
+.sr-faq-q {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--black);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  user-select: none;
 }
 
-.sr-faq-stack summary::-webkit-details-marker {
-  display: none;
-}
-
-.sr-faq-stack summary::after {
+.sr-faq-q::after {
   content: '+';
   font-size: 1.2rem;
+  font-weight: 400;
   color: var(--muted-light);
   flex-shrink: 0;
-  margin-left: 1rem;
-  transition: transform 0.2s;
 }
 
-.sr-faq-stack details[open] summary::after {
-  transform: rotate(45deg);
+.sr-faq-item.open .sr-faq-q::after {
+  content: '−';
 }
 
-.sr-faq-stack details p {
-  font-size: 0.88rem;
+.sr-faq-a {
+  font-size: 0.875rem;
   color: var(--text-light);
   line-height: 1.65;
   margin-top: 0.75rem;
+  display: none;
+}
+
+.sr-faq-item.open .sr-faq-a {
+  display: block;
 }
 
 
-/* ─── SWITCHER (toggle + coupon + amostras) ─────────────────── */
+/* —— SAMPLE SWITCHER SECTION ————————————————————————————————— */
 
+/* FIX: padding-top reduzido de valor original — eliminava o "gap fantasma" 
+   entre a bridge e o FAQ. A seção agora abre mais próxima do conteúdo acima. */
 .sr-sample-section {
   background: var(--paper);
-  padding: 5rem 0;
+  padding: 3rem 0 5rem;
+}
+
+.sr-sample-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .sr-switcher-header {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 2rem;
+  margin-bottom: 2rem;
 }
 
 .sr-switcher-header h2 {
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 700;
+  color: var(--black);
   letter-spacing: -0.02em;
-  margin: 0.5rem 0 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .sr-switcher-header p {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--muted-light);
-  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
 }
 
-/* Coupon bar */
-.sr-coupon-bar {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--white);
+/* Coupon box */
+.sr-coupon-box {
   border: 1px solid var(--line-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   padding: 1rem 1.5rem;
-  max-width: 680px;
-  margin: 0 auto 1.75rem;
+  background: var(--white);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .sr-coupon-label {
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted-light);
-  white-space: nowrap;
+  display: block;
+  margin-bottom: 0.2rem;
 }
 
 .sr-coupon-code {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  border-right: 1px solid var(--line-light);
-  padding-right: 1rem;
-}
-
-.sr-coupon-code strong {
+  font-family: "IBM Plex Mono", monospace;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--black);
-  letter-spacing: -0.01em;
 }
 
-.sr-coupon-desc {
-  font-size: 0.85rem;
+.sr-coupon-note {
+  font-size: 0.82rem;
   color: var(--text-light);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.sr-coupon-desc em {
-  font-style: normal;
-  font-weight: 600;
+.sr-coupon-note strong {
   color: var(--black);
 }
 
-/* Tab bar */
-.sr-tab-bar {
+/* Tab switcher */
+.sr-tabs {
   display: flex;
+  gap: 0;
   background: var(--white);
   border: 1px solid var(--line-light);
-  border-radius: var(--radius-xl);
+  border-radius: 999px;
   padding: 4px;
-  max-width: 400px;
+  width: fit-content;
   margin: 0 auto 2.5rem;
-  gap: 4px;
 }
 
 .sr-tab {
-  flex: 1;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: calc(var(--radius-xl) - 4px);
-  background: transparent;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--muted-light);
-  transition: background 0.2s, color 0.2s;
-  font-family: inherit;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--muted-light);
+  transition: background 0.15s, color 0.15s;
 }
 
+.sr-tab[aria-selected="true"],
 .sr-tab.active {
   background: var(--black);
   color: var(--white);
 }
 
-/* Painéis */
-.sr-panel {
-  display: none;
-}
 
-.sr-panel.active {
-  display: block;
-}
-
-/* ─── ELEMENTOS INTERNOS DOS PAINÉIS ────────────────────────── */
+/* —— PANEL INTRO (dark header for each panel) ———————————————— */
 
 .sr-panel-intro {
   background: var(--black);
   color: var(--white);
-  border-radius: var(--radius-xl);
-  padding: 2.5rem;
-  margin-bottom: 1.5rem;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 2rem 2rem 1.75rem;
+  margin-bottom: 0;
 }
 
-.sr-panel-intro h3 {
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+.sr-panel-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
   font-weight: 700;
-  margin: 0.5rem 0 0.75rem;
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.sr-panel-intro h2 {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 700;
   color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+  line-height: 1.15;
 }
 
 .sr-panel-intro p {
@@ -489,6 +552,7 @@
   margin: 0;
 }
 
+/* Portfolio note */
 .sr-portfolio-note {
   background: var(--white);
   border: 1px solid var(--line-light);
@@ -523,56 +587,73 @@
 
 /* Blocos de entregável */
 .sr-deliverable-block {
-  background: var(--white);
   border: 1px solid var(--line-light);
-  border-radius: var(--radius-xl);
-  padding: 2rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   margin-bottom: 1.5rem;
+  background: var(--white);
 }
 
 .sr-deliverable-block.dark {
   background: var(--black);
-  border-color: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-.sr-deliverable-block.light-alt {
-  background: var(--paper-2, #ECECE8);
+.sr-deliverable-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--line-light);
 }
 
-.sr-deliverable-label {
-  font-size: 0.68rem;
+.sr-deliverable-block.dark .sr-deliverable-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.sr-section-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted-light);
-  margin-bottom: 0.5rem;
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
-.sr-deliverable-label.light {
-  color: var(--muted-dark);
+.sr-deliverable-block.dark .sr-section-label {
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.sr-deliverable-block h4 {
-  font-size: 1.15rem;
+.sr-deliverable-header h3 {
+  font-size: 1rem;
   font-weight: 700;
   color: var(--black);
-  margin: 0 0 0.5rem;
+  margin: 0;
   letter-spacing: -0.01em;
 }
 
-.sr-deliverable-block.dark h4 {
+.sr-deliverable-block.dark .sr-deliverable-header h3 {
   color: var(--white);
 }
 
-.sr-deliverable-desc {
-  font-size: 0.85rem;
-  color: var(--muted-light);
-  margin: 0 0 1.5rem;
+.sr-deliverable-header p {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  margin: 0.3rem 0 0;
   line-height: 1.5;
 }
 
-/* Métricas row */
-.sr-metrics-row {
+.sr-deliverable-block.dark .sr-deliverable-header p {
+  color: var(--ink-dark);
+}
+
+.sr-deliverable-body {
+  padding: 1.5rem;
+}
+
+
+/* —— STAT GRID (panorama) ———————————————————————————————————— */
+
+.sr-stat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.75rem;
@@ -580,82 +661,81 @@
 }
 
 @media (max-width: 768px) {
-  .sr-metrics-row {
+  .sr-stat-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.sr-metric-card {
+.sr-stat-card {
   background: var(--paper);
   border: 1px solid var(--line-light);
   border-radius: var(--radius-md);
   padding: 1rem;
+  text-align: left;
 }
 
-.sr-metric-card small {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--muted-light);
+.sr-stat-card small {
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 0.3rem;
+  color: var(--muted-light);
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
-.sr-metric-card strong {
+.sr-stat-card strong {
   display: block;
-  font-size: 0.95rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 700;
   color: var(--black);
-  line-height: 1.2;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
-.sr-metric-card span {
+.sr-stat-card span {
   display: block;
   font-size: 0.72rem;
   color: var(--muted-light);
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
 }
 
-/* Status e categoria grid */
-.sr-status-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
 
-@media (max-width: 600px) {
-  .sr-status-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* —— STATUS LISTS ———————————————————————————————————————————— */
 
-.sr-status-grid h5,
-.sr-category-col h5 {
-  font-size: 0.78rem;
+.sr-by-status h4,
+.sr-by-category h4 {
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: var(--muted-light);
   margin: 0 0 0.75rem;
 }
 
 .sr-status-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sr-status-list li {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
 }
 
 .sr-category-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .sr-category-list li {
@@ -663,34 +743,32 @@
   justify-content: space-between;
   font-size: 0.85rem;
   color: var(--text-light);
-  padding: 0.35rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--line-light);
 }
 
 .sr-category-list li strong {
-  font-weight: 600;
   color: var(--black);
+  font-weight: 600;
 }
 
-/* Top 3 */
-.sr-top3 {
-  margin-top: 1.5rem;
-}
 
-.sr-top3 h5 {
-  font-size: 0.78rem;
+/* —— TOP 3 ITEMS ————————————————————————————————————————————— */
+
+.sr-top3-label {
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: var(--muted-light);
-  margin: 0 0 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .sr-top3-item {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
-  padding: 0.85rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--line-light);
 }
 
@@ -698,34 +776,55 @@
   border-bottom: none;
 }
 
-.sr-top3-item strong {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 600;
+.sr-badge {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1.2;
+  text-align: center;
+  min-width: 48px;
+}
+
+.sr-badge.critical {
+  background: var(--critical-bg);
+  color: var(--critical-text);
+}
+
+.sr-badge.act-now {
+  background: var(--now-bg);
+  color: var(--now-text);
+}
+
+.sr-badge.act-soon {
+  background: var(--soon-bg);
+  color: var(--soon-text);
+}
+
+.sr-badge.watch {
+  background: var(--watch-bg);
+  color: var(--watch-text);
+}
+
+.sr-top3-item h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
   color: var(--black);
-  margin-bottom: 0.2rem;
+  margin: 0 0 0.2rem;
 }
 
 .sr-top3-item p {
-  font-size: 0.82rem;
-  color: var(--muted-light);
+  font-size: 0.8rem;
+  color: var(--text-light);
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
-/* Monitoring layout (2 colunas dark) */
-.sr-monitoring-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
 
-@media (max-width: 600px) {
-  .sr-monitoring-header {
-    grid-template-columns: 1fr;
-  }
-}
+/* —— MONITORING GRID ————————————————————————————————————————— */
 
 .sr-monitoring-grid {
   display: grid;
@@ -741,7 +840,7 @@
 
 /* Tabela de calendário */
 .sr-calendar-table {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
@@ -756,7 +855,7 @@
 }
 
 .sr-table-head {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--muted-dark);
   font-weight: 600;
   text-transform: uppercase;
@@ -766,206 +865,201 @@
 
 .sr-table-row {
   color: var(--ink-dark);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .sr-table-row:last-child {
   border-bottom: none;
 }
 
-.sr-status-badge {
-  font-size: 0.68rem;
-  font-weight: 600;
-  border-radius: 4px;
-  padding: 0.15rem 0.4rem;
-  white-space: nowrap;
-  align-self: center;
+.sr-status-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  text-align: center;
+  display: inline-block;
 }
 
-.sr-status-badge.queued   { background: rgba(255,255,255,0.1); color: var(--ink-dark); }
-.sr-status-badge.active   { background: var(--critical-bg); color: var(--critical-text); }
-.sr-status-badge.scheduled{ background: var(--now-bg); color: var(--now-text); }
-.sr-status-badge.watching { background: var(--watch-bg); color: var(--watch-text); }
+.sr-status-pill.queued { background: var(--soon-bg); color: var(--soon-text); }
+.sr-status-pill.active { background: var(--critical-bg); color: var(--critical-text); }
+.sr-status-pill.scheduled { background: var(--watch-bg); color: var(--watch-text); }
+.sr-status-pill.watching { background: rgba(255,255,255,0.12); color: var(--muted-dark); }
 
-/* Alert sequence cards */
-.sr-alert-sequence {
+/* Alert email cards */
+.sr-alert-cards {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.75rem;
 }
 
-.sr-email-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
+.sr-alert-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   padding: 0.9rem 1rem;
 }
 
-.sr-email-num {
-  font-size: 0.68rem;
+.sr-alert-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--muted-dark);
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
   margin-bottom: 0.2rem;
 }
 
-.sr-email-card strong {
-  display: block;
+.sr-alert-card h5 {
   font-size: 0.85rem;
+  font-weight: 700;
   color: var(--white);
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.25rem;
 }
 
-.sr-email-card p {
+.sr-alert-card p {
   font-size: 0.78rem;
   color: var(--ink-dark);
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
-/* ─── MISSED CALLOUT — momento dramático ────────────────────── */
 
-.sr-missed-callout {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  background: var(--critical-bg);
-  border: 1px solid var(--critical-text);
+/* —— MISSED CALLOUT ————————————————————————————————————————— */
+
+.sr-missed {
+  background: var(--black);
+  color: var(--white);
+  padding: 1.5rem;
   border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
   margin-top: 1.5rem;
 }
 
-.sr-missed-icon {
-  font-size: 1.4rem;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
-}
-
-.sr-missed-callout strong {
-  display: block;
-  font-size: 0.9rem;
+.sr-missed-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
   font-weight: 700;
-  color: var(--critical-text);
-  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-.sr-missed-callout p {
-  font-size: 0.83rem;
-  color: var(--critical-text);
-  line-height: 1.55;
+.sr-missed p {
+  font-size: 0.85rem;
+  color: var(--ink-dark);
   margin: 0;
-  opacity: 0.85;
+  line-height: 1.6;
 }
 
-/* Para uso dentro de blocos dark */
-.sr-deliverable-block.dark .sr-missed-callout {
-  background: rgba(254, 46, 46, 0.12);
-  border-color: rgba(153, 27, 27, 0.4);
+.sr-missed p + p {
+  margin-top: 0.5rem;
 }
 
-.sr-deliverable-block.dark .sr-missed-callout strong,
-.sr-deliverable-block.dark .sr-missed-callout p {
-  color: #FCA5A5;
-}
 
-/* ─── EXECUTIVE BRIEF ───────────────────────────────────────── */
-
-.sr-brief-card {
-  background: var(--paper);
-  border: 1px solid var(--line-light);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-}
+/* —— EXECUTIVE BRIEF ————————————————————————————————————————— */
 
 .sr-brief-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.sr-brief-label {
-  font-size: 0.68rem;
+.sr-brief-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--muted-light);
+  display: block;
+  margin-bottom: 0.3rem;
 }
 
-.sr-brief-card h5 {
-  font-size: 1.1rem;
+.sr-brief-header h3 {
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--black);
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.2rem;
 }
 
 .sr-brief-meta {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--muted-light);
-  margin-bottom: 1.25rem;
 }
 
-.sr-brief-card h6 {
-  font-size: 0.78rem;
+.sr-brief-section-label {
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: var(--muted-light);
   margin: 1.25rem 0 0.5rem;
 }
 
-.sr-brief-card p {
+.sr-brief-body p {
   font-size: 0.88rem;
   color: var(--text-light);
   line-height: 1.6;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
 }
 
-.sr-brief-card ul,
-.sr-brief-card ol {
+.sr-brief-body ul,
+.sr-brief-body ol {
   padding-left: 1.2rem;
-  margin: 0;
+  margin: 0.5rem 0 0.75rem;
 }
 
-.sr-brief-card li {
+.sr-brief-body li {
   font-size: 0.88rem;
   color: var(--text-light);
-  line-height: 1.6;
-  margin-bottom: 0.35rem;
+  line-height: 1.55;
+  margin-bottom: 0.3rem;
 }
 
-.sr-brief-card li strong {
+.sr-brief-body li strong {
   color: var(--black);
 }
 
-/* Clause compare */
+/* Clause compare box */
 .sr-clause-compare {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  background: var(--white);
+  gap: 0;
   border: 1px solid var(--line-light);
   border-radius: var(--radius-md);
-  padding: 1rem;
-  margin: 1rem 0;
+  overflow: hidden;
+  margin: 0.75rem 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .sr-clause-compare {
     grid-template-columns: 1fr;
   }
 }
 
-.sr-clause-compare small {
-  display: block;
-  font-size: 0.68rem;
+.sr-clause-col {
+  padding: 0.9rem 1rem;
+}
+
+.sr-clause-col:first-child {
+  border-right: 1px solid var(--line-light);
+  background: rgba(153, 27, 27, 0.04);
+}
+
+.sr-clause-col-label {
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   color: var(--muted-light);
-  margin-bottom: 0.35rem;
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
 .sr-clause-compare p {
@@ -1008,244 +1102,14 @@
 .sr-brief-pricing {
   background: var(--black);
   color: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
   margin-top: 1.5rem;
 }
 
 .sr-brief-pricing-label {
-  font-size: 0.68rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted-dark);
-  margin-bottom: 1rem;
-}
-
-.sr-brief-pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-@media (max-width: 600px) {
-  .sr-brief-pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.sr-brief-plan {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-}
-
-.sr-brief-plan strong {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--white);
-}
-
-.sr-brief-plan span {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--muted-dark);
-  margin-bottom: 0.5rem;
-}
-
-.sr-brief-price {
-  display: flex;
-  align-items: baseline;
-  gap: 0.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.sr-brief-price strong {
-  font-size: 1.5rem;
-  color: var(--white);
-}
-
-.sr-brief-price em {
-  font-style: normal;
-  font-size: 0.8rem;
-  color: var(--muted-dark);
-}
-
-.sr-brief-plan small {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--muted-dark);
-  line-height: 1.4;
-}
-
-/* ─── QUARTERLY REVIEW ──────────────────────────────────────── */
-
-.sr-quarterly-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-@media (max-width: 600px) {
-  .sr-quarterly-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.sr-quarterly-grid article {
-  background: var(--white);
-  border: 1px solid var(--line-light);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-}
-
-.sr-quarterly-grid h6 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--black);
-  margin: 0 0 0.4rem;
-}
-
-.sr-quarterly-grid p {
-  font-size: 0.82rem;
-  color: var(--text-light);
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* ─── CTA DE FECHAMENTO DO PAINEL ───────────────────────────── */
-
-.sr-panel-cta-block {
-  background: var(--black);
-  color: var(--white);
-  border-radius: var(--radius-xl);
-  padding: 3rem 2.5rem;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.sr-panel-cta-block h3 {
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 700;
-  color: var(--white);
-  margin: 0 0 0.75rem;
-  letter-spacing: -0.02em;
-}
-
-.sr-panel-cta-block p {
-  font-size: 0.9rem;
-  color: var(--ink-dark);
-  line-height: 1.6;
-  max-width: 520px;
-  margin: 0 auto 1.5rem;
-}
-
-.sr-panel-cta-note {
-  font-size: 0.78rem !important;
-  color: var(--muted-dark) !important;
-  margin-top: 0.75rem !important;
-  margin-bottom: 0 !important;
-}
-
-/* ─── CONTRATOS SETUP ONLY ──────────────────────────────────── */
-
-.sr-contract-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-}
-
-.sr-contract-card {
-  background: var(--white);
-  border: 1px solid var(--line-light);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-}
-
-.sr-contract-card.critical {
-  border-left: 3px solid var(--critical-text);
-}
-
-.sr-contract-card.act-now {
-  border-left: 3px solid var(--now-text);
-}
-
-.sr-contract-header {
-  margin-bottom: 1rem;
-}
-
-.sr-contract-header h5 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--black);
-  margin: 0.35rem 0 0.25rem;
-}
-
-.sr-contract-header strong {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  font-weight: 500;
-}
-
-.sr-contract-meta {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-
-@media (max-width: 600px) {
-  .sr-contract-meta {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.sr-contract-meta > div {
-  background: var(--paper);
-  border-radius: var(--radius-md);
-  padding: 0.6rem 0.75rem;
-}
-
-.sr-contract-meta small {
-  display: block;
-  font-size: 0.68rem;
-  color: var(--muted-light);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.2rem;
-}
-
-.sr-contract-meta span {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--black);
-}
-
-.sr-contract-card h6 {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--black);
-  margin: 1rem 0 0.4rem;
-}
-
-.sr-contract-card p {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  line-height: 1.55;
-  margin: 0 0 0.75rem;
-}
-
-.sr-contract-card ol {
-  padding-left: 1.2rem;
-  margin: 0.5rem 0 0;
-}
-
-.sr-contract-card li {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  line-height
+  letter-spacing: 0.08em;
