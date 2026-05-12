@@ -4813,3 +4813,168 @@ body.modal-open {
     min-width: 0 !important;
   }
 }
+
+/* ============================================================
+   SAMPLE REPORT — EYEBROWS + SPACING TIGHTENING
+   Cola no FINAL do styles.css
+   ============================================================ */
+
+/* Eyebrows padrão ROD */
+.sr-proof .eyebrow,
+.sr-bridge .eyebrow,
+.sr-faq .eyebrow,
+.sr-sample-section .eyebrow,
+.sr-panel-intro .eyebrow,
+.sr-hero .badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: fit-content !important;
+  padding: 9px 14px !important;
+  margin-bottom: 22px !important;
+  border-radius: 999px !important;
+  background: rgba(28, 28, 28, 0.045) !important;
+  border: 1px solid rgba(28, 28, 28, 0.14) !important;
+  color: var(--ink-light) !important;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+.sr-hero .badge,
+.sr-panel-intro .eyebrow,
+.sr-deliverable-block.dark .eyebrow {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.sr-proof .eyebrow::before,
+.sr-bridge .eyebrow::before,
+.sr-faq .eyebrow::before,
+.sr-sample-section .eyebrow::before,
+.sr-panel-intro .eyebrow::before,
+.sr-hero .badge::before {
+  content: "" !important;
+  width: 7px !important;
+  height: 7px !important;
+  flex: 0 0 7px !important;
+  border-radius: 50% !important;
+  background: currentColor !important;
+  opacity: .85 !important;
+}
+
+/* Redução geral de espaços */
+.sr-proof,
+.sr-bridge,
+.sr-faq,
+.sr-sample-section {
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+
+/* Header das seções mais compacto */
+.sr-proof-header,
+.sr-switcher-header {
+  margin-bottom: 22px !important;
+}
+
+.sr-faq-head {
+  margin-bottom: 18px !important;
+}
+
+.sr-bridge h2 {
+  margin-bottom: 22px !important;
+}
+
+/* Reduz espaços entre blocos internos */
+.sr-proof-stats {
+  margin-bottom: 20px !important;
+}
+
+.sr-proof-cards,
+.sr-bridge-items {
+  gap: 12px !important;
+}
+
+.sr-coupon-bar {
+  margin-bottom: 18px !important;
+}
+
+.sr-tab-bar {
+  margin-bottom: 22px !important;
+}
+
+.sr-panel-intro,
+.sr-portfolio-note,
+.sr-deliverable-block,
+.sr-panel-cta-block {
+  margin-bottom: 14px !important;
+}
+
+.sr-deliverable-block {
+  padding: 18px !important;
+}
+
+/* Reduz altura dos cards */
+.sr-stat,
+.sr-proof-card,
+.sr-bridge-item,
+.sr-brief-card,
+.sr-contract-card {
+  padding: 18px !important;
+}
+
+.sr-stat {
+  min-height: 112px !important;
+}
+
+.sr-proof-card {
+  min-height: auto !important;
+}
+
+/* Ajusta títulos para não criarem blocos gigantes */
+.sr-bridge h2,
+.sr-faq-head h2,
+.sr-switcher-header h2 {
+  line-height: .96 !important;
+}
+
+.sr-switcher-header p,
+.sr-proof-header p {
+  margin-top: 12px !important;
+}
+
+/* FAQ mais compacto */
+.sr-faq-stack details {
+  padding: 14px 0 !important;
+}
+
+.sr-faq-stack details p {
+  margin-top: 8px !important;
+}
+
+/* Mobile ainda mais compacto */
+@media screen and (max-width: 768px) {
+  .sr-proof,
+  .sr-bridge,
+  .sr-faq,
+  .sr-sample-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .sr-proof .eyebrow,
+  .sr-bridge .eyebrow,
+  .sr-faq .eyebrow,
+  .sr-sample-section .eyebrow,
+  .sr-panel-intro .eyebrow,
+  .sr-hero .badge {
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+    margin-bottom: 18px !important;
+  }
+}
