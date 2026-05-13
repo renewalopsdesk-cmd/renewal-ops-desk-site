@@ -3909,3 +3909,539 @@ body.modal-open {
   .sr-coupon-pill { flex-wrap: wrap; border-radius: 18px; padding: 10px 12px; text-align: center; }
 }
 
+/* =========================================================
+   SAMPLE REPORT — PREMIUM CONVERSION REFINEMENTS
+   Paste at the END of styles.css
+   ========================================================= */
+
+
+/* =========================================================
+   1) HERO — better eyebrow, cleaner secondary CTA
+   ========================================================= */
+
+.sr-hero .sr-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 42px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.13);
+  background: rgba(255,255,255,.035);
+  color: rgba(255,255,255,.58);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.sr-hero .sr-badge::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.42);
+}
+
+.sr-hero h1 {
+  margin-top: 0;
+}
+
+.sr-hero-actions {
+  gap: 14px;
+  align-items: center;
+}
+
+.sr-hero-actions .btn-ghost {
+  position: relative;
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+  color: rgba(255,255,255,.88);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 16px 38px rgba(0,0,0,.18);
+}
+
+.sr-hero-actions .btn-ghost:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.28);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.055));
+  color: #fff;
+}
+
+.sr-hero-proof-line {
+  margin-top: 30px;
+  color: rgba(255,255,255,.34);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+
+/* =========================================================
+   2) MONITORING LAYER — remove weird split header
+   ========================================================= */
+
+.sr-deliverable-block.dark {
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(255,255,255,.08), transparent 30%),
+    linear-gradient(180deg, #151515 0%, #0D0D0D 100%);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.sr-monitoring-header {
+  display: block;
+  margin-bottom: 30px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,.11);
+}
+
+.sr-monitoring-header > div:first-child {
+  display: block;
+}
+
+.sr-monitoring-header > div:last-child {
+  display: none;
+}
+
+.sr-monitoring-header .sr-deliverable-label {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.48);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.sr-monitoring-header .sr-deliverable-label::after {
+  content: " / Alert Sequence";
+  margin-left: 4px;
+  color: rgba(255,255,255,.28);
+}
+
+.sr-monitoring-header h4 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(32px, 3.4vw, 54px);
+  line-height: .96;
+  letter-spacing: -.065em;
+}
+
+.sr-monitoring-header h4::after {
+  content: " · CTR-009";
+  color: rgba(255,255,255,.34);
+  font-weight: 500;
+}
+
+.sr-monitoring-grid {
+  gap: 24px;
+}
+
+.sr-calendar-table,
+.sr-email-card {
+  background: rgba(255,255,255,.045);
+  border-color: rgba(255,255,255,.1);
+}
+
+.sr-email-card {
+  box-shadow: none;
+}
+
+.sr-email-card strong {
+  color: rgba(255,255,255,.96);
+}
+
+.sr-email-card p {
+  color: rgba(255,255,255,.68);
+}
+
+
+/* =========================================================
+   3) MISSED WINDOW CALLOUT — readable, premium warning
+   ========================================================= */
+
+.sr-missed-callout {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, #FFF1F1 0%, #FEE2E2 100%) !important;
+  border: 1px solid rgba(153,27,27,.18) !important;
+  box-shadow: 0 18px 44px rgba(153,27,27,.08);
+}
+
+.sr-missed-icon {
+  color: #991B1B !important;
+  opacity: 1;
+}
+
+.sr-missed-callout strong {
+  display: block;
+  color: #7F1D1D !important;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+
+.sr-missed-callout p {
+  max-width: none;
+  margin-top: 7px;
+  color: rgba(127,29,29,.78) !important;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   4) MONTHLY PRICING — conversion-focused pricing module
+   ========================================================= */
+
+.sr-brief-pricing {
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  padding: 34px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 82% -10%, rgba(255,255,255,.16), transparent 32%),
+    linear-gradient(180deg, #171717 0%, #0F0F0F 100%);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 34px 90px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.sr-brief-pricing::before {
+  content: "Recommended after the initial scan";
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.13);
+  color: rgba(255,255,255,.66);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sr-brief-pricing-label {
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: clamp(25px, 2.5vw, 38px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.055em;
+  text-transform: none;
+  font-family: Intel, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sr-brief-pricing-label::after {
+  content: "Keep renewal exposure visible every month — without adding another internal process.";
+  display: block;
+  max-width: 680px;
+  margin-top: 10px;
+  color: rgba(255,255,255,.58);
+  font-family: Intel, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -.01em;
+}
+
+.sr-brief-pricing-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.sr-brief-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  padding: 28px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.sr-brief-plan:nth-child(2) {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(255,255,255,.13), transparent 36%),
+    rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.28);
+  box-shadow:
+    0 22px 62px rgba(255,255,255,.055),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.sr-brief-plan:nth-child(2)::before {
+  content: "Most selected";
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sr-brief-plan > strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.sr-brief-plan > span {
+  display: block;
+  color: rgba(255,255,255,.56);
+  font-size: 14px;
+}
+
+.sr-brief-price {
+  margin: 24px 0 18px;
+}
+
+.sr-brief-price strong {
+  color: #fff;
+  font-size: clamp(50px, 5.2vw, 72px);
+  font-weight: 800;
+  line-height: .88;
+  letter-spacing: -.075em;
+}
+
+.sr-brief-price em {
+  margin-left: 5px;
+  color: rgba(255,255,255,.56);
+  font-style: normal;
+  font-size: 16px;
+}
+
+.sr-brief-plan small {
+  display: block;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.58);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sr-brief-pricing .btn {
+  margin-top: 22px;
+  min-width: 280px;
+  padding: 17px 26px;
+  box-shadow: 0 22px 52px rgba(255,255,255,.1);
+}
+
+.sr-brief-pricing::after {
+  content: "Setup fee credited if you upgrade within 14 days.";
+  display: block;
+  margin-top: 16px;
+  color: rgba(255,255,255,.42);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   5) CREDIT BAR — stronger, cleaner, more persuasive
+   ========================================================= */
+
+.sr-coupon-bar {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: center;
+  margin: 34px 0 32px;
+  padding: 24px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(28,28,28,.07), transparent 30%),
+    linear-gradient(180deg, #FFFFFF 0%, #F4F4F0 100%);
+  border: 1px solid rgba(28,28,28,.13);
+  box-shadow:
+    0 22px 58px rgba(28,28,28,.09),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.sr-coupon-bar::before {
+  content: "Limited credit";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sr-coupon-code {
+  padding-right: 24px;
+  border-right: 1px solid rgba(28,28,28,.13);
+}
+
+.sr-coupon-label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(28,28,28,.46);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.sr-coupon-code strong {
+  display: block;
+  color: #111;
+  font-size: 24px;
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+
+.sr-coupon-desc {
+  max-width: 720px;
+  padding-right: 120px;
+  color: rgba(28,28,28,.72);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -.015em;
+}
+
+.sr-coupon-desc strong {
+  color: #111;
+}
+
+.sr-coupon-desc em {
+  color: rgba(28,28,28,.52);
+  font-style: italic;
+}
+
+
+/* =========================================================
+   6) Make sample tabs feel more intentional
+   ========================================================= */
+
+.sr-tab-bar {
+  margin-top: 22px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(28,28,28,.06);
+  border: 1px solid rgba(28,28,28,.1);
+}
+
+.sr-tab {
+  border-radius: 999px;
+}
+
+.sr-tab.active {
+  box-shadow: 0 12px 28px rgba(28,28,28,.16);
+}
+
+
+/* =========================================================
+   7) Mobile polish
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .sr-hero .sr-badge {
+    margin-bottom: 28px;
+  }
+
+  .sr-hero-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .sr-hero-actions .btn {
+    width: 100%;
+  }
+
+  .sr-monitoring-header h4::after {
+    display: block;
+    margin-top: 6px;
+  }
+
+  .sr-brief-pricing {
+    padding: 24px;
+    border-radius: 28px;
+  }
+
+  .sr-brief-pricing-grid,
+  .sr-coupon-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .sr-brief-plan {
+    min-height: auto;
+  }
+
+  .sr-brief-pricing .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sr-coupon-bar {
+    padding: 22px;
+  }
+
+  .sr-coupon-bar::before {
+    position: static;
+    width: fit-content;
+    margin-bottom: 4px;
+    grid-row: 1;
+  }
+
+  .sr-coupon-code {
+    padding-right: 0;
+    padding-bottom: 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(28,28,28,.13);
+  }
+
+  .sr-coupon-desc {
+    padding-right: 0;
+    font-size: 15px;
+  }
+}
