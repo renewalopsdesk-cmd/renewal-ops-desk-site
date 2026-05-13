@@ -6446,5 +6446,65 @@ body.modal-open {
   }
 }
 
+/* =========================================================
+   SAMPLE REPORT — FIX GROWTH CARD / REMOVE MOST SELECTED
+   Paste at the END of styles.css
+   ========================================================= */
 
+/* Remove any old "Most selected" badge from Growth */
+.sr-landing-pricing-preview .sr-brief-plan:nth-child(2)::before,
+.sr-brief-pricing .sr-brief-plan:nth-child(2)::before,
+.sr-brief-plan:nth-child(2)::before,
+.sr-brief-plan-featured::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Force Growth to look exactly like Starter and Guardian */
+.sr-landing-pricing-preview .sr-brief-plan:nth-child(2),
+.sr-brief-pricing .sr-brief-plan:nth-child(2),
+.sr-landing-pricing-preview .sr-brief-plan-featured {
+  background: rgba(255,255,255,.055) !important;
+  border-color: rgba(255,255,255,.11) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+
+/* Make all 3 cards equal in spacing and vertical rhythm */
+.sr-landing-pricing-preview .sr-brief-plan {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 100% !important;
+  padding: 24px !important;
+}
+
+/* Make plan label spacing identical */
+.sr-landing-pricing-preview .sr-plan-label {
+  margin-bottom: 48px !important;
+}
+
+/* Make plan title height identical */
+.sr-landing-pricing-preview .sr-brief-plan > strong {
+  display: flex !important;
+  align-items: flex-end !important;
+  min-height: 72px !important;
+  margin-bottom: 24px !important;
+}
+
+/* Make the first payment section start at same height */
+.sr-landing-pricing-preview .sr-first-payment {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(255,255,255,.11) !important;
+}
+
+/* Keep monthly box aligned at bottom */
+.sr-landing-pricing-preview .sr-after-payment {
+  margin-top: auto !important;
+}
+
+/* Remove extra glow/featured treatment from Growth */
+.sr-landing-pricing-preview .sr-brief-plan:nth-child(2) {
+  transform: none !important;
+}
 
