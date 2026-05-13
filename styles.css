@@ -4445,3 +4445,345 @@ body.modal-open {
     font-size: 15px;
   }
 }
+
+/* =========================================================
+   SAMPLE REPORT — REFINEMENT PASS 02
+   Focus:
+   1) Better coupon/credit bar
+   2) Smaller, more refined monthly pricing block
+   ========================================================= */
+
+
+/* =========================================================
+   1) CREDIT BAR — cleaner, more balanced, less awkward
+   ========================================================= */
+
+.sr-coupon-bar {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  align-items: center;
+  margin: 28px 0 26px;
+  padding: 26px 30px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f1 100%);
+  border: 1px solid rgba(28,28,28,.10);
+  box-shadow: 0 16px 38px rgba(28,28,28,.05);
+}
+
+.sr-coupon-bar::before {
+  content: none;
+}
+
+.sr-coupon-bar::after {
+  content: "Limited credit";
+  position: absolute;
+  right: 26px;
+  top: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sr-coupon-code {
+  padding-right: 28px;
+  border-right: 1px solid rgba(28,28,28,.10);
+}
+
+.sr-coupon-label {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(28,28,28,.46);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sr-coupon-code strong {
+  display: block;
+  color: #111;
+  font-size: clamp(28px, 2.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -.05em;
+}
+
+.sr-coupon-desc {
+  max-width: 720px;
+  padding-right: 150px;
+  color: rgba(28,28,28,.70);
+  font-size: 17px;
+  line-height: 1.48;
+  letter-spacing: -.01em;
+}
+
+.sr-coupon-desc em {
+  color: rgba(28,28,28,.52);
+  font-style: italic;
+}
+
+
+/* =========================================================
+   2) MONTHLY PRICING WRAPPER — smaller + more centered
+   ========================================================= */
+
+.sr-brief-pricing {
+  position: relative;
+  overflow: hidden;
+  margin-top: 34px;
+  padding: 28px 28px 24px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 84% 0%, rgba(255,255,255,.10), transparent 30%),
+    linear-gradient(180deg, #141414 0%, #0b0b0b 100%);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.26),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.sr-brief-pricing::before {
+  content: "Recommended after the initial scan";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 18px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.68);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sr-brief-pricing-label {
+  margin-bottom: 22px;
+  color: #fff;
+  font-family: Intel, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  text-align: center;
+  text-transform: none;
+}
+
+.sr-brief-pricing-label::after {
+  content: "Keep renewal exposure visible every month — without adding another internal process.";
+  display: block;
+  max-width: 760px;
+  margin: 12px auto 0;
+  color: rgba(255,255,255,.58);
+  font-family: Intel, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.52;
+  letter-spacing: -.01em;
+  text-align: center;
+}
+
+.sr-brief-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.sr-brief-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.sr-brief-plan:nth-child(2) {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(255,255,255,.11), transparent 34%),
+    rgba(255,255,255,.085);
+  border-color: rgba(255,255,255,.20);
+  box-shadow:
+    0 12px 34px rgba(255,255,255,.04),
+    inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+.sr-brief-plan:nth-child(2)::before {
+  content: "Most selected";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 0 16px 0;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sr-brief-plan > strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.sr-brief-plan > span {
+  display: block;
+  color: rgba(255,255,255,.58);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.sr-brief-price {
+  margin: 20px 0 16px;
+}
+
+.sr-brief-price strong {
+  color: #fff;
+  font-size: clamp(44px, 4.6vw, 60px);
+  font-weight: 800;
+  line-height: .90;
+  letter-spacing: -.07em;
+}
+
+.sr-brief-price em {
+  margin-left: 5px;
+  color: rgba(255,255,255,.58);
+  font-style: normal;
+  font-size: 15px;
+}
+
+.sr-brief-plan small {
+  display: block;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.56);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.72;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sr-brief-pricing .btn {
+  display: flex;
+  width: fit-content;
+  min-width: 0;
+  margin: 18px auto 0;
+  padding: 16px 24px;
+}
+
+.sr-brief-pricing::after {
+  content: "Setup fee credited if you upgrade within 14 days.";
+  display: block;
+  margin-top: 16px;
+  color: rgba(255,255,255,.40);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   3) Optional tighter spacing inside pricing section
+   ========================================================= */
+
+.sr-brief-card + .sr-brief-pricing {
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   4) Mobile adjustments
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .sr-coupon-bar {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px;
+  }
+
+  .sr-coupon-bar::after {
+    position: static;
+    width: fit-content;
+    margin: 0 0 2px 0;
+  }
+
+  .sr-coupon-code {
+    padding-right: 0;
+    padding-bottom: 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(28,28,28,.10);
+  }
+
+  .sr-coupon-code strong {
+    font-size: 32px;
+  }
+
+  .sr-coupon-desc {
+    padding-right: 0;
+    font-size: 15px;
+  }
+
+  .sr-brief-pricing {
+    padding: 22px 20px 20px;
+    border-radius: 24px;
+  }
+
+  .sr-brief-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sr-brief-plan {
+    padding: 20px;
+  }
+
+  .sr-brief-price strong {
+    font-size: 48px;
+  }
+
+  .sr-brief-pricing .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
