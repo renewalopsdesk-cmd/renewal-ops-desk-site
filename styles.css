@@ -3636,12 +3636,11 @@ body.modal-open {
 }
 
 /* ================================================================
-   SAMPLE REPORT PAGE — CSS COMPLETO E TESTADO
+   SAMPLE REPORT PAGE — CSS COMPLETO
    Cole no FINAL do styles.css, substituindo todos os blocos sr- anteriores
    ================================================================ */
 
-/* ── CONTAINERS ───────────────────────────────────────────────── */
-
+/* ── PAGE SHELL ───────────────────────────────────────────────── */
 .sr-page {
   background: var(--paper);
   color: var(--ink-light);
@@ -3655,19 +3654,10 @@ body.modal-open {
 }
 
 /* ── NAV ──────────────────────────────────────────────────────── */
-
-.nav-sample .nav-links {
-  display: none;
-}
-
-.nav-sample .nav-sample-cta {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
+.nav-sample .nav-links { display: none; }
+.nav-sample .nav-sample-cta { display: flex; align-items: center; margin-left: auto; }
 
 /* ── HERO ─────────────────────────────────────────────────────── */
-
 .sr-hero {
   position: relative;
   overflow: hidden;
@@ -3733,8 +3723,7 @@ body.modal-open {
   text-transform: uppercase;
 }
 
-/* ── EYEBROW — padrão ROD (igual à landing) ───────────────────── */
-
+/* ── EYEBROW — padrão ROD igual à landing ─────────────────────── */
 .sr-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -3748,13 +3737,13 @@ body.modal-open {
   padding: 8px 11px;
   margin-bottom: 22px;
   line-height: 1;
-  /* dark context (hero) */
+  /* dark context padrão */
   color: var(--muted-dark);
   background: rgba(255,255,255,.045);
   border: 1px solid rgba(255,255,255,.12);
 }
 
-/* light context — sobrescreve para seções claras */
+/* light context — seções claras */
 .sr-proof .sr-eyebrow,
 .sr-bridge .sr-eyebrow,
 .sr-faq .sr-eyebrow,
@@ -3783,7 +3772,6 @@ body.modal-open {
 }
 
 /* ── SECTION BACKGROUNDS ──────────────────────────────────────── */
-
 .sr-proof,
 .sr-bridge,
 .sr-faq,
@@ -3797,11 +3785,7 @@ body.modal-open {
 }
 
 /* ── PROOF ────────────────────────────────────────────────────── */
-
-.sr-proof-header {
-  max-width: 780px;
-  margin: 0 0 24px;
-}
+.sr-proof-header { max-width: 780px; margin: 0 0 24px; }
 
 .sr-proof-header h2 {
   color: var(--ink-light);
@@ -3894,7 +3878,6 @@ body.modal-open {
 }
 
 /* ── BRIDGE ───────────────────────────────────────────────────── */
-
 .sr-bridge h2 {
   max-width: 880px;
   margin: 0 0 22px;
@@ -3946,14 +3929,8 @@ body.modal-open {
 }
 
 /* ── FAQ — uma coluna, padrão landing ─────────────────────────── */
-
-.sr-faq-inner {
-  max-width: 760px;
-}
-
-.sr-faq-head {
-  margin-bottom: 20px;
-}
+.sr-faq-inner { max-width: 760px; }
+.sr-faq-head { margin-bottom: 20px; }
 
 .sr-faq-head h2 {
   max-width: 620px;
@@ -3964,7 +3941,6 @@ body.modal-open {
   margin: 0;
 }
 
-/* Uma coluna — igual ao padrão de FAQ da landing */
 .sr-faq-stack {
   display: flex;
   flex-direction: column;
@@ -3975,11 +3951,11 @@ body.modal-open {
 }
 
 .sr-faq-stack details {
-  padding: 0;
   border: 1px solid var(--line-light);
   border-radius: 14px;
   background: rgba(255,255,255,.76);
   overflow: hidden;
+  padding: 0;
 }
 
 .sr-faq-stack summary {
@@ -4016,9 +3992,7 @@ body.modal-open {
   opacity: .65;
 }
 
-.sr-faq-stack details[open] summary::after {
-  content: "−";
-}
+.sr-faq-stack details[open] summary::after { content: "−"; }
 
 .sr-faq-stack details p {
   margin: 0;
@@ -4029,11 +4003,7 @@ body.modal-open {
 }
 
 /* ── SAMPLE SWITCHER HEADER ───────────────────────────────────── */
-
-.sr-switcher-header {
-  max-width: 980px;
-  margin: 0 0 22px;
-}
+.sr-switcher-header { max-width: 980px; margin: 0 0 22px; }
 
 .sr-switcher-header h2 {
   color: var(--ink-light);
@@ -4052,7 +4022,6 @@ body.modal-open {
 }
 
 /* ── COUPON BAR ───────────────────────────────────────────────── */
-
 .sr-coupon-bar {
   max-width: 760px;
   margin: 0 auto 24px;
@@ -4097,18 +4066,10 @@ body.modal-open {
   letter-spacing: -.03em;
 }
 
-.sr-coupon-desc {
-  color: var(--text-light);
-  font-size: 13.5px;
-  line-height: 1.5;
-}
-
-.sr-coupon-desc em {
-  color: var(--muted-light);
-}
+.sr-coupon-desc { color: var(--text-light); font-size: 13.5px; line-height: 1.5; }
+.sr-coupon-desc em { color: var(--muted-light); }
 
 /* ── TAB BAR ──────────────────────────────────────────────────── */
-
 .sr-tab-bar {
   display: flex;
   width: fit-content;
@@ -4145,12 +4106,10 @@ body.modal-open {
 }
 
 /* ── PANELS ───────────────────────────────────────────────────── */
-
 .sr-panel { display: none; }
 .sr-panel.active { display: block; }
 
 /* ── DARK BLOCKS ──────────────────────────────────────────────── */
-
 .sr-panel-intro,
 .sr-deliverable-block.dark,
 .sr-panel-cta-block,
@@ -4181,15 +4140,9 @@ body.modal-open {
   line-height: 1.58;
 }
 
-.sr-deliverable-block.dark h4 {
-  color: #fff;
-  margin-top: 8px;
-}
+.sr-deliverable-block.dark h4 { color: #fff; margin-top: 8px; }
 
-.sr-panel-cta-block {
-  margin-top: 20px;
-  text-align: center;
-}
+.sr-panel-cta-block { margin-top: 20px; text-align: center; }
 
 .sr-panel-cta-block h3 {
   max-width: 720px;
@@ -4200,10 +4153,7 @@ body.modal-open {
   letter-spacing: -.05em;
 }
 
-.sr-panel-cta-block p {
-  max-width: 580px;
-  margin: 12px auto 20px;
-}
+.sr-panel-cta-block p { max-width: 580px; margin: 12px auto 20px; }
 
 .sr-panel-cta-note {
   margin-top: 12px;
@@ -4212,11 +4162,9 @@ body.modal-open {
   line-height: 1.45;
   text-align: center;
 }
-
 .sr-panel-cta-note strong { color: rgba(255,255,255,.68); }
 
 /* ── LIGHT DELIVERABLE BLOCKS ─────────────────────────────────── */
-
 .sr-deliverable-block {
   background: rgba(255,255,255,.82);
   border: 1px solid var(--line-light);
@@ -4242,7 +4190,6 @@ body.modal-open {
 }
 
 /* ── PORTFOLIO NOTE ───────────────────────────────────────────── */
-
 .sr-portfolio-note {
   background: rgba(255,255,255,.82);
   border: 1px solid var(--line-light);
@@ -4250,11 +4197,9 @@ body.modal-open {
   padding: 14px 18px;
   margin-bottom: 16px;
 }
-
 .sr-portfolio-note p { margin: 4px 0 0; color: var(--text-light); font-size: 13px; line-height: 1.55; }
 
 /* ── METRICS ROW ──────────────────────────────────────────────── */
-
 .sr-metrics-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4298,7 +4243,6 @@ body.modal-open {
 }
 
 /* ── STATUS / CATEGORY GRIDS ──────────────────────────────────── */
-
 .sr-status-grid,
 .sr-monitoring-grid,
 .sr-brief-pricing-grid {
@@ -4318,14 +4262,8 @@ body.modal-open {
   margin: 0 0 10px;
 }
 
-.sr-status-list {
-  list-style: none; padding: 0; margin: 0;
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-
-.sr-category-list {
-  list-style: none; padding: 0; margin: 0;
-}
+.sr-status-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.sr-category-list { list-style: none; padding: 0; margin: 0; }
 
 .sr-category-list li {
   display: flex;
@@ -4337,12 +4275,10 @@ body.modal-open {
   color: var(--text-light);
   font-size: 14px;
 }
-
 .sr-category-list li:last-child { border-bottom: 0; }
 .sr-category-list li strong { color: var(--ink-light); font-weight: 600; white-space: nowrap; }
 
 /* ── BADGES ───────────────────────────────────────────────────── */
-
 .finding-level,
 .sr-status-badge {
   display: inline-flex;
@@ -4359,15 +4295,18 @@ body.modal-open {
   line-height: 1;
 }
 
-.finding-level.critical, .sr-status-badge.active    { background: var(--critical-bg); color: var(--critical-text); }
-.finding-level.now, .finding-level.act-now,
-.sr-status-badge.scheduled                          { background: var(--now-bg); color: var(--now-text); }
-.finding-level.soon, .finding-level.act-soon,
-.sr-status-badge.queued                             { background: var(--soon-bg); color: var(--soon-text); }
-.finding-level.watch, .sr-status-badge.watching     { background: var(--watch-bg); color: var(--watch-text); }
+.finding-level.critical,
+.sr-status-badge.active      { background: var(--critical-bg); color: var(--critical-text); }
+.finding-level.now,
+.finding-level.act-now,
+.sr-status-badge.scheduled   { background: var(--now-bg);      color: var(--now-text); }
+.finding-level.soon,
+.finding-level.act-soon,
+.sr-status-badge.queued      { background: var(--soon-bg);     color: var(--soon-text); }
+.finding-level.watch,
+.sr-status-badge.watching    { background: var(--watch-bg);    color: var(--watch-text); }
 
-/* ── TOP 3 LIST ───────────────────────────────────────────────── */
-
+/* ── TOP 3 ────────────────────────────────────────────────────── */
 .sr-top3 { margin-top: 18px; }
 
 .sr-top3-item {
@@ -4377,13 +4316,11 @@ body.modal-open {
   padding: 12px 0;
   border-bottom: 1px solid var(--line-light);
 }
-
 .sr-top3-item:last-child { border-bottom: 0; }
 .sr-top3-item strong { display: block; color: var(--ink-light); font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
 .sr-top3-item p { margin: 4px 0 0; color: var(--text-light); font-size: 13px; line-height: 1.55; }
 
 /* ── MONITORING TABLE (dark) ──────────────────────────────────── */
-
 .sr-calendar-table {
   overflow: hidden;
   border-radius: 12px;
@@ -4403,20 +4340,21 @@ body.modal-open {
   background: rgba(255,255,255,.1);
   color: var(--muted-dark);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 9px; font-weight: 800;
-  letter-spacing: .1em; text-transform: uppercase;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
 
 .sr-table-row {
   color: var(--text-dark);
-  font-size: 13px; line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.45;
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
-
 .sr-table-row:last-child { border-bottom: 0; }
 
-/* ── EMAIL CARDS (dark) ───────────────────────────────────────── */
-
+/* ── ALERT EMAIL CARDS (dark) ─────────────────────────────────── */
 .sr-alert-sequence { margin-top: 16px; }
 
 .sr-email-card {
@@ -4426,23 +4364,12 @@ body.modal-open {
   padding: 14px 16px;
   margin-bottom: 8px;
 }
-
 .sr-email-card:last-child { margin-bottom: 0; }
 .sr-email-num { color: rgba(255,255,255,.45); margin-bottom: 3px; }
-
-.sr-email-card strong {
-  display: block;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -.02em;
-  margin-top: 4px;
-}
-
+.sr-email-card strong { display: block; color: #fff; font-size: 15px; font-weight: 700; letter-spacing: -.02em; margin-top: 4px; }
 .sr-email-card p { margin: 5px 0 0; color: var(--text-dark); font-size: 13px; line-height: 1.55; }
 
 /* ── MISSED CALLOUT ───────────────────────────────────────────── */
-
 .sr-missed-callout {
   margin-top: 16px;
   padding: 14px 16px;
@@ -4454,13 +4381,11 @@ body.modal-open {
   align-items: flex-start;
   gap: 12px;
 }
-
 .sr-missed-icon { flex-shrink: 0; font-size: 15px; line-height: 1.5; }
 .sr-missed-callout strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 3px; }
 .sr-missed-callout p { margin: 0; font-size: 13px; line-height: 1.55; opacity: .82; }
 
 /* ── EXECUTIVE BRIEF CARD ─────────────────────────────────────── */
-
 .sr-brief-card {
   background: #F8F8F5;
   border: 1px solid #D6D6CE;
@@ -4485,8 +4410,10 @@ body.modal-open {
   margin: 20px 0 7px;
   color: var(--muted-light);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 9.5px; font-weight: 800;
-  letter-spacing: .1em; text-transform: uppercase;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
 
 .sr-brief-card p { margin: 0 0 7px; color: var(--text-light); font-size: 14px; line-height: 1.65; }
@@ -4497,7 +4424,6 @@ body.modal-open {
 .sr-brief-card li strong { color: var(--ink-light); font-weight: 700; }
 
 /* ── CLAUSE COMPARE ───────────────────────────────────────────── */
-
 .sr-clause-compare {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4517,14 +4443,14 @@ body.modal-open {
   margin-bottom: 7px;
   color: var(--muted-light);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 9px; font-weight: 800;
-  letter-spacing: .1em; text-transform: uppercase;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
-
 .sr-clause-compare > div p { margin: 0; color: var(--text-light); font-size: 13.5px; line-height: 1.6; }
 
 /* ── EXPOSURE TABLE ───────────────────────────────────────────── */
-
 .sr-exposure-table {
   margin-top: 14px;
   border: 1px solid var(--line-light);
@@ -4542,16 +4468,13 @@ body.modal-open {
   border-bottom: 1px solid var(--line-light);
   font-size: 13.5px;
 }
-
 .sr-exposure-table > div:last-child { border-bottom: 0; }
 .sr-exposure-table > div span { color: var(--muted-light); font-size: 13px; }
 .sr-exposure-table > div strong { color: var(--ink-light); font-weight: 700; font-size: 14px; letter-spacing: -.02em; white-space: nowrap; }
 
 /* ── BRIEF PRICING (dark) ─────────────────────────────────────── */
-
 .sr-brief-pricing { margin-top: 16px; }
 .sr-brief-pricing-label { color: rgba(255,255,255,.46); margin-bottom: 12px; }
-
 .sr-brief-pricing-grid { gap: 10px; margin-top: 0; }
 
 .sr-brief-plan {
@@ -4562,13 +4485,13 @@ body.modal-open {
 }
 
 .sr-brief-plan small { display: block; color: rgba(255,255,255,.44); font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
-.sr-brief-plan strong { display: block; color: #fff; font-size: 16px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 3px; }
+.sr-brief-plan > strong { display: block; color: #fff; font-size: 16px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 3px; }
+.sr-brief-price { margin-top: 4px; }
 .sr-brief-price strong { color: #fff; font-size: 26px; font-weight: 700; letter-spacing: -.04em; }
 .sr-brief-price em { color: rgba(255,255,255,.44); font-style: normal; font-size: 13px; }
 .sr-brief-plan span, .sr-brief-plan p { display: block; margin-top: 7px; color: rgba(255,255,255,.5); font-size: 12px; line-height: 1.5; }
 
 /* ── QUARTERLY GRID ───────────────────────────────────────────── */
-
 .sr-quarterly-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4587,7 +4510,6 @@ body.modal-open {
 .sr-quarterly-grid p { margin: 0; color: var(--text-light); font-size: 13px; line-height: 1.55; }
 
 /* ── CONTRACT CARDS ───────────────────────────────────────────── */
-
 .sr-contract-cards {
   display: grid;
   gap: 14px;
@@ -4626,7 +4548,6 @@ body.modal-open {
   margin-bottom: 4px;
 }
 
-/* Issue heading inside contract card */
 .sr-contract-card h6 {
   margin: 16px 0 6px;
   color: var(--ink-light);
@@ -4635,12 +4556,13 @@ body.modal-open {
   letter-spacing: -.01em;
 }
 
-.sr-contract-card p { margin: 0 0 8px; color: var(--text-light); font-size: 13.5px; line-height: 1.6; }
+.sr-contract-card p { margin: 0 0 7px; color: var(--text-light); font-size: 13.5px; line-height: 1.6; }
 .sr-contract-card p:last-child { margin-bottom: 0; }
 .sr-contract-card ul, .sr-contract-card ol { padding-left: 18px; margin: 0; }
 .sr-contract-card li { color: var(--text-light); font-size: 13.5px; line-height: 1.6; margin-bottom: 4px; }
+.sr-contract-card li:last-child { margin-bottom: 0; }
 
-/* Contract meta grid */
+/* contract meta grid */
 .sr-contract-meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4659,9 +4581,4 @@ body.modal-open {
   display: block;
   color: var(--muted-light);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 9px; font-weight: 800;
-  letter-spacing: .1em; text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.sr-contract-meta > div span {
+  font-size: 9px;
