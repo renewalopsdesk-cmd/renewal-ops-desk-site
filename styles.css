@@ -4264,17 +4264,7 @@ body.modal-open {
   box-shadow: 0 22px 52px rgba(255,255,255,.1);
 }
 
-.sr-brief-pricing::after {
-  content: "Setup fee credited if you upgrade within 14 days.";
-  display: block;
-  margin-top: 16px;
-  color: rgba(255,255,255,.42);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+
 
 
 /* =========================================================
