@@ -230,3 +230,168 @@ document.addEventListener("DOMContentLoaded", () => {
   connectSampleForm("sampleLeadFormModal",   "sampleModalEmail",   "sampleModalCompany");
 
 });
+
+/* =========================================================
+   MOBILE CAROUSEL ARROWS — Renewal Ops Desk
+   Adds real clickable arrows to horizontal mobile sections.
+   Paste at the very end of nav.js
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileCarouselSelectors = [
+    ".proof-grid",                 // Client Findings
+    "#fit .fit-scroll-grid",        // Fit
+    "#findings .report-sample-scroll", // What We Find
+    ".plan-model-grid",            // Plan models
+    ".pricing-panel"               // Pricing cards
+  ];
+
+  const mq = window.matchMedia("(max-width: 768px)");
+
+  function isVisible(element) {
+    return !!(
+      element &&
+      element.offsetParent !== null &&
+      getComputedStyle(element).display !== "none" &&
+      getComputedStyle(element).visibility !== "hidden"
+    );
+  }
+
+  function getScrollStep(track) {
+    const firstCard = Array.from(track.children).find((child) => {
+      return !child.classList.contains("mobile-carousel-arrow");
+    });
+
+    if (!firstCard) return track.clientWidth;
+
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+
+    return firstCard.getBoundingClientRect().width + gap;
+  }
+
+  function updateCarouselArrows(track, prevButton, nextButton) {
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const currentScroll = track.scrollLeft;
+
+    const atStart = currentScroll <= 2;
+    const atEnd = currentScroll >= maxScroll - 2;
+
+    prevButton.classList.toggle("is-disabled", atStart);
+    nextButton.classList.toggle("is-disabled", atEnd);
+
+    prevButton.setAttribute("aria-disabled", atStart ? "true" : "false");
+    nextButton.setAttribute("aria-disabled", atEnd ? "true" : "false");
+  }
+
+  function createArrow(direction) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = `mobile-carousel-arrow mobile-carousel-${direction}`;
+    button.setAttribute(
+      "aria-label",
+      direction === "prev" ? "Previous card" : "Next card"
+    );
+
+    button.innerHTML = direction === "prev" ? "‹" : "›";
+
+    return button;
+  }
+
+  function setupMobileCarousel(track) {
+    if (!track || track.dataset.mobileCarouselReady === "true") return;
+
+    const children = Array.from(track.children).filter((child) => {
+      return !child.classList.contains("mobile-carousel-arrow");
+    });
+
+    if (children.length <= 1) return;
+
+    track.dataset.mobileCarouselReady = "true";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "mobile-carousel-shell";
+
+    track.parentNode.insertBefore(wrapper, track);
+    wrapper.appendChild(track);
+
+    const prevButton = createArrow("prev");
+    const nextButton = createArrow("next");
+
+    wrapper.appendChild(prevButton);
+    wrapper.appendChild(nextButton);
+
+    function refresh() {
+      if (!mq.matches || !isVisible(track)) return;
+      updateCarouselArrows(track, prevButton, nextButton);
+    }
+
+    prevButton.addEventListener("click", () => {
+      if (prevButton.classList.contains("is-disabled")) return;
+
+      track.scrollBy({
+        left: -getScrollStep(track),
+        behavior: "smooth"
+      });
+    });
+
+    nextButton.addEventListener("click", () => {
+      if (nextButton.classList.contains("is-disabled")) return;
+
+      track.scrollBy({
+        left: getScrollStep(track),
+        behavior: "smooth"
+      });
+    });
+
+    track.addEventListener("scroll", () => {
+      window.requestAnimationFrame(refresh);
+    }, { passive: true });
+
+    window.addEventListener("resize", refresh);
+
+    setTimeout(refresh, 100);
+  }
+
+  function initMobileCarousels() {
+    if (!mq.matches) return;
+
+    mobileCarouselSelectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((track) => {
+        setupMobileCarousel(track);
+      });
+    });
+  }
+
+  initMobileCarousels();
+
+  mq.addEventListener("change", () => {
+    initMobileCarousels();
+  });
+
+  /*
+   * Pricing tabs need a refresh because only one pricing panel
+   * is visible at a time.
+   */
+  document.addEventListener("click", (event) => {
+    const pricingTab = event.target.closest("[data-pricing-tab]");
+
+    if (!pricingTab) return;
+
+    setTimeout(() => {
+      document.querySelectorAll(".pricing-panel").forEach((panel) => {
+        const shell = panel.closest(".mobile-carousel-shell");
+
+        if (!shell) return;
+
+        const prevButton = shell.querySelector(".mobile-carousel-prev");
+        const nextButton = shell.querySelector(".mobile-carousel-next");
+
+        if (prevButton && nextButton && isVisible(panel)) {
+          updateCarouselArrows(panel, prevButton, nextButton);
+        }
+      });
+    }, 80);
+  });
+});
