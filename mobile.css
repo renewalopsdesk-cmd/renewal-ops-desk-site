@@ -1,31 +1,35 @@
 /* =========================================================
-   RENEWAL OPS DESK — MOBILE.CSS — PRODUCTION FINAL
-   Substitui completamente o mobile.css anterior.
+   Renewal Ops Desk — mobile.css
+   MAIN LANDING PAGE ONLY
 
-   CORREÇÕES DE BUG:
-   - overflow-x: clip removido das sections (matava todos os
-     scroll containers internos — root cause crítico)
-   - report-frame: min-width/min-height fixos zerados
-   - methodology link nth-child(2): position static com !important
-   - touch targets: enterprise-note, footer links
-   - results h2 / results-question: white-space nowrap override
+   Replace the old /mobile.css with this file.
+   Other page-specific mobile styles were separated into:
+   sample-report-page-mobile.css
 
-   ALTERAÇÕES DE DESIGN:
-   - About cards → footnote inline compacto
-   - Why section → padding reduzido, mais compacta
-   - Fit → scroll horizontal nos dois cards
-   - Sample Report → form e caixa compactos, inputs menores
-   - Security → número + título na mesma linha, seção enxuta
-   - Methodology → nota de rodapé discreta, menos espaço
-   - FAQ → faq-stack com width: 100% (linhas centralizadas)
-   - Final CTA btn → white-space normal, texto não transborda
+   Main fixes:
+   - No duplicated legacy blocks
+   - Correct section names from index.html
+   - All horizontal scroll sections show 1 full card at a time
+   - No half-cut cards on mobile
+   - FAQ title stacks above questions on mobile
    ========================================================= */
-
-/* ─── FOUNDATION RESET (aplica em tudo, sem media query) ─── */
 
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 body {
@@ -33,32 +37,23 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+@media screen and (max-width: 768px) {
 
-img, video, svg {
-  max-width: 100%;
-  height: auto;
-}
+  /* =========================================================
+     01 — GLOBAL MOBILE FOUNDATION
+     ========================================================= */
 
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
 
-/* =========================================================
-   BREAKPOINT PRINCIPAL — até 768px
-   ========================================================= */
+  body.menu-open {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
 
-@media (max-width: 768px) {
-
-  /* ─── GLOBAL LAYOUT ─── */
-
-  /*
-   * CORREÇÃO CRÍTICA:
-   * overflow-x: clip NÃO cria scroll container — apenas corta visualmente.
-   * Qualquer filho com overflow-x: auto (proof-grid, pricing-grid,
-   * plan-model-grid, report-sample-scroll) fica inacessível ao toque.
-   * O body { overflow-x: hidden } já resolve o overflow de página.
-   * Sections precisam de overflow-x: visible para os filhos scrollarem.
-   */
   .section,
   .section.light,
   .section.dark {
@@ -69,34 +64,38 @@ img, video, svg {
   }
 
   .container {
-    padding-left: 20px;
-    padding-right: 20px;
     width: 100%;
     max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  /* ─── TIPOGRAFIA GLOBAL ─── */
-
-  h1, h2, h3, h4, h5, h6 {
-    word-break: break-word;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     overflow-wrap: break-word;
+    word-break: normal;
     white-space: normal;
   }
 
   h2,
   .section-title {
-    font-size: clamp(26px, 8vw, 38px);
-    line-height: 1.05;
-    letter-spacing: -.04em;
-    white-space: normal;
+    font-size: clamp(28px, 8.4vw, 40px);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
   }
 
   h3 {
-    font-size: clamp(17px, 5vw, 22px);
+    font-size: clamp(18px, 5vw, 23px);
     line-height: 1.15;
   }
 
-  p, li, .section-lead {
+  p,
+  li,
+  .section-lead {
     font-size: 15px;
     line-height: 1.55;
   }
@@ -104,17 +103,9 @@ img, video, svg {
   .eyebrow,
   .badge {
     font-size: 9px;
-    padding: 6px 10px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
   }
 
-  .testimonial-footnote {
-    white-space: normal !important;
-    text-align: center;
-    font-size: 12px;
-  }
-
-  /* Toque mínimo 44px (Apple HIG) */
   .btn,
   a.btn,
   button {
@@ -123,9 +114,27 @@ img, video, svg {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* ─── NAV ─── */
+  .section-head,
+  .section-head.centered,
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-lead {
+    max-width: 100%;
+  }
+
+
+  /* =========================================================
+     02 — NAVIGATION
+     ========================================================= */
 
   .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     height: calc(64px + env(safe-area-inset-top, 0px));
     min-height: 64px;
     padding: env(safe-area-inset-top, 0px) 20px 0;
@@ -133,52 +142,63 @@ img, video, svg {
     align-items: center;
     justify-content: space-between;
     background: #101010;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    box-shadow: 0 1px 0 rgba(255,255,255,.08);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+
+  .brand span {
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-desktop-cta {
+    display: none !important;
   }
 
   .mobile-menu-toggle {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     width: 44px;
     height: 44px;
-    border: none;
+    padding: 8px;
+    border: 0;
     background: transparent;
     cursor: pointer;
-    padding: 8px;
-    flex-shrink: 0;
-    -webkit-tap-highlight-color: transparent;
+    flex: 0 0 44px;
   }
 
   .mobile-menu-toggle span {
     display: block;
     width: 22px;
     height: 2px;
-    background: #fff;
-    border-radius: 2px;
-    transition: transform .25s ease, opacity .2s ease;
     max-width: none;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform 0.25s ease, opacity 0.2s ease;
   }
 
   .nav.nav-open .mobile-menu-toggle span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(3.5px) rotate(45deg);
   }
 
   .nav.nav-open .mobile-menu-toggle span:nth-child(2) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  .nav-desktop-cta {
-    display: none;
+    transform: translateY(-3.5px) rotate(-45deg);
   }
 
   .nav-links {
@@ -188,14 +208,14 @@ img, video, svg {
     right: 0;
     bottom: 0;
     height: calc(100dvh - 64px - env(safe-area-inset-top, 0px));
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 32px 24px;
-    background: #101010;
     gap: 0;
+    padding: 30px 24px;
     overflow-y: auto;
-    display: none;
+    background: #101010;
     z-index: 999;
   }
 
@@ -204,216 +224,232 @@ img, video, svg {
   }
 
   .nav-links a {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 16px 0;
     width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-    color: rgba(255,255,255,.88);
-    letter-spacing: -.02em;
     min-height: 52px;
     display: flex;
     align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   .mobile-nav-cta {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 28px;
+    padding: 14px 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 28px;
-    width: 100%;
-    min-height: 52px;
-    padding: 14px 20px;
+    border: 0;
     border-radius: 999px;
     background: #fff;
     color: #101010;
-    font-weight: 700;
     font-size: 14px;
-    letter-spacing: -.01em;
-    border: none;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
   }
 
-  body.menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-  }
 
-  /* ─── HERO ─── */
+  /* =========================================================
+     03 — HERO
+     Section: .hero
+     ========================================================= */
 
   .hero {
-    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 36px);
-    padding-bottom: 52px;
+    padding-top: calc(64px + env(safe-area-inset-top, 0px) + 38px);
+    padding-bottom: 54px;
     overflow: hidden;
   }
 
   .hero-centered {
+    min-height: 0;
     text-align: center;
     align-items: center;
-    min-height: 0;
   }
 
   .hero h1,
   .hero-title {
-    font-size: clamp(38px, 11.5vw, 58px);
-    line-height: .94;
-    letter-spacing: -.05em;
-    max-width: 100%;
     width: 100%;
-    word-break: break-word;
+    max-width: 100%;
+    font-size: clamp(40px, 11.5vw, 58px);
+    line-height: 0.94;
+    letter-spacing: -0.058em;
     white-space: normal;
   }
 
   .hero-subheadline {
-    font-size: 16px;
-    line-height: 1.5;
     max-width: 100%;
     margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .hero-actions {
+    width: 100%;
+    margin-top: 28px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 28px;
-    width: 100%;
   }
 
   .hero-actions .btn {
     width: 100%;
-    max-width: 320px;
+    max-width: 330px;
     justify-content: center;
-    font-size: 14px;
     padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  .secondary-line,
+  .hero-metrics-line {
+    max-width: 100%;
+    text-align: center;
+    transform: none;
   }
 
   .secondary-line {
-    font-size: 13px;
-    max-width: 100%;
     margin-top: 24px;
-    text-align: center;
-    transform: none;
+    font-size: 13px;
   }
 
   .hero-metrics-line {
-    font-size: 9px;
-    max-width: 100%;
-    text-align: center;
     margin-top: 16px;
-    transform: none;
+    font-size: 9px;
   }
 
   .hero::after {
     display: none;
   }
 
-  /* ─── ABOUT — Cards como footnote ─── */
 
-  /*
-   * ALTERAÇÃO DE DESIGN:
-   * "Not legal advice / Not another platform / Not another meeting"
-   * viram notas compactas em linha, estilo footnote/disclaimer.
-   * Sem card visual — apenas divisores sutis e texto menor.
-   */
+  /* =========================================================
+     04 — ABOUT COMPACT
+     Section: #about / .about-compact
+     ========================================================= */
+
   .about-compact {
-    padding: 40px 0 32px;
+    padding-top: 40px;
+    padding-bottom: 34px;
   }
 
   .compact-intro {
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .compact-intro h2 {
-    font-size: clamp(24px, 7.5vw, 34px);
+    font-size: clamp(25px, 7.5vw, 36px);
     line-height: 1.05;
   }
 
   .compact-intro p {
-    font-size: 15px;
     margin-top: 12px;
+    font-size: 15px;
   }
 
   .about-service-cards {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0;
-    overflow: visible;
-    width: 100%;
-    border-top: 1px solid rgba(28,28,28,.08);
     margin-top: 20px;
+    border-top: 1px solid rgba(28, 28, 28, 0.08);
+    overflow: visible;
   }
 
-  /* Card vira linha compacta sem fundo, sem borda, sem padding exagerado */
   .about-service-card {
     width: 100%;
     min-width: 0;
-    padding: 10px 0;
-    border-radius: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    border-bottom: 1px solid rgba(28,28,28,.07) !important;
+    padding: 11px 0;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0 6px;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(28, 28, 28, 0.07) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   .about-service-card h3 {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: -.01em;
-    color: rgba(28,28,28,.52);
-    margin-bottom: 0;
-    line-height: 1.5;
+    margin: 0;
     display: inline;
     flex: 0 0 auto;
+    color: rgba(28, 28, 28, 0.54);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 
-  /* Travessão entre título e descrição */
   .about-service-card h3::after {
     content: " —";
-    color: rgba(28,28,28,.24);
+    color: rgba(28, 28, 28, 0.24);
     font-weight: 400;
   }
 
   .about-service-card p {
-    font-size: 12px;
-    line-height: 1.5;
-    color: rgba(28,28,28,.36);
-    display: inline;
     margin: 0;
+    display: inline;
     flex: 1 1 auto;
     max-width: none;
+    color: rgba(28, 28, 28, 0.40);
+    font-size: 12px;
+    line-height: 1.5;
   }
 
-  /* ─── PROOF / TESTIMONIALS ─── */
+
+  /* =========================================================
+     05 — CLIENT FINDINGS
+     Section: #proof / .proof-section
+     Scroll behavior: full card, no cut-off preview
+     ========================================================= */
 
   .proof-section {
     overflow-x: visible;
   }
 
+  .proof-section .section-head::after {
+    content: "Swipe sideways →";
+    display: inline-flex;
+    margin-top: 14px;
+    padding: 7px 11px;
+    border: 1px solid rgba(28, 28, 28, 0.10);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    color: rgba(28, 28, 28, 0.48);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .proof-grid {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2px 0 18px;
     display: grid;
-    grid-template-columns: 82% 82% 82%;
-    grid-auto-columns: 82%;
+    grid-template-columns: 100%;
+    grid-auto-columns: 100%;
     grid-auto-flow: column;
+    gap: 14px;
     overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    gap: 12px;
     scroll-snap-type: x mandatory;
-    padding-bottom: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: -20px;
-    margin-right: -20px;
+    scroll-padding-left: 0;
     scrollbar-width: none;
-    max-width: none;
-    width: calc(100% + 40px);
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
   }
 
   .proof-grid::-webkit-scrollbar {
@@ -421,14 +457,16 @@ img, video, svg {
   }
 
   .proof-grid > * {
-    scroll-snap-align: start;
+    width: 100%;
     min-width: 0;
+    max-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .proof-card {
-    padding: 20px;
-    border-radius: 20px;
-    min-width: 0;
+    padding: 22px;
+    border-radius: 22px;
   }
 
   .proof-card blockquote {
@@ -442,43 +480,40 @@ img, video, svg {
   }
 
   .proof-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 14px;
-    margin-top: 20px;
     width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .proof-stat {
-    text-align: center;
     padding: 0;
+    text-align: center;
   }
 
   .proof-stat strong {
-    font-size: 20px;
     display: block;
+    font-size: 20px;
   }
 
   .proof-stat span {
-    font-size: 9.5px;
-    line-height: 1.3;
     display: block;
     margin-top: 4px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 9.5px;
+    line-height: 1.3;
   }
 
-  /* ─── WHY SECTION — Compacta ─── */
 
-  /*
-   * ALTERAÇÃO DE DESIGN:
-   * Padding reduzido. Card de texto mais enxuto.
-   * Seção deixa de "respirar" tanto — passa mais rápido.
-   */
+  /* =========================================================
+     06 — WHY WE DO THIS
+     Section: #why / .why-section
+     ========================================================= */
+
   .why-section {
-    padding-top: 36px !important;
-    padding-bottom: 36px !important;
+    padding-top: 38px !important;
+    padding-bottom: 38px !important;
   }
 
   .why-section .split,
@@ -488,24 +523,20 @@ img, video, svg {
     gap: 16px;
   }
 
-  .why-section .section-header {
-    margin-bottom: 14px;
-  }
-
   .why-section .section-title {
-    font-size: clamp(24px, 7.5vw, 34px);
     max-width: 100%;
+    font-size: clamp(25px, 7.5vw, 36px);
   }
 
   .why-section .statement-card {
-    padding: 18px 20px;
+    padding: 20px;
   }
 
   .why-section .statement-card p {
-    font-size: 14px;
-    line-height: 1.55;
     margin-top: 0;
     margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.55;
   }
 
   .why-section .statement-card p:last-of-type {
@@ -518,70 +549,86 @@ img, video, svg {
     line-height: 1.5;
   }
 
-  /* ─── FIT — Scroll horizontal ─── */
 
-  /*
-   * ALTERAÇÃO DE DESIGN:
-   * "Good fit if" e "Not a fit if" em scroll horizontal lado a lado,
-   * com peek do segundo card indicando que há mais conteúdo.
-   */
+  /* =========================================================
+     07 — FIT
+     Section: #fit
+     Scroll behavior: full card, no cut-off preview
+     ========================================================= */
+
   #fit {
-    padding-top: 44px !important;
-    padding-bottom: 44px !important;
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
     overflow-x: visible;
   }
 
-  #fit .section-header {
-    margin-bottom: 20px;
+  #fit .section-header::after {
+    content: "Swipe sideways →";
+    display: inline-flex;
+    margin-top: 14px;
+    padding: 7px 11px;
+    border: 1px solid rgba(28, 28, 28, 0.10);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    color: rgba(28, 28, 28, 0.48);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   #fit .section-title {
-    font-size: clamp(20px, 6vw, 28px);
+    font-size: clamp(22px, 6.4vw, 30px);
     line-height: 1.1;
   }
 
-  .fit-grid,
   #fit .grid-2,
-  #fit .fit-scroll-grid {
+  #fit .fit-scroll-grid,
+  .fit-scroll-grid {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2px 0 18px;
     display: grid;
-    grid-template-columns: 85% 85%;
-    grid-auto-columns: 85%;
+    grid-template-columns: 100%;
+    grid-auto-columns: 100%;
     grid-auto-flow: column;
+    gap: 14px;
     overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    gap: 12px;
     scroll-snap-type: x mandatory;
-    padding-bottom: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: -20px;
-    margin-right: -20px;
+    scroll-padding-left: 0;
     scrollbar-width: none;
-    max-width: none;
-    width: calc(100% + 40px);
-    margin-top: 0;
-    flex-direction: unset;
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
   }
 
-  .fit-grid::-webkit-scrollbar,
   #fit .grid-2::-webkit-scrollbar,
-  #fit .fit-scroll-grid::-webkit-scrollbar {
+  #fit .fit-scroll-grid::-webkit-scrollbar,
+  .fit-scroll-grid::-webkit-scrollbar {
     display: none;
   }
 
   .fit-card {
-    scroll-snap-align: start;
     width: 100%;
     min-width: 0;
-    padding: 20px;
-    border-radius: 18px;
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 22px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   #fit .fit-card h3 {
-    font-size: 18px;
     margin-bottom: 14px;
-    letter-spacing: -.03em;
+    font-size: 19px;
+    letter-spacing: -0.03em;
+  }
+
+  #fit .fit-list {
+    padding-left: 0;
   }
 
   #fit .fit-list li {
@@ -589,24 +636,51 @@ img, video, svg {
     line-height: 1.5;
   }
 
-  /* ─── FINDINGS (what-we-find) ─── */
 
-  .compact-section {
-    padding-top: 48px;
-    padding-bottom: 52px;
+  /* =========================================================
+     08 — WHAT WE FIND
+     Section: #findings / .what-we-find-section
+     Scroll behavior: full finding card, no cut-off preview
+     ========================================================= */
+
+  #findings,
+  .what-we-find-section {
+    padding-top: 50px;
+    padding-bottom: 54px;
+    overflow-x: visible;
   }
 
   #findings .what-find-layout,
   #findings .what-find-layout.refined {
     display: flex;
     flex-direction: column;
-    gap: 28px;
     grid-template-columns: unset;
+    gap: 28px;
   }
 
   #findings .what-find-left {
-    max-width: 100%;
     width: 100%;
+    max-width: 100%;
+  }
+
+  #findings .what-find-left::after {
+    content: "Swipe sideways →";
+    display: inline-flex;
+    margin-top: 14px;
+    padding: 7px 11px;
+    border: 1px solid rgba(28, 28, 28, 0.10);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    color: rgba(28, 28, 28, 0.48);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #findings .risk-table-title {
+    margin-top: 20px;
   }
 
   #findings .risk-mini-table {
@@ -615,12 +689,12 @@ img, video, svg {
   }
 
   #findings .risk-mini-row {
+    width: 100%;
     display: grid;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 84px minmax(0, 1fr);
     column-gap: 12px;
     row-gap: 4px;
     padding: 10px 0;
-    width: 100%;
   }
 
   #findings .risk-mini-row .risk-label {
@@ -637,40 +711,39 @@ img, video, svg {
     line-height: 1.35;
   }
 
-  /*
-   * CORREÇÃO CRÍTICA:
-   * report-frame tinha width/min-width: 560px e min-height: 600px fixos.
-   * overflow: clip no frame também bloqueava o scroll interno.
-   * A section#findings tinha overflow-x: clip — corrigido no topo.
-   */
   #findings .report-frame {
     width: 100%;
     max-width: 100%;
     min-width: 0;
     height: auto;
     min-height: 0;
-    transform: none;
-    border-radius: 20px;
     padding: 0;
+    border-radius: 22px;
     overflow: visible;
-    justify-self: unset;
     position: static;
+    transform: none;
+    justify-self: unset;
   }
 
   #findings .report-sample-scroll {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 2px 0 18px;
     display: grid;
-    grid-template-columns: 88% 88% 88% 88%;
-    grid-auto-columns: 88%;
+    grid-template-columns: 100%;
+    grid-auto-columns: 100%;
     grid-auto-flow: column;
+    gap: 14px;
     overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    gap: 12px;
     scroll-snap-type: x mandatory;
-    padding: 4px 4px 16px;
+    scroll-padding-left: 0;
     scrollbar-width: none;
-    width: 100%;
-    height: auto;
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
   }
 
   #findings .report-sample-scroll::-webkit-scrollbar {
@@ -678,18 +751,18 @@ img, video, svg {
   }
 
   #findings .report-sample-scroll .finding-card {
-    display: block;
-    scroll-snap-align: start;
-    padding: 20px;
+    width: 100%;
     min-width: 0;
-    flex: none;
-    width: auto;
+    max-width: 100%;
     min-height: auto;
     height: auto;
+    display: block;
+    flex: none;
+    padding: 22px;
+    border-radius: 22px;
     overflow: visible;
-    border-radius: 18px;
-    border: 1px solid rgba(28,28,28,.10);
-    background: #fff;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   #findings .report-arrow {
@@ -697,9 +770,9 @@ img, video, svg {
   }
 
   #findings .what-find-footnote {
-    font-size: 12px;
-    margin-top: 24px;
+    margin-top: 22px;
     text-align: center;
+    font-size: 12px;
   }
 
   .finding-card h3 {
@@ -708,7 +781,7 @@ img, video, svg {
   }
 
   .finding-metrics {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
   }
 
@@ -723,34 +796,21 @@ img, video, svg {
     line-height: 1.45;
   }
 
-  .risk-table {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-  }
 
-  .risk-row {
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0;
-    gap: 6px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    grid-template-columns: unset;
-  }
-
-  /* ─── RESULTS ─── */
+  /* =========================================================
+     09 — RESULTS WE SURFACE
+     Section: #results / .results-section
+     ========================================================= */
 
   .results-header-v3 h2 {
-    font-size: clamp(24px, 7.5vw, 34px);
-    line-height: 1.0;
+    font-size: clamp(25px, 7.5vw, 36px);
+    line-height: 1;
     white-space: normal !important;
-    word-break: break-word;
   }
 
   .results-grid-v3 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     margin-top: 28px;
   }
@@ -762,72 +822,61 @@ img, video, svg {
 
   .results-grid-v3 strong {
     font-size: 30px;
-    line-height: .9;
-    letter-spacing: -.06em;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
   }
 
   .results-grid-v3 span {
+    margin-top: 10px;
     font-size: 12px;
     line-height: 1.4;
-    margin-top: 10px;
   }
 
   .results-question-v3 {
-    font-size: clamp(16px, 5vw, 20px);
     margin-top: 28px;
     padding: 0 4px;
+    font-size: clamp(16px, 5vw, 20px);
     white-space: normal !important;
   }
 
-  /* ─── SAMPLE REPORT — Form e caixa compactos ─── */
 
-  /*
-   * ALTERAÇÃO DE DESIGN:
-   * Padding da caixa e gap entre elementos reduzidos.
-   * Inputs com altura menor (52→44px) mas mantendo font-size:16px
-   * para não disparar zoom automático do iOS — obrigatório.
-   */
+  /* =========================================================
+     10 — SAMPLE REPORT LEAD FORM
+     Section: #sample-report / .sample-report-section
+     ========================================================= */
+
   .sample-report-section {
-    padding: 40px 0;
+    padding-top: 42px;
+    padding-bottom: 42px;
   }
 
   .sample-report-lead,
   .sample-strip-v2,
   .sample-report-inner {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    grid-template-columns: unset;
     gap: 20px;
     padding: 22px 18px;
-    grid-template-columns: unset;
-    width: 100%;
     border-radius: 22px;
   }
 
   .sample-report-copy h2 {
-    font-size: clamp(24px, 7.5vw, 34px);
-    line-height: .98;
-    white-space: normal;
+    font-size: clamp(25px, 7.5vw, 36px);
+    line-height: 0.98;
   }
 
   .sample-report-copy p {
-    font-size: 13px;
     margin-top: 8px;
+    font-size: 13px;
     line-height: 1.5;
   }
 
   .sample-context {
+    display: inline-flex;
     margin-top: 12px;
     font-size: 9px;
-  }
-
-  .sample-action {
-    justify-content: flex-start;
-  }
-
-  .sample-action a {
-    width: 100%;
-    justify-content: center;
-    min-height: 48px;
   }
 
   .sample-report-form {
@@ -843,75 +892,77 @@ img, video, svg {
 
   .form-field label {
     font-size: 9px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
   }
 
-  /* font-size: 16px obrigatório — evita zoom automático no iOS/Safari */
   .form-field input,
   .form-field select,
   .form-field textarea {
-    font-size: 16px;
     height: 44px;
     padding-top: 0;
     padding-bottom: 0;
     border-radius: 10px;
+    font-size: 16px;
   }
 
   .sample-form-btn {
     width: 100%;
-    height: 48px;
     min-height: 48px;
-    font-size: 13px;
+    height: 48px;
     margin-top: 4px;
+    font-size: 13px;
   }
 
   .sample-form-note {
-    font-size: 11px;
     margin-top: 8px;
     text-align: center;
+    font-size: 11px;
   }
 
-  /* ─── COMMERCIAL ANALYSIS TABLE ─── */
+
+  /* =========================================================
+     11 — COMMERCIAL ANALYSIS
+     Section: #analysis / .analysis-section
+     ========================================================= */
 
   .analysis-header-v3 {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     grid-template-columns: unset;
+    gap: 16px;
     margin-bottom: 24px;
   }
 
   .analysis-header-v3 h2 {
-    font-size: clamp(24px, 7.5vw, 34px);
-    white-space: normal;
+    font-size: clamp(25px, 7.5vw, 36px);
   }
 
   .analysis-header-v3 p {
-    font-size: 14px;
     max-width: 100%;
+    font-size: 14px;
   }
 
   .analysis-table,
   .analysis-table-v4,
   .risk-table-v4 {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
     overflow: visible;
     border-radius: 16px;
   }
 
   .analysis-head-v4 {
-    display: none;
+    display: none !important;
   }
 
   .analysis-row-v4 {
     display: flex;
     flex-direction: column;
-    padding: 16px 20px;
-    gap: 6px;
-    border-bottom: 1px solid rgba(28,28,28,.08);
     grid-template-columns: unset;
+    gap: 6px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
   }
 
   .analysis-row-v4 strong {
@@ -925,24 +976,20 @@ img, video, svg {
   }
 
   .analysis-note-v3 {
-    font-size: 12px;
-    text-align: left;
     margin-top: 16px;
+    text-align: left;
+    font-size: 12px;
   }
 
-  /* ─── SECURITY — Número e título na mesma linha ─── */
 
-  /*
-   * ALTERAÇÃO DE DESIGN:
-   * "01" e "Commercial focus" ficam inline na mesma linha.
-   * Seção mais compacta: sem card individual, divisores sutis.
-   * O HTML tem: <span>01</span><strong>Título</strong><p>texto</p>
-   * Usamos flex com flex-wrap para colocar span + strong na linha 1
-   * e p em linha 2 (com flex: 0 0 100%).
-   */
+  /* =========================================================
+     12 — SECURITY & CONFIDENTIALITY
+     Section: #confidentiality / .security-section
+     ========================================================= */
+
   .security-section {
-    padding-top: 36px !important;
-    padding-bottom: 36px !important;
+    padding-top: 38px !important;
+    padding-bottom: 38px !important;
   }
 
   .security-header {
@@ -950,14 +997,14 @@ img, video, svg {
   }
 
   .security-header h2 {
-    font-size: clamp(24px, 7.5vw, 34px);
+    font-size: clamp(25px, 7.5vw, 36px);
     line-height: 1.05;
   }
 
   .security-header p {
+    margin-top: 10px;
     font-size: 14px;
     line-height: 1.5;
-    margin-top: 10px;
   }
 
   .security-grid,
@@ -966,7 +1013,7 @@ img, video, svg {
     flex-direction: column;
     gap: 0;
     margin-top: 16px;
-    border-top: 1px solid rgba(255,255,255,.10);
+    border-top: 1px solid rgba(28, 28, 28, 0.10);
   }
 
   .security-card {
@@ -976,59 +1023,55 @@ img, video, svg {
     column-gap: 8px;
     row-gap: 0;
     padding: 14px 0;
-    border-radius: 0;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(28, 28, 28, 0.10) !important;
+    border-radius: 0 !important;
     background: transparent !important;
-    border: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.10) !important;
     box-shadow: none !important;
   }
 
-  /* Número: inline, discreto */
   .security-card span {
-    display: inline;
-    flex: 0 0 auto;
     order: 1;
+    flex: 0 0 auto;
+    display: inline;
     margin-bottom: 0;
-    color: rgba(255,255,255,.28);
+    color: rgba(28, 28, 28, 0.36);
     font-family: "IBM Plex Mono", monospace;
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: .1em;
     line-height: 1.5;
+    letter-spacing: 0.1em;
   }
 
-  /* Título: inline ao lado do número */
   .security-card strong {
-    display: inline;
-    flex: 1 1 auto;
     order: 2;
-    color: rgba(255,255,255,.88);
+    flex: 1 1 auto;
+    display: inline;
+    color: rgba(28, 28, 28, 0.86);
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: -.01em;
     line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
-  /* Descrição: quebra para a linha de baixo */
   .security-card p {
-    flex: 0 0 100%;
     order: 3;
+    flex: 0 0 100%;
     margin-top: 4px;
-    color: rgba(255,255,255,.48);
+    color: rgba(28, 28, 28, 0.52);
     font-size: 13px;
     line-height: 1.45;
   }
 
-  /* ─── METHODOLOGY — Nota de rodapé discreta ─── */
 
-  /*
-   * ALTERAÇÃO DE DESIGN:
-   * Seção vira nota observacional — menos espaço, fonte menor
-   * e mais discreta. Foto menor. Texto em cor rebaixada.
-   */
+  /* =========================================================
+     13 — METHODOLOGY / FOUNDER
+     Section: #methodology / .methodology-section
+     ========================================================= */
+
   .methodology-section {
-    padding-top: 28px !important;
-    padding-bottom: 28px !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
   }
 
   .methodology-frame {
@@ -1036,25 +1079,25 @@ img, video, svg {
     border-radius: 16px;
     overflow: visible;
     position: relative;
-    background: rgba(28,28,28,.022) !important;
-    border: 1px solid rgba(28,28,28,.07) !important;
+    background: rgba(28, 28, 28, 0.022) !important;
+    border: 1px solid rgba(28, 28, 28, 0.07) !important;
     box-shadow: none !important;
   }
 
   .methodology-main {
     display: flex;
     flex-direction: column;
-    gap: 14px;
     grid-template-columns: unset;
+    gap: 14px;
     margin-top: 12px;
   }
 
   .methodology-founder {
+    width: 100%;
     display: grid;
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 48px minmax(0, 1fr);
     gap: 12px;
     align-items: center;
-    width: 100%;
     position: static;
   }
 
@@ -1066,56 +1109,51 @@ img, video, svg {
   }
 
   .methodology-founder strong {
+    display: block;
+    color: rgba(28, 28, 28, 0.62);
     font-size: 12px;
     font-weight: 600;
-    display: block;
-    color: rgba(28,28,28,.62);
   }
 
   .methodology-founder span {
-    font-size: 10px;
     display: block;
-    margin-top: 2px;
     max-width: 100%;
-    color: rgba(28,28,28,.38);
+    margin-top: 2px;
+    color: rgba(28, 28, 28, 0.40);
+    font-size: 10px;
   }
 
   .methodology-links {
     display: flex;
-    gap: 6px;
     flex-wrap: wrap;
+    gap: 6px;
     margin-top: 8px;
     position: static;
   }
 
-  /*
-   * CORREÇÃO CRÍTICA: position:absolute no 2º link do base CSS.
-   * !important necessário para vencer a especificidade.
-   */
   .methodology-links a,
   .methodology-links a:nth-child(2) {
     position: static !important;
     right: auto !important;
     bottom: auto !important;
-    font-size: 10px;
-    padding: 5px 10px;
     min-height: 30px;
     display: inline-flex;
     align-items: center;
-    color: rgba(28,28,28,.46);
-    border-color: rgba(28,28,28,.10);
+    padding: 5px 10px;
+    color: rgba(28, 28, 28, 0.48);
+    border-color: rgba(28, 28, 28, 0.10);
+    font-size: 10px;
   }
 
   .methodology-quote {
     margin-top: 0;
   }
 
-  /* Texto da citação mais discreto — nota de rodapé */
   .methodology-quote p {
+    max-width: 100%;
+    color: rgba(28, 28, 28, 0.54);
     font-size: 13px;
     line-height: 1.52;
-    max-width: 100%;
-    color: rgba(28,28,28,.52);
   }
 
   .methodology-footer {
@@ -1127,62 +1165,53 @@ img, video, svg {
     font-size: 8px;
   }
 
-  /* ─── PLANS & PRICING ─── */
 
-  .plans-section,
+  /* =========================================================
+     14 — PLANS & PRICING
+     Section: #pricing / .pricing-section
+     Scroll behavior: full card, no cut-off preview
+     ========================================================= */
+
   .pricing-section {
-    padding: 52px 0;
+    padding-top: 54px;
+    padding-bottom: 54px;
+    overflow-x: visible;
   }
 
-  .plan-prompt,
-  .sample-report-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 20px;
-    width: 100%;
-    margin-bottom: 24px;
-    align-items: flex-start;
+  #pricing .section-head::after {
+    content: "Swipe sideways →";
+    display: inline-flex;
+    margin-top: 14px;
+    padding: 7px 11px;
+    border: 1px solid rgba(28, 28, 28, 0.10);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    color: rgba(28, 28, 28, 0.48);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .plan-prompt h3,
-  .sample-report-cta span {
-    font-size: 17px;
-    line-height: 1.2;
-  }
-
-  .plan-prompt .btn,
-  .sample-report-cta .btn,
-  .sample-report-cta a {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    min-height: 48px;
-  }
-
-  /*
-   * CORREÇÃO CRÍTICA:
-   * A section#pricing não tem mais overflow-x: clip.
-   * O scroll horizontal funciona agora.
-   */
   .plan-model-grid {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2px 0 18px;
     display: grid;
-    grid-template-columns: 85% 85%;
-    grid-auto-columns: 85%;
+    grid-template-columns: 100%;
+    grid-auto-columns: 100%;
     grid-auto-flow: column;
+    gap: 14px;
     overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    gap: 12px;
     scroll-snap-type: x mandatory;
-    padding-bottom: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: -20px;
-    margin-right: -20px;
+    scroll-padding-left: 0;
     scrollbar-width: none;
-    max-width: none;
-    width: calc(100% + 40px);
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
   }
 
   .plan-model-grid::-webkit-scrollbar {
@@ -1190,55 +1219,90 @@ img, video, svg {
   }
 
   .plan-model-card {
-    scroll-snap-align: start;
-    padding: 22px;
+    width: 100%;
     min-width: 0;
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 22px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .sample-report-cta {
+    width: 100%;
+    margin: 24px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .sample-report-cta span {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .sample-report-cta .btn,
+  .sample-report-cta a,
+  .sample-report-cta button {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    text-align: center;
   }
 
   .pricing-tabs,
   .plan-tabs {
+    width: 100%;
+    display: flex;
     gap: 6px;
+    flex-wrap: nowrap;
     margin-top: 28px;
     margin-bottom: 20px;
-    flex-wrap: nowrap;
-    width: 100%;
     border-radius: 16px;
   }
 
   .pricing-tab,
   .plan-tab {
-    font-size: 10px;
-    padding: 10px 14px;
     flex: 1;
-    text-align: center;
-    justify-content: center;
     min-height: 44px;
+    padding: 10px 14px;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
   }
 
-  /*
-   * .pricing-grid e .pricing-panel são o mesmo elemento.
-   * Painel inativo herda display:none do styles.css — não mexer.
-   * Painel ativo recebe grid com scroll horizontal.
-   */
+  .pricing-panel,
+  .pricing-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pricing-panel:not(.active),
+  .pricing-grid:not(.active) {
+    display: none !important;
+  }
+
   .pricing-panel.active,
   .pricing-grid.active {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2px 0 18px;
     display: grid;
-    grid-template-columns: 85% 85% 85%;
-    grid-auto-columns: 85%;
+    grid-template-columns: 100%;
+    grid-auto-columns: 100%;
     grid-auto-flow: column;
+    gap: 14px;
     overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    gap: 12px;
     scroll-snap-type: x mandatory;
-    padding-bottom: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: -20px;
-    margin-right: -20px;
+    scroll-padding-left: 0;
     scrollbar-width: none;
-    max-width: none;
-    width: calc(100% + 40px);
+    border-bottom: 1px solid rgba(28, 28, 28, 0.08);
   }
 
   .pricing-panel.active::-webkit-scrollbar,
@@ -1247,594 +1311,224 @@ img, video, svg {
   }
 
   .pricing-card {
-    scroll-snap-align: start;
+    width: 100%;
     min-width: 0;
+    max-width: 100%;
     min-height: auto;
     padding: 22px;
     border-radius: 22px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
-  /* Links CTA dentro dos pricing cards são <a>, não herdam min-height do btn */
   .pricing-card a[href],
   .pricing-card .btn {
     min-height: 48px;
     display: flex;
-
- /* =========================================================
-   RENEWAL OPS DESK — SAMPLE REPORT MOBILE
-   Paste at the end of mobile.css
-   ========================================================= */
-
-@media screen and (max-width: 768px) {
-  .sample-hero { padding: 112px 0 54px; }
-
-  .sample-hero-grid,
-  .sample-note-card,
-  .panel-hero,
-  .sample-subgrid,
-  .setup-email-card {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .sample-hero-copy h1 {
-    font-size: clamp(46px, 13vw, 64px);
-    line-height: .95;
-  }
-
-  .sample-hero-copy p {
-    font-size: 17px;
-  }
-
-  .sample-hero-actions,
-  .premium-cta,
-  .setup-cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .sample-hero-actions .btn,
-  .premium-cta .btn,
-  .setup-cta .btn {
-    width: 100%;
-  }
-
-  .monthly-premium-card,
-  .monthly-panel-shell,
-  .setup-panel-shell,
-  .sample-note-card {
-    border-radius: 24px;
-    padding: 20px;
-  }
-
-  .console-metrics,
-  .monthly-flow-grid,
-  .preview-metrics-row,
-  .top-watch-list,
-  .setup-preview-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .console-topline,
-  .preview-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .sample-tabs {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .sample-tab {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .sample-discount-bar {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+  }
+
+  .annual-pill {
+    width: 100%;
+  }
+
+  .enterprise-note {
+    width: 100%;
+    margin-top: 22px;
     padding: 18px;
+    border-radius: 18px;
+    font-size: 13px;
+    line-height: 1.5;
   }
 
-  .panel-hero {
-    padding: 22px;
-  }
-
-  .panel-hero h2,
-  .sample-note-card h2 {
-    font-size: clamp(30px, 9vw, 42px);
-  }
-
-  .premium-badge-stack,
-  .setup-delivery-note {
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-  }
-
-  .ops-board,
-  .email-sequence-card,
-  .panorama-preview,
-  .report-page-card,
-  .setup-email-card,
-  .premium-cta,
-  .setup-cta {
-    padding: 20px;
-  }
-
-  .ops-table {
-    border-radius: 14px;
-    overflow-x: auto;
-  }
-
-  .ops-row {
-    min-width: 720px;
-    grid-template-columns: 120px 140px 220px 90px;
-    font-size: 12px;
-  }
-
-  .preview-metrics-row article,
-  .top-watch-list div,
-  .flow-card,
-  .email-timeline div,
-  .playbook-mini div,
-  .calendar-mini div {
-    padding: 15px;
-  }
-
-  .finding-metrics.mini {
-    grid-template-columns: 1fr;
-  }
-
-  .premium-cta h3,
-  .setup-cta h3,
-  .setup-email-card h3 {
-    font-size: 25px;
-  }
-}
-
-/* =========================================================
-   SAMPLE REPORT V2 — MOBILE MONTHLY-FIRST REFINEMENTS
-   ========================================================= */
-
-@media screen and (max-width: 768px) {
-  .sample-tabs {
-    position: sticky;
-    top: 82px;
-    width: 100%;
-    border-radius: 22px;
-    padding: 8px;
-  }
-
-  .monthly-deep-copy,
-  .monthly-operating-model,
-  .monthly-unlocks,
-  .monthly-flow-grid.expanded {
-    grid-template-columns: 1fr;
-  }
-
-  .monthly-deep-copy article,
-  .monthly-operating-model {
-    padding: 20px;
-  }
-
-  .monthly-deep-copy h3,
-  .monthly-operating-model h3 {
-    font-size: 24px;
-  }
-
-  .monthly-unlocks article {
-    padding: 16px;
-  }
-
-  .panorama-intro {
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
-}
-
-/* =========================================================
-   ROD — SAMPLE REPORT PAGE FINAL MOBILE
-   Paste at the end of mobile.css
-   ========================================================= */
-
-@media screen and (max-width: 768px) {
-  .sample-hero-compact {
-    padding: 104px 0 42px;
-  }
-
-  .sample-hero-inner h1 {
-    font-size: clamp(38px, 11vw, 54px);
-  }
-
-  .sample-hero-inner p {
-    font-size: 15.5px;
-  }
-
-  .sample-hero-actions,
-  .sample-cta-v2,
-  .final-cta-inner {
-    width: 100%;
-  }
-
-  .sample-hero-actions .btn {
-    width: 100%;
-  }
-
-  .preview-strip {
-    padding: 24px 20px;
-  }
-
-  .preview-strip-inner {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .sample-switch-section {
-    padding-top: 48px;
-  }
-
-  .sample-main-head .section-title {
-    font-size: clamp(30px, 9vw, 42px);
-  }
-
-  .sample-tabs-wrap {
-    top: 82px;
-    margin: 22px 0 16px;
-  }
-
-  .sample-tabs {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-    border-radius: 22px;
-  }
-
-  .sample-tab {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .coupon-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 7px;
-    padding: 16px;
-  }
-
-  .monthly-shell,
-  .setup-shell {
-    padding: 16px;
-    border-radius: 24px;
-  }
-
-  .monthly-intro,
-  .setup-intro,
-  .panorama-split,
-  .monthly-system-grid,
-  .quarterly-grid,
-  .setup-email,
-  .impact-scenarios,
-  .metric-grid-4,
-  .facts-grid,
-  .price-anchor-plans,
-  .mini-faq-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .monthly-intro,
-  .setup-intro,
-  .monthly-dashboard,
-  .executive-brief,
-  .setup-report,
-  .setup-email,
-  .system-card,
-  .quarterly-review,
-  .sample-cta-v2,
-  .price-anchor-card {
-    padding: 20px;
-  }
-
-  .monthly-intro h2,
-  .setup-intro h2 {
-    font-size: clamp(30px, 9vw, 42px);
-  }
-
-  .monthly-command-card,
-  .setup-note {
-    width: 100%;
-  }
-
-  .report-label-row,
-  .contract-head,
-  .final-cta-coupon {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .final-cta-coupon {
-    border-radius: 22px;
+  .enterprise-note a {
+    display: inline-flex;
+    min-height: 44px;
     align-items: center;
   }
 
-  .ops-table,
-  .calendar-table {
-    overflow-x: auto;
+
+  /* =========================================================
+     15 — FAQ
+     Section: #faq / .faq-section
+     Fix: title on top, questions full width
+     ========================================================= */
+
+  .faq-section {
+    padding-top: 54px;
+    padding-bottom: 54px;
   }
 
-  .ops-row {
-    min-width: 720px;
-    grid-template-columns: 110px 150px 240px 90px;
-    font-size: 12px;
-  }
-
-  .cal-row {
-    min-width: 720px;
-    grid-template-columns: 150px 110px 220px 220px;
-    font-size: 12px;
-  }
-
-  .quarterly-grid article,
-  .email-sequence article,
-  .watch-card,
-  .contract-report-card,
-  .mini-faq-item {
-    padding: 16px;
-  }
-
-  .brief-cover h3,
-  .sample-cta-v2 h3,
-  .setup-email h3 {
-    font-size: 24px;
-  }
-
-  .playbook-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .exposure-table div {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .missed-callout {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 18px;
-  }
-
-  .missed-callout-icon {
-    display: none;
-  }
-
-  .sample-cta-v2 .cta-btn,
-  .final-cta-btn {
+  #faq .faq-layout,
+  .faq-layout {
     width: 100%;
-  }
-
-  .mini-faq-section {
-    padding: 48px 20px;
-  }
-
-  .final-cta-section {
-    padding: 64px 20px;
-  }
-
-  .final-cta-section h2 {
-    font-size: clamp(30px, 9vw, 42px);
-  }
-}
-
-     /* =========================================================
-   ROD — MOBILE FIXES
-   Full-card carousel + FAQ stacked layout
-   Paste at the very end of mobile.css
-   ========================================================= */
-
-@media screen and (max-width: 768px) {
-
-  /* ---------------------------------------------------------
-     1) HORIZONTAL SECTIONS — show one full card at a time
-     Instead of cutting the next card in the middle.
-     --------------------------------------------------------- */
-
-  .fit-scroll-grid,
-  #fit .grid-2,
-  #fit .fit-scroll-grid,
-  #findings .report-sample-scroll,
-  .plan-model-grid,
-  .pricing-panel.active,
-  .pricing-grid.active {
-    grid-template-columns: 100% !important;
-    grid-auto-columns: 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 18px !important;
-
-    gap: 14px !important;
-
-    overflow-x: auto !important;
-    overflow-y: visible !important;
-
-    scroll-snap-type: x mandatory !important;
-    scroll-padding-left: 0 !important;
-
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-
-    scrollbar-width: none;
-  }
-
-  .fit-scroll-grid::-webkit-scrollbar,
-  #fit .grid-2::-webkit-scrollbar,
-  #fit .fit-scroll-grid::-webkit-scrollbar,
-  #findings .report-sample-scroll::-webkit-scrollbar,
-  .plan-model-grid::-webkit-scrollbar,
-  .pricing-panel.active::-webkit-scrollbar,
-  .pricing-grid.active::-webkit-scrollbar {
-    display: none;
-  }
-
-  .fit-card,
-  #findings .report-sample-scroll .finding-card,
-  .plan-model-card,
-  .pricing-card {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
-  }
-
-  /* Keeps the cards from touching the screen edge too much */
-  .fit-card,
-  .plan-model-card,
-  .pricing-card {
-    border-radius: 22px !important;
-  }
-
-  #findings .report-frame {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-  }
-
-  #findings .report-sample-scroll {
-    padding-top: 2px !important;
-  }
-
-  #findings .report-sample-scroll .finding-card {
-    border-radius: 22px !important;
-  }
-
-
-  /* ---------------------------------------------------------
-     2) Subtle swipe hints — replaces the “cut card” mechanism
-     --------------------------------------------------------- */
-
-  #fit .section-header::after,
-  #pricing .section-head::after,
-  #findings .what-find-left::after {
-    content: "Swipe sideways →";
-    display: inline-flex;
-    margin-top: 14px;
-    padding: 7px 11px;
-
-    border: 1px solid rgba(28, 28, 28, .10);
-    border-radius: 999px;
-
-    color: rgba(28, 28, 28, .46);
-    background: rgba(255, 255, 255, .58);
-
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-  }
-
-  #findings .what-find-left::after {
-    margin-bottom: 2px;
-  }
-
-
-  /* ---------------------------------------------------------
-     3) Optional visual scroll indicator
-     Tiny horizontal line under carousel sections
-     --------------------------------------------------------- */
-
-  .fit-scroll-grid,
-  #findings .report-sample-scroll,
-  .plan-model-grid,
-  .pricing-panel.active,
-  .pricing-grid.active {
-    border-bottom: 1px solid rgba(28, 28, 28, .08);
-  }
-
-
-  /* ---------------------------------------------------------
-     4) FAQ — title above, questions full width
-     --------------------------------------------------------- */
-
-  #faq .faq-layout {
     display: flex !important;
     flex-direction: column !important;
     grid-template-columns: unset !important;
-    gap: 26px !important;
-    width: 100% !important;
+    gap: 28px !important;
   }
 
-  #faq .faq-heading {
+  #faq .faq-heading,
+  .faq-heading {
     width: 100% !important;
     max-width: 100% !important;
     position: static !important;
     top: auto !important;
   }
 
-  #faq .faq-heading .section-title {
-    max-width: 100% !important;
+  #faq .faq-heading .section-title,
+  .faq-heading .section-title {
     width: 100% !important;
-    font-size: clamp(34px, 10vw, 48px) !important;
-    line-height: .96 !important;
-    letter-spacing: -.055em !important;
+    max-width: 100% !important;
+    font-size: clamp(36px, 10.5vw, 50px) !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.058em !important;
   }
 
-  #faq .faq-stack {
+  #faq .faq-stack,
+  .faq-stack {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
   }
 
-  #faq details {
+  #faq details,
+  .faq-stack details {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
-    border-top: 1px solid rgba(28, 28, 28, .10);
+    border-top: 1px solid rgba(28, 28, 28, 0.10);
   }
 
-  #faq details:last-child {
-    border-bottom: 1px solid rgba(28, 28, 28, .10);
+  #faq details:last-child,
+  .faq-stack details:last-child {
+    border-bottom: 1px solid rgba(28, 28, 28, 0.10);
   }
 
-  #faq summary {
+  #faq summary,
+  .faq-stack summary {
     width: 100% !important;
     min-height: 72px;
     padding: 20px 0 !important;
-
     display: grid !important;
-    grid-template-columns: 1fr auto !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
     align-items: center !important;
     gap: 18px !important;
-
     font-size: 20px !important;
     line-height: 1.12 !important;
-    letter-spacing: -.035em !important;
+    letter-spacing: -0.035em !important;
   }
 
-  #faq summary::after {
+  #faq summary::after,
+  .faq-stack summary::after {
     font-size: 22px !important;
     line-height: 1 !important;
   }
 
-  #faq details p {
+  #faq details p,
+  .faq-stack details p {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 0 22px !important;
     margin: 0 !important;
-
+    padding: 0 0 22px !important;
+    color: rgba(28, 28, 28, 0.58);
     font-size: 14px !important;
     line-height: 1.55 !important;
-    color: rgba(28, 28, 28, .58);
+  }
+
+
+  /* =========================================================
+     16 — FINAL CTA + FOOTER
+     Sections: .final-cta / .footer
+     ========================================================= */
+
+  .final-cta {
+    padding: 58px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .final-cta .section-title {
+    font-size: clamp(31px, 9vw, 44px);
+    line-height: 1;
+  }
+
+  .final-cta p {
+    font-size: 15px;
+  }
+
+  .final-actions {
+    width: 100%;
+  }
+
+  .final-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .tagline {
+    font-size: 10px;
+  }
+
+  .footer {
+    padding: 32px 0;
+  }
+
+  .footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .footer-links a {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+
+  /* =========================================================
+     17 — SAMPLE REPORT MODAL
+     Component: #sampleModal
+     ========================================================= */
+
+  .sample-modal.active {
+    padding: 18px;
+  }
+
+  .sample-modal-card {
+    width: min(100%, 440px);
+    max-height: calc(100dvh - 36px);
+    overflow-y: auto;
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .sample-modal-card h2 {
+    font-size: clamp(25px, 7.5vw, 34px);
+    line-height: 1;
+  }
+
+  .sample-modal-card p {
+    font-size: 14px;
+  }
+
+  .sample-modal-close {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
   }
 }
