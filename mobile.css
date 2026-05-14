@@ -1524,3 +1524,325 @@ svg {
     right: -6px;
   }
 }
+
+/* =========================================================
+   ROD — MOBILE POLISH REFINEMENTS
+   Compact notes, smaller support sections, tighter forms
+   Paste at the very end of mobile.css
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ---------------------------------------------------------
+     1) ABOUT — reduce 3 service boxes into compact note cards
+     --------------------------------------------------------- */
+
+  .about-compact {
+    padding-top: 42px !important;
+    padding-bottom: 38px !important;
+  }
+
+  .about-service-cards {
+    gap: 8px !important;
+    margin-top: 22px !important;
+  }
+
+  .about-service-card {
+    padding: 12px 14px !important;
+    border-radius: 15px !important;
+    background: rgba(28, 28, 28, .035) !important;
+    box-shadow: none !important;
+  }
+
+  .about-service-card h3 {
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 5px !important;
+    letter-spacing: -.02em !important;
+  }
+
+  .about-service-card p {
+    font-size: 11.5px !important;
+    line-height: 1.38 !important;
+    color: rgba(28, 28, 28, .52) !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     2) WHY WE DO THIS — make section less dominant
+     --------------------------------------------------------- */
+
+  .why-section {
+    padding-top: 38px !important;
+    padding-bottom: 38px !important;
+  }
+
+  .why-section .split {
+    gap: 16px !important;
+  }
+
+  .why-section .section-title {
+    font-size: clamp(26px, 7vw, 34px) !important;
+    line-height: 1 !important;
+    letter-spacing: -.055em !important;
+  }
+
+  .why-section .statement-card {
+    padding: 20px 22px !important;
+    border-radius: 20px !important;
+  }
+
+  .why-section .statement-card p {
+    font-size: 13.5px !important;
+    line-height: 1.48 !important;
+    margin-bottom: 12px !important;
+    color: rgba(28, 28, 28, .62) !important;
+  }
+
+  .why-section .closing-statement {
+    margin-top: 16px !important;
+    padding-left: 14px !important;
+    font-size: 13.5px !important;
+    line-height: 1.42 !important;
+    border-left-width: 2px !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     3) SAMPLE REPORT FORM — smaller box + smaller fields
+     --------------------------------------------------------- */
+
+  .sample-report-section {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .sample-report-lead,
+  .sample-strip-v2,
+  .sample-report-inner {
+    padding: 20px 18px !important;
+    border-radius: 22px !important;
+    gap: 16px !important;
+  }
+
+  .sample-report-form {
+    padding: 18px 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .form-field {
+    margin-bottom: 12px !important;
+    gap: 5px !important;
+  }
+
+  .form-field label {
+    font-size: 8px !important;
+    letter-spacing: .12em !important;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 13px !important;
+    border-radius: 12px !important;
+    font-size: 16px !important; /* keeps iPhone from zooming */
+  }
+
+  .sample-form-btn,
+  .sample-report-form .btn {
+    min-height: 44px !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  .sample-form-note {
+    margin-top: 10px !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     4) ANALYSIS NOTE — center final phrase
+     --------------------------------------------------------- */
+
+  .analysis-note-v3,
+  .analysis-note {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 340px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     5) SECURITY — compact cards, number + title same line
+     --------------------------------------------------------- */
+
+  .security-section {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .security-header {
+    margin-bottom: 18px !important;
+  }
+
+  .security-header h2 {
+    font-size: clamp(25px, 7.2vw, 34px) !important;
+    line-height: 1 !important;
+    margin-top: 14px !important;
+  }
+
+  .security-header p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin-top: 10px !important;
+  }
+
+  .security-grid {
+    gap: 9px !important;
+  }
+
+  .security-card {
+    padding: 13px 14px !important;
+    border-radius: 15px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    column-gap: 8px !important;
+    row-gap: 5px !important;
+    align-items: baseline !important;
+  }
+
+  .security-card span {
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    color: rgba(255, 255, 255, .34) !important;
+  }
+
+  .security-card strong {
+    font-size: 13.5px !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+  }
+
+  .security-card p {
+    grid-column: 1 / -1 !important;
+    margin-top: 3px !important;
+    font-size: 11.5px !important;
+    line-height: 1.38 !important;
+    color: rgba(255, 255, 255, .54) !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     6) METHODOLOGY / FOUNDER — make it feel like a note
+     --------------------------------------------------------- */
+
+  .methodology-section {
+    padding-top: 24px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .methodology-frame {
+    padding: 18px 18px 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .methodology-main {
+    gap: 16px !important;
+    margin-top: 16px !important;
+  }
+
+  .methodology-founder {
+    grid-template-columns: 54px 1fr !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .methodology-founder img {
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 14px !important;
+  }
+
+  .methodology-founder strong {
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+  }
+
+  .methodology-founder span {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    max-width: 190px !important;
+  }
+
+  .methodology-links {
+    margin-top: 8px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .methodology-links a,
+  .methodology-links a:nth-child(2) {
+    position: static !important;
+    min-height: 30px !important;
+    padding: 6px 10px !important;
+    font-size: 9.5px !important;
+  }
+
+  .methodology-quote p {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+    color: rgba(28, 28, 28, .66) !important;
+  }
+
+  .methodology-quote p + p {
+    margin-top: 8px !important;
+  }
+
+  .methodology-footer {
+    margin-top: 14px !important;
+    padding-top: 12px !important;
+  }
+
+  .methodology-footer span {
+    display: block !important;
+    font-size: 7.5px !important;
+    line-height: 1.7 !important;
+    letter-spacing: .11em !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     7) FINAL CTA BUTTON — prevent text overflow
+     --------------------------------------------------------- */
+
+  .final-cta .btn,
+  .final-actions .btn {
+    width: 100% !important;
+    max-width: 360px !important;
+    min-height: 50px !important;
+    padding: 13px 18px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.18 !important;
+    font-size: 12.5px !important;
+    letter-spacing: -.01em !important;
+  }
+
+  .final-actions {
+    width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
