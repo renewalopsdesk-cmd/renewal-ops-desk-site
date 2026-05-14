@@ -396,3 +396,187 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 });
+
+/* =========================================================
+   SAMPLE REPORT PAGE — MOBILE CAROUSELS
+   Add at the very end of nav.js
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const isSampleReportPage = document.body.classList.contains("sr-page");
+  const mq = window.matchMedia("(max-width: 768px)");
+
+  if (!isSampleReportPage) return;
+
+  const sampleCarouselSelectors = [
+    ".sr-proof-cards",
+    ".sr-bridge-items",
+    ".sr-brief-pricing-grid",
+    ".sr-setup-pricing-grid"
+  ];
+
+  function isVisible(element) {
+    if (!element) return false;
+
+    const styles = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+
+    return (
+      styles.display !== "none" &&
+      styles.visibility !== "hidden" &&
+      rect.width > 0 &&
+      rect.height > 0
+    );
+  }
+
+  function getStep(track) {
+    const firstCard = Array.from(track.children).find((child) => {
+      return !child.classList.contains("mobile-carousel-arrow");
+    });
+
+    if (!firstCard) return track.clientWidth;
+
+    const styles = window.getComputedStyle(track);
+    const gap =
+      parseFloat(styles.columnGap) ||
+      parseFloat(styles.gap) ||
+      0;
+
+    return firstCard.getBoundingClientRect().width + gap;
+  }
+
+  function setArrowState(track, prevButton, nextButton) {
+    const canUse = mq.matches && isVisible(track);
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+
+    if (!canUse || maxScroll <= 2) {
+      prevButton.hidden = true;
+      nextButton.hidden = true;
+      return;
+    }
+
+    prevButton.hidden = false;
+    nextButton.hidden = false;
+
+    const atStart = track.scrollLeft <= 2;
+    const atEnd = track.scrollLeft >= maxScroll - 2;
+
+    prevButton.classList.toggle("is-disabled", atStart);
+    nextButton.classList.toggle("is-disabled", atEnd);
+
+    prevButton.setAttribute("aria-disabled", atStart ? "true" : "false");
+    nextButton.setAttribute("aria-disabled", atEnd ? "true" : "false");
+  }
+
+  function createArrow(direction) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = `mobile-carousel-arrow mobile-carousel-${direction}`;
+    button.innerHTML = direction === "prev" ? "‹" : "›";
+
+    button.setAttribute(
+      "aria-label",
+      direction === "prev" ? "Previous card" : "Next card"
+    );
+
+    return button;
+  }
+
+  function setupCarousel(track) {
+    if (!track || track.dataset.sampleCarouselReady === "true") return;
+
+    const cards = Array.from(track.children).filter((child) => {
+      return !child.classList.contains("mobile-carousel-arrow");
+    });
+
+    if (cards.length <= 1) return;
+
+    track.dataset.sampleCarouselReady = "true";
+
+    const shell = document.createElement("div");
+    shell.className = "mobile-carousel-shell sample-carousel-shell";
+
+    track.parentNode.insertBefore(shell, track);
+    shell.appendChild(track);
+
+    const prevButton = createArrow("prev");
+    const nextButton = createArrow("next");
+
+    shell.appendChild(prevButton);
+    shell.appendChild(nextButton);
+
+    function refresh() {
+      window.requestAnimationFrame(() => {
+        setArrowState(track, prevButton, nextButton);
+      });
+    }
+
+    prevButton.addEventListener("click", () => {
+      if (prevButton.classList.contains("is-disabled")) return;
+
+      track.scrollBy({
+        left: -getStep(track),
+        behavior: "smooth"
+      });
+    });
+
+    nextButton.addEventListener("click", () => {
+      if (nextButton.classList.contains("is-disabled")) return;
+
+      track.scrollBy({
+        left: getStep(track),
+        behavior: "smooth"
+      });
+    });
+
+    track.addEventListener("scroll", refresh, { passive: true });
+    window.addEventListener("resize", refresh);
+    mq.addEventListener("change", refresh);
+
+    setTimeout(refresh, 80);
+    setTimeout(refresh, 300);
+  }
+
+  function initSampleCarousels() {
+    if (!mq.matches) return;
+
+    sampleCarouselSelectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach(setupCarousel);
+    });
+
+    setTimeout(refreshSampleCarousels, 100);
+  }
+
+  function refreshSampleCarousels() {
+    document.querySelectorAll(".sample-carousel-shell").forEach((shell) => {
+      const track = shell.querySelector(sampleCarouselSelectors.join(","));
+      const prevButton = shell.querySelector(".mobile-carousel-prev");
+      const nextButton = shell.querySelector(".mobile-carousel-next");
+
+      if (track && prevButton && nextButton) {
+        setArrowState(track, prevButton, nextButton);
+      }
+    });
+  }
+
+  initSampleCarousels();
+
+  window.addEventListener("load", () => {
+    initSampleCarousels();
+    refreshSampleCarousels();
+  });
+
+  document.addEventListener("click", (event) => {
+    const tab = event.target.closest("[data-sr-tab]");
+
+    if (!tab) return;
+
+    setTimeout(() => {
+      initSampleCarousels();
+      refreshSampleCarousels();
+    }, 90);
+
+    setTimeout(refreshSampleCarousels, 320);
+  });
+});
