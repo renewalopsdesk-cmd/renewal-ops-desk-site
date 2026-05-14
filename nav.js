@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const isOpening = !nav.classList.contains("nav-open");
 
       if (isOpening) {
-        // FIX: salva posição antes de fixar o body (evita salto ao fechar)
         scrollYBeforeLock = window.scrollY;
         document.body.style.top = `-${scrollYBeforeLock}px`;
         document.body.classList.add("menu-open");
@@ -52,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Fecha ao clicar em qualquer link ou CTA dentro do drawer
     nav.addEventListener("click", (e) => {
       const isLink = e.target.closest(".nav-links a");
       const isCta  = e.target.closest(".mobile-nav-cta");
@@ -68,52 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.top = "";
       menuToggle.setAttribute("aria-label", "Open menu");
 
-      // FIX: restaura posição de scroll sem salto visual
       if (restoreY !== undefined) {
         window.scrollTo({ top: restoreY, behavior: "instant" });
       }
     }
 
-    // Fecha com Escape
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && nav.classList.contains("nav-open")) {
         closeMenu(scrollYBeforeLock);
       }
     });
-  }
-
-  /* ─── REPORT CAROUSEL ─── */
-
-  const carousel = document.getElementById("reportCarousel");
-  const prevBtn  = document.querySelector(".report-prev");
-  const nextBtn  = document.querySelector(".report-next");
-
-  if (carousel && prevBtn && nextBtn) {
-    function getScrollAmount() {
-      const firstCard = carousel.querySelector(".finding-card");
-      if (!firstCard) return carousel.clientWidth;
-      const gap = parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
-      return firstCard.offsetWidth + gap;
-    }
-
-    function updateArrows() {
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      prevBtn.style.opacity      = carousel.scrollLeft <= 1 ? "0.3" : "1";
-      prevBtn.style.pointerEvents = carousel.scrollLeft <= 1 ? "none" : "auto";
-      nextBtn.style.opacity      = carousel.scrollLeft >= maxScroll - 1 ? "0.3" : "1";
-      nextBtn.style.pointerEvents = carousel.scrollLeft >= maxScroll - 1 ? "none" : "auto";
-    }
-
-    prevBtn.addEventListener("click", () => {
-      carousel.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
-    });
-
-    nextBtn.addEventListener("click", () => {
-      carousel.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
-    });
-
-    carousel.addEventListener("scroll", updateArrows, { passive: true });
-    updateArrows();
   }
 
   /* ─── PRICING TABS ─── */
@@ -134,10 +96,203 @@ document.addEventListener("DOMContentLoaded", () => {
         const activePanel = document.querySelector(
           `[data-pricing-panel="${target}"]`
         );
+
         if (activePanel) activePanel.classList.add("active");
+
+        setTimeout(refreshAllMobileCarousels, 80);
+        setTimeout(refreshAllMobileCarousels, 300);
       });
     });
   }
+
+  /* ─── MOBILE CAROUSEL CONTROLS ───
+     One system for all horizontal mobile sections:
+     Client Findings, Fit, What We Find, Plan Models, Pricing Panels.
+  */
+
+  const mobileCarouselMedia = window.matchMedia("(max-width: 768px)");
+
+  const mobileCarouselSelectors = [
+    ".proof-grid",
+    "#fit .fit-scroll-grid",
+    "#findings .report-sample-scroll",
+    ".plan-model-grid",
+    ".pricing-panel"
+  ];
+
+  function isElementVisible(element) {
+    if (!element) return false;
+
+    const styles = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+
+    return (
+      styles.display !== "none" &&
+      styles.visibility !== "hidden" &&
+      rect.width > 0 &&
+      rect.height > 0
+    );
+  }
+
+  function getCarouselStep(track) {
+    const firstCard = Array.from(track.children).find((child) => {
+      return !child.classList.contains("mobile-carousel-arrow");
+    });
+
+    if (!firstCard) return track.clientWidth;
+
+    const trackStyles = window.getComputedStyle(track);
+
+    const gap =
+      parseFloat(trackStyles.columnGap) ||
+      parseFloat(trackStyles.gap) ||
+      0;
+
+    return firstCard.getBoundingClientRect().width + gap;
+  }
+
+  function setArrowState(track, prevButton, nextButton) {
+    const shell = track.closest(".mobile-carousel-shell");
+    const usable = mobileCarouselMedia.matches && isElementVisible(track);
+
+    if (!usable) {
+      prevButton.hidden = true;
+      nextButton.hidden = true;
+      if (shell) shell.classList.add("mobile-carousel-inactive");
+      return;
+    }
+
+    prevButton.hidden = false;
+    nextButton.hidden = false;
+
+    if (shell) shell.classList.remove("mobile-carousel-inactive");
+
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    const currentScroll = track.scrollLeft;
+
+    const noScroll = maxScroll <= 2;
+    const atStart = currentScroll <= 2;
+    const atEnd = currentScroll >= maxScroll - 2;
+
+    prevButton.classList.toggle("is-disabled", noScroll || atStart);
+    nextButton.classList.toggle("is-disabled", noScroll || atEnd);
+
+    prevButton.setAttribute(
+      "aria-disabled",
+      noScroll || atStart ? "true" : "false"
+    );
+
+    nextButton.setAttribute(
+      "aria-disabled",
+      noScroll || atEnd ? "true" : "false"
+    );
+  }
+
+  function createCarouselArrow(direction) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = `mobile-carousel-arrow mobile-carousel-${direction}`;
+
+    button.setAttribute(
+      "aria-label",
+      direction === "prev" ? "Previous card" : "Next card"
+    );
+
+    button.innerHTML = direction === "prev" ? "‹" : "›";
+
+    return button;
+  }
+
+  function setupMobileCarousel(track) {
+    if (!track || track.dataset.mobileCarouselReady === "true") return;
+
+    const cards = Array.from(track.children).filter((child) => {
+      return !child.classList.contains("mobile-carousel-arrow");
+    });
+
+    if (cards.length <= 1) return;
+
+    track.dataset.mobileCarouselReady = "true";
+
+    const shell = document.createElement("div");
+    shell.className = "mobile-carousel-shell";
+
+    track.parentNode.insertBefore(shell, track);
+    shell.appendChild(track);
+
+    const prevButton = createCarouselArrow("prev");
+    const nextButton = createCarouselArrow("next");
+
+    shell.appendChild(prevButton);
+    shell.appendChild(nextButton);
+
+    function refresh() {
+      window.requestAnimationFrame(() => {
+        setArrowState(track, prevButton, nextButton);
+      });
+    }
+
+    prevButton.addEventListener("click", () => {
+      if (prevButton.classList.contains("is-disabled")) return;
+
+      track.scrollBy({
+        left: -getCarouselStep(track),
+        behavior: "smooth"
+      });
+    });
+
+    nextButton.addEventListener("click", () => {
+      if (nextButton.classList.contains("is-disabled")) return;
+
+      track.scrollBy({
+        left: getCarouselStep(track),
+        behavior: "smooth"
+      });
+    });
+
+    track.addEventListener("scroll", refresh, { passive: true });
+    window.addEventListener("resize", refresh);
+    mobileCarouselMedia.addEventListener("change", refresh);
+
+    setTimeout(refresh, 80);
+    setTimeout(refresh, 350);
+  }
+
+  function initMobileCarousels() {
+    if (!mobileCarouselMedia.matches) return;
+
+    mobileCarouselSelectors.forEach((selector) => {
+      document.querySelectorAll(selector).forEach(setupMobileCarousel);
+    });
+  }
+
+  function refreshAllMobileCarousels() {
+    document.querySelectorAll(".mobile-carousel-shell").forEach((shell) => {
+      const track = shell.querySelector(
+        ".proof-grid, .fit-scroll-grid, .report-sample-scroll, .plan-model-grid, .pricing-panel"
+      );
+
+      const prevButton = shell.querySelector(".mobile-carousel-prev");
+      const nextButton = shell.querySelector(".mobile-carousel-next");
+
+      if (track && prevButton && nextButton) {
+        setArrowState(track, prevButton, nextButton);
+      }
+    });
+  }
+
+  initMobileCarousels();
+
+  window.addEventListener("load", () => {
+    initMobileCarousels();
+    refreshAllMobileCarousels();
+  });
+
+  mobileCarouselMedia.addEventListener("change", () => {
+    initMobileCarousels();
+    refreshAllMobileCarousels();
+  });
 
   /* ─── SAMPLE REPORT MODAL ─── */
 
@@ -148,12 +303,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function openSampleModal(event) {
     if (event) event.preventDefault();
     if (!sampleModal) return;
+
     sampleModal.classList.add("active");
     document.body.classList.add("modal-open");
   }
 
   function closeSampleModal() {
     if (!sampleModal) return;
+
     sampleModal.classList.remove("active");
     document.body.classList.remove("modal-open");
   }
@@ -163,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (trigger) openSampleModal(event);
   });
 
-  if (modalClose)    modalClose.addEventListener("click", closeSampleModal);
+  if (modalClose) modalClose.addEventListener("click", closeSampleModal);
   if (modalBackdrop) modalBackdrop.addEventListener("click", closeSampleModal);
 
   document.addEventListener("keydown", (event) => {
@@ -185,21 +342,21 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const submitButton  = form.querySelector('button[type="submit"]');
-      const originalText  = submitButton.textContent;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
 
-      submitButton.disabled     = true;
-      submitButton.textContent  = "Sending...";
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
 
       try {
         await fetch(MAKE_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            email:   email.value,
+            email: email.value,
             company: company.value,
-            source:  formId,
-            page:    window.location.href,
+            source: formId,
+            page: window.location.href,
           }),
         });
 
@@ -209,189 +366,33 @@ document.addEventListener("DOMContentLoaded", () => {
         if (formId === "sampleLeadFormModal") {
           setTimeout(() => {
             closeSampleModal();
-            submitButton.disabled    = false;
+            submitButton.disabled = false;
             submitButton.textContent = originalText;
           }, 700);
         } else {
           setTimeout(() => {
-            submitButton.disabled    = false;
+            submitButton.disabled = false;
             submitButton.textContent = originalText;
           }, 1200);
         }
       } catch (error) {
-        submitButton.disabled    = false;
+        submitButton.disabled = false;
         submitButton.textContent = originalText;
         alert("Something went wrong. Please try again.");
       }
     });
   }
 
-  connectSampleForm("sampleLeadFormInline",  "sampleInlineEmail",  "sampleInlineCompany");
-  connectSampleForm("sampleLeadFormModal",   "sampleModalEmail",   "sampleModalCompany");
+  connectSampleForm(
+    "sampleLeadFormInline",
+    "sampleInlineEmail",
+    "sampleInlineCompany"
+  );
 
-});
+  connectSampleForm(
+    "sampleLeadFormModal",
+    "sampleModalEmail",
+    "sampleModalCompany"
+  );
 
-/* =========================================================
-   MOBILE CAROUSEL ARROWS — Renewal Ops Desk
-   Adds real clickable arrows to horizontal mobile sections.
-   Paste at the very end of nav.js
-   ========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const mobileCarouselSelectors = [
-    ".proof-grid",                 // Client Findings
-    "#fit .fit-scroll-grid",        // Fit
-    "#findings .report-sample-scroll", // What We Find
-    ".plan-model-grid",            // Plan models
-    ".pricing-panel"               // Pricing cards
-  ];
-
-  const mq = window.matchMedia("(max-width: 768px)");
-
-  function isVisible(element) {
-    return !!(
-      element &&
-      element.offsetParent !== null &&
-      getComputedStyle(element).display !== "none" &&
-      getComputedStyle(element).visibility !== "hidden"
-    );
-  }
-
-  function getScrollStep(track) {
-    const firstCard = Array.from(track.children).find((child) => {
-      return !child.classList.contains("mobile-carousel-arrow");
-    });
-
-    if (!firstCard) return track.clientWidth;
-
-    const styles = window.getComputedStyle(track);
-    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
-
-    return firstCard.getBoundingClientRect().width + gap;
-  }
-
-  function updateCarouselArrows(track, prevButton, nextButton) {
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    const currentScroll = track.scrollLeft;
-
-    const atStart = currentScroll <= 2;
-    const atEnd = currentScroll >= maxScroll - 2;
-
-    prevButton.classList.toggle("is-disabled", atStart);
-    nextButton.classList.toggle("is-disabled", atEnd);
-
-    prevButton.setAttribute("aria-disabled", atStart ? "true" : "false");
-    nextButton.setAttribute("aria-disabled", atEnd ? "true" : "false");
-  }
-
-  function createArrow(direction) {
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = `mobile-carousel-arrow mobile-carousel-${direction}`;
-    button.setAttribute(
-      "aria-label",
-      direction === "prev" ? "Previous card" : "Next card"
-    );
-
-    button.innerHTML = direction === "prev" ? "‹" : "›";
-
-    return button;
-  }
-
-  function setupMobileCarousel(track) {
-    if (!track || track.dataset.mobileCarouselReady === "true") return;
-
-    const children = Array.from(track.children).filter((child) => {
-      return !child.classList.contains("mobile-carousel-arrow");
-    });
-
-    if (children.length <= 1) return;
-
-    track.dataset.mobileCarouselReady = "true";
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "mobile-carousel-shell";
-
-    track.parentNode.insertBefore(wrapper, track);
-    wrapper.appendChild(track);
-
-    const prevButton = createArrow("prev");
-    const nextButton = createArrow("next");
-
-    wrapper.appendChild(prevButton);
-    wrapper.appendChild(nextButton);
-
-    function refresh() {
-      if (!mq.matches || !isVisible(track)) return;
-      updateCarouselArrows(track, prevButton, nextButton);
-    }
-
-    prevButton.addEventListener("click", () => {
-      if (prevButton.classList.contains("is-disabled")) return;
-
-      track.scrollBy({
-        left: -getScrollStep(track),
-        behavior: "smooth"
-      });
-    });
-
-    nextButton.addEventListener("click", () => {
-      if (nextButton.classList.contains("is-disabled")) return;
-
-      track.scrollBy({
-        left: getScrollStep(track),
-        behavior: "smooth"
-      });
-    });
-
-    track.addEventListener("scroll", () => {
-      window.requestAnimationFrame(refresh);
-    }, { passive: true });
-
-    window.addEventListener("resize", refresh);
-
-    setTimeout(refresh, 100);
-  }
-
-  function initMobileCarousels() {
-    if (!mq.matches) return;
-
-    mobileCarouselSelectors.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((track) => {
-        setupMobileCarousel(track);
-      });
-    });
-  }
-
-  initMobileCarousels();
-
-  mq.addEventListener("change", () => {
-    initMobileCarousels();
-  });
-
-  /*
-   * Pricing tabs need a refresh because only one pricing panel
-   * is visible at a time.
-   */
-  document.addEventListener("click", (event) => {
-    const pricingTab = event.target.closest("[data-pricing-tab]");
-
-    if (!pricingTab) return;
-
-    setTimeout(() => {
-      document.querySelectorAll(".pricing-panel").forEach((panel) => {
-        const shell = panel.closest(".mobile-carousel-shell");
-
-        if (!shell) return;
-
-        const prevButton = shell.querySelector(".mobile-carousel-prev");
-        const nextButton = shell.querySelector(".mobile-carousel-next");
-
-        if (prevButton && nextButton && isVisible(panel)) {
-          updateCarouselArrows(panel, prevButton, nextButton);
-        }
-      });
-    }, 80);
-  });
 });
