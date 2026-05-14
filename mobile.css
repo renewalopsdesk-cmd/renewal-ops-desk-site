@@ -1629,3 +1629,212 @@ img, video, svg {
     font-size: clamp(30px, 9vw, 42px);
   }
 }
+
+     /* =========================================================
+   ROD — MOBILE FIXES
+   Full-card carousel + FAQ stacked layout
+   Paste at the very end of mobile.css
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ---------------------------------------------------------
+     1) HORIZONTAL SECTIONS — show one full card at a time
+     Instead of cutting the next card in the middle.
+     --------------------------------------------------------- */
+
+  .fit-scroll-grid,
+  #fit .grid-2,
+  #fit .fit-scroll-grid,
+  #findings .report-sample-scroll,
+  .plan-model-grid,
+  .pricing-panel.active,
+  .pricing-grid.active {
+    grid-template-columns: 100% !important;
+    grid-auto-columns: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 18px !important;
+
+    gap: 14px !important;
+
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-left: 0 !important;
+
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+  }
+
+  .fit-scroll-grid::-webkit-scrollbar,
+  #fit .grid-2::-webkit-scrollbar,
+  #fit .fit-scroll-grid::-webkit-scrollbar,
+  #findings .report-sample-scroll::-webkit-scrollbar,
+  .plan-model-grid::-webkit-scrollbar,
+  .pricing-panel.active::-webkit-scrollbar,
+  .pricing-grid.active::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fit-card,
+  #findings .report-sample-scroll .finding-card,
+  .plan-model-card,
+  .pricing-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+  }
+
+  /* Keeps the cards from touching the screen edge too much */
+  .fit-card,
+  .plan-model-card,
+  .pricing-card {
+    border-radius: 22px !important;
+  }
+
+  #findings .report-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  #findings .report-sample-scroll {
+    padding-top: 2px !important;
+  }
+
+  #findings .report-sample-scroll .finding-card {
+    border-radius: 22px !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     2) Subtle swipe hints — replaces the “cut card” mechanism
+     --------------------------------------------------------- */
+
+  #fit .section-header::after,
+  #pricing .section-head::after,
+  #findings .what-find-left::after {
+    content: "Swipe sideways →";
+    display: inline-flex;
+    margin-top: 14px;
+    padding: 7px 11px;
+
+    border: 1px solid rgba(28, 28, 28, .10);
+    border-radius: 999px;
+
+    color: rgba(28, 28, 28, .46);
+    background: rgba(255, 255, 255, .58);
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  #findings .what-find-left::after {
+    margin-bottom: 2px;
+  }
+
+
+  /* ---------------------------------------------------------
+     3) Optional visual scroll indicator
+     Tiny horizontal line under carousel sections
+     --------------------------------------------------------- */
+
+  .fit-scroll-grid,
+  #findings .report-sample-scroll,
+  .plan-model-grid,
+  .pricing-panel.active,
+  .pricing-grid.active {
+    border-bottom: 1px solid rgba(28, 28, 28, .08);
+  }
+
+
+  /* ---------------------------------------------------------
+     4) FAQ — title above, questions full width
+     --------------------------------------------------------- */
+
+  #faq .faq-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: unset !important;
+    gap: 26px !important;
+    width: 100% !important;
+  }
+
+  #faq .faq-heading {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+    top: auto !important;
+  }
+
+  #faq .faq-heading .section-title {
+    max-width: 100% !important;
+    width: 100% !important;
+    font-size: clamp(34px, 10vw, 48px) !important;
+    line-height: .96 !important;
+    letter-spacing: -.055em !important;
+  }
+
+  #faq .faq-stack {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  #faq details {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border-top: 1px solid rgba(28, 28, 28, .10);
+  }
+
+  #faq details:last-child {
+    border-bottom: 1px solid rgba(28, 28, 28, .10);
+  }
+
+  #faq summary {
+    width: 100% !important;
+    min-height: 72px;
+    padding: 20px 0 !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    gap: 18px !important;
+
+    font-size: 20px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  #faq summary::after {
+    font-size: 22px !important;
+    line-height: 1 !important;
+  }
+
+  #faq details p {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 0 22px !important;
+    margin: 0 !important;
+
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    color: rgba(28, 28, 28, .58);
+  }
+}
