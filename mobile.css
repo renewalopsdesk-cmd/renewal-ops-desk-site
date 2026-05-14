@@ -3029,3 +3029,465 @@ html, body {
   }
 }
 
+/* =========================================================
+   SAMPLE REPORT PAGE — MOBILE FINAL REFINEMENTS
+   Add at the very end of mobile.css
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* -----------------------------
+     SAMPLE NAV — cleaner mobile
+  ----------------------------- */
+
+  body.sr-page .nav.nav-sample {
+    height: 58px !important;
+    min-height: 58px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    justify-content: center !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  }
+
+  body.sr-page .nav-sample .brand {
+    gap: 7px !important;
+    font-size: 10px !important;
+    letter-spacing: -.02em !important;
+    max-width: 100% !important;
+  }
+
+  body.sr-page .nav-sample .brand-mark {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  body.sr-page .nav-sample-cta,
+  body.sr-page .nav-sample .mobile-menu-toggle {
+    display: none !important;
+  }
+
+
+  /* -----------------------------
+     SAMPLE HERO — better structure
+  ----------------------------- */
+
+  body.sr-page .sr-hero {
+    min-height: auto !important;
+    padding: 92px 14px 30px !important;
+  }
+
+  body.sr-page .sr-hero-inner {
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  body.sr-page .sr-badge,
+  body.sr-page .sr-eyebrow {
+    font-size: 8px !important;
+    padding: 6px 9px !important;
+    letter-spacing: .12em !important;
+    margin-bottom: 18px !important;
+  }
+
+  body.sr-page .sr-hero h1 {
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    font-size: clamp(29px, 8.4vw, 38px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.065em !important;
+  }
+
+  body.sr-page .sr-hero-sub {
+    max-width: 330px !important;
+    margin: 16px auto 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.sr-page .sr-hero-actions {
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 22px auto 0 !important;
+    display: grid !important;
+    gap: 9px !important;
+  }
+
+  body.sr-page .sr-hero-actions .btn {
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 11px 16px !important;
+    font-size: 11.5px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+  }
+
+  body.sr-page .sr-hero-proof-line {
+    max-width: 320px !important;
+    margin: 18px auto 0 !important;
+    font-size: 7.5px !important;
+    line-height: 1.6 !important;
+    letter-spacing: .09em !important;
+  }
+
+
+  /* -----------------------------
+     SAMPLE PAGE CAROUSEL TRACKS
+     full card + clickable arrows from nav.js
+  ----------------------------- */
+
+  body.sr-page .sr-proof-cards,
+  body.sr-page .sr-bridge-items,
+  body.sr-page .sr-brief-pricing-grid,
+  body.sr-page .sr-setup-pricing-grid {
+    display: grid !important;
+    grid-template-columns: 100% !important;
+    grid-auto-columns: 100% !important;
+    grid-auto-flow: column !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+
+    padding: 2px 0 14px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    scrollbar-width: none;
+  }
+
+  body.sr-page .sr-proof-cards::-webkit-scrollbar,
+  body.sr-page .sr-bridge-items::-webkit-scrollbar,
+  body.sr-page .sr-brief-pricing-grid::-webkit-scrollbar,
+  body.sr-page .sr-setup-pricing-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.sr-page .sr-proof-card,
+  body.sr-page .sr-bridge-item,
+  body.sr-page .sr-brief-plan,
+  body.sr-page .sr-setup-price-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+  }
+
+
+  /* -----------------------------
+     Carousel arrow shell
+  ----------------------------- */
+
+  body.sr-page .mobile-carousel-shell {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  body.sr-page .mobile-carousel-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    z-index: 30 !important;
+
+    width: 32px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 999px !important;
+    border: 1px solid rgba(28,28,28,.12) !important;
+    background: rgba(255,255,255,.86) !important;
+    color: rgba(28,28,28,.76) !important;
+
+    font-size: 24px !important;
+    line-height: 1 !important;
+    font-weight: 300 !important;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.10) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    transform: translateY(-50%) !important;
+    transition: opacity .2s ease, transform .2s ease, background .2s ease !important;
+  }
+
+  body.sr-page .mobile-carousel-prev {
+    left: -8px !important;
+  }
+
+  body.sr-page .mobile-carousel-next {
+    right: -8px !important;
+  }
+
+  body.sr-page .mobile-carousel-arrow.is-disabled {
+    opacity: .22 !important;
+    pointer-events: none !important;
+  }
+
+  body.sr-page .mobile-carousel-arrow:active {
+    transform: translateY(-50%) scale(.94) !important;
+  }
+
+  body.sr-page .sr-brief-pricing.dark .mobile-carousel-arrow,
+  body.sr-page .sr-landing-pricing-preview .mobile-carousel-arrow {
+    border-color: rgba(255,255,255,.13) !important;
+    background: rgba(255,255,255,.10) !important;
+    color: rgba(255,255,255,.86) !important;
+    box-shadow: 0 14px 34px rgba(0,0,0,.24) !important;
+  }
+
+
+  /* -----------------------------
+     IMAGE 2 — Proof cards tighter
+  ----------------------------- */
+
+  body.sr-page .sr-proof {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  body.sr-page .sr-proof-header {
+    margin-bottom: 18px !important;
+  }
+
+  body.sr-page .sr-proof-header p {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.sr-page .sr-proof-card {
+    padding: 18px 20px !important;
+    border-radius: 17px !important;
+  }
+
+  body.sr-page .sr-proof-amount {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.sr-page .sr-proof-card blockquote {
+    margin-top: 12px !important;
+    padding-left: 10px !important;
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.sr-page .sr-proof-meta {
+    margin-top: 14px !important;
+    padding-top: 10px !important;
+    font-size: 7px !important;
+    letter-spacing: .11em !important;
+  }
+
+
+  /* -----------------------------
+     IMAGE 3 — You'll see cards tighter
+  ----------------------------- */
+
+  body.sr-page .sr-bridge {
+    padding-top: 34px !important;
+    padding-bottom: 34px !important;
+  }
+
+  body.sr-page .sr-bridge h2 {
+    font-size: clamp(24px, 7.2vw, 34px) !important;
+    line-height: .98 !important;
+    margin-bottom: 18px !important;
+  }
+
+  body.sr-page .sr-bridge-item {
+    padding: 18px 20px !important;
+    border-radius: 17px !important;
+  }
+
+  body.sr-page .sr-bridge-label {
+    font-size: 7px !important;
+    letter-spacing: .12em !important;
+  }
+
+  body.sr-page .sr-bridge-item strong {
+    margin-top: 8px !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+  }
+
+  body.sr-page .sr-bridge-item p {
+    margin-top: 9px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+
+  /* -----------------------------
+     IMAGE 4 — Pricing carousel proportions
+  ----------------------------- */
+
+  body.sr-page .sr-brief-pricing,
+  body.sr-page .sr-setup-pricing-preview {
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+  }
+
+  body.sr-page .sr-brief-pricing-label,
+  body.sr-page .sr-setup-pricing-head .sr-eyebrow {
+    font-size: 8px !important;
+    letter-spacing: .12em !important;
+  }
+
+  body.sr-page .sr-brief-pricing-sub,
+  body.sr-page .sr-setup-pricing-head p {
+    font-size: 11.5px !important;
+    line-height: 1.45 !important;
+    margin-top: 8px !important;
+  }
+
+  body.sr-page .sr-brief-plan,
+  body.sr-page .sr-setup-price-card {
+    padding: 18px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  body.sr-page .sr-brief-plan > strong,
+  body.sr-page .sr-setup-range {
+    font-size: 17px !important;
+    line-height: 1.1 !important;
+  }
+
+  body.sr-page .sr-first-payment {
+    margin-top: 18px !important;
+    padding-top: 16px !important;
+  }
+
+  body.sr-page .sr-first-payment div strong,
+  body.sr-page .sr-setup-price {
+    font-size: 36px !important;
+    line-height: .92 !important;
+  }
+
+  body.sr-page .sr-first-payment p,
+  body.sr-page .sr-setup-price-card p {
+    font-size: 10.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.sr-page .sr-after-payment {
+    padding: 14px !important;
+    border-radius: 15px !important;
+  }
+
+  body.sr-page .sr-after-payment strong {
+    font-size: 20px !important;
+  }
+
+
+  /* -----------------------------
+     IMAGE 5 — Final CTA proportions
+  ----------------------------- */
+
+  body.sr-page .sr-final-cta {
+    padding: 42px 18px 34px !important;
+  }
+
+  body.sr-page .sr-final-inner {
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+
+  body.sr-page .sr-coupon-pill {
+    max-width: 300px !important;
+    margin: 0 auto 22px !important;
+    padding: 9px 14px !important;
+    border-radius: 999px !important;
+    font-size: 9.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.sr-page .sr-coupon-pill span {
+    font-size: 7.5px !important;
+  }
+
+  body.sr-page .sr-final-cta h2 {
+    max-width: 330px !important;
+    margin: 0 auto !important;
+    font-size: clamp(31px, 9vw, 43px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.075em !important;
+  }
+
+  body.sr-page .sr-final-cta p {
+    max-width: 310px !important;
+    margin: 20px auto 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.sr-page .sr-final-cta .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    min-height: 46px !important;
+    margin: 24px auto 0 !important;
+    padding: 12px 16px !important;
+    font-size: 11.5px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+  }
+
+  body.sr-page .sr-final-note {
+    margin-top: 14px !important;
+    font-size: 9.5px !important;
+    line-height: 1.45 !important;
+  }
+
+
+  /* -----------------------------
+     Footer on sample page
+  ----------------------------- */
+
+  body.sr-page .footer {
+    padding: 22px 0 !important;
+  }
+
+  body.sr-page .footer .container {
+    display: grid !important;
+    gap: 14px !important;
+    text-align: center !important;
+  }
+
+  body.sr-page .footer strong {
+    font-size: 11px !important;
+  }
+
+  body.sr-page .footer p {
+    margin: 3px auto 0 !important;
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  body.sr-page .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px 14px !important;
+    justify-items: center !important;
+  }
+
+  body.sr-page .footer-links a {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.sr-page .footer-links a:last-child {
+    grid-column: 1 / -1 !important;
+  }
+}
