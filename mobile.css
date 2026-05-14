@@ -11,7 +11,10 @@
    - Correct section names from index.html
    - All horizontal scroll sections show 1 full card at a time
    - No half-cut cards on mobile
+   - Subtle arrows + static dots replace text swipe labels
    - FAQ title stacks above questions on mobile
+   - Dark security section remains readable
+   - Footer is more compact on mobile
    ========================================================= */
 
 html {
@@ -123,6 +126,106 @@ body {
   .section-lead {
     max-width: 100%;
   }
+
+
+  /* =========================================================
+     01B — MOBILE CAROUSEL INDICATORS
+     Applies to all horizontal card sections.
+     Shows full cards + subtle arrows + static dots.
+     ========================================================= */
+
+  .proof-grid,
+  #fit .grid-2,
+  #fit .fit-scroll-grid,
+  .fit-scroll-grid,
+  #findings .report-sample-scroll,
+  .plan-model-grid,
+  .pricing-panel.active,
+  .pricing-grid.active {
+    position: relative;
+    padding-bottom: 36px !important;
+    background-image:
+      radial-gradient(circle, rgba(28, 28, 28, 0.74) 0 3px, transparent 3.5px),
+      radial-gradient(circle, rgba(28, 28, 28, 0.18) 0 3px, transparent 3.5px),
+      radial-gradient(circle, rgba(28, 28, 28, 0.18) 0 3px, transparent 3.5px);
+    background-repeat: no-repeat;
+    background-size: 7px 7px, 7px 7px, 7px 7px;
+    background-position:
+      calc(50% - 15px) calc(100% - 10px),
+      50% calc(100% - 10px),
+      calc(50% + 15px) calc(100% - 10px);
+  }
+
+  .proof-grid::before,
+  #fit .grid-2::before,
+  #fit .fit-scroll-grid::before,
+  .fit-scroll-grid::before,
+  #findings .report-sample-scroll::before,
+  .plan-model-grid::before,
+  .pricing-panel.active::before,
+  .pricing-grid.active::before,
+  .proof-grid::after,
+  #fit .grid-2::after,
+  #fit .fit-scroll-grid::after,
+  .fit-scroll-grid::after,
+  #findings .report-sample-scroll::after,
+  .plan-model-grid::after,
+  .pricing-panel.active::after,
+  .pricing-grid.active::after {
+    position: absolute;
+    top: calc(50% - 18px);
+    z-index: 4;
+    width: 28px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(28, 28, 28, 0.09);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: rgba(28, 28, 28, 0.48);
+    font-family: Georgia, serif;
+    font-size: 24px;
+    line-height: 1;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    pointer-events: none;
+  }
+
+  .proof-grid::before,
+  #fit .grid-2::before,
+  #fit .fit-scroll-grid::before,
+  .fit-scroll-grid::before,
+  #findings .report-sample-scroll::before,
+  .plan-model-grid::before,
+  .pricing-panel.active::before,
+  .pricing-grid.active::before {
+    content: "‹";
+    left: 8px;
+  }
+
+  .proof-grid::after,
+  #fit .grid-2::after,
+  #fit .fit-scroll-grid::after,
+  .fit-scroll-grid::after,
+  #findings .report-sample-scroll::after,
+  .plan-model-grid::after,
+  .pricing-panel.active::after,
+  .pricing-grid.active::after {
+    content: "›";
+    right: 8px;
+  }
+
+  .proof-grid::before,
+  #fit .grid-2::before,
+  #fit .fit-scroll-grid::before,
+  .fit-scroll-grid::before,
+  #findings .report-sample-scroll::before,
+  .plan-model-grid::before,
+  .pricing-panel.active::before,
+  .pricing-grid.active::before {
+    opacity: 0.42;
+  }
+
 
 
   /* =========================================================
@@ -416,27 +519,12 @@ body {
     overflow-x: visible;
   }
 
-  .proof-section .section-head::after {
-    content: "Swipe sideways →";
-    display: inline-flex;
-    margin-top: 14px;
-    padding: 7px 11px;
-    border: 1px solid rgba(28, 28, 28, 0.10);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.62);
-    color: rgba(28, 28, 28, 0.48);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
+  
   .proof-grid {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 18px;
+    padding: 2px 0 36px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -562,22 +650,7 @@ body {
     overflow-x: visible;
   }
 
-  #fit .section-header::after {
-    content: "Swipe sideways →";
-    display: inline-flex;
-    margin-top: 14px;
-    padding: 7px 11px;
-    border: 1px solid rgba(28, 28, 28, 0.10);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.62);
-    color: rgba(28, 28, 28, 0.48);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
+  
   #fit .section-title {
     font-size: clamp(22px, 6.4vw, 30px);
     line-height: 1.1;
@@ -589,7 +662,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 18px;
+    padding: 2px 0 36px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -663,22 +736,7 @@ body {
     max-width: 100%;
   }
 
-  #findings .what-find-left::after {
-    content: "Swipe sideways →";
-    display: inline-flex;
-    margin-top: 14px;
-    padding: 7px 11px;
-    border: 1px solid rgba(28, 28, 28, 0.10);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.62);
-    color: rgba(28, 28, 28, 0.48);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
+  
   #findings .risk-table-title {
     margin-top: 20px;
   }
@@ -730,7 +788,7 @@ body {
     max-width: 100%;
     height: auto;
     margin: 0;
-    padding: 2px 0 18px;
+    padding: 2px 0 36px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -985,24 +1043,41 @@ body {
   /* =========================================================
      12 — SECURITY & CONFIDENTIALITY
      Section: #confidentiality / .security-section
+     Fix: readable text on dark background
      ========================================================= */
 
   .security-section {
-    padding-top: 38px !important;
-    padding-bottom: 38px !important;
+    padding-top: 42px !important;
+    padding-bottom: 44px !important;
+    background: #101010 !important;
+    color: #ffffff !important;
+  }
+
+  .security-section .container {
+    color: inherit;
   }
 
   .security-header {
     margin-bottom: 20px;
   }
 
+  .security-header .eyebrow {
+    color: rgba(255, 255, 255, 0.62) !important;
+    border-color: rgba(255, 255, 255, 0.20) !important;
+  }
+
   .security-header h2 {
-    font-size: clamp(25px, 7.5vw, 36px);
-    line-height: 1.05;
+    max-width: 100%;
+    color: #ffffff !important;
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
   }
 
   .security-header p {
-    margin-top: 10px;
+    max-width: 100%;
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.72) !important;
     font-size: 14px;
     line-height: 1.5;
   }
@@ -1012,30 +1087,29 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 16px;
-    border-top: 1px solid rgba(28, 28, 28, 0.10);
+    margin-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .security-card {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
+    display: grid;
+    grid-template-columns: 28px 1fr;
     column-gap: 8px;
-    row-gap: 0;
+    row-gap: 4px;
+    align-items: baseline;
     padding: 14px 0;
     border: 0 !important;
-    border-bottom: 1px solid rgba(28, 28, 28, 0.10) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
   .security-card span {
-    order: 1;
-    flex: 0 0 auto;
-    display: inline;
-    margin-bottom: 0;
-    color: rgba(28, 28, 28, 0.36);
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    color: rgba(255, 255, 255, 0.38) !important;
     font-family: "IBM Plex Mono", monospace;
     font-size: 9px;
     font-weight: 700;
@@ -1044,22 +1118,22 @@ body {
   }
 
   .security-card strong {
-    order: 2;
-    flex: 1 1 auto;
-    display: inline;
-    color: rgba(28, 28, 28, 0.86);
+    grid-column: 2;
+    grid-row: 1;
+    display: block;
+    color: rgba(255, 255, 255, 0.92) !important;
     font-size: 14px;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.35;
     letter-spacing: -0.01em;
   }
 
   .security-card p {
-    order: 3;
-    flex: 0 0 100%;
-    margin-top: 4px;
-    color: rgba(28, 28, 28, 0.52);
-    font-size: 13px;
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.58) !important;
+    font-size: 12.5px;
     line-height: 1.45;
   }
 
@@ -1178,27 +1252,12 @@ body {
     overflow-x: visible;
   }
 
-  #pricing .section-head::after {
-    content: "Swipe sideways →";
-    display: inline-flex;
-    margin-top: 14px;
-    padding: 7px 11px;
-    border: 1px solid rgba(28, 28, 28, 0.10);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.62);
-    color: rgba(28, 28, 28, 0.48);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
+  
   .plan-model-grid {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 18px;
+    padding: 2px 0 36px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -1289,7 +1348,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 18px;
+    padding: 2px 0 36px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -1476,27 +1535,52 @@ body {
   }
 
   .footer {
-    padding: 32px 0;
+    padding: 22px 0 24px;
   }
 
   .footer .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
+  }
+
+  .footer .container > div:first-child {
+    max-width: 100%;
+  }
+
+  .footer strong {
+    display: block;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .footer p {
+    max-width: 310px;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.66);
   }
 
   .footer-links {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 14px;
+    align-items: start;
   }
 
   .footer-links a {
-    min-height: 36px;
+    min-height: 24px;
     display: inline-flex;
     align-items: center;
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 11.5px;
+    line-height: 1.25;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
   }
 
 
