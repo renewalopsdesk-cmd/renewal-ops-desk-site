@@ -3491,3 +3491,115 @@ html, body {
     grid-column: 1 / -1 !important;
   }
 }
+
+/* =========================================================
+   SAMPLE REPORT PAGE — FOOTER MOBILE FIX
+   Paste at the very end of mobile.css
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  body.sr-page .footer {
+    padding: 28px 0 30px !important;
+    border-top: 1px solid rgba(255, 255, 255, .10) !important;
+  }
+
+  body.sr-page .footer .container {
+    width: 100% !important;
+    max-width: 360px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 18px !important;
+    text-align: center !important;
+  }
+
+  body.sr-page .footer strong {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    color: rgba(255, 255, 255, .86) !important;
+  }
+
+  body.sr-page .footer p {
+    max-width: 260px !important;
+    margin: 5px auto 0 !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+    color: rgba(255, 255, 255, .52) !important;
+  }
+
+  body.sr-page .footer-links {
+    width: 100% !important;
+    max-width: 280px !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 11px 18px !important;
+
+    align-items: center !important;
+    justify-items: center !important;
+  }
+
+  body.sr-page .footer-links a {
+    font-size: 10.5px !important;
+    line-height: 1.2 !important;
+    color: rgba(255, 255, 255, .72) !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(255, 255, 255, .24) !important;
+    text-underline-offset: 4px !important;
+  }
+
+  body.sr-page .footer-links a:last-child {
+    grid-column: 1 / -1 !important;
+    margin-top: 2px !important;
+    font-size: 10.5px !important;
+    color: rgba(255, 255, 255, .64) !important;
+  }
+}
+
+/* =========================================================
+   INDEX PAGE — SAMPLE REPORT FORM INPUT TEXT FIX
+   Paste at the very end of mobile.css
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .sample-report-section .form-field input,
+  .sample-report-section .form-field textarea,
+  .sample-report-section .form-field select,
+  .sample-report-form input,
+  .sample-report-form textarea,
+  .sample-report-form select {
+    color: #101010 !important;
+    background: #ffffff !important;
+    -webkit-text-fill-color: #101010 !important;
+    caret-color: #101010 !important;
+  }
+
+  .sample-report-section .form-field input::placeholder,
+  .sample-report-section .form-field textarea::placeholder,
+  .sample-report-form input::placeholder,
+  .sample-report-form textarea::placeholder {
+    color: rgba(16, 16, 16, .38) !important;
+    -webkit-text-fill-color: rgba(16, 16, 16, .38) !important;
+  }
+
+  .sample-report-section .form-field input:focus,
+  .sample-report-section .form-field textarea:focus,
+  .sample-report-section .form-field select:focus,
+  .sample-report-form input:focus,
+  .sample-report-form textarea:focus,
+  .sample-report-form select:focus {
+    color: #101010 !important;
+    background: #ffffff !important;
+    outline: none !important;
+    border-color: rgba(255, 255, 255, .42) !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .10) !important;
+  }
+}
