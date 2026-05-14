@@ -11,7 +11,7 @@
    - Correct section names from index.html
    - All horizontal scroll sections show 1 full card at a time
    - No half-cut cards on mobile
-   - Subtle arrows + static dots replace text swipe labels
+   - Premium clickable arrows replace text swipe labels and dots
    - FAQ title stacks above questions on mobile
    - Dark security section remains readable
    - Footer is more compact on mobile
@@ -129,104 +129,96 @@ body {
 
 
   /* =========================================================
-     01B — MOBILE CAROUSEL INDICATORS
-     Applies to all horizontal card sections.
-     Shows full cards + subtle arrows + static dots.
+     01B — MOBILE CAROUSEL SYSTEM
+     Real clickable arrows are in the HTML/JS.
+     No dots. No fake indicators. No half-cut cards.
      ========================================================= */
 
-  .proof-grid,
-  #fit .grid-2,
-  #fit .fit-scroll-grid,
-  .fit-scroll-grid,
-  #findings .report-sample-scroll,
-  .plan-model-grid,
-  .pricing-panel.active,
-  .pricing-grid.active {
+  .mobile-carousel-shell {
     position: relative;
-    padding-bottom: 36px !important;
-    background-image:
-      radial-gradient(circle, rgba(28, 28, 28, 0.74) 0 3px, transparent 3.5px),
-      radial-gradient(circle, rgba(28, 28, 28, 0.18) 0 3px, transparent 3.5px),
-      radial-gradient(circle, rgba(28, 28, 28, 0.18) 0 3px, transparent 3.5px);
-    background-repeat: no-repeat;
-    background-size: 7px 7px, 7px 7px, 7px 7px;
-    background-position:
-      calc(50% - 15px) calc(100% - 10px),
-      50% calc(100% - 10px),
-      calc(50% + 15px) calc(100% - 10px);
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
   }
 
-  .proof-grid::before,
-  #fit .grid-2::before,
-  #fit .fit-scroll-grid::before,
-  .fit-scroll-grid::before,
-  #findings .report-sample-scroll::before,
-  .plan-model-grid::before,
-  .pricing-panel.active::before,
-  .pricing-grid.active::before,
-  .proof-grid::after,
-  #fit .grid-2::after,
-  #fit .fit-scroll-grid::after,
-  .fit-scroll-grid::after,
-  #findings .report-sample-scroll::after,
-  .plan-model-grid::after,
-  .pricing-panel.active::after,
-  .pricing-grid.active::after {
-    position: absolute;
-    top: calc(50% - 18px);
-    z-index: 4;
-    width: 28px;
-    height: 36px;
+  .pricing-carousel-shell {
+    display: none;
+  }
+
+  .pricing-carousel-shell.active {
+    display: block;
+  }
+
+  .mobile-carousel-track {
+    scroll-behavior: smooth;
+  }
+
+  .mobile-carousel-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(28, 28, 28, 0.09);
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+
+    width: 34px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+
+    border: 1px solid rgba(28, 28, 28, 0.10);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.78);
-    color: rgba(28, 28, 28, 0.48);
+    background: rgba(255, 255, 255, 0.86);
+    color: rgba(28, 28, 28, 0.72);
+
     font-family: Georgia, serif;
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 400;
     line-height: 1;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    cursor: pointer;
+    opacity: 1;
+    transition:
+      opacity .22s ease,
+      transform .22s ease,
+      background .22s ease,
+      color .22s ease;
+  }
+
+  .mobile-carousel-prev {
+    left: -6px;
+  }
+
+  .mobile-carousel-next {
+    right: -6px;
+  }
+
+  .mobile-carousel-arrow:active {
+    transform: translateY(-50%) scale(0.94);
+  }
+
+  .mobile-carousel-arrow.is-disabled {
+    opacity: 0.22;
     pointer-events: none;
   }
 
-  .proof-grid::before,
-  #fit .grid-2::before,
-  #fit .fit-scroll-grid::before,
-  .fit-scroll-grid::before,
-  #findings .report-sample-scroll::before,
-  .plan-model-grid::before,
-  .pricing-panel.active::before,
-  .pricing-grid.active::before {
-    content: "‹";
-    left: 8px;
+  .mobile-carousel-arrow.is-hidden {
+    display: none !important;
   }
 
-  .proof-grid::after,
-  #fit .grid-2::after,
-  #fit .fit-scroll-grid::after,
-  .fit-scroll-grid::after,
-  #findings .report-sample-scroll::after,
-  .plan-model-grid::after,
-  .pricing-panel.active::after,
-  .pricing-grid.active::after {
-    content: "›";
-    right: 8px;
+  .section.dark .mobile-carousel-arrow,
+  .dark .mobile-carousel-arrow {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
   }
-
-  .proof-grid::before,
-  #fit .grid-2::before,
-  #fit .fit-scroll-grid::before,
-  .fit-scroll-grid::before,
-  #findings .report-sample-scroll::before,
-  .plan-model-grid::before,
-  .pricing-panel.active::before,
-  .pricing-grid.active::before {
-    opacity: 0.42;
-  }
-
-
 
   /* =========================================================
      02 — NAVIGATION
@@ -524,7 +516,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 36px;
+    padding: 2px 0 18px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -662,7 +654,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 36px;
+    padding: 2px 0 18px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -788,7 +780,7 @@ body {
     max-width: 100%;
     height: auto;
     margin: 0;
-    padding: 2px 0 36px;
+    padding: 2px 0 18px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -824,7 +816,7 @@ body {
   }
 
   #findings .report-arrow {
-    display: none;
+    display: inline-flex;
   }
 
   #findings .what-find-footnote {
@@ -1257,7 +1249,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 36px;
+    padding: 2px 0 18px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -1348,7 +1340,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 2px 0 36px;
+    padding: 2px 0 18px;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-columns: 100%;
@@ -1615,4 +1607,41 @@ body {
     height: 44px;
     min-height: 44px;
   }
+
+  /* =========================================================
+     18 — FINAL CAROUSEL + PRICING WRAPPER SAFETY
+     Keeps wrapped pricing panels from leaving empty space.
+     ========================================================= */
+
+  .mobile-carousel-shell > .pricing-panel:not(.active),
+  .mobile-carousel-shell > .pricing-grid:not(.active) {
+    display: none !important;
+  }
+
+  .pricing-carousel-shell:not(.active) {
+    display: none !important;
+  }
+
+  .pricing-carousel-shell.active {
+    display: block !important;
+  }
+
+  .mobile-carousel-shell > .mobile-carousel-track {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mobile-carousel-shell .proof-grid,
+  .mobile-carousel-shell .fit-scroll-grid,
+  .mobile-carousel-shell .report-sample-scroll,
+  .mobile-carousel-shell .plan-model-grid,
+  .mobile-carousel-shell .pricing-panel.active,
+  .mobile-carousel-shell .pricing-grid.active {
+    padding-bottom: 18px !important;
+  }
+
+  .mobile-carousel-shell:has(.mobile-carousel-track[data-carousel-single="true"]) .mobile-carousel-arrow {
+    display: none !important;
+  }
+
 }
