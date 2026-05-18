@@ -7415,3 +7415,283 @@ button, input, textarea, select { font: inherit; }
   transition: color 0.15s;
 }
 .footer__links a:hover { color: var(--ink-dark); }
+
+/* ============================================================
+   PRIVATE SCAN PAGE — COMPACT REFINEMENTS
+   Paste at the END of styles.css
+   ============================================================ */
+
+
+/* =========================
+   1) HERO — LOWER HEIGHT
+========================= */
+
+.section--hero {
+  min-height: 100vh;
+  padding: 96px 0 54px;
+  display: flex;
+  align-items: center;
+  background: #f7f7f4;
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.82fr);
+  gap: clamp(46px, 6vw, 92px);
+  align-items: center;
+}
+
+.hero__headline {
+  max-width: 760px;
+  font-size: clamp(48px, 5vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  margin-bottom: 26px;
+}
+
+.hero__sub {
+  max-width: 620px;
+  font-size: 17px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.hero__copy .btn {
+  padding: 14px 22px;
+  font-size: 13px;
+}
+
+.hero__disclaimer {
+  margin-top: 16px;
+  max-width: 620px;
+  font-size: 9.5px;
+  line-height: 1.45;
+}
+
+.hero__preview {
+  align-self: center;
+}
+
+.preview__card {
+  max-width: 560px;
+  margin-left: auto;
+}
+
+.preview__header {
+  padding: 18px 26px 14px;
+}
+
+.preview__rows {
+  padding: 0 26px;
+}
+
+.preview__row {
+  padding: 16px 0;
+}
+
+.preview__finding {
+  padding: 18px 26px 22px;
+}
+
+
+/* =========================
+   2) CONFIDENTIALITY — CLEANER LAYOUT
+========================= */
+
+.section--trust {
+  padding: 66px 0 70px;
+  background: #fff;
+}
+
+.trust__layout {
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.78fr);
+  gap: clamp(54px, 7vw, 96px);
+  align-items: center;
+}
+
+.trust__headline {
+  max-width: 620px;
+  font-size: clamp(34px, 3.4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  margin-bottom: 22px;
+}
+
+.trust__body {
+  max-width: 650px;
+  font-size: 16px;
+  line-height: 1.62;
+  margin-bottom: 24px;
+}
+
+.trust__list {
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.trust__list li {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.trust__note {
+  max-width: 620px;
+  font-size: 9.5px;
+  line-height: 1.55;
+}
+
+.trust__right {
+  gap: 22px;
+}
+
+.trust__finding-card {
+  padding: 26px 32px;
+  border-radius: 20px;
+}
+
+.trust__finding-card p {
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.trust__right .btn {
+  width: 100%;
+  padding: 15px 22px;
+}
+
+
+/* =========================
+   3) SCOPE SECTION — SMALLER OBSERVATION GRID
+========================= */
+
+.section--dark {
+  padding: 64px 0 68px;
+}
+
+#scope .container {
+  max-width: 1160px;
+}
+
+#scope .section-pill {
+  margin-bottom: 26px;
+}
+
+#scope .section__headline {
+  max-width: 980px;
+  font-size: clamp(38px, 4.4vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  margin-bottom: 20px;
+}
+
+#scope .section__sub {
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.55;
+  margin-bottom: 42px;
+}
+
+.scope__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 0;
+}
+
+.scope__card {
+  min-height: auto;
+  padding: 18px 18px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.035);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.scope__card::before {
+  display: none;
+}
+
+.scope__num {
+  display: inline-flex;
+  margin: 0 10px 0 0;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(255,255,255,0.42);
+  vertical-align: baseline;
+}
+
+.scope__title {
+  display: inline;
+  font-size: 15px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.scope__body {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.58);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 980px) {
+  .section--hero {
+    min-height: auto;
+    padding: 104px 0 58px;
+  }
+
+  .hero__layout,
+  .trust__layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .hero__headline {
+    font-size: clamp(42px, 10vw, 64px);
+  }
+
+  .preview__card {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .scope__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .section--hero {
+    padding: 92px 0 46px;
+  }
+
+  .hero__headline {
+    font-size: clamp(38px, 11vw, 52px);
+    line-height: 0.98;
+  }
+
+  .hero__sub {
+    font-size: 15px;
+  }
+
+  .section--trust {
+    padding: 52px 0 58px;
+  }
+
+  .trust__headline {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  .scope__grid {
+    grid-template-columns: 1fr;
+  }
+
+  #scope .section__headline {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+}
