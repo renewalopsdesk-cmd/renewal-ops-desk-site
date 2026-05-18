@@ -3,338 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Private Contract Exposure Scan | Renewal Ops Desk</title>
-  <meta
-    name="description"
-    content="Submit vendor contracts for a private Setup Only Report by Renewal Ops Desk. Commercial and operational analysis only. Not legal advice."
-  />
 
-  <meta name="robots" content="noindex, nofollow" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="/logo-mark.png" type="image/png" />
-  <link rel="stylesheet" href="/styles.css" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-mobile.css" />
 </head>
+<body class="page">
 
-<body>
-  <nav class="nav private-nav">
-    <a href="/" class="brand" aria-label="Renewal Ops Desk home">
-      <img class="brand-mark" src="/logo-mark.png" alt="Renewal Ops Desk logo" />
-      <span>Renewal Ops Desk</span>
+  <!-- NAV: anchor links removed, single CTA only -->
+  <nav class="nav">
+    <a href="/" class="nav__logo" aria-label="Renewal Ops Desk home">
+      <div class="nav__logo-mark">R</div>
+      <span class="nav__brand">Renewal Ops Desk</span>
     </a>
-
-    <div class="nav-links">
-      <a href="#report">Report</a>
-      <a href="#scope">Scope</a>
-      <a href="#confidentiality">Confidentiality</a>
-    </div>
-
-    <a class="btn btn-primary" href="https://tally.so/r/dWKZgD" target="_blank" rel="noopener">
+    <a href="https://tally.so/r/dWKZgD" class="btn btn--nav" target="_blank" rel="noopener">
       Submit Contracts
     </a>
   </nav>
 
   <main>
-    <!-- HERO -->
-    <section class="private-scan-hero">
-      <div class="container private-hero-grid">
-        <div class="private-hero-copy">
-          <span class="badge">Private Setup Only Scan</span>
 
-          <h1>Your contracts may already be costing you more than you think.</h1>
+    <!-- SECTION 1: HERO -->
+    <section class="section section--hero" id="hero">
+      <div class="container">
+        <div class="hero__layout">
 
-          <p>
-            Submit active vendor agreements and receive a private
-            <strong>Setup Only Report</strong> showing renewal dates, notice windows,
-            pricing exposure, and commercial terms that may require attention.
-          </p>
-
-          <div class="private-hero-actions">
-            <a class="btn btn-primary btn-large" href="https://tally.so/r/dWKZgD" target="_blank" rel="noopener">
-              Submit contracts for review →
+          <div class="hero__copy">
+            <h1 class="hero__headline">
+              Most active vendor portfolios contain at least one contract in a live renewal window. This scan finds which one.
+            </h1>
+            <p class="hero__sub">
+              Submit 3 active vendor agreements. Receive a private
+              <strong>Setup Only Report</strong> identifying renewal exposure,
+              active notice windows, and pricing escalation clauses
+              requiring internal action.
+            </p>
+            <a href="https://tally.so/r/dWKZgD" class="btn btn--primary" target="_blank" rel="noopener">
+              Submit contracts for review &rarr;
             </a>
-
-            <span>
-              You’ll be redirected to a secure Tally form to provide basic details
-              and upload the contracts for review.
-            </span>
-          </div>
-
-          <p class="private-hero-note">
-            No calls required. Commercial and operational analysis only — not legal advice.
-          </p>
-        </div>
-
-        <div class="private-report-card" aria-label="Setup Only Report preview">
-          <div class="report-card-top">
-            <span>Setup Only Report</span>
-            <small>Preview</small>
-          </div>
-
-          <div class="report-metric">
-            <span>Contracts reviewed</span>
-            <strong>3</strong>
-          </div>
-
-          <div class="report-metric">
-            <span>Contracts requiring action</span>
-            <strong>2</strong>
-          </div>
-
-          <div class="report-metric">
-            <span>Next notice window</span>
-            <strong>23 days</strong>
-          </div>
-
-          <div class="report-alert">
-            <span>Priority finding</span>
-            <p>Automatic renewal with pricing uplift language requiring internal review.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY THIS MATTERS -->
-    <section class="section light private-section-tight">
-      <div class="container">
-        <div class="private-centered-block">
-          <span class="eyebrow">Why this matters</span>
-
-          <h2>Most contract exposure does not look urgent until the renewal window closes.</h2>
-
-          <p>
-            Vendor agreements often keep running long after the original decision-maker
-            has moved on. Prices escalate, notice periods expire, auto-renewals trigger,
-            and overlapping services remain active — usually without anyone actively
-            owning the portfolio.
-          </p>
-        </div>
-
-        <div class="private-risk-grid">
-          <div class="private-risk-pill">Auto-renewals</div>
-          <div class="private-risk-pill">Notice windows</div>
-          <div class="private-risk-pill">Pricing escalations</div>
-          <div class="private-risk-pill">Vendor overlap</div>
-          <div class="private-risk-pill">Cancellation restrictions</div>
-          <div class="private-risk-pill">Ownership gaps</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT WE CHECK -->
-    <section class="section dark private-check-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow dark-eyebrow">What the scan checks</span>
-          <h2>The commercial details that are easy to miss after signature.</h2>
-          <p>
-            Renewal Ops Desk reviews the submitted contracts through a commercial,
-            operational, and administrative lens.
-          </p>
-        </div>
-
-        <div class="private-check-grid">
-          <div class="private-check-card">
-            <span>01</span>
-            <h3>Renewal exposure</h3>
-            <p>Auto-renewals, renewal dates, evergreen language, and contract terms that may continue silently.</p>
-          </div>
-
-          <div class="private-check-card">
-            <span>02</span>
-            <h3>Notice windows</h3>
-            <p>Cancellation deadlines, action dates, and upcoming windows that may require internal attention.</p>
-          </div>
-
-          <div class="private-check-card">
-            <span>03</span>
-            <h3>Pricing risk</h3>
-            <p>Escalation language, annual increases, uplift terms, and pricing clauses that may affect spend.</p>
-          </div>
-
-          <div class="private-check-card">
-            <span>04</span>
-            <h3>Commercial commitments</h3>
-            <p>Minimum terms, lock-ins, usage obligations, supplier commitments, and relevant operating constraints.</p>
-          </div>
-
-          <div class="private-check-card">
-            <span>05</span>
-            <h3>Vendor overlap</h3>
-            <p>Potential duplication across suppliers, tools, services, or categories inside the submitted agreements.</p>
-          </div>
-
-          <div class="private-check-card">
-            <span>06</span>
-            <h3>Internal action</h3>
-            <p>Items that may require finance, operations, procurement, or leadership review before renewal decisions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REPORT -->
-    <section class="section light" id="report">
-      <div class="container private-report-section">
-        <div class="private-report-copy">
-          <span class="eyebrow">The deliverable</span>
-
-          <h2>What you receive: a Setup Only Report.</h2>
-
-          <p>
-            The contracts submitted through this private page are reviewed as a
-            <strong>Setup Only Report</strong>. This is a one-time commercial and
-            operational review of the documents provided.
-          </p>
-
-          <p>
-            The completed report is sent to the report delivery email provided in the
-            submission form.
-          </p>
-        </div>
-
-        <div class="private-report-list">
-          <div>
-            <span>Included</span>
-            <p>Contract-by-contract findings</p>
-          </div>
-          <div>
-            <span>Included</span>
-            <p>Renewal and notice window summary</p>
-          </div>
-          <div>
-            <span>Included</span>
-            <p>Pricing and escalation exposure</p>
-          </div>
-          <div>
-            <span>Included</span>
-            <p>Commercial risk level</p>
-          </div>
-          <div>
-            <span>Included</span>
-            <p>Suggested internal action</p>
-          </div>
-          <div>
-            <span>Included</span>
-            <p>Priority ranking</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SETUP VS MONTHLY -->
-    <section class="section light private-scope-section" id="scope">
-      <div class="container">
-        <div class="private-centered-block">
-          <span class="eyebrow">Scope clarity</span>
-          <h2>This private scan is a one-time Setup Only review.</h2>
-          <p>
-            If your company wants Renewal Ops Desk to continue monitoring vendor agreements
-            over time, Setup + Monthly Monitoring is available separately.
-          </p>
-        </div>
-
-        <div class="private-scope-grid">
-          <div class="private-scope-card">
-            <span>One-time</span>
-            <h3>Setup Only Report</h3>
-            <p>
-              A focused review of the submitted contracts. Best for immediate visibility
-              into renewal dates, notice windows, pricing exposure, and commercial terms
-              requiring attention.
+            <p class="hero__disclaimer">
+              NO CALLS REQUIRED. COMMERCIAL AND OPERATIONAL ANALYSIS ONLY &mdash; NOT LEGAL ADVICE.
             </p>
           </div>
 
-          <div class="private-scope-card emphasized">
-            <span>Ongoing</span>
-            <h3>Setup + Monthly Monitoring</h3>
-            <p>
-              For companies that want Renewal Ops Desk to keep tracking contract activity,
-              renewal dates, vendor updates, new agreements, and portfolio changes over time.
+          <div class="hero__preview" aria-label="Setup Only Report sample">
+            <div class="preview__card">
+              <div class="preview__header">
+                <span class="preview__title">Setup Only Report</span>
+              </div>
+              <div class="preview__rows">
+                <div class="preview__row">
+                  <span class="preview__label">Contracts reviewed</span>
+                  <span class="preview__value">3</span>
+                </div>
+                <div class="preview__row">
+                  <span class="preview__label">Contracts requiring action</span>
+                  <span class="preview__value">2</span>
+                </div>
+                <div class="preview__row">
+                  <span class="preview__label">Next notice window</span>
+                  <span class="preview__value preview__value--urgent">23 days</span>
+                </div>
+              </div>
+              <div class="preview__finding">
+                <span class="preview__finding-label">PRIORITY FINDING</span>
+                <p class="preview__finding-text">
+                  Automatic renewal with pricing uplift language requiring internal review.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CONFIDENTIALITY (moved up — answers objection immediately) -->
+    <section class="section section--trust" id="confidentiality">
+      <div class="container">
+        <div class="trust__layout">
+
+          <div class="trust__copy">
+            <span class="section-pill">CONFIDENTIALITY</span>
+            <h2 class="trust__headline">
+              Your documents are reviewed once, then deleted.
+            </h2>
+            <p class="trust__body">
+              Submitted contracts are used solely to prepare your Setup Only Report.
+              Renewal Ops Desk does not contact your vendors, does not publish
+              client-specific findings, and does not retain files beyond the review period.
             </p>
+            <ul class="trust__list">
+              <li>Not shared with third parties</li>
+              <li>Not shown to your vendors</li>
+              <li>Deleted upon report delivery</li>
+              <li>Covered by the Renewal Ops Desk <a href="/data-policy" class="trust__link">Data Policy</a></li>
+            </ul>
+            <p class="trust__note">
+              Commercial and operational review only. Not legal advice, contract drafting, or legal representation.
+            </p>
+          </div>
+
+          <div class="trust__right">
+            <div class="trust__finding-card">
+              <span class="trust__finding-label">WHAT THIS IS NOT</span>
+              <p>
+                Not a law firm. Not a vendor negotiation service.
+                A one-time commercial review of what your contracts
+                say about renewal dates, pricing changes, and action windows.
+              </p>
+            </div>
+            <a href="https://tally.so/r/dWKZgD" class="btn btn--primary" target="_blank" rel="noopener">
+              Submit contracts for review &rarr;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHAT THE SCAN CHECKS (2x3 grid) -->
+    <section class="section section--dark" id="scope">
+      <div class="container">
+        <span class="section-pill section-pill--dark">WHAT THE SCAN CHECKS</span>
+        <h2 class="section__headline section__headline--light">
+          The commercial details that are easy to miss after signature.
+        </h2>
+        <p class="section__sub section__sub--light">
+          Each contract is reviewed commercially and operationally &mdash; not for legal issues.
+        </p>
+        <div class="scope__grid">
+          <div class="scope__card">
+            <span class="scope__num">01</span>
+            <h3 class="scope__title">Renewal exposure</h3>
+            <p class="scope__body">Auto-renewals, renewal dates, evergreen language, and contract terms that continue silently.</p>
+          </div>
+          <div class="scope__card">
+            <span class="scope__num">02</span>
+            <h3 class="scope__title">Notice windows</h3>
+            <p class="scope__body">Cancellation deadlines, action dates, and upcoming windows requiring internal attention.</p>
+          </div>
+          <div class="scope__card">
+            <span class="scope__num">03</span>
+            <h3 class="scope__title">Pricing risk</h3>
+            <p class="scope__body">Escalation language, annual increases, uplift terms, and pricing clauses that affect spend.</p>
+          </div>
+          <div class="scope__card">
+            <span class="scope__num">04</span>
+            <h3 class="scope__title">Commercial commitments</h3>
+            <p class="scope__body">Minimum terms, lock-ins, usage obligations, and supplier commitments.</p>
+          </div>
+          <div class="scope__card">
+            <span class="scope__num">05</span>
+            <h3 class="scope__title">Vendor overlap</h3>
+            <p class="scope__body">Potential duplication across suppliers, tools, and categories in the submitted agreements.</p>
+          </div>
+          <div class="scope__card">
+            <span class="scope__num">06</span>
+            <h3 class="scope__title">Internal action items</h3>
+            <p class="scope__body">Items requiring finance, operations, procurement, or leadership review before renewal decisions.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONFIDENTIALITY -->
-    <section class="section light" id="confidentiality">
+    <!-- SECTION 4: THE DELIVERABLE -->
+    <section class="section section--light" id="report">
       <div class="container">
-        <div class="private-confidentiality-panel">
-          <div>
-            <span class="eyebrow">Confidentiality</span>
-            <h2>Your documents are handled for the purpose of preparing the report.</h2>
+        <div class="deliverable__layout">
+
+          <div class="deliverable__copy">
+            <span class="section-pill">THE DELIVERABLE</span>
+            <h2 class="deliverable__headline">What you receive: a Setup Only Report.</h2>
+            <p class="deliverable__body">
+              A commercial and operational review of the 3 submitted contracts,
+              delivered to the email you provide in the submission form.
+            </p>
           </div>
 
-          <div>
-            <p>
-              Submitted documents are used to prepare the commercial and operational
-              Setup Only Report. Renewal Ops Desk does not contact your vendors, does not
-              publish client-specific findings, and does not provide legal advice, legal
-              review, contract drafting, or legal representation.
-            </p>
+          <div class="deliverable__items">
+            <div class="deliverable__item">
+              <span class="deliverable__badge">INCLUDED</span>
+              <span class="deliverable__item-name">Contract-by-contract findings</span>
+            </div>
+            <div class="deliverable__item">
+              <span class="deliverable__badge">INCLUDED</span>
+              <span class="deliverable__item-name">Renewal and notice window summary</span>
+            </div>
+            <div class="deliverable__item">
+              <span class="deliverable__badge">INCLUDED</span>
+              <span class="deliverable__item-name">Pricing and escalation exposure</span>
+            </div>
+            <div class="deliverable__item">
+              <span class="deliverable__badge">INCLUDED</span>
+              <span class="deliverable__item-name">Commercial risk level</span>
+            </div>
+            <div class="deliverable__item">
+              <span class="deliverable__badge">INCLUDED</span>
+              <span class="deliverable__item-name">Suggested internal action</span>
+            </div>
+            <div class="deliverable__item">
+              <span class="deliverable__badge">INCLUDED</span>
+              <span class="deliverable__item-name">Priority ranking</span>
+            </div>
+          </div>
 
-            <p>
-              Contract files are handled under the Renewal Ops Desk Data Policy and
-              applicable service terms.
-            </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WHY THIS MATTERS (moved down as reinforcement) -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="why__inner">
+          <span class="section-pill">WHY THIS MATTERS</span>
+          <h2 class="section__headline section__headline--centered">
+            Vendor agreements keep running long after the original decision-maker has left.
+          </h2>
+          <p class="why__body">
+            Prices escalate, notice periods expire, auto-renewals trigger, and overlapping
+            services remain active &mdash; usually without anyone actively owning the portfolio.
+          </p>
+          <div class="why__tags">
+            <span class="why__tag">AUTO-RENEWALS</span>
+            <span class="why__tag">NOTICE WINDOWS</span>
+            <span class="why__tag">PRICING ESCALATIONS</span>
+            <span class="why__tag">VENDOR OVERLAP</span>
+            <span class="why__tag">CANCELLATION RESTRICTIONS</span>
+            <span class="why__tag">OWNERSHIP GAPS</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SUBMIT -->
-    <section class="section light private-submit-section" id="submit">
+    <!-- SECTION 6: FINAL CTA (Scope Clarity removed entirely) -->
+    <section class="section section--cta">
       <div class="container">
-        <div class="submit-panel">
-          <span class="eyebrow">Secure submission</span>
-
-          <h2>Ready to submit your contracts?</h2>
-
-          <p>
-            Continue to the secure submission form when your documents are ready.
-            You’ll be redirected to Tally to provide a few basic details and upload
-            the agreements for review.
+        <div class="cta__box">
+          <span class="section-pill">SECURE SUBMISSION</span>
+          <h2 class="cta__headline">Submit 3 contracts. Receive your report.</h2>
+          <p class="cta__body">
+            Upload your active vendor agreements through the secure form.
+            Findings are delivered to the email you provide.
           </p>
-
-          <p>
-            Renewal Ops Desk will review the submitted documents as a
-            <strong>Setup Only Report</strong> and send the completed report to the
-            email provided in the submission form.
-          </p>
-
-          <a
-            class="btn btn-primary btn-large"
-            href="https://tally.so/r/dWKZgD"
-            target="_blank"
-            rel="noopener"
-          >
-            Submit contracts for review →
+          <a href="https://tally.so/r/dWKZgD" class="btn btn--primary" target="_blank" rel="noopener">
+            Submit contracts for review &rarr;
           </a>
-
-          <small>
-            No calls required. Commercial and operational analysis only — not legal advice.
-          </small>
+          <p class="cta__disclaimer">
+            NO CALLS REQUIRED. COMMERCIAL AND OPERATIONAL ANALYSIS ONLY &mdash; NOT LEGAL ADVICE.
+          </p>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
-    <div>
-      <strong>Renewal Ops Desk</strong>
-      <p>Commercial contract visibility after signature.</p>
-    </div>
-
-    <div class="footer-links">
-      <a href="/service-agreement">Service Agreement</a>
-      <a href="/data-policy">Data Policy</a>
-      <a href="/terms">Terms</a>
-      <a href="/no-legal-advice">No Legal Advice</a>
-      <a href="mailto:hello@renewalopsdesk.com">hello@renewalopsdesk.com</a>
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__name">Renewal Ops Desk</span>
+        <span class="footer__tagline">Commercial contract visibility after signature.</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="/service-agreement">Service Agreement</a>
+        <a href="/data-policy">Data Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="/no-legal-advice">No Legal Advice</a>
+        <a href="mailto:hello@renewalopsdesk.com">hello@renewalopsdesk.com</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="/nav.js"></script>
 </body>
 </html>
