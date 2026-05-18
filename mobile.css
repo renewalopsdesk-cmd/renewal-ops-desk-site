@@ -3603,3 +3603,225 @@ html, body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .10) !important;
   }
 }
+
+/* ============================================================
+   SECONDARY / LEGAL PAGES — MOBILE FIX
+   Fixes overflow, nav, hero and legal layout on mobile
+   Paste at the END of styles.css
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  html,
+  body,
+  .page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .container {
+    width: min(100% - 32px, 1160px);
+  }
+
+
+  /* =========================
+     NAV — mobile black compact
+  ========================= */
+
+  .nav {
+    min-height: 70px !important;
+    height: 70px !important;
+    padding: 12px 16px !important;
+    gap: 10px !important;
+    background: rgba(12,12,12,0.96) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.24) !important;
+    overflow: hidden;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .brand,
+  .nav__logo {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    gap: 9px !important;
+    color: #fff !important;
+  }
+
+  .brand span,
+  .nav__brand {
+    max-width: 155px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+  }
+
+  .brand-mark,
+  .nav__logo-mark {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .nav .btn,
+  .nav .btn-primary,
+  .nav .btn--nav,
+  .nav-desktop-cta {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 150px !important;
+    padding: 11px 15px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    color: #111 !important;
+    background: #fff !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    box-shadow: none !important;
+  }
+
+  .mobile-menu-toggle {
+    flex: 0 0 auto !important;
+    color: #fff !important;
+  }
+
+
+  /* =========================
+     PAGE HERO — smaller and cleaner
+  ========================= */
+
+  .page-hero {
+    padding: 112px 0 42px !important;
+    min-height: auto !important;
+  }
+
+  .page-hero .badge,
+  .page-hero .eyebrow {
+    margin-bottom: 22px !important;
+    padding: 7px 10px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .page-hero h1,
+  .page-hero .section-title {
+    max-width: 100% !important;
+    font-size: clamp(38px, 11vw, 52px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .page-hero p {
+    max-width: 100% !important;
+    margin-top: 20px !important;
+    font-size: 19px !important;
+    line-height: 1.38 !important;
+  }
+
+
+  /* =========================
+     LEGAL CONTENT — stop horizontal scroll
+  ========================= */
+
+  .section.light:has(.legal-layout),
+  .section.light.legal-section {
+    padding-top: 34px !important;
+    padding-bottom: 56px !important;
+    overflow: hidden !important;
+  }
+
+  .legal-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .side-note {
+    position: relative !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 22px !important;
+    border-radius: 24px !important;
+    order: 1;
+  }
+
+  .side-note p,
+  .side-note .mono,
+  .side-note li,
+  .check {
+    max-width: 100% !important;
+  }
+
+  .checklist {
+    gap: 12px !important;
+    margin-top: 22px !important;
+  }
+
+  .legal-card,
+  .legal-content,
+  .legal-main {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .legal-card {
+    padding: 24px 22px !important;
+    border-radius: 22px !important;
+    order: 2;
+  }
+
+  .legal-card h2,
+  .legal-card h3 {
+    font-size: clamp(26px, 8vw, 36px) !important;
+    line-height: 1.05 !important;
+  }
+
+  .legal-card p,
+  .legal-card li {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.62 !important;
+  }
+
+  .legal-card .mono,
+  .legal-card small {
+    font-size: 9px !important;
+    line-height: 1.45 !important;
+  }
+
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  .footer .container,
+  .footer__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .footer-links,
+  .footer__links {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
