@@ -7138,4 +7138,456 @@ body.modal-open {
   text-transform: uppercase;
 }
 
+/* =========================================================
+   PRIVATE SCAN — ROD INDEX-SIZED REFINEMENT
+   paste at the very end of styles.css
+   ========================================================= */
 
+/* NAV — match main site feeling */
+.private-nav {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.nav.scrolled.private-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line-light);
+}
+
+/* HERO — smaller, calmer, more ROD */
+.private-scan-hero {
+  min-height: auto;
+  padding: 132px 0 72px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(193, 193, 193, 0.18), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+.private-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: 48px;
+}
+
+.private-hero-copy h1 {
+  max-width: 780px;
+  margin-top: 20px;
+  font-size: clamp(46px, 5.8vw, 78px);
+  line-height: .9;
+  letter-spacing: -.075em;
+}
+
+.private-hero-copy p {
+  max-width: 640px;
+  margin-top: 24px;
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.52;
+}
+
+.private-hero-actions {
+  margin-top: 30px;
+  gap: 18px;
+}
+
+.private-hero-actions span {
+  max-width: 340px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.private-hero-note {
+  margin-top: 18px !important;
+  font-size: 9.5px !important;
+  letter-spacing: .07em;
+}
+
+/* HERO REPORT CARD — less dramatic */
+.private-report-card {
+  padding: 22px;
+  border-radius: 24px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.055);
+}
+
+.report-card-top {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+}
+
+.report-card-top span {
+  font-size: 13.5px;
+}
+
+.report-card-top small {
+  font-size: 9px;
+}
+
+.report-metric {
+  padding: 14px 0;
+}
+
+.report-metric span {
+  font-size: 12px;
+}
+
+.report-metric strong {
+  font-size: 24px;
+  letter-spacing: -.055em;
+}
+
+.report-alert {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.report-alert span {
+  font-size: 9px;
+}
+
+.report-alert p {
+  margin-top: 8px;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+
+/* GENERAL SECTION RHYTHM — compact */
+.private-section-tight {
+  padding-top: 70px;
+  padding-bottom: 66px;
+}
+
+.private-check-section {
+  padding-top: 76px;
+  padding-bottom: 78px;
+}
+
+.private-scope-section {
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+.private-submit-section {
+  padding-top: 54px;
+  padding-bottom: 82px;
+}
+
+/* CENTERED HEADINGS — smaller */
+.private-centered-block {
+  max-width: 760px;
+}
+
+.private-centered-block h2 {
+  margin-top: 16px;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: .94;
+  letter-spacing: -.065em;
+}
+
+.private-centered-block p {
+  max-width: 680px;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+/* RISK PILLS — tighter */
+.private-risk-grid {
+  max-width: 820px;
+  margin-top: 32px;
+  gap: 10px;
+}
+
+.private-risk-pill {
+  padding: 11px 15px;
+  font-size: 9px;
+}
+
+/* CHECK CARDS — smaller and more elegant */
+.private-check-grid {
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.private-check-card {
+  min-height: 210px;
+  padding: 24px;
+  border-radius: 22px;
+}
+
+.private-check-card span {
+  font-size: 9px;
+}
+
+.private-check-card h3 {
+  margin-top: 38px;
+  font-size: 21px;
+  letter-spacing: -.04em;
+}
+
+.private-check-card p {
+  margin-top: 13px;
+  font-size: 14px;
+  line-height: 1.52;
+}
+
+/* REPORT SECTION — tighter */
+.private-report-section {
+  gap: 46px;
+}
+
+.private-report-copy h2 {
+  margin-top: 16px;
+  font-size: clamp(34px, 4.4vw, 58px);
+  line-height: .94;
+  letter-spacing: -.065em;
+}
+
+.private-report-copy p {
+  margin-top: 18px;
+  font-size: 15.5px;
+  line-height: 1.62;
+}
+
+.private-report-list {
+  gap: 10px;
+}
+
+.private-report-list div {
+  padding: 16px 18px;
+  border-radius: 16px;
+}
+
+.private-report-list span {
+  font-size: 9px;
+}
+
+.private-report-list p {
+  font-size: 14.5px;
+}
+
+/* SETUP VS MONTHLY — calmer */
+.private-scope-grid {
+  margin-top: 34px;
+  gap: 14px;
+}
+
+.private-scope-card {
+  padding: 28px;
+  border-radius: 24px;
+}
+
+.private-scope-card h3 {
+  margin-top: 34px;
+  font-size: 28px;
+  line-height: .98;
+}
+
+.private-scope-card p {
+  margin-top: 15px;
+  font-size: 14.5px;
+  line-height: 1.58;
+}
+
+/* CONFIDENTIALITY — smaller panel */
+.private-confidentiality-panel {
+  gap: 42px;
+  padding: 34px;
+  border-radius: 26px;
+}
+
+.private-confidentiality-panel h2 {
+  margin-top: 16px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: .96;
+}
+
+.private-confidentiality-panel p {
+  font-size: 15.5px;
+  line-height: 1.62;
+}
+
+/* SUBMIT PANEL — less huge */
+.submit-panel {
+  max-width: 780px;
+  padding: 42px;
+  border-radius: 24px;
+}
+
+.submit-panel h2 {
+  font-size: clamp(32px, 3.5vw, 46px);
+  line-height: .98;
+}
+
+.submit-panel p {
+  max-width: 620px;
+  margin-top: 18px;
+  font-size: 15.5px;
+  line-height: 1.62;
+}
+
+.submit-panel .btn {
+  margin-top: 28px;
+}
+
+.submit-panel small {
+  margin-top: 16px;
+  font-size: 9px;
+}
+
+/* BUTTONS — avoid oversized private page CTA */
+.private-scan-hero .btn-large,
+.private-submit-section .btn-large {
+  padding: 15px 24px;
+  font-size: 11px;
+}
+
+/* MOBILE — compact and index-like */
+@media (max-width: 980px) {
+  .private-scan-hero {
+    padding: 118px 0 62px;
+  }
+
+  .private-hero-grid,
+  .private-report-section,
+  .private-confidentiality-panel {
+    gap: 34px;
+  }
+
+  .private-check-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .private-scan-hero {
+    padding: 104px 0 52px;
+  }
+
+  .private-hero-copy h1 {
+    font-size: clamp(40px, 12.5vw, 56px);
+    line-height: .9;
+    letter-spacing: -.075em;
+  }
+
+  .private-hero-copy p {
+    margin-top: 20px;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+
+  .private-hero-actions {
+    margin-top: 26px;
+  }
+
+  .private-hero-actions span {
+    font-size: 12px;
+  }
+
+  .private-report-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .report-metric strong {
+    font-size: 22px;
+  }
+
+  .private-section-tight,
+  .private-check-section {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .private-scope-section {
+    padding-top: 42px;
+    padding-bottom: 58px;
+  }
+
+  .private-submit-section {
+    padding-top: 44px;
+    padding-bottom: 64px;
+  }
+
+  .private-centered-block h2,
+  .private-report-copy h2,
+  .private-confidentiality-panel h2 {
+    font-size: clamp(30px, 9.4vw, 42px);
+    line-height: .98;
+    letter-spacing: -.06em;
+  }
+
+  .private-centered-block p,
+  .private-report-copy p,
+  .private-confidentiality-panel p {
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .private-risk-grid {
+    margin-top: 28px;
+    gap: 8px;
+  }
+
+  .private-risk-pill {
+    padding: 11px 13px;
+    font-size: 8.5px;
+  }
+
+  .private-check-grid {
+    margin-top: 30px;
+  }
+
+  .private-check-card {
+    padding: 22px;
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .private-check-card h3 {
+    margin-top: 28px;
+    font-size: 22px;
+  }
+
+  .private-check-card p {
+    font-size: 13.5px;
+  }
+
+  .private-scope-card {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .private-scope-card h3 {
+    margin-top: 28px;
+    font-size: 25px;
+  }
+
+  .private-scope-card p {
+    font-size: 13.8px;
+  }
+
+  .private-confidentiality-panel {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .submit-panel {
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+
+  .submit-panel h2 {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+
+  .submit-panel p {
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .private-scan-hero .btn-large,
+  .private-submit-section .btn-large {
+    padding: 14px 20px;
+    font-size: 10px;
+  }
+}
